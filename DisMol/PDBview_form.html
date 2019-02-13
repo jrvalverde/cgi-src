@@ -1,0 +1,51 @@
+<HTML>
+<HEAD>
+        <TITLE>DisMol PDB View</TITLE>
+</HEAD>
+<!-- (c) 2001 José R. Valverde, EMBnet/CNB, jrvalverde@es.embnet.org -->
+<BODY BGCOLOR="white" BACKGROUND="/images/mols/EcoRI+DNA-b.gif"
+LINK="yellow" VLINK="#c0c00f">
+
+<CENTER><TABLE BORDER="2" WIDTH="50%">
+<TR><TD BGCOLOR="lightcyan" VALIGN="CENTER"><CENTER><H1>Visualize PDB entries</H1></CENTER></TD></TR>
+</TABLE></CENTER>
+
+<FONT COLOR="white">
+
+<BIG>
+<P>This form allows you to select PDB entries to visualize on your
+browser. It searches PDB with your query and displays the results
+interactively on your browser using 
+<a href="http://www.rahul.net/pcm/dismol">DisMol</A>. You can move, 
+modify, pan and zoom the molecules interactiely using your mouse.</P>
+
+<HR>
+
+<CENTER><H2>Please, enter your PDB query below and press <EM>Submit</EM> to 
+start:</H2></CENTER>
+
+<P><FORM METHOD="POST" ACTION="/cgi-bin/dismol.cgi">
+
+<CENTER><INPUT NAME="query" ROWS=1 COLS=20></TEXTAREA></CENTER>
+
+<CENTER><TABLE BORDER="0" WIDTH="50%">
+<TR>
+<TD ALIGN="left"><Input TYPE="submit" VALUE="Submit"></TR>
+<TD ALIGN="right"><Input TYPE="reset" VALUE="Reset"></TR>
+</TD>
+</TABLE></CENTER>
+</FORM>
+
+<CENTER><P>Please note that the query may take some time to 
+complete</P></CENTER>
+
+<HR>
+
+                                                        
+<P>If you have any trouble, please contact our
+<A HREF="/cgi-bin/emailto?Bioinformatics+Administrator">Bioinformatics
+Administrator</A></P>
+<P><A HREF="/Copyright-CSIC.html">&copy; EMBnet/CNB</A></P>
+</BIG>
+</BODY>
+</HTML>

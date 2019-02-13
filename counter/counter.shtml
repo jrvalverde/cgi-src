@@ -1,0 +1,467 @@
+<html><head>                                                                          
+                                                                          
+  <title>
+   Graphic Counter and Clock Script by Muhammad A Muquit 
+  </title>         
+<meta name="keywords" content="HTML cgi-bin CGI-BIN unix perl
+            howto search web page shareware freeware graphics 
+            counter script graphical
+            cgi-bin CGI BIN server side include includes
+            forms source sourcecode help assistance">
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body bgcolor="#ffffff">
+<a name="TOP"></a>                              
+<script language="JavaScript">
+<!--//
+
+function pagejump(to_url) {
+        if (to_url != "") {
+        location=to_url
+        }
+}
+//-->
+</script>
+<table border="1" bordercolor="#000000" cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td valign="top">
+
+<center>
+<table width="100%" bgcolor="#000000" border="0" cellpadding="2" cellspacing="0">
+  <tbody><tr>
+  <td colspan="2" align="center">
+   <a href="http://bignosebird.com/index.shtml">
+   <img src="counter_files/littlebird.gif" alt="BigNoseBird.Com- Home Small Logo" vspace="0" width="520" border="0" height="60"></a>
+  </td>
+  </tr>
+ <tr>
+ <td valign="middle" align="center">
+<a href="http://bignosebird.com/siteguide.shtml">
+    <img src="counter_files/newguide.gif" alt="The 508 compliant Guide to 
+       Big Nose Bird" vspace="0" width="232" align="left" border="0" height="28" hspace="0"></a>
+       <font color="#dd0000" face="ARIAL">
+     </font>
+  </td>
+ <td valign="middle" align="center">
+ <font color="#cccccc">
+</font><form name="navsel" onsubmit="pagejump(document.forms[0].whereto.options[document.forms[0].whereto.selectedIndex].value); return
+false">
+<font color="#cccccc">  <select name="whereto" onchange="pagejump(this.options[this.selectedIndex].value)">
+<option value="/index.shtml">PICK A PAGE AND</option>
+<option value="/index.shtml">Home</option>
+<option value="/siteguide.shtml">Site Guide</option>
+<option value="/index.shtml#SSEARCH">Site Search</option>
+<option value="http://bbs.bignosebird.com/">Bulletin Board</option>
+<option value="/card.shtml">Virtual Greeting Cards</option>
+
+<option value="/stuff.shtml">-The Stuff You Want-</option>
+<option value="/cgi.shtml">Free CGI Script Archive</option>
+<option value="/gallery.shtml">Free Graphics Archive</option>
+<option value="/sets.shtml">Free Coordinated Page Graphics</option>
+
+<option value="/getstart.shtml">-Getting Started on the Web-</option>
+<option value="/newbie.shtml">Clueless? For the Newbie!</option>
+<option value="/whois.shtml">Domain Name Lookup</option>
+<option value="/isp.shtml">Recommended Hosting Solutions</option>
+<option value="/homestead.shtml">Free Hosting</option>
+
+<option value="/funstuff.shtml">-The Fun Tutorials-</option>
+<option value="/html.shtml">Lots of HTML Tricks and Tutorials</option>
+<option value="/tags.shtml">HTML Tag Guide</option>
+<option value="/javas.shtml">JavaScript Tricks and Tutorials</option>
+<option value="/navig.shtml">Navigation Tricks</option>
+<option value="/imagemap.shtml">Image Maps Tutorial</option>
+
+
+<option value="/progtut.shtml">-CGI, SSI and Unix Tutorials-</option>
+<option value="/ssi.shtml">SSI: Server Side Includes</option>
+<option value="/formls1.shtml">Forms Tutorial</option>
+<option value="/lscgi.shtml">CGI Simple Tutorial</option>
+<option value="/prcgi.shtml">Your First CGI Perl Script</option>
+<option value="/recycle.shtml">Banner Rotation</option>
+<option value="/recent.shtml">Squawk: Recent News</option>
+<option value="/unix.shtml">UNIX Guru Tutorial</option>
+
+
+<option value="/design.shtml">-Web Page Design Tutorials-</option>
+<option value="/gentech.shtml">Design Basics</option>
+<option value="/fdoor.shtml">Most Important Part of your Page</option>
+<option value="/photos.shtml">Photo Composition Tutorials</option>
+<option value="/midi.shtml">MIDI Music on Your Pages</option>
+<option value="/colors.shtml">All about COLOR</option>
+<option value="/safecol.shtml">THE SAFE Colors</option>
+<option value="/losewait.shtml">The Skinny on Fat Graphics</option>
+<option value="/kits.shtml">Advanced Design Examples</option>
+<option value="/ascii.shtml">ASCII Chart</option>
+
+
+<option value="/webmanage.shtml">-Managing Your Web Site-</option>
+<option value="/apache.shtml">BNB on the APACHE Server</option>
+<option value="/ssl.shtml">Introduction to the Secure Server</option>
+<option value="/promote.shtml">How to Promote Your Web Site</option>
+<option value="/organize.shtml">Site Management</option>
+<option value="/security.shtml">Site Security</option>
+<option value="/passwd.shtml">Password Protection on Directories</option>
+<option value="/diags.shtml">Site Diagnostics</option>
+<option value="/trouble.shtml">Script Troubleshooting</option>
+
+<option value="/resources.shtml">-Resource Links-</option>
+<option value="/links.shtml">Offsite Resource Links</option>
+<option value="/books.shtml">Good Books</option>
+<option value="/tools.shtml">The Tools You Need</option>
+
+<option value="/other.shtml">-All the Other Stuff-</option>
+<option value="/newsletters.shtml">Newletter Back Issues</option>
+<option value="/thebird.shtml">Reader's Links</option>
+<option value="/letters.shtml">Bird Droppings: Letters </option>
+<option value="/kudos.shtml">Kudos / Awards</option>
+<option value="/faq.shtml">BNB FAQ</option>
+<option value="/guestbook.html">Guestbook</option>
+  </select>
+</font>
+</form></td>
+</tr>
+</tbody></table>
+
+
+
+  <font size="3" face="ARIAL">
+<a href="http://bignosebird.com/cgi.shtml">
+<img src="counter_files/cgi-bin-title1.gif" alt="Free CGI Script Archive" width="350" border="0" height="40"><br>
+    <b>RETURN TO THE FREE SCRIPT ARCHIVE</b></a></font>
+<p>
+  <font size="2" color="#ff0000" face="ARIAL"><b>Special!
+<a href="http://bignosebird.com/notebook/md5.shtml">Protecting your FORM input using MD5 and perl</a></b>
+</font>
+</p><p>
+               
+ 
+ 
+&nbsp;<br>
+<table width="550" border="0">
+ <tbody><tr>
+ <td>
+<p>
+<table width="550" bgcolor="#87cefa" border="0" cellpadding="4" cellspacing="4">
+ <tbody><tr>
+ <td>
+    <font size="+1" face="Verdana,Helvetica,Arial">
+    <b>WWW Homepage Access Counter and Clock</b>
+    </font> 
+ </td>
+ </tr>
+ <tr>
+ <td align="left" bgcolor="#ffffcc">
+ <font face="Verdana,Helvetica,Arial">
+ </font><ul>
+<font face="Verdana,Helvetica,Arial">   <li>By: Muhammad A Muquit 
+   </li><li>Price: Freeware
+   </li><li><a href="ftp://ftp.bignosebird.com/wwwcount2_4.tar">Download it from Here!</a>
+        (1MB Unix Tar File) 
+        <b>After downloading to your PC, FTP it as binary to a temp
+            directory on your unix server.
+  </b>
+ </li></font></ul>
+<font face="Verdana,Helvetica,Arial"> 
+ Here it is! A really great counter and clock script just like the 
+ big sites use. Best of all, it is free. This program is great, but
+ be forwarned, you need to read the instructions ahead of time and
+ know the answers to important questions, such as your site's IP
+ address.
+ </font><p>
+<font face="Verdana,Helvetica,Arial"> Everyone has been asking me to find a good counter that does not
+require SSI, so here is a great one! The installation does not lend
+itself to e-mail handholding, so please try to figure it out. ;-&gt;
+ </font> 
+ </p></td>
+ </tr>
+ <tr>
+ <td align="left" bgcolor="#f0fff0">
+<p>
+ After moving this <i>tar
+ (tape archive)</i>
+ file to your <i>/tmp</i> directory, issue the command:
+ </p><p>
+ </p><blockquote>tar xvf wwwcount2_4.tar</blockquote>
+ <p>
+ It will create a new directory: wwwcount2.4<br>
+ All instructions are in the docs file including
+ pretty good set up instructions in html format.
+ <b>READ THE INSTRUCTIONS BEFORE ATTEMPTING INSTALLATION!</b>
+ You must have a "C" compiler on your system. You must also
+ be able to access your site using telnet to install and 
+ compile this program. 
+</p><p>
+</p><p>
+<font size="1" face="ARIAL"><b>
+  ANY SOFTWARE PROVIDED BY BIGNOSEBIRD.COM, INC. IS ``AS IS'' AND ANY
+  EXPRESSED OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL BIGNOSEBIRD.COM, INC. OR
+  ITS CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+  HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+  STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+  OF THE POSSIBILITY OF SUCH DAMAGE.
+</b></font>
+
+ </p></td>
+ </tr>
+</tbody></table>
+</p><p>
+</p><hr width="550">
+</td>
+</tr>
+</tbody></table>
+</p><p>
+</p><p>
+</p></center>
+<center>
+
+
+
+<!-- TF 336x280 JScript NoAD code -->
+<center><script language="javascript"><!--
+document.write('<scr'+'ipt language=javascript src="http://a.tribalfusion.com/j.ad?site=BigNoseBirdcom&adSpace=ROS&size=336x280&type=var&noAd=1&requestID='+((new Date()).getTime() % 2147483648) + Math.random()+'"></scr'+'ipt>');
+//-->
+</script><script language="javascript" src="counter_files/j.html"></script>
+<noscript> <a
+href="http://a.tribalfusion.com/i.click?site=BigNoseBirdcom&adSpace=ROS&size=336x280&requestID=1567196183"
+target=_blank > <img
+src="http://a.tribalfusion.com/i.ad?site=BigNoseBirdcom&adSpace=ROS&size=336x280&requestID=1567196183"
+width=336 height=280 border=0 alt="Click Here"></a>
+</noscript>
+</center>
+<!-- TF 336x280 JScript NoAD code -->
+  <font size="2" face="Helvetica,Verdana, Arial">
+<a href="http://bignosebird.com/cgi-bin/birdcast.cgi">
+<img src="counter_files/suggest.gif" vspace="0" width="194" border="0" height="35" hspace="0"></a>
+<br>
+<a href="http://bbs.bignosebird.com/">
+<b>Find or Give Help on the BBS</b></a>
+<br>
+
+
+
+<a href="http://bignosebird.com/index.shtml">Home</a>
+<a href="#TOP">Top</a>
+<a href="http://bignosebird.com/email.shtml">E-Mail</a>
+<br><font size="1">If it looks great, it's by <a href="http://www.seffects.com/">Christine</a> 
+<hr width="550">
+</font>
+</font></center>
+
+
+<table width="550" border="0">
+  <tbody><tr>
+  <td>
+  <font size="1" face="Helvetica,Verdana, Arial">
+  <center>
+  <b>Some Fine Print</b>
+  <br>
+  </center>
+  © 1997-2003 BigNoseBird.Com®, Inc.  All rights reserved.
+  All other trademarks are the sole property of their respective owners.
+  The products that we recommend are only ones that we use. We have no 
+  relationship with any of the authors or their companies. We cannot 
+  assume responsibility for their ultimate performance or lack of same.
+  We also cannot assume responsibility for either any programs provided
+  here, or for any advice that is given since we have no control over
+  what happens after our code or words leave this site. Always 
+  use prudent judgment in implementing any program- and always make a 
+  backup first! For further information, please read our
+  <a href="http://bignosebird.com/privacy.shtml"><b>Privacy Statement</b></a>. We can be contacted
+  at <a href="mailto:webmaster@bignosebird.com">webmaster@bignosebird.com</a>.
+  </font></td>
+  
+  </tr>
+</tbody></table>
+<p>  
+
+ <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tbody><tr>
+          <td><div align="center"><a href="http://www.sitecube.com/"><font size="1" color="#000000" face="Arial, Helvetica, sans-serif"><b>Website Builder</b></font></a></div></td>
+
+  </tr>
+</tbody></table>
+</p><p>
+
+ <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tbody><tr>
+          <td><div align="center"><a href="http://www.123webmaster.com/"><font size="1" color="#000000" face="Arial, Helvetica, sans-serif"><b>Free Webmaster Resources</b></font></a></div></td>
+          <td><div align="center"><a href="http://www.boxedart.com/"><font size="1" color="#000000" face="Arial, Helvetica, sans-serif"><b>Web Templates</b></font></a></div></td>
+          <td><div align="center"><a href="http://www.stockedphotos.com/"><font size="1" color="#000000" face="Arial, Helvetica, sans-serif"><b>Stock Photography</b></font></a></div></td>
+          <td><div align="center"><a href="http://www.a1javascripts.com/"><font size="1" color="#000000" face="Arial, Helvetica, sans-serif"><b>Free Javascripts</b></font></a></div></td>
+      </tr>
+      </tbody></table>
+
+
+
+
+</p><p>
+</p></td>
+
+<!-- insert reallybig code here -->
+
+<td valign="top" bgcolor="#cccc99">
+
+<!-- NETWORK -->
+
+
+<link href="counter_files/rbz.css" rel="stylesheet" type="text/css">
+
+<table width="130" align="center" bgcolor="#ffffff" border="1" bordercolor="#000000" cellpadding="2" cellspacing="0">
+  <tbody><tr align="center"> 
+    <td> 
+    <script type="text/javascript"><!--
+google_ad_client = "pub-9959854769558525";
+google_ad_width = 125;
+google_ad_height = 125;
+google_ad_format = "125x125_as";
+google_ad_type = "text_image";
+google_ad_channel ="5341531474";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "CC0000";
+google_color_url = "000000";
+google_color_text = "000000";
+//--></script>
+<script type="text/javascript" src="counter_files/show_ads.js">
+</script><script src="counter_files/expansion_embed.js"></script><script src="counter_files/test_domain.js"></script><script>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</script><ins style="border: medium none ; margin: 0pt; padding: 0pt; display: inline-table; height: 125px; position: relative; visibility: visible; width: 125px;"><ins style="border: medium none ; margin: 0pt; padding: 0pt; display: block; height: 125px; position: relative; visibility: visible; width: 125px;"><iframe allowtransparency="true" hspace="0" id="google_ads_frame1" marginheight="0" marginwidth="0" name="google_ads_frame" src="counter_files/ads.html" style="left: 0pt; position: absolute; top: 0pt;" vspace="0" scrolling="no" width="125" frameborder="0" height="125"></iframe></ins></ins>
+
+      <br></td>
+  </tr>
+<tr>
+<td>
+
+</td>
+</tr>
+
+  <tr>  
+      <td id="net" align="center" bgcolor="#cc3300"><a href="http://reallybig.com/"><span class="net_text">&lt;reallybig.com&gt; 
+        <br>
+
+    Web Builder Network Portal</span></a></td>
+  </tr>
+  
+  <tr> 
+    <td id="nav" align="center"><a href="http://www.webbuilderzone.com/"><span class="navtitle">WebBuilderZone</span></a><br> 
+       <a href="http://www.webbuilderzone.com/"><span class="navtext">The Largest directory of Web Building resources on the 
+      'Net!</span></a><a></a></td>
+  </tr>
+  <tr> 
+    <td id="nav" align="center"><a href="http://forums.reallybig.com/"><span class="navtitle">Reallybig 
+      Forums</span></a><br><a href="http://forums.reallybig.com/">
+
+      <span class="navtext">Ask a question, join a discussion, start a thread.</span></a></td>
+  </tr>
+  <tr> 
+    <td id="nav" align="center"><a href="http://www.bignosebird.com/"><span class="navtitle">Bignosebird</span></a><br>
+      <a href="http://www.bignosebird.com/">
+      <span class="navtext">FREE CGI scripts, Web tutorials, essential HTML tricks 
+        and more!</span></a>
+    </td>
+  </tr>
+
+  <tr> 
+    <td id="nav" align="center"><a href="http://www.fontpool.com/"><span class="navtitle">Fontpool</span></a><br>
+        <a href="http://www.fontpool.com/"><span class="navtext">1000+ Truetype fonts for PC &amp; MAC!</span></a></td>
+  </tr>
+  <tr> 
+    <td id="nav" align="center"><a href="http://www.graphxkingdom.com/"><span class="navtitle">Graphxkingdom</span></a><br>
+      <a href="http://www.graphxkingdom.com/"><span class="navtext">Thousands of free Icons, Clipart &amp; Themes!</span></a></td>
+
+  </tr>
+  <tr> 
+    <td id="nav" align="center"><a href="http://www.free-backgrounds.com/"><span class="navtitle">Free-Backgrounds</span></a><br>
+      <a href="http://www.free-backgrounds.com/"><span class="navtext">Hundreds of eye-popping Backgrounds &amp; Textures</span></a></td>
+  </tr>
+  <tr> 
+    <td id="nav" align="center"><a href="http://www.dhtmlshock.com/"><span class="navtitle">DHTMLShock</span></a><br>
+      <a href="http://www.dhtmlshock.com/"><span class="navtext">Add life to your site with these DHTML scripts!</span></a></td>
+
+  </tr>
+  <tr> 
+    <td id="nav" align="center"><a href="http://www.java-scripts.net/"><span class="navtitle">Java-scripts.net</span></a><br>
+      <a href="http://www.java-scripts.net/"><span class="navtext">Cool and easy effects with cut-and-paste Javascripts!</span></a></td>
+  </tr>
+  <tr> 
+    <td id="nav" align="center"><a href="http://www.sitecritique.net/"><span class="navtitle">Sitecritique.net</span></a><br>
+      <a href="http://www.sitecritique.net/"><span class="navtext">Friendly community where you can get a site critique - 
+      or give one!</span></a></td>
+
+  </tr>
+
+  <tr> 
+    <td id="net" align="center" bgcolor="#cc3300"><a href="http://reallybig.com/advertis.shtml"><span class="net_text">Advertise <br> 
+    on the <br>
+
+    Reallybig.com<br>
+    Network</span></a></td>
+  </tr>
+</tbody></table>
+
+
+
+<!-- END NETWORK -->
+ 
+
+
+<img src="counter_files/spacer.gif" width="128" border="0" height="2">
+<center>
+<table width="136" border="0" bordercolor="#000000" cellpadding="2" cellspacing="0">
+<tbody><tr>
+  <td valign="top" width="100%" align="center" bgcolor="#999966" height="20"><strong><font size="2" color="#ffffff" face="Verdana, Arial,helvetica">
+<a name="NEWSLETTER">
+    BigNoseBird Newsletter</a></font><a name="NEWSLETTER"></a></strong></td>
+</tr>
+<tr>
+ <td valign="top" width="100%" bgcolor="#cccc99">
+  <font size="1" face="Verdana, Arial, Helvetica"><font color="#000000">
+  </font></font><form action="/cgi-bin/subscribe.cgi" method="post">
+<font size="1" face="Verdana, Arial, Helvetica"><font color="#000000">  <input name="action" value="subscribe" checked="checked" type="radio">Subscribe<br>
+  <input name="action" value="unsubscribe" type="radio">Un-Subscribe<br>
+  </font></font><center>
+<font size="1" face="Verdana, Arial, Helvetica"><font color="#000000">  <input name="email" value="your-email" size="10" maxlength="100" type="text"><br>
+  <input name="datafile" value="subscribe" type="hidden">
+  <input value="DO IT!" type="submit"><br>
+  Sign up today to receive
+  our low volume newsletter.
+  Tips, tricks, news, and
+  whatever else crosses our minds.
+  <br>
+  <a href="http://bignosebird.com/newsletters.shtml">Back Issues</a>
+  <br>
+  <a href="http://bignosebird.com/privacy.shtml">Privacy Statement</a>
+  </font></font></center><font size="1" face="Verdana, Arial, Helvetica"><font color="#000000"> </font> </font>
+    </form>
+<br>
+   </td>
+ </tr>
+
+<!--
+ <tr>
+ <td valign="top" bgcolor="#cccc99" width="100%" >
+  <font face="Verdana, Arial, Helvetica" size="1"><font color="#000000">
+<B>
+Looking for the perfect way to tell the world you are a webmaster
+without bringing up the subject? Check out this
+<A HREF="http://www.bignosebird.com/cgi-bin/clickit.cgi?9508">collection of BNB merchandise</A>.</B>
+This online store system by CafePress.Com could be a great feature for your site.
+   </FONT>
+ </td>
+ </tr>
+ -->
+
+</tbody></table>
+</center>
+
+</td>
+</tr>
+</tbody></table>
+
+
+<br>
+</body></html>

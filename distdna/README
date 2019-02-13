@@ -1,0 +1,40 @@
+IMPORTANT NOTICE:
+=================
+
+	While the software is distributed under GPL, the pictures included
+are *NOT*, they belong to their respective authors and are distributed 
+under their respective Creative Commons licenses:
+
+	Lemon Tree, by Marco Chieso, is distributed as CC-BY (Attribution)
+license (see http://creativecommons.org/licenses/by/2.0/deed.en )
+
+	Trees, by Noaha is distributed as CC-BY-SA (Attribution, Share-
+Alike) license (see http://creativecommons.org/licenses/by-sa/2.0/deed.en )
+
+	The author wants to thank Marco and Noaha for their kindness in
+providing their art works for this service. Wholeheartedly, thanks!
+
+
+INSTALLATION:
+=============
+
+Extract the contents of the distribution archive
+
+	tar -zxvf distdna.tgz
+
+This will create a new directory named 'distdna'. Place the distribution
+archive within the new directory as well:
+
+	mv distdna.tgz distdna
+
+Then move the directory to somewhere in you web server space, compile the
+C program
+
+	cc -o distdna distdna.c -lm
+
+and place it somewhere, e.g.. 
+
+	mv distdna /usr/local/bin
+
+Then update the location variables at the beginnig of distdna.php.
+

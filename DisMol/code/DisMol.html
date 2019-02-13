@@ -1,0 +1,77 @@
+<!--applet-->
+<html>
+<!-- Search engine bait: chemistry molecular viewing display Java 3D molecules
+atoms chemical pdb xyz -->
+<title>
+DisMol, a freeware molecule display applet
+</title>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000"
+        LINK="#0000FF" VLINK="#A06060" ALINK="#FF0000">
+<h3>
+A freeware molecule display applet
+including source code
+</h3>
+If you have a Java-capable web browser, the DisMol applet should appear
+below. If you don't, you may find this page rather boring.
+This is a big applet, so it may take one or two minutes to load into your
+browser (sorry for the delay).<br>
+If you see a
+molecule below, you can try rotating the molecule in various directions
+by dragging your mouse on the black background (be sure to hold down the
+mouse button while you do that). See the text window for other tricks.<br>
+ There are currently 2 molecules to choose from in the pulldown menu;
+the second one (from the <a href="http://es.embnet.org">EMBNet/CNB web 
+site</a>) can be pretty slow to
+download (240k) and display (several seconds to draw the entire molecule on a 
+300 mhz Pentium 2).
+If you install this on your own server, you will need to change the urls
+of the files to point to chemical files on your own server. <br>
+ I originally had an input window that allowed you to enter an arbitrary
+URL of a .pdb or .xyz to display. It wasn't usefull due to security 
+restrictions on
+Java Applets. You get a security violation if you try to read a url
+that's not on the server that launched the applet.
+<p>
+<applet code="DisMol.class" width=650 height=550>
+<param name=url value="http://www.es.embnet.org/Services/MolBio/DisMol/butane.pdb;
+    	http://www.es.embnet.org/srsbin/cgi-bin/wgetz?-e+[pdb-id:2end];
+	http://www.es.embnet.org/Services/MolBio/Dismol/fineMotion970116.pdb">
+</applet>
+<p>
+Send suggestions, comments or questions to
+<a href="mailto:pcm@rahul.net">Peter McCluskey</a>.
+or post on the NanoCAD mailing list (send mail to
+<a href="mailto:Majordomo@world.std.com">Majordomo@world.std.com</a>
+with "subscribe nanocad" in the body to subscribe).<p>
+DisMol evolved from Will Ware's <a href="http://www.world.std.com/~wware/nanocad.html">NanoCAD</a> code
+and from Roger Sayle's <a href="http://klaatu.oit.umass.edu/microbio/rasmol/">RasMol</a> code.<br>
+If you're willing to do a little work installing RasMol, you can get much
+better control over how you see molecules with RasMol than with DisMol.
+
+<h3>Archives and precompiled executables</h3>
+<ul>
+<li>Source file archives, these contain all the source files and compiled
+	class files:
+	<ul>
+	<li><a href="http://www.rahul.net/pcm/dismol/DisMol.tar.gz">DisMol.tar.gz</a>
+	</ul>
+<li>Java source files. Most of the ones I've listed here are largely
+ported from RasMol's C code. (See also Will Ware's
+<a href="http://www.world.std.com/~wware/nanocad.html">NanoCAD home page</a>
+for other source files on which these depend):
+	<ul>
+	<li><a href="http://www.rahul.net/pcm/dismol/DisMol.java">DisMol.java</a> - the applet
+	<li><a href="http://www.rahul.net/pcm/dismol/Element.java">Element.java</a> - standard atoms
+	<li><a href="http://www.rahul.net/pcm/dismol/PDBAtom.java">PDBAtom.java</a> - generic subclass of class atom
+	<li><a href="http://www.rahul.net/pcm/dismol/GenericGroup.java">GenericGroup.java</a> - adds some file-reading abilities to class group
+	<li><a href="http://www.rahul.net/pcm/dismol/PDBGroup.java">PDBGroup.java</a> - some code for reading .pdb files
+	<li><a href="http://www.rahul.net/pcm/dismol/XYZGroup.java">XYZGroup.java</a> - some code for reading .xyz files
+	<li><a href="http://www.rahul.net/pcm/dismol/pdbreader.java">pdbreader.java</a> - some code for reading .pdb files
+	<li><a href="http://www.rahul.net/pcm/dismol/xyzreader.java">xyzreader.java</a> - some code for reading .xyz files
+	<li><a href="http://www.rahul.net/pcm/dismol/MaskDesc.java">MaskDesc.java</a>
+	<li><a href="http://www.rahul.net/pcm/dismol/ResSynonym.java">ResSynonym.java</a>
+	<li><a href="http://www.rahul.net/pcm/dismol/ShadeRef.java">ShadeRef.java</a> - code borrowed from RasMol for shading, fast rendering of atoms, bonds
+	</ul>
+</ul>
+</body>
+</html>

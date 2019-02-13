@@ -1,0 +1,164 @@
+<html>
+<head>
+    <title>DistDNA</title>
+</head>
+<!--#include virtual="/inc/header.html" -->
+<body bgcolor="lightgrey" background="images/Lemon_tree-faded.jpg" alink="black" vlink="blue">
+
+<center><table border="0" width="80%">
+<tr>
+    <td align="left"><img src="images/Trees.jpg" width="114" height="140"></td>
+    <td align="right"><font color="black"><h1><a
+    href="">DistDNA</a></h1></font></td>
+</tr>
+<tr>
+    <td colspan="2"><font color="black">
+    <font size="+1">
+    DistDNA was developed to allow efficient building of DNA sequence
+    distance matrices. The program is both memory and time efficient and
+    offers improved performance over equivalents like EMBOSS COMPSEQ or
+    PHYLIP DISTDNA.<br />
+    
+    DistDNA requires a data set of <b>aligned<b> DNA sequences in 
+    FASTA/PEARSON format (<a href="tree.txt">see example</a>). </font>
+    </font></td>
+</tr>
+</table></center>
+
+<form name="distdna" method="POST" enctype="multipart/form-data" action="distdna.php">
+
+<center><table border="1" width="80%">
+<tr>
+    <td><font color="black" size="+1">
+    Please, paste or upload the <u>aligned sequences</u> in FASTA format
+    </font></td>
+    <td><font color="black"><font color="black" size="+1">
+    <i>This is the set of aligned sequences <u>in FASTA format</u> whose
+    distance matrix you want to build</i>
+    </font></td>
+</tr>
+<tr>
+    <td colspan="2">
+    <textarea name="inputdata" rows="6" cols="75"></textarea><br />
+    <input type="file" name="inputfile" value="" size="40" MAXLENGTH="80"><br />
+    </td>
+</tr>
+<tr>
+    <td><font color="black" size="+1">
+    Please, select <u>output options</u>.
+    </font></td>
+    <td><font color="black" size="+1">
+    <i>This is how you want the resulting distance matrix to look like</i>
+    </font></td>
+</tr>
+<tr>
+    <td colspan="2"><font color="black" size="+1">
+    What kind of matrix do you want?
+    </font>
+    <select name="triangle">
+    	<option selected value="u">Upper triangular
+	<option value="l">Lower triangular
+    </select><br /><font color="black" size="+1">
+    Distance measure:    
+    </font> 
+    <select name="disttype">
+    	<option selected value="100">Distance per 100 nucleotides
+	<option value="1">Distance per nucleotide
+    </select><br /><font color="black" size="+1">
+    Do you want to get PHYLIP-like output (unity distances in a lower
+    triangular matrix)?
+    </font>
+    <select name="phylip">
+    	<option selected value="y">No
+	<option value="n">Yes
+    </select><br />
+    </font></td>
+</tr>
+<tr>
+    <td colspan="2"><font color="black" size="+1">
+    Gap weight (for uncorrected and Jukes-Cantor distances)
+    </font>
+    <input name="gapwt" size="4" value="0"></input><br />
+    <font color="black" size="+1">
+    Value of <u>a</u> parameter (for Jin-Nei distance)
+    <input name="a" size="4" value="1"></input><br />
+    </font>
+    <font color="black" size="+1">
+    Consider ambiguity codes (for uncorrected, Jukes-Cantor or Tajima-Nei
+    distances)?
+    <select name="ambig">
+    	<option selected value="n">No
+	<option value="y">Yes
+    </select><br />
+    </font></td>
+</tr>
+<tr>
+    <td><font color="black"><font color="black" size="+1">
+    Correction function:
+    <select name="correction">
+    	<option selected value="default">Uncorrected
+	<option value="jukes-cantor">Jukes-Cantor
+	<option value="kimura">Kimura
+	<option value="tamura">Tamura
+	<option value="jin-nei">Jin-Nei
+	<option value="tajima-nei">Tajima-Nei
+	<option value="galtier-gouy">Galtier-Gouy
+	<option value="hky">Hasegawa-Kishino-Yano (HKY)
+	<option value="logdet">LogDet (Lockhart et al.)
+    </select>
+    </font></td>
+    <td><font color="black"><font color="black" size="+1">
+    Defines whether straight distances should be computed or whether a
+    specific correction method should be applied instead. You have a
+    choice of correction methods. See the help or the respective papers
+    for hints on which one to choose.<br />
+    As a general rule, start with uncorrected distances, and then try
+    Jukes-Cantor. Inspect the matrices and depending on the distances
+    you get choose another method.<br />
+    </ul>
+    </font></td>
+</tr>
+<tr>
+    <td>
+    	<center><input type="submit" name="submit" value="Submit"></center>
+    </td>
+    <td>
+    	<center><input type="reset"></center>
+    </td>
+</tr>
+</table></center>
+
+</form>
+
+
+<center><table border="1" width="80%" bgcolor="#FFFF80">
+<tr>
+    <td colspan="2"><font color="black" size="+1">
+    <b>For publication of results, please cite:</b><br />
+    Valverde, J. R. (2009) http://www.es.embnet.org/Services/MolBio/distdna/<br />
+    And the bibliography related to the method chosen.
+    </font></td>
+</tr>
+<tr>
+    <td colspan="2"><font color="black" size="+1">
+    The background picture, <a href="http://www.flickr.com/photos/cruccone/3723384937">Lemon Tree</a>
+    is based on the work of artist <a href="http://www.flickr.com/photos/cruccone/">Marco Chieso (or Cruccone)</a>
+    and is used and distributed under a <a href="http://creativecommons.org/licenses/by/2.0/deed.en">CC-BY</A> license.
+    </td>
+</tr>
+<tr>
+    <td colspan="2"><font color="black" size="+1">
+    The logo corresponds to the image <a href="http://www.flickr.com/photos/visualarts/419701627/">Trees</a>
+    which is a work of artist <a href="http://www.flickr.com/photos/visualarts/">Noaha</a>
+    and is used and distributed under a <a href="http://creativecommons.org/licenses/by-sa/2.0/deed.en">CC-BY-SA</a> license.
+    </td>
+</tr>
+<tr>
+    <td colspan="2" bgcolor="#FFFF00"><font color="black" size="+1">
+    <center>Do you like this service? You can <a href="distdna.tgz">download</a> and install it 
+    on your own server; it is distributed under <a href="c/gpl.txt">GPL.</a></center>
+</tr>
+</table></center>
+
+</body>
+</html>
