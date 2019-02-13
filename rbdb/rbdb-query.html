@@ -1,0 +1,207 @@
+<HTML><HEAD>
+<TITLE>RBGMdb Search</TITLE>
+</HEAD><BODY BGCOLOR="white" BACKGROUND="images/background.png">
+<script>
+function openNewWindow(fileName,windowName,theWidth,theHeight) {
+        window.open(fileName,windowName,"toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=yes,resizable=yes,width="+theWidth+",height="+theHeight)
+}
+
+</script>
+<CENTER>
+    	    	    	 <h1><a>RBGMdb</a></h1>
+    	    	    <H1>Retinoblastoma Gene Mutation DataBase</H1>
+    	    	      <H2>Query RBGMdb form</H2>
+</CENTER>
+<HR>
+<CENTER><table><tr><td bgcolor="#ccccff"><center>
+              <BOLD>RBGMdb Copyright (C) 2005</BOLD><BR>
+                                  by<BR>
+                      <EM>Angel Pesta&ntilde;a</EM><BR>
+
+                   <TT>apestana@iib.uam.es</TT><BR>
+</center></td></tr></table></CENTER>
+<BR>
+
+<FORM  METHOD="GET" ACTION="complex_query.php">
+<TABLE WIDTH="100%" BGCOLOR="lightblue" ALIGN="CENTER" BORDER="1"
+       CELLSPACING="0" CELLPADDING="5">
+  <TR><TD>
+    <TABLE WIDTH="100%">
+      <TR><TH>Combine with</TH><TH>Search field</TH><TH>Query string</TH></TR>
+      <TR><TD align="center">
+        <SELECT NAME="combine1">
+      	  <OPTION SELECTED VALUE=" ">&nbsp;
+      	  <OPTION VALUE="AND">AND
+	  <OPTION VALUE="OR">OR
+	  <OPTION VALUE="NOT">NOT
+	</SELECT>
+      </TD>
+      <TD align="center">
+        <SELECT NAME="field1">
+          <OPTION SELECTED VALUE="location">Location
+	  <OPTION VALUE="genomic">Genomic
+	  <OPTION VALUE="cdna">cDNA
+          <OPTION VALUE="protein">Protein
+          <OPTION VALUE="consequence">Consequence
+          <OPTION VALUE="type">Type
+          <OPTION VALUE="origin">Origin
+          <OPTION VALUE="sample">Sample
+          <OPTION VALUE="phenotype">Phenotype
+          <OPTION VALUE="sex">Sex
+          <OPTION VALUE="age_months">Age (months)
+          <OPTION VALUE="country">Country
+          <OPTION VALUE="reference">Reference
+          <OPTION VALUE="pm_id">PubMed ID
+          <OPTION VALUE="patient_id">Patient ID
+          <OPTION VALUE="l_db">L-DB
+          <OPTION VALUE="remarks">Remarks
+        </SELECT>
+      </TD>
+      <TD align="center"><INPUT NAME="query1"></TD>
+      </TR>
+
+      <TR><TD align="center">
+        <SELECT NAME="combine2">
+      	  <OPTION SELECTED VALUE="AND">AND
+	  <OPTION VALUE="OR">OR
+	  <OPTION VALUE="NOT">NOT
+	</SELECT>
+      </TD>
+      <TD align="center">
+        <SELECT NAME="field2">
+          <OPTION SELECTED VALUE="location">Location
+	  <OPTION VALUE="genomic">Genomic
+	  <OPTION VALUE="cdna">cDNA
+          <OPTION VALUE="protein">Protein
+          <OPTION VALUE="consequence">Consequence
+          <OPTION VALUE="type">Type
+          <OPTION VALUE="origin">Origin
+          <OPTION VALUE="sample">Sample
+          <OPTION VALUE="phenotype">Phenotype
+          <OPTION VALUE="sex">Sex
+          <OPTION VALUE="age_months">Age (months)
+          <OPTION VALUE="country">Country
+          <OPTION VALUE="reference">Reference
+          <OPTION VALUE="pm_id">PubMed ID
+          <OPTION VALUE="patient_id">Patient ID
+          <OPTION VALUE="l_db">L-DB
+          <OPTION VALUE="remarks">Remarks
+        </SELECT>
+      </TD>
+      <TD align="center"><INPUT NAME="query2"></TD>
+      </TR>
+      
+      <TR><TD align="center">
+        <SELECT NAME="combine3">
+      	  <OPTION SELECTED VALUE="AND">AND
+	  <OPTION VALUE="OR">OR
+	  <OPTION VALUE="NOT">NOT
+	</SELECT>
+      </TD>
+      <TD align="center">
+        <SELECT NAME="field3">
+          <OPTION SELECTED VALUE="location">Location
+	  <OPTION VALUE="genomic">Genomic
+	  <OPTION VALUE="cdna">cDNA
+          <OPTION VALUE="protein">Protein
+          <OPTION VALUE="consequence">Consequence
+          <OPTION VALUE="type">Type
+          <OPTION VALUE="origin">Origin
+          <OPTION VALUE="sample">Sample
+          <OPTION VALUE="phenotype">Phenotype
+          <OPTION VALUE="sex">Sex
+          <OPTION VALUE="age_months">Age (months)
+          <OPTION VALUE="country">Country
+          <OPTION VALUE="reference">Reference
+          <OPTION VALUE="pm_id">PubMed ID
+          <OPTION VALUE="patient_id">Patient ID
+          <OPTION VALUE="l_db">L-DB
+          <OPTION VALUE="remarks">Remarks
+        </SELECT>
+      </TD>
+      <TD align="center"><INPUT NAME="query3"></TD>
+      </TR>
+      
+      <TR><TD align="center">
+        <SELECT NAME="combine4">
+      	  <OPTION SELECTED VALUE="AND">AND
+	  <OPTION VALUE="OR">OR
+	  <OPTION VALUE="NOT">NOT
+	</SELECT>
+      </TD>
+      <TD align="center">
+        <SELECT NAME="field4">
+          <OPTION SELECTED VALUE="location">Location
+	  <OPTION VALUE="genomic">Genomic
+	  <OPTION VALUE="cdna">cDNA
+          <OPTION VALUE="protein">Protein
+          <OPTION VALUE="consequence">Consequence
+          <OPTION VALUE="type">Type
+          <OPTION VALUE="origin">Origin
+          <OPTION VALUE="sample">Sample
+          <OPTION VALUE="phenotype">Phenotype
+          <OPTION VALUE="sex">Sex
+          <OPTION VALUE="age_months">Age (months)
+          <OPTION VALUE="country">Country
+          <OPTION VALUE="reference">Reference
+          <OPTION VALUE="pm_id">PubMed ID
+          <OPTION VALUE="patient_id">Patient ID
+          <OPTION VALUE="l_db">L-DB
+          <OPTION VALUE="remarks">Remarks
+        </SELECT>
+      </TD>
+      <TD align="center"><INPUT NAME="query4"></TD>
+      </TR>
+
+    </TABLE>
+  </TD><TD>
+    <TABLE>
+      <TR><TH>Sort results by</TH></TR>
+      <TD align="center">
+        <SELECT NAME="sort">
+        <OPTION SELECTED VALUE="location">Location
+	<OPTION VALUE="genomic">Genomic
+	<OPTION VALUE="cdna">cDNA
+        <OPTION VALUE="protein">Protein
+        <OPTION VALUE="consequence">Consequence
+        <OPTION VALUE="type">Type
+        <OPTION VALUE="origin">Origin
+        <OPTION VALUE="sample">Sample
+        <OPTION VALUE="phenotype">Phenotype
+        <OPTION VALUE="sex">Sex
+        <OPTION VALUE="age_months">Age (months)
+        <OPTION VALUE="country">Country
+        <OPTION VALUE="reference">Reference
+        <OPTION VALUE="pm_id">PubMed ID
+        <OPTION VALUE="patient_id">Patient ID
+        <OPTION VALUE="l_db">L-DB
+        <OPTION VALUE="remarks">Remarks
+        </SELECT>
+      </TD>
+      </TR>
+    </TABLE>
+  </TD></TR>
+  <TR><TD COLSPAN="2">
+    <TABLE WIDTH="100%">
+    <TR><TD ALIGN=CENTER><INPUT TYPE="submit" NAME="Action" VALUE="Submit Query">&nbsp;</td>
+      <td align="center"><a href="JavaScript:parent.openNewWindow('rbdb-help.html','inlineHelp',500,400)"><img src="images/help.gif" alt="help"></A></td>
+      <td align="center">
+        <INPUT TYPE="reset">
+    </TD></TR>
+    </TABLE>
+  </TD></TR>
+</TABLE>
+</FORM>
+
+<hr>
+<center><table border="1">
+<tr><td bgcolor="#ccccff">The Retinoblastoma Gene Mutation Database is &copy; by 
+	<a href="mailto:apestana@iib.uam.es">Angel Pesta&ntilde;a</a>
+</td></tr>
+<tr><td bgcolor="#ccccff">The WWW interface and access tools are 
+	<a href="c/Copyright-JR_AH.html">&copy;</a> by
+	<a href="mailto:jrvalverde@acm.org">Jos&eacute; R. Valverde</a>
+</td></tr>
+</table></center>
+</BODY>
+</HTML>

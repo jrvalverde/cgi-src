@@ -1,0 +1,124 @@
+This is the distribution of the software interface to RBGMDB, the 
+
+    	    	Retinoblastoma Gene Mutation Database
+
+IMPORTANT NOTICE
+================
+
+Please, be aware that this software is distributed for free 'as is', with
+NO GUARANTEE whatsoever of any kind, either directly nor implied. You are
+welcome to study, copy and use it, but you are on your own.
+
+More specifically, while we will try to keep it current and bug free (bug
+reports are welcome), we cannot guarantee any support of any kind, neither
+do we guarantee it is suitable for anything at all (although we obviously
+will try to keep it usable for OUR intended purposes).
+
+
+LICENSES
+========
+
+The RBGMDB work is (C) by Jose R. Valverde (jrvalverde@acm.org).
+
+Parts of this work are (C) by other authors and distributed with this
+software for you convenience. They have their own licenses that are
+included either with the source code or inside their own directories.
+Most everything else is distributed under the terms of the GPL or
+LGPL. Please, see the documentation in subdirectories Jmol and fpdf153
+and the referenced web sites for more details.
+
+You are welcome to use, copy and distribute the RBGMDB works under the 
+terms of the included license (see files under directory "c"), or 
+alternatively, if these are not clear enough for you, under the terms 
+of the GPL/LGPL.
+
+Distribution, use and modification of extra tools (under directories
+'js', 'Jmol' and 'fpdf153') are subject to their author's licensing
+restrictions.
+
+
+INSTALLATION
+============
+
+    QUICK & DIRTY
+    -------------
+
+To install, simply uncompress and extract the distributed sources on any
+directory within your web server document area.
+
+First you need to create the database on MySQL. In order to do this,
+you may use the script provided under data/RB.tab.mysql : first you
+should edit this file and set an appropriate password for the database
+user, then source it from mysql.
+
+Secondly you must edit config.inc to set the password for the database
+user to the same you used in the RB.tab.mysql when creating the mysql
+database user.
+
+You need to initially populate the database with seed data. This may be
+obtained from the main web site:
+
+	http://www.es.embnet.org/Services/MolBio/rbdb/.
+
+Simply make an empty query and save the results as TAB-delimited format.
+Then you may import the data on your local mySQL server using the provided
+forms and scripts.
+
+If you have any doubts, problems, etc.. please contact the author of the
+web interface:
+
+	jr@acm.org
+
+
+    DETAILS
+    -------
+    
+    1. Creating the database
+    
+The database is managed through MySQL. In future versions we may consider
+using ADODB so it becomes independent of the underlying engine, but for
+now you are stuck with using MySQL. It is free, it is GNU, it is terribly
+good... not that bad.
+
+First you must create the database, and associated table. Right now this is
+a very simple database: it only contains one table!
+
+The script ./data/RB.tab.mysql may help you get started creating the database,
+its table and loading an initial dataset in Tab-delimited format.
+
+This script will create a database called "rbdb". If you want to use another
+name, edit the script appropriately and note down the new name for later.
+
+Then, it will add a new user with privileges to maintain and query the
+database. This user is also called "rbdb". Again if you would rather have
+it called otherwise, just edit the script and note down the new name. Note
+that you MUST also change the name of the computers from which this user
+is going to access the database (i.e. the web server(s) that will be
+running these scripts).
+
+Finally, a password must be set for this user. YOU MUST ABSOLUTELY EDIT
+the script and use a good password for this user. If nothing else, this
+must absolutely be done: you may use the default database and user name
+but must change the password to something SAFE. Note it down as well.
+
+If you run the script from mysql, you will get a new user and database
+added, the later populated with the seed data you selected. Now you can
+move to the next step.
+
+    2. Configuring the user interface
+    
+Not much to be done here: simply edit the file config.inc and state on
+it the host where mysql is running, the name of the database, the user
+name to manage and access the database and the password for this user
+name.
+
+This file is protected by using a .htaccess file that has been crafted
+for Apache. YMMV and if you use a different Web server you will need to
+protect if from peeping eyes to avoid publishing your mysql user/password.
+
+    3. You are done
+    
+If you have problems, please do not hesitate to contact the author at
+
+    jrvalverde@acm.org
+
