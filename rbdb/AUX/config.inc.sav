@@ -1,0 +1,12 @@
+<?php
+
+// The DBMS credentials to use
+$db_host = "volva.cnb.uam.es";
+$db_user = "rbdb";
+$db_password = "E7LxCxE";
+$db_name = "rbdb";
+
+// address of the database maintainer
+$maintainer = "jr@es.embnet.org";
+
+?>

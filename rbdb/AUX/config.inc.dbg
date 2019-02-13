@@ -1,0 +1,12 @@
+<?php
+
+// The DBMS credentials to use
+$db_host = "nemesis.cnb.uam.es";
+$db_user = "rbdbdbg";
+$db_password = "AB2338L";
+$db_name = "rbdbdbg";
+
+// address of the database maintainer
+$maintainer = "jr@es.embnet.org";
+
+?>
