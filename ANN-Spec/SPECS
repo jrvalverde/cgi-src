@@ -1,0 +1,34 @@
+A web interface to ANN-Spec.
+
+Takes as input:
+    - A FASTA multiple sequence file (needs not be aligned) for DNA or
+    protein sequences thought to contain the pattern (positive set)
+    	-p <file-name>
+    
+    - An optional background training set thought NOT to contain the pattern
+    (unless -y1 and a large set) (negative set)
+    	-n <file-name>
+    
+    - Sequence type:
+    	-a=DNA
+	-a=PROTEIN
+    
+    - Use complement and sense strand
+    	-c
+    
+    - Number of sites expected from each sequence of the positive set
+    	-P <int>
+	
+    - Width of the pattern to be learned
+    	-l <int>
+
+    - Partition function
+    	XXX -- use default partition function (y0 or y1)
+    	-y 0 -- Analytical partition (default if no background data)
+	-y 1 -- Estimate from randomly sampled sites (default if background data)
+    	-y 2 -- Estimate from all sites in background set (requires bkgnd data)
+
+
+HIDDEN: -i 2000 -m 100 -t 111111
+
+    

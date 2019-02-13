@@ -1,0 +1,2 @@
+ID1:	2	GGG
+ID2:	10	GGG

@@ -1,0 +1,140 @@
+<html>
+<head>
+    <title>ANN-Spec v1.0</title>
+</head>
+<body bgcolor="lightgrey" background="images/neuron_bg.jpg" alink="darkblue" vlink="blue">
+
+<center><table border="0" width="80%">
+<tr>
+    <td align="left"><img src="images/brain.jpg"></td>
+    <td align="right"><font color="darkblue"><h1><a href="http://www.cbs.dtu.dk/~workman/ann-spec/">ANN-Spec v1.0</a></h1></font></td>
+</tr>
+<tr>
+    <td colspan="2"><font color="darkblue">
+    ANN-Spec was developed for finding un-gapped patterns in <u>un-aligned 
+    DNA sequences</u>. The program is primarily intended for finding 
+    <u>transcription factor binding sites</u> in promoter regions though
+    it can be applied to <u>protein sequences</u> for the detection of
+    conserved motifs as well.<br />
+
+    ANN-Spec uses a <u>neural network</u> to spot regions of a given
+    size (<i><b>patterns</b></i>) whose appearance in a set of sequences 
+    (the <i><b>positive set</b></i>) departs from its statistical expectance 
+    as determined analytically or after training with a background set 
+    (the <i><b>negative set</b></i>).<br />
+    </font></td>
+</tr>
+</table></center>
+
+<form name="annspec" method="POST" enctype="multipart/form-data" action="ann-spec.php">
+
+<center><table border="1" width="80%">
+<tr>
+    <td><font color="darkblue">
+    Please, paste or upload the <u>positive set</u>
+    </font></td>
+    <td><font color="darkblue">
+    <i>This is the set of sequences <u>in FASTA format</u> thought to 
+    contain the pattern</i>
+    </font></td>
+</tr>
+<tr>
+    <td colspan="2">
+    <textarea name="psetdata" rows="6" cols="75"></textarea><br />
+    <input type="file" name="psetfile" value="" size="40" MAXLENGTH="80"><br />
+    </td>
+</tr>
+<tr>
+    <td><font color="darkblue">
+    Please, paste or upload the <u>negative set</u> if you have one (or leave this 
+    blank if none)
+    </font></td>
+    <td><font color="darkblue">
+    <i>This is a set of sequences <u>in FASTA format</u> thought <u>not</u> to 
+    contain the pattern</i>
+    </font></td>
+</tr>
+<tr>
+    <td colspan="2"><font color="darkblue">
+    <textarea name="nsetdata" rows="6" cols="75"></textarea><br />
+    <input type="file" name="nsetfile" value="" size="40" MAXLENGTH="80"><br />
+    If you don't have a training set, do you want to have a random training
+    set automatically created for you? 
+    <select name="donset">
+    	<option selected value="y">Yes
+	<option value="n">No
+    </select><br />
+    Sequence type:     
+    <select name="seqtype">
+    	<option selected value="d">DNA
+	<option value="p">Protein
+    </select><br />
+    If yours are DNA sequences, do you want to use both strands
+    (sense and complement) for training?
+    <select name="bothstrands">
+    	<option selected value="y">Yes
+	<option value="n">No
+    </select><br />
+    </font></td>
+</tr>
+<tr>
+    <td colspan="2"><font color="darkblue">
+    Number of sites expected from each sequence of the positive set 
+    <input name="nsites" size="4" value="1"></input><br />
+    Width of the pattern to be learnt
+    <input name="patlen" size="4" value="16"></input><br />
+    </font></td>
+</tr>
+<tr>
+    <td><font color="darkblue">
+    Partition function:
+    <select name="partition">
+    	<option selected value="default">Use sensible defaults
+	<option value="analytical">Analytical partition
+	<option value="random">Random sampled sites
+	<option value="all">All sites
+    </select>
+    </font></td>
+    <td><font color="darkblue">
+    Defines the initial statistical distribution (expectancy) of the putative
+    patterns being tested: You may choose
+    <ul>
+    	<li>Analytical partition (if you have no background data, i.e. no 
+	negative set)</li>
+	<li>Random sites (to build an estimate from randomly sampled sites in
+	the training set: this is specially useful if the training set is
+	large enough and <u>may</u> contain the seeked pattern)</li>
+	<li>All sites (use all sites in the training data set, assumes that
+	the pattern you seek is not present in the training set)</li>
+    </ul>
+    </font></td>
+</tr>
+<tr>
+    <td>
+    	<center><input type="submit" name="submit" value="Submit"></center>
+    </td>
+    <td>
+    	<center><input type="reset"></center>
+    </td>
+</tr>
+</table></center>
+
+</form>
+
+<center><table border="0" width="80%">
+<tr>
+    <td colspan="2"><font color="darkblue">
+    <b>For publication of results, please cite:</b><br />
+    Workman, C. and Stormo, G.D. (2000) ANN-Spec: A method for discovering 
+    transcription factor binding sites with improved specificity. Proc. 
+    Pacific Symposium on Biocomputing 2000.<br /><br />
+    Heumann,J.M., Lapedes,A.S. and Stormo,G.D., Neural networks for 
+    determining protein specificity and multiple alignment of binding 
+    sites. Proccedings for the Intelligent Systems for Molecular Biology 
+    (ISMB), 1994;2:188-194. PMID: 7584389; UI: 96039019.<br />
+    </font></td>
+</tr>
+</table></center>
+
+</body>
+</html>
