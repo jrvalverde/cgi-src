@@ -1,0 +1,192 @@
+\section{show\_\-results.php File Reference}
+\label{show__results_8php}\index{show_results.php@{show\_\-results.php}}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+{\bf run\_\-gramm\_\-coord} (\$from, \$to)
+\begin{CompactList}\small\item\em Re-run GRAMM to generate the coordinates. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+{\bf \$server} = \char`\"{}http://www.es.embnet.org\char`\"{}
+\item 
+{\bf \$http\_\-root} = \char`\"{}/data/www/EMBnet\char`\"{}
+\item 
+{\bf \$pdb2vrml1} = \char`\"{}/cgi-src/pdb\_\-servlets/pdb2vrml1.php\char`\"{}
+\begin{CompactList}\small\item\em Location of auxiliary servlets. \item\end{CompactList}\item 
+{\bf \$pdb2vrml2} = \char`\"{}/cgi-src/pdb\_\-servlets/pdb2vrml2.php\char`\"{}
+\item 
+{\bf \$pdb2ps} = \char`\"{}/cgi-src/pdb\_\-servlets/pdb2ps.php\char`\"{}
+\item 
+{\bf \$pdb2png} = \char`\"{}/cgi-src/pdb\_\-servlets/pdb2png.php\char`\"{}
+\item 
+{\bf \$file\_\-path} = \$\_\-SERVER['SCRIPT\_\-NAME']
+\item 
+{\bf \$path} = dirname (\$file\_\-path)
+\item 
+{\bf \$job} = basename( dirname(\_\-\_\-FILE\_\-\_\-) )
+\item 
+{\bf \$file} = \char`\"{}./rpar.gr\char`\"{}
+\item 
+{\bf \$date} = date( \char`\"{}j F Y H:i\char`\"{}, filemtime(\char`\"{}\$file\char`\"{}) )
+\item 
+{\bf \$from} = \$\_\-GET[\char`\"{}from\char`\"{}]
+\begin{CompactList}\small\item\em variables to control gramm parameters \item\end{CompactList}\item 
+{\bf \$to} = \$\_\-GET[\char`\"{}to\char`\"{}]
+\item 
+{\bf \$current\_\-dir} = \char`\"{}.\char`\"{}
+\item 
+{\bf \$dir} = dir(\$current\_\-dir)
+\item 
+{\bf style} = $\backslash$\char`\"{}color:blue; text-decoration:none$\backslash$\char`\"{}$>$Bookmark$<$/A$>$ this page to access it later$<$/H3$>$\char`\"{}
+\item 
+{\bf \$status} = \char`\"{}Running\char`\"{}
+\item 
+{\bf \$color} = \char`\"{}Light\-Green\char`\"{}
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\index{show_results.php@{show\_\-results.php}!run_gramm_coord@{run\_\-gramm\_\-coord}}
+\index{run_gramm_coord@{run\_\-gramm\_\-coord}!show_results.php@{show\_\-results.php}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}run\_\-gramm\_\-coord (\$ {\em from}, \$ {\em to})}\label{show__results_8php_a18}
+
+
+Re-run GRAMM to generate the coordinates. 
+
+
+
+Definition at line 297 of file show\_\-results.php.
+
+\subsection{Variable Documentation}
+\index{show_results.php@{show\_\-results.php}!$color@{\$color}}
+\index{$color@{\$color}!show_results.php@{show\_\-results.php}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\$color = \char`\"{}Light\-Green\char`\"{}}\label{show__results_8php_a17}
+
+
+
+
+Definition at line 277 of file show\_\-results.php.\index{show_results.php@{show\_\-results.php}!$current_dir@{\$current\_\-dir}}
+\index{$current_dir@{\$current\_\-dir}!show_results.php@{show\_\-results.php}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\$current\_\-dir = \char`\"{}.\char`\"{}}\label{show__results_8php_a13}
+
+
+
+
+Definition at line 55 of file show\_\-results.php.\index{show_results.php@{show\_\-results.php}!$date@{\$date}}
+\index{$date@{\$date}!show_results.php@{show\_\-results.php}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\$date = date( \char`\"{}j F Y H:i\char`\"{}, filemtime(\char`\"{}\$file\char`\"{}) )}\label{show__results_8php_a10}
+
+
+
+
+Definition at line 33 of file show\_\-results.php.\index{show_results.php@{show\_\-results.php}!$dir@{\$dir}}
+\index{$dir@{\$dir}!show_results.php@{show\_\-results.php}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\$dir = dir(\$current\_\-dir)}\label{show__results_8php_a14}
+
+
+
+
+Definition at line 56 of file show\_\-results.php.\index{show_results.php@{show\_\-results.php}!$file@{\$file}}
+\index{$file@{\$file}!show_results.php@{show\_\-results.php}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\$file = \char`\"{}./rpar.gr\char`\"{}}\label{show__results_8php_a9}
+
+
+
+
+Definition at line 32 of file show\_\-results.php.\index{show_results.php@{show\_\-results.php}!$file_path@{\$file\_\-path}}
+\index{$file_path@{\$file\_\-path}!show_results.php@{show\_\-results.php}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\$file\_\-path = \$\_\-SERVER['SCRIPT\_\-NAME']}\label{show__results_8php_a6}
+
+
+
+
+Definition at line 25 of file show\_\-results.php.\index{show_results.php@{show\_\-results.php}!$from@{\$from}}
+\index{$from@{\$from}!show_results.php@{show\_\-results.php}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\$from = \$\_\-GET[\char`\"{}from\char`\"{}]}\label{show__results_8php_a11}
+
+
+variables to control gramm parameters 
+
+
+
+Definition at line 39 of file show\_\-results.php.\index{show_results.php@{show\_\-results.php}!$http_root@{\$http\_\-root}}
+\index{$http_root@{\$http\_\-root}!show_results.php@{show\_\-results.php}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\$http\_\-root = \char`\"{}/data/www/EMBnet\char`\"{}}\label{show__results_8php_a1}
+
+
+
+
+Definition at line 14 of file show\_\-results.php.\index{show_results.php@{show\_\-results.php}!$job@{\$job}}
+\index{$job@{\$job}!show_results.php@{show\_\-results.php}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\$job = basename( dirname(\_\-\_\-FILE\_\-\_\-) )}\label{show__results_8php_a8}
+
+
+
+
+Definition at line 30 of file show\_\-results.php.\index{show_results.php@{show\_\-results.php}!$path@{\$path}}
+\index{$path@{\$path}!show_results.php@{show\_\-results.php}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\$path = dirname (\$file\_\-path)}\label{show__results_8php_a7}
+
+
+
+
+Definition at line 26 of file show\_\-results.php.\index{show_results.php@{show\_\-results.php}!$pdb2png@{\$pdb2png}}
+\index{$pdb2png@{\$pdb2png}!show_results.php@{show\_\-results.php}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\$pdb2png = \char`\"{}/cgi-src/pdb\_\-servlets/pdb2png.php\char`\"{}}\label{show__results_8php_a5}
+
+
+
+
+Definition at line 23 of file show\_\-results.php.\index{show_results.php@{show\_\-results.php}!$pdb2ps@{\$pdb2ps}}
+\index{$pdb2ps@{\$pdb2ps}!show_results.php@{show\_\-results.php}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\$pdb2ps = \char`\"{}/cgi-src/pdb\_\-servlets/pdb2ps.php\char`\"{}}\label{show__results_8php_a4}
+
+
+
+
+Definition at line 22 of file show\_\-results.php.\index{show_results.php@{show\_\-results.php}!$pdb2vrml1@{\$pdb2vrml1}}
+\index{$pdb2vrml1@{\$pdb2vrml1}!show_results.php@{show\_\-results.php}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\$pdb2vrml1 = \char`\"{}/cgi-src/pdb\_\-servlets/pdb2vrml1.php\char`\"{}}\label{show__results_8php_a2}
+
+
+Location of auxiliary servlets. 
+
+
+
+Definition at line 20 of file show\_\-results.php.\index{show_results.php@{show\_\-results.php}!$pdb2vrml2@{\$pdb2vrml2}}
+\index{$pdb2vrml2@{\$pdb2vrml2}!show_results.php@{show\_\-results.php}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\$pdb2vrml2 = \char`\"{}/cgi-src/pdb\_\-servlets/pdb2vrml2.php\char`\"{}}\label{show__results_8php_a3}
+
+
+
+
+Definition at line 21 of file show\_\-results.php.\index{show_results.php@{show\_\-results.php}!$server@{\$server}}
+\index{$server@{\$server}!show_results.php@{show\_\-results.php}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\$server = \char`\"{}http://www.es.embnet.org\char`\"{}}\label{show__results_8php_a0}
+
+
+
+
+Definition at line 10 of file show\_\-results.php.\index{show_results.php@{show\_\-results.php}!$status@{\$status}}
+\index{$status@{\$status}!show_results.php@{show\_\-results.php}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\$status = \char`\"{}Running\char`\"{}}\label{show__results_8php_a16}
+
+
+
+
+Definition at line 277 of file show\_\-results.php.\index{show_results.php@{show\_\-results.php}!$to@{\$to}}
+\index{$to@{\$to}!show_results.php@{show\_\-results.php}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\$to = \$\_\-GET[\char`\"{}to\char`\"{}]}\label{show__results_8php_a12}
+
+
+
+
+Definition at line 40 of file show\_\-results.php.\index{show_results.php@{show\_\-results.php}!style@{style}}
+\index{style@{style}!show_results.php@{show\_\-results.php}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf style} = $\backslash$\char`\"{}color:blue; text-decoration:none$\backslash$\char`\"{}$>$Bookmark$<$/A$>$ this page to access it later$<$/H3$>$\char`\"{}}\label{show__results_8php_a15}
+
+
+
+
+Definition at line 266 of file show\_\-results.php.

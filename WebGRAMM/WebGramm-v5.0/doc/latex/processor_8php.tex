@@ -1,0 +1,239 @@
+\section{processor.php File Reference}
+\label{processor_8php}\index{processor.php@{processor.php}}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+{\bf write\_\-rmol\_\-gr} (\$receptor, \$ligand)
+\begin{CompactList}\small\item\em Write rmol.gr configuration file. \item\end{CompactList}\item 
+{\bf write\_\-rpar\_\-gr} (\$matching, \$representation, \$resolution)
+\begin{CompactList}\small\item\em Write the configuration file rpar.gr. \item\end{CompactList}\item 
+{\bf write\_\-wlist\_\-gr} (\$receptor, \$ligand)
+\begin{CompactList}\small\item\em Write configuration file wlist.gr. \item\end{CompactList}\item 
+{\bf setup\_\-gramm\_\-tmp\_\-dir} (\$system\_\-tmproot, \$http\_\-tmproot)
+\begin{CompactList}\small\item\em Create a temporary work directory and cd to it. \item\end{CompactList}\item 
+{\bf upload\_\-data} ()
+\begin{CompactList}\small\item\em Manage uploads. \item\end{CompactList}\item 
+{\bf run\_\-gramm} (\$debug)
+\begin{CompactList}\small\item\em Run Gramm. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+{\bf \$system\_\-tmproot} = \char`\"{}/data/www/EMBnet/tmp\char`\"{}
+\begin{CompactList}\small\item\em Base system location of the user data and result files. \item\end{CompactList}\item 
+{\bf \$http\_\-tmproot} = \char`\"{}/tmp\char`\"{}
+\begin{CompactList}\small\item\em Base WWW location of user data and result files:. \item\end{CompactList}\item 
+{\bf \$debug} = 0
+\begin{CompactList}\small\item\em set to 0 for no debug output, or select a debug level \item\end{CompactList}\item 
+{\bf \$pdb2vrml} = \char`\"{}/opt/structure/bin/pdb2vrml\char`\"{}
+\begin{CompactList}\small\item\em Location of PDB to VRML converter. \item\end{CompactList}\item 
+{\bf \$matching} = \$\_\-POST[\char`\"{}matching\char`\"{}]
+\item 
+{\bf \$representation} = \$\_\-POST[\char`\"{}representation\char`\"{}]
+\item 
+{\bf \$resolution} = \$\_\-POST[\char`\"{}resolution\char`\"{}]
+\item 
+{\bf \$receptor\_\-name} = \char`\"{}receptor\char`\"{}
+\item 
+{\bf \$ligand\_\-name} = \char`\"{}ligand\char`\"{}
+\item 
+{\bf \$work\_\-dir} = go\_\-to\_\-work(\$system\_\-tmproot, \$http\_\-tmproot )
+\item 
+{\bf exit}
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\index{processor.php@{processor.php}!run_gramm@{run\_\-gramm}}
+\index{run_gramm@{run\_\-gramm}!processor.php@{processor.php}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}run\_\-gramm (\$ {\em debug})}\label{processor_8php_a16}
+
+
+Run Gramm. 
+
+We now have everything ready to start running GRAMM. Launch it. 
+
+Definition at line 304 of file processor.php.
+
+References \$debug.\index{processor.php@{processor.php}!setup_gramm_tmp_dir@{setup\_\-gramm\_\-tmp\_\-dir}}
+\index{setup_gramm_tmp_dir@{setup\_\-gramm\_\-tmp\_\-dir}!processor.php@{processor.php}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}setup\_\-gramm\_\-tmp\_\-dir (\$ {\em system\_\-tmproot}, \$ {\em http\_\-tmproot})}\label{processor_8php_a14}
+
+
+Create a temporary work directory and cd to it. 
+
+In order to run the job we need a temporary directory to store the results. This can not have a static name since then concurrent runs would overwrite each other's data. The solution is trivial: we require a seed string to generate the directory. This string should be unique. 
+
+Definition at line 222 of file processor.php.
+
+References \$work\_\-dir.\index{processor.php@{processor.php}!upload_data@{upload\_\-data}}
+\index{upload_data@{upload\_\-data}!processor.php@{processor.php}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}upload\_\-data ()}\label{processor_8php_a15}
+
+
+Manage uploads. 
+
+This function will manage the upload of the files needed to run the program. We'll retrieve two files which will be saved as receptor.pdb and ligand.pdb 
+
+Definition at line 248 of file processor.php.
+
+References exit.\index{processor.php@{processor.php}!write_rmol_gr@{write\_\-rmol\_\-gr}}
+\index{write_rmol_gr@{write\_\-rmol\_\-gr}!processor.php@{processor.php}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}write\_\-rmol\_\-gr (\$ {\em receptor}, \$ {\em ligand})}\label{processor_8php_a11}
+
+
+Write rmol.gr configuration file. 
+
+The file rmol.gr is needed by GRAMM to specify the molecules to be used for docking.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em receptor}]the file containing the molecule to maintain fixed \item[{\em ligand}]the file containing the molecule to move around (should hence be the smaller one). \end{description}
+\end{Desc}
+
+
+Definition at line 108 of file processor.php.\index{processor.php@{processor.php}!write_rpar_gr@{write\_\-rpar\_\-gr}}
+\index{write_rpar_gr@{write\_\-rpar\_\-gr}!processor.php@{processor.php}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}write\_\-rpar\_\-gr (\$ {\em matching}, \$ {\em representation}, \$ {\em resolution})}\label{processor_8php_a12}
+
+
+Write the configuration file rpar.gr. 
+
+The file rpar.gr contains all the parameters that Gramm should use to perform the docking work.
+
+We allow users to modify a small amount of these parameters in order to guarantee some sensible default values in the face of lay users (the average expected user). More advanced users might want a fine grained control, but then these may as well run it on the command line.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em matching}]generic or helix \item[{\em representation}]whether we use hydrophobic or normal docking \item[{\em resolution}]high or low resolution docking\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Note:]see Gramm documentation for details. \end{Desc}
+
+
+Definition at line 141 of file processor.php.
+
+References \$representation, and \$resolution.\index{processor.php@{processor.php}!write_wlist_gr@{write\_\-wlist\_\-gr}}
+\index{write_wlist_gr@{write\_\-wlist\_\-gr}!processor.php@{processor.php}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}write\_\-wlist\_\-gr (\$ {\em receptor}, \$ {\em ligand})}\label{processor_8php_a13}
+
+
+Write configuration file wlist.gr. 
+
+The file wlist.gr is used by GRAMM in the coordinate building step as a guide to know how many coordinate sets for the docked ligand and receptor molecules to generate. It tells as well whether these sets should be saved in a single file or a separate coordinate files.
+
+We use a single file to provide the user with simpler browsing capabilities. Hence we need minimal information.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em receptor}]the file containing the receptor (fixed) molecule \item[{\em ligand}]the file containing the ligand (mobile) molecule \end{description}
+\end{Desc}
+
+
+Definition at line 198 of file processor.php.
+
+\subsection{Variable Documentation}
+\index{processor.php@{processor.php}!$debug@{\$debug}}
+\index{$debug@{\$debug}!processor.php@{processor.php}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\$debug = 0}\label{processor_8php_a2}
+
+
+set to 0 for no debug output, or select a debug level 
+
+
+
+Definition at line 28 of file processor.php.
+
+Referenced by run\_\-gramm().\index{processor.php@{processor.php}!$http_tmproot@{\$http\_\-tmproot}}
+\index{$http_tmproot@{\$http\_\-tmproot}!processor.php@{processor.php}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\$http\_\-tmproot = \char`\"{}/tmp\char`\"{}}\label{processor_8php_a1}
+
+
+Base WWW location of user data and result files:. 
+
+This is the root used to generate the URLs that the user will access to see his results.
+
+string http\_\-tmproot 
+
+Definition at line 25 of file processor.php.\index{processor.php@{processor.php}!$ligand_name@{\$ligand\_\-name}}
+\index{$ligand_name@{\$ligand\_\-name}!processor.php@{processor.php}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\$ligand\_\-name = \char`\"{}ligand\char`\"{}}\label{processor_8php_a8}
+
+
+
+
+Definition at line 54 of file processor.php.\index{processor.php@{processor.php}!$matching@{\$matching}}
+\index{$matching@{\$matching}!processor.php@{processor.php}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\$matching = \$\_\-POST[\char`\"{}matching\char`\"{}]}\label{processor_8php_a4}
+
+
+
+
+Definition at line 49 of file processor.php.\index{processor.php@{processor.php}!$pdb2vrml@{\$pdb2vrml}}
+\index{$pdb2vrml@{\$pdb2vrml}!processor.php@{processor.php}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\$pdb2vrml = \char`\"{}/opt/structure/bin/pdb2vrml\char`\"{}}\label{processor_8php_a3}
+
+
+Location of PDB to VRML converter. 
+
+leave empty if you don't have the corresponding program
+
+\begin{Desc}
+\item[{\bf Todo}]check if this is used at all on this file or needed here. \end{Desc}
+string pdb2vrml 
+
+Definition at line 39 of file processor.php.\index{processor.php@{processor.php}!$receptor_name@{\$receptor\_\-name}}
+\index{$receptor_name@{\$receptor\_\-name}!processor.php@{processor.php}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\$receptor\_\-name = \char`\"{}receptor\char`\"{}}\label{processor_8php_a7}
+
+
+
+
+Definition at line 53 of file processor.php.\index{processor.php@{processor.php}!$representation@{\$representation}}
+\index{$representation@{\$representation}!processor.php@{processor.php}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\$representation = \$\_\-POST[\char`\"{}representation\char`\"{}]}\label{processor_8php_a5}
+
+
+
+
+Definition at line 50 of file processor.php.
+
+Referenced by write\_\-rpar\_\-gr().\index{processor.php@{processor.php}!$resolution@{\$resolution}}
+\index{$resolution@{\$resolution}!processor.php@{processor.php}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\$resolution = \$\_\-POST[\char`\"{}resolution\char`\"{}]}\label{processor_8php_a6}
+
+
+
+
+Definition at line 51 of file processor.php.
+
+Referenced by write\_\-rpar\_\-gr().\index{processor.php@{processor.php}!$system_tmproot@{\$system\_\-tmproot}}
+\index{$system_tmproot@{\$system\_\-tmproot}!processor.php@{processor.php}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\$system\_\-tmproot = \char`\"{}/data/www/EMBnet/tmp\char`\"{}}\label{processor_8php_a0}
+
+
+Base system location of the user data and result files. 
+
+they should be WWW accessible, but we need to specify their location relative to the system / while doing internal processing. 
+
+Definition at line 15 of file processor.php.\index{processor.php@{processor.php}!$work_dir@{\$work\_\-dir}}
+\index{$work_dir@{\$work\_\-dir}!processor.php@{processor.php}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\$work\_\-dir = go\_\-to\_\-work(\$system\_\-tmproot, \$http\_\-tmproot )}\label{processor_8php_a9}
+
+
+
+
+Definition at line 65 of file processor.php.
+
+Referenced by setup\_\-gramm\_\-tmp\_\-dir().\index{processor.php@{processor.php}!exit@{exit}}
+\index{exit@{exit}!processor.php@{processor.php}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf exit}}\label{processor_8php_a10}
+
+
+
+
+Definition at line 94 of file processor.php.
+
+Referenced by upload\_\-data().

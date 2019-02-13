@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.3.4">
+  <compound refid="processor_8php" kind="file"><name>processor.php</name>
+    <member refid="processor_8php_1a11" kind="function"><name>write_rmol_gr</name></member>
+    <member refid="processor_8php_1a12" kind="function"><name>write_rpar_gr</name></member>
+    <member refid="processor_8php_1a13" kind="function"><name>write_wlist_gr</name></member>
+    <member refid="processor_8php_1a14" kind="function"><name>setup_gramm_tmp_dir</name></member>
+    <member refid="processor_8php_1a15" kind="function"><name>upload_data</name></member>
+    <member refid="processor_8php_1a16" kind="function"><name>run_gramm</name></member>
+    <member refid="processor_8php_1a0" kind="variable"><name>$system_tmproot</name></member>
+    <member refid="processor_8php_1a1" kind="variable"><name>$http_tmproot</name></member>
+    <member refid="processor_8php_1a2" kind="variable"><name>$debug</name></member>
+    <member refid="processor_8php_1a3" kind="variable"><name>$pdb2vrml</name></member>
+    <member refid="processor_8php_1a4" kind="variable"><name>$matching</name></member>
+    <member refid="processor_8php_1a5" kind="variable"><name>$representation</name></member>
+    <member refid="processor_8php_1a6" kind="variable"><name>$resolution</name></member>
+    <member refid="processor_8php_1a7" kind="variable"><name>$receptor_name</name></member>
+    <member refid="processor_8php_1a8" kind="variable"><name>$ligand_name</name></member>
+    <member refid="processor_8php_1a9" kind="variable"><name>$work_dir</name></member>
+    <member refid="processor_8php_1a10" kind="variable"><name>exit</name></member>
+  </compound>
+  <compound refid="show__results_8php" kind="file"><name>show_results.php</name>
+    <member refid="show__results_8php_1a18" kind="function"><name>run_gramm_coord</name></member>
+    <member refid="show__results_8php_1a0" kind="variable"><name>$server</name></member>
+    <member refid="show__results_8php_1a1" kind="variable"><name>$http_root</name></member>
+    <member refid="show__results_8php_1a2" kind="variable"><name>$pdb2vrml1</name></member>
+    <member refid="show__results_8php_1a3" kind="variable"><name>$pdb2vrml2</name></member>
+    <member refid="show__results_8php_1a4" kind="variable"><name>$pdb2ps</name></member>
+    <member refid="show__results_8php_1a5" kind="variable"><name>$pdb2png</name></member>
+    <member refid="show__results_8php_1a6" kind="variable"><name>$file_path</name></member>
+    <member refid="show__results_8php_1a7" kind="variable"><name>$path</name></member>
+    <member refid="show__results_8php_1a8" kind="variable"><name>$job</name></member>
+    <member refid="show__results_8php_1a9" kind="variable"><name>$file</name></member>
+    <member refid="show__results_8php_1a10" kind="variable"><name>$date</name></member>
+    <member refid="show__results_8php_1a11" kind="variable"><name>$from</name></member>
+    <member refid="show__results_8php_1a12" kind="variable"><name>$to</name></member>
+    <member refid="show__results_8php_1a13" kind="variable"><name>$current_dir</name></member>
+    <member refid="show__results_8php_1a14" kind="variable"><name>$dir</name></member>
+    <member refid="show__results_8php_1a15" kind="variable"><name>style</name></member>
+    <member refid="show__results_8php_1a16" kind="variable"><name>$status</name></member>
+    <member refid="show__results_8php_1a17" kind="variable"><name>$color</name></member>
+  </compound>
+  <compound refid="todo" kind="page"><name>todo</name>
+  </compound>
+</doxygenindex>

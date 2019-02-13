@@ -1,0 +1,614 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.3.4">
+  <compounddef id="processor_8php" kind="file">
+    <compoundname>processor.php</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="processor_8php_1a11" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>write_rmol_gr</definition>
+        <argsstring>($receptor, $ligand)</argsstring>
+        <name>write_rmol_gr</name>
+        <param>
+          <type>$</type>
+          <declname>receptor</declname>
+        </param>
+        <param>
+          <type>$</type>
+          <declname>ligand</declname>
+        </param>
+        <briefdescription>
+<para>Write rmol.gr configuration file. </para>        </briefdescription>
+        <detaileddescription>
+<para>The file rmol.gr is needed by GRAMM to specify the molecules to be used for docking.</para><para><parameterlist kind="param"><parametername>receptor</parametername>
+<parameterdescription>
+<para>the file containing the molecule to maintain fixed </para></parameterdescription><parametername>ligand</parametername>
+<parameterdescription>
+<para>the file containing the molecule to move around (should hence be the smaller one). </para></parameterdescription></parameterlist>
+</para>        </detaileddescription>
+        <location file="/auto/bakunin.data/www/EMBnet/cgi-src/WebGRAMM/WebGramm-v5.0/processor.php" line="109" bodystart="108" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="processor_8php_1a12" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>write_rpar_gr</definition>
+        <argsstring>($matching, $representation, $resolution)</argsstring>
+        <name>write_rpar_gr</name>
+        <param>
+          <type>$</type>
+          <declname>matching</declname>
+        </param>
+        <param>
+          <type>$</type>
+          <declname>representation</declname>
+        </param>
+        <param>
+          <type>$</type>
+          <declname>resolution</declname>
+        </param>
+        <briefdescription>
+<para>Write the configuration file rpar.gr. </para>        </briefdescription>
+        <detaileddescription>
+<para>The file rpar.gr contains all the parameters that Gramm should use to perform the docking work.</para><para>We allow users to modify a small amount of these parameters in order to guarantee some sensible default values in the face of lay users (the average expected user). More advanced users might want a fine grained control, but then these may as well run it on the command line.</para><para><parameterlist kind="param"><parametername>matching</parametername>
+<parameterdescription>
+<para>generic or helix </para></parameterdescription><parametername>representation</parametername>
+<parameterdescription>
+<para>whether we use hydrophobic or normal docking </para></parameterdescription><parametername>resolution</parametername>
+<parameterdescription>
+<para>high or low resolution docking</para></parameterdescription></parameterlist>
+<simplesect kind="note"><para>see Gramm documentation for details. </para></simplesect>
+</para>        </detaileddescription>
+        <location file="/auto/bakunin.data/www/EMBnet/cgi-src/WebGRAMM/WebGramm-v5.0/processor.php" line="142" bodystart="141" bodyend="181"/>
+        <references refid="processor_8php_1a5" compoundref="processor_8php" startline="50">$representation</references>
+        <references refid="processor_8php_1a6" compoundref="processor_8php" startline="51">$resolution</references>
+      </memberdef>
+      <memberdef kind="function" id="processor_8php_1a13" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>write_wlist_gr</definition>
+        <argsstring>($receptor, $ligand)</argsstring>
+        <name>write_wlist_gr</name>
+        <param>
+          <type>$</type>
+          <declname>receptor</declname>
+        </param>
+        <param>
+          <type>$</type>
+          <declname>ligand</declname>
+        </param>
+        <briefdescription>
+<para>Write configuration file wlist.gr. </para>        </briefdescription>
+        <detaileddescription>
+<para>The file wlist.gr is used by GRAMM in the coordinate building step as a guide to know how many coordinate sets for the docked ligand and receptor molecules to generate. It tells as well whether these sets should be saved in a single file or a separate coordinate files.</para><para>We use a single file to provide the user with simpler browsing capabilities. Hence we need minimal information.</para><para><parameterlist kind="param"><parametername>receptor</parametername>
+<parameterdescription>
+<para>the file containing the receptor (fixed) molecule </para></parameterdescription><parametername>ligand</parametername>
+<parameterdescription>
+<para>the file containing the ligand (mobile) molecule </para></parameterdescription></parameterlist>
+</para>        </detaileddescription>
+        <location file="/auto/bakunin.data/www/EMBnet/cgi-src/WebGRAMM/WebGramm-v5.0/processor.php" line="199" bodystart="198" bodyend="211"/>
+      </memberdef>
+      <memberdef kind="function" id="processor_8php_1a14" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>setup_gramm_tmp_dir</definition>
+        <argsstring>($system_tmproot, $http_tmproot)</argsstring>
+        <name>setup_gramm_tmp_dir</name>
+        <param>
+          <type>$</type>
+          <declname>system_tmproot</declname>
+        </param>
+        <param>
+          <type>$</type>
+          <declname>http_tmproot</declname>
+        </param>
+        <briefdescription>
+<para>Create a temporary work directory and cd to it. </para>        </briefdescription>
+        <detaileddescription>
+<para>In order to run the job we need a temporary directory to store the results. This can not have a static name since then concurrent runs would overwrite each other&apos;s data. The solution is trivial: we require a seed string to generate the directory. This string should be unique. </para>        </detaileddescription>
+        <location file="/auto/bakunin.data/www/EMBnet/cgi-src/WebGRAMM/WebGramm-v5.0/processor.php" line="223" bodystart="222" bodyend="238"/>
+        <references refid="processor_8php_1a9" compoundref="processor_8php" startline="65">$work_dir</references>
+      </memberdef>
+      <memberdef kind="function" id="processor_8php_1a15" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>upload_data</definition>
+        <argsstring>()</argsstring>
+        <name>upload_data</name>
+        <briefdescription>
+<para>Manage uploads. </para>        </briefdescription>
+        <detaileddescription>
+<para>This function will manage the upload of the files needed to run the program. We&apos;ll retrieve two files which will be saved as receptor.pdb and ligand.pdb </para>        </detaileddescription>
+        <location file="/auto/bakunin.data/www/EMBnet/cgi-src/WebGRAMM/WebGramm-v5.0/processor.php" line="249" bodystart="248" bodyend="297"/>
+        <references refid="processor_8php_1a10" compoundref="processor_8php" startline="94">exit</references>
+      </memberdef>
+      <memberdef kind="function" id="processor_8php_1a16" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>run_gramm</definition>
+        <argsstring>($debug)</argsstring>
+        <name>run_gramm</name>
+        <param>
+          <type>$</type>
+          <declname>debug</declname>
+        </param>
+        <briefdescription>
+<para>Run Gramm. </para>        </briefdescription>
+        <detaileddescription>
+<para>We now have everything ready to start running GRAMM. Launch it. </para>        </detaileddescription>
+        <location file="/auto/bakunin.data/www/EMBnet/cgi-src/WebGRAMM/WebGramm-v5.0/processor.php" line="305" bodystart="304" bodyend="330"/>
+        <references refid="processor_8php_1a2" compoundref="processor_8php" startline="28">$debug</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="processor_8php_1a0" prot="public" static="no" volatile="no" mutable="no">
+        <type></type>
+        <definition>$system_tmproot</definition>
+        <argsstring></argsstring>
+        <name>$system_tmproot</name>
+        <initializer>&quot;/data/www/EMBnet/tmp&quot;</initializer>
+        <briefdescription>
+<para>Base system location of the user data and result files. </para>        </briefdescription>
+        <detaileddescription>
+<para>they should be WWW accessible, but we need to specify their location relative to the system / while doing internal processing. </para>        </detaileddescription>
+        <location file="/auto/bakunin.data/www/EMBnet/cgi-src/WebGRAMM/WebGramm-v5.0/processor.php" line="15" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="processor_8php_1a1" prot="public" static="no" volatile="no" mutable="no">
+        <type></type>
+        <definition>$http_tmproot</definition>
+        <argsstring></argsstring>
+        <name>$http_tmproot</name>
+        <initializer>&quot;/tmp&quot;</initializer>
+        <briefdescription>
+<para>Base WWW location of user data and result files:. </para>        </briefdescription>
+        <detaileddescription>
+<para>This is the root used to generate the URLs that the user will access to see his results.</para><para>string http_tmproot </para>        </detaileddescription>
+        <location file="/auto/bakunin.data/www/EMBnet/cgi-src/WebGRAMM/WebGramm-v5.0/processor.php" line="25" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="processor_8php_1a2" prot="public" static="no" volatile="no" mutable="no">
+        <type></type>
+        <definition>$debug</definition>
+        <argsstring></argsstring>
+        <name>$debug</name>
+        <initializer>0</initializer>
+        <briefdescription>
+<para>set to 0 for no debug output, or select a debug level </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <location file="/auto/bakunin.data/www/EMBnet/cgi-src/WebGRAMM/WebGramm-v5.0/processor.php" line="28" bodystart="28" bodyend="-1"/>
+        <referencedby refid="processor_8php_1a16" compoundref="processor_8php" startline="304" endline="330">run_gramm</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="processor_8php_1a3" prot="public" static="no" volatile="no" mutable="no">
+        <type></type>
+        <definition>$pdb2vrml</definition>
+        <argsstring></argsstring>
+        <name>$pdb2vrml</name>
+        <initializer>&quot;/opt/structure/bin/pdb2vrml&quot;</initializer>
+        <briefdescription>
+<para>Location of PDB to VRML converter. </para>        </briefdescription>
+        <detaileddescription>
+<para>leave empty if you don&apos;t have the corresponding program</para><para><xrefsect id="todo_1_todo000001"><xreftitle>Todo</xreftitle><xrefdescription><para>check if this is used at all on this file or needed here. </para></xrefdescription></xrefsect>string pdb2vrml </para>        </detaileddescription>
+        <location file="/auto/bakunin.data/www/EMBnet/cgi-src/WebGRAMM/WebGramm-v5.0/processor.php" line="39" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="processor_8php_1a4" prot="public" static="no" volatile="no" mutable="no">
+        <type></type>
+        <definition>$matching</definition>
+        <argsstring></argsstring>
+        <name>$matching</name>
+        <initializer>$_POST[&quot;matching&quot;]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <location file="/auto/bakunin.data/www/EMBnet/cgi-src/WebGRAMM/WebGramm-v5.0/processor.php" line="49" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="processor_8php_1a5" prot="public" static="no" volatile="no" mutable="no">
+        <type></type>
+        <definition>$representation</definition>
+        <argsstring></argsstring>
+        <name>$representation</name>
+        <initializer>$_POST[&quot;representation&quot;]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <location file="/auto/bakunin.data/www/EMBnet/cgi-src/WebGRAMM/WebGramm-v5.0/processor.php" line="50" bodystart="50" bodyend="-1"/>
+        <referencedby refid="processor_8php_1a12" compoundref="processor_8php" startline="141" endline="181">write_rpar_gr</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="processor_8php_1a6" prot="public" static="no" volatile="no" mutable="no">
+        <type></type>
+        <definition>$resolution</definition>
+        <argsstring></argsstring>
+        <name>$resolution</name>
+        <initializer>$_POST[&quot;resolution&quot;]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <location file="/auto/bakunin.data/www/EMBnet/cgi-src/WebGRAMM/WebGramm-v5.0/processor.php" line="51" bodystart="51" bodyend="-1"/>
+        <referencedby refid="processor_8php_1a12" compoundref="processor_8php" startline="141" endline="181">write_rpar_gr</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="processor_8php_1a7" prot="public" static="no" volatile="no" mutable="no">
+        <type></type>
+        <definition>$receptor_name</definition>
+        <argsstring></argsstring>
+        <name>$receptor_name</name>
+        <initializer> &quot;receptor&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <location file="/auto/bakunin.data/www/EMBnet/cgi-src/WebGRAMM/WebGramm-v5.0/processor.php" line="53" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="processor_8php_1a8" prot="public" static="no" volatile="no" mutable="no">
+        <type></type>
+        <definition>$ligand_name</definition>
+        <argsstring></argsstring>
+        <name>$ligand_name</name>
+        <initializer> &quot;ligand&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <location file="/auto/bakunin.data/www/EMBnet/cgi-src/WebGRAMM/WebGramm-v5.0/processor.php" line="54" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="processor_8php_1a9" prot="public" static="no" volatile="no" mutable="no">
+        <type></type>
+        <definition>$work_dir</definition>
+        <argsstring></argsstring>
+        <name>$work_dir</name>
+        <initializer> go_to_work($system_tmproot, $http_tmproot )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <location file="/auto/bakunin.data/www/EMBnet/cgi-src/WebGRAMM/WebGramm-v5.0/processor.php" line="65" bodystart="65" bodyend="-1"/>
+        <referencedby refid="processor_8php_1a14" compoundref="processor_8php" startline="222" endline="238">setup_gramm_tmp_dir</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="processor_8php_1a10" prot="public" static="no" volatile="no" mutable="no">
+        <type></type>
+        <definition>exit</definition>
+        <argsstring></argsstring>
+        <name>exit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <location file="/auto/bakunin.data/www/EMBnet/cgi-src/WebGRAMM/WebGramm-v5.0/processor.php" line="94" bodystart="94" bodyend="-1"/>
+        <referencedby refid="processor_8php_1a15" compoundref="processor_8php" startline="248" endline="297">upload_data</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal">&lt;?</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Customization<sp/>section:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">//	Set<sp/>these<sp/>values<sp/>appropriately<sp/>for<sp/>your<sp/>environment</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="8"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>Base<sp/>system<sp/>location<sp/>of<sp/>the<sp/>user<sp/>data<sp/>and<sp/>result<sp/>files</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*	they<sp/>should<sp/>be<sp/>WWW<sp/>accessible,<sp/>but<sp/>we<sp/>need</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*	to<sp/>specify<sp/>their<sp/>location<sp/>relative<sp/>to<sp/>the<sp/>system<sp/>/</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*	while<sp/>doing<sp/>internal<sp/>processing.</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15" refid="processor_8php_1a0" refkind="member"><highlight class="normal"><ref refid="processor_8php_1a0" kindref="member">$system_tmproot</ref>=</highlight><highlight class="stringliteral">&quot;/data/www/EMBnet/tmp&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="17"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>Base<sp/>WWW<sp/>location<sp/>of<sp/>user<sp/>data<sp/>and<sp/>result<sp/>files:</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*	This<sp/>is<sp/>the<sp/>root<sp/>used<sp/>to<sp/>generate<sp/>the<sp/>URLs<sp/>that<sp/>the</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*	user<sp/>will<sp/>access<sp/>to<sp/>see<sp/>his<sp/>results.</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>@global<sp/>string<sp/>http_tmproot</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="processor_8php_1a1" refkind="member"><highlight class="normal"><ref refid="processor_8php_1a1" kindref="member">$http_tmproot</ref>=</highlight><highlight class="stringliteral">&quot;/tmp&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="27"><highlight class="comment">///<sp/>set<sp/>to<sp/>0<sp/>for<sp/>no<sp/>debug<sp/>output,<sp/>or<sp/>select<sp/>a<sp/>debug<sp/>level</highlight></codeline>
+<codeline lineno="28" refid="processor_8php_1a2" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><ref refid="processor_8php_1a2" kindref="member">$debug</ref>=0;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="30"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>Location<sp/>of<sp/>PDB<sp/>to<sp/>VRML<sp/>converter</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*<sp/>leave<sp/>empty<sp/>if<sp/>you<sp/>don&apos;t<sp/>have<sp/>the<sp/>corresponding<sp/>program</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*<sp/>\todo<sp/>check<sp/>if<sp/>this<sp/>is<sp/>used<sp/>at<sp/>all<sp/>on<sp/>this<sp/>file<sp/>or<sp/>needed<sp/>here.</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="37"><highlight class="comment"><sp/>*<sp/>@global<sp/>string<sp/>pdb2vrml</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="processor_8php_1a3" refkind="member"><highlight class="normal"><ref refid="processor_8php_1a3" kindref="member">$pdb2vrml</ref>=</highlight><highlight class="stringliteral">&quot;/opt/structure/bin/pdb2vrml&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment">//<sp/>End<sp/>of<sp/>configuration<sp/>section</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Start<sp/>processing</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="processor_8php_1a4" refkind="member"><highlight class="normal"><ref refid="processor_8php_1a4" kindref="member">$matching</ref>=$_POST[</highlight><highlight class="stringliteral">&quot;matching&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="50" refid="processor_8php_1a5" refkind="member"><highlight class="normal"><ref refid="processor_8php_1a5" kindref="member">$representation</ref>=$_POST[</highlight><highlight class="stringliteral">&quot;representation&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="51" refid="processor_8php_1a6" refkind="member"><highlight class="normal"><ref refid="processor_8php_1a6" kindref="member">$resolution</ref>=$_POST[</highlight><highlight class="stringliteral">&quot;resolution&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53" refid="processor_8php_1a7" refkind="member"><highlight class="normal"><ref refid="processor_8php_1a7" kindref="member">$receptor_name</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;receptor&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="54" refid="processor_8php_1a8" refkind="member"><highlight class="normal"><ref refid="processor_8php_1a8" kindref="member">$ligand_name</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;ligand&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="comment">//<sp/>OpenHTML<sp/>tags</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal">echo<sp/></highlight><highlight class="stringliteral">&quot;&lt;HTML&gt;&lt;HEAD&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal">echo<sp/></highlight><highlight class="stringliteral">&quot;&lt;title&gt;WebGramm&lt;/title&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal">echo<sp/></highlight><highlight class="stringliteral">&quot;&lt;/HEAD&gt;&lt;BODY<sp/>BGCOLOR=\&quot;LightGrey\&quot;&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="comment">//<sp/>create<sp/>the<sp/>working<sp/>directory<sp/>and<sp/>make<sp/>it<sp/>the<sp/>default<sp/>directory</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65" refid="processor_8php_1a9" refkind="member"><highlight class="normal"><ref refid="processor_8php_1a9" kindref="member">$work_dir</ref><sp/>=<sp/>go_to_work($system_tmproot,<sp/>$http_tmproot<sp/>);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="comment">//<sp/>upload<sp/>receptor<sp/>and<sp/>ligand<sp/>coordinates</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><ref refid="processor_8php_1a15" kindref="member">upload_data</ref>();</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><ref refid="processor_8php_1a11" kindref="member">write_rmol_gr</ref>($receptor_name,<sp/>$ligand_name);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><ref refid="processor_8php_1a12" kindref="member">write_rpar_gr</ref>($matching,<sp/>$representation,<sp/>$resolution);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><ref refid="processor_8php_1a13" kindref="member">write_wlist_gr</ref>($receptor_name,<sp/>$ligand_name);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><ref refid="processor_8php_1a16" kindref="member">run_gramm</ref>($debug);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Make<sp/>the<sp/>user<sp/>browser<sp/>go<sp/>to<sp/>the<sp/>working<sp/>directory<sp/>as<sp/>well</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal">echo<sp/></highlight><highlight class="stringliteral">&quot;&lt;META<sp/>HTTP-EQUIV=\&quot;Refresh\&quot;<sp/>CONTENT=\&quot;5;<sp/>URL=$http_tmproot/$work_dir\&quot;&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="comment">//<sp/>display<sp/>background<sp/>running<sp/>notice<sp/>with<sp/>a<sp/>pointer<sp/>to<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="comment">//<sp/>working<sp/>dir<sp/>so<sp/>the<sp/>user<sp/>knows<sp/>and<sp/>just<sp/>in<sp/>case<sp/>the<sp/>automatic</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="comment">//<sp/>redirection<sp/>fails<sp/>(so<sp/>s/he<sp/>can<sp/>jump<sp/>manually).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal">echo<sp/></highlight><highlight class="stringliteral">&quot;&lt;CENTER&gt;&lt;H1&gt;Your<sp/>GRAMM<sp/>job<sp/>has<sp/>been<sp/>started&lt;/H1&gt;&lt;BR&gt;&lt;BR&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal">echo<sp/></highlight><highlight class="stringliteral">&quot;&lt;H2&gt;When<sp/>the<sp/>results<sp/>are<sp/>ready<sp/>they<sp/>will<sp/>be<sp/>available<sp/>in<sp/>the<sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal">echo<sp/></highlight><highlight class="stringliteral">&quot;following<sp/>link:<sp/>&lt;br&gt;&lt;br&gt;&lt;A<sp/>HREF=\&quot;$http_tmproot/$work_dir/\&quot;&gt;$random_str&lt;/A&gt;&lt;/CENTER&gt;&lt;/H2&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="comment">//<sp/>close<sp/>HTML<sp/>tags</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal">echo<sp/></highlight><highlight class="stringliteral">&quot;&lt;/BODY&gt;&lt;/HTML&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="comment">//<sp/>and<sp/>we<sp/>are<sp/>done.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94" refid="processor_8php_1a10" refkind="member"><highlight class="normal"><ref refid="processor_8php_1a10" kindref="member">exit</ref>;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="96"><highlight class="comment">///////////////////////////////<sp/>SUBROUTINES<sp/>////////////////////////////////</highlight></codeline>
+<codeline lineno="97"><highlight class="comment"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="98"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="99"><highlight class="comment"><sp/>*<sp/>Write<sp/>rmol.gr<sp/>configuration<sp/>file</highlight></codeline>
+<codeline lineno="100"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="101"><highlight class="comment"><sp/>*<sp/>The<sp/>file<sp/>rmol.gr<sp/>is<sp/>needed<sp/>by<sp/>GRAMM<sp/>to<sp/>specify<sp/>the<sp/>molecules<sp/>to<sp/>be</highlight></codeline>
+<codeline lineno="102"><highlight class="comment"><sp/>*<sp/>used<sp/>for<sp/>docking.</highlight></codeline>
+<codeline lineno="103"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="104"><highlight class="comment"><sp/>*<sp/>@param<sp/>receptor<sp/>the<sp/>file<sp/>containing<sp/>the<sp/>molecule<sp/>to<sp/>maintain<sp/>fixed</highlight></codeline>
+<codeline lineno="105"><highlight class="comment"><sp/>*<sp/>@param<sp/>ligand<sp/>the<sp/>file<sp/>containing<sp/>the<sp/>molecule<sp/>to<sp/>move<sp/>around<sp/>(should</highlight></codeline>
+<codeline lineno="106"><highlight class="comment"><sp/>*	hence<sp/>be<sp/>the<sp/>smaller<sp/>one).</highlight></codeline>
+<codeline lineno="107"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108" refid="processor_8php_1a11" refkind="member"><highlight class="normal">function<sp/><ref refid="processor_8php_1a11" kindref="member">write_rmol_gr</ref>($receptor,<sp/>$ligand)</highlight></codeline>
+<codeline lineno="109"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>$rmol=</highlight><highlight class="stringliteral">&quot;./rmol.gr&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>$fp<sp/>=<sp/>fopen(<sp/></highlight><highlight class="stringliteral">&quot;$rmol&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;w&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>fwrite(<sp/>$fp,<sp/></highlight><highlight class="stringliteral">&quot;#<sp/>Filename<sp/><sp/>Fragment<sp/><sp/>ID<sp/><sp/><sp/><sp/><sp/><sp/>Filename<sp/><sp/>Fragment<sp/><sp/>ID<sp/><sp/><sp/><sp/><sp/>[paral/anti<sp/><sp/>max.ang]\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>fwrite(<sp/>$fp,<sp/></highlight><highlight class="stringliteral">&quot;#<sp/>----------------------------------------------------------------------------\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>fwrite(<sp/>$fp,<sp/></highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>fwrite(<sp/>$fp,<sp/></highlight><highlight class="stringliteral">&quot;$receptor.pdb\t*\treceptor\t$ligand.pdb\t*\tligand\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>fclose(<sp/>$fp<sp/>);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="123"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="124"><highlight class="comment"><sp/>*<sp/>Write<sp/>the<sp/>configuration<sp/>file<sp/>rpar.gr</highlight></codeline>
+<codeline lineno="125"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="126"><highlight class="comment"><sp/>*<sp/>The<sp/>file<sp/>rpar.gr<sp/>contains<sp/>all<sp/>the<sp/>parameters<sp/>that<sp/>Gramm<sp/>should<sp/>use</highlight></codeline>
+<codeline lineno="127"><highlight class="comment"><sp/>*<sp/>to<sp/>perform<sp/>the<sp/>docking<sp/>work.</highlight></codeline>
+<codeline lineno="128"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="129"><highlight class="comment"><sp/>*<sp/>We<sp/>allow<sp/>users<sp/>to<sp/>modify<sp/>a<sp/>small<sp/>amount<sp/>of<sp/>these<sp/>parameters<sp/>in</highlight></codeline>
+<codeline lineno="130"><highlight class="comment"><sp/>*<sp/>order<sp/>to<sp/>guarantee<sp/>some<sp/>sensible<sp/>default<sp/>values<sp/>in<sp/>the<sp/>face<sp/>of</highlight></codeline>
+<codeline lineno="131"><highlight class="comment"><sp/>*<sp/>lay<sp/>users<sp/>(the<sp/>average<sp/>expected<sp/>user).<sp/>More<sp/>advanced<sp/>users<sp/>might</highlight></codeline>
+<codeline lineno="132"><highlight class="comment"><sp/>*<sp/>want<sp/>a<sp/>fine<sp/>grained<sp/>control,<sp/>but<sp/>then<sp/>these<sp/>may<sp/>as<sp/>well<sp/>run<sp/>it</highlight></codeline>
+<codeline lineno="133"><highlight class="comment"><sp/>*<sp/>on<sp/>the<sp/>command<sp/>line.</highlight></codeline>
+<codeline lineno="134"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="135"><highlight class="comment"><sp/>*<sp/>@param<sp/>matching<sp/>generic<sp/>or<sp/>helix</highlight></codeline>
+<codeline lineno="136"><highlight class="comment"><sp/>*<sp/>@param<sp/>representation<sp/>whether<sp/>we<sp/>use<sp/>hydrophobic<sp/>or<sp/>normal<sp/>docking</highlight></codeline>
+<codeline lineno="137"><highlight class="comment"><sp/>*<sp/>@param<sp/>resolution	high<sp/>or<sp/>low<sp/>resolution<sp/>docking</highlight></codeline>
+<codeline lineno="138"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="139"><highlight class="comment"><sp/>*<sp/>@note<sp/>see<sp/>Gramm<sp/>documentation<sp/>for<sp/>details.</highlight></codeline>
+<codeline lineno="140"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141" refid="processor_8php_1a12" refkind="member"><highlight class="normal">function<sp/><ref refid="processor_8php_1a12" kindref="member">write_rpar_gr</ref>($matching,<sp/>$representation,<sp/>$resolution)</highlight></codeline>
+<codeline lineno="142"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Writing<sp/>rpar.gr</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>$rpar=</highlight><highlight class="stringliteral">&quot;./rpar.gr&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="processor_8php_1a5" kindref="member">$representation</ref>==</highlight><highlight class="stringliteral">&quot;hydrophobic&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="148"><highlight class="normal">	$projection=</highlight><highlight class="stringliteral">&quot;blackwhite&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="151"><highlight class="normal">	$projection=</highlight><highlight class="stringliteral">&quot;gray&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>$fp1<sp/>=<sp/>fopen(<sp/></highlight><highlight class="stringliteral">&quot;$rpar&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;w&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal">	</highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/><ref refid="processor_8php_1a6" kindref="member">$resolution</ref>==</highlight><highlight class="stringliteral">&quot;low&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="157"><highlight class="normal">	{</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>	<sp/><sp/><sp/><sp/>fwrite(<sp/>$fp1,<sp/></highlight><highlight class="stringliteral">&quot;Matching<sp/>mode<sp/>(generic/helix)<sp/>.......................<sp/>mmode=<sp/>$matching\n&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>	<sp/><sp/><sp/><sp/>fwrite(<sp/>$fp1,<sp/></highlight><highlight class="stringliteral">&quot;Grid<sp/>step<sp/>.............................................<sp/>eta=<sp/>6.8\n&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>	<sp/><sp/><sp/><sp/>fwrite(<sp/>$fp1,<sp/></highlight><highlight class="stringliteral">&quot;Repulsion<sp/>(attraction<sp/>is<sp/>always<sp/>-1)<sp/>....................<sp/>ro=<sp/>6.5.\n&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>	<sp/><sp/><sp/><sp/>fwrite(<sp/>$fp1,<sp/></highlight><highlight class="stringliteral">&quot;Attraction<sp/>double<sp/>range<sp/>(fraction<sp/>of<sp/>single<sp/>range)<sp/>.....<sp/>fr=<sp/>0.\n&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>	<sp/><sp/><sp/><sp/>fwrite(<sp/>$fp1,<sp/></highlight><highlight class="stringliteral">&quot;Potential<sp/>range<sp/>type<sp/>(atom_radius,<sp/>grid_step)<sp/>.......<sp/>crang=<sp/>grid_step\n&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>	<sp/><sp/><sp/><sp/>fwrite(<sp/>$fp1,<sp/></highlight><highlight class="stringliteral">&quot;Projection<sp/>(blackwhite,<sp/>gray)<sp/>................<sp/>.......<sp/>ccti=<sp/>$projection\n&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>	<sp/><sp/><sp/><sp/>fwrite(<sp/>$fp1,<sp/></highlight><highlight class="stringliteral">&quot;Representation<sp/>(all,<sp/>hydrophobic)<sp/>....................<sp/>crep=<sp/>$representation\n&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>	<sp/><sp/><sp/><sp/>fwrite(<sp/>$fp1,<sp/></highlight><highlight class="stringliteral">&quot;Number<sp/>of<sp/>matches<sp/>to<sp/>output<sp/>..........................<sp/>maxm=<sp/>1000\n&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/>	<sp/><sp/><sp/><sp/>fwrite(<sp/>$fp1,<sp/></highlight><highlight class="stringliteral">&quot;Angle<sp/>for<sp/>rotations,<sp/>deg<sp/>(10,12,15,18,20,30,<sp/>0-no<sp/>rot.)<sp/><sp/>ai=<sp/>20\n&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal">	}</highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal">	{</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/>	<sp/><sp/><sp/><sp/>fwrite(<sp/>$fp1,<sp/></highlight><highlight class="stringliteral">&quot;Matching<sp/>mode<sp/>(generic/helix)<sp/>.......................<sp/>mmode=<sp/>$matching\n&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>	<sp/><sp/><sp/><sp/>fwrite(<sp/>$fp1,<sp/></highlight><highlight class="stringliteral">&quot;Grid<sp/>step<sp/>.............................................<sp/>eta=<sp/>1.7\n&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>	<sp/><sp/><sp/><sp/>fwrite(<sp/>$fp1,<sp/></highlight><highlight class="stringliteral">&quot;Repulsion<sp/>(attraction<sp/>is<sp/>always<sp/>-1)<sp/>....................<sp/>ro=<sp/>30.\n&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>	<sp/><sp/><sp/><sp/>fwrite(<sp/>$fp1,<sp/></highlight><highlight class="stringliteral">&quot;Attraction<sp/>double<sp/>range<sp/>(fraction<sp/>of<sp/>single<sp/>range)<sp/>.....<sp/>fr=<sp/>0.\n&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/>	<sp/><sp/><sp/><sp/>fwrite(<sp/>$fp1,<sp/></highlight><highlight class="stringliteral">&quot;Potential<sp/>range<sp/>type<sp/>(atom_radius,<sp/>grid_step)<sp/>.......<sp/>crang=<sp/>atom_radius\n&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>	<sp/><sp/><sp/><sp/>fwrite(<sp/>$fp1,<sp/></highlight><highlight class="stringliteral">&quot;Projection<sp/>(blackwhite,<sp/>gray)<sp/>................<sp/>.......<sp/>ccti=<sp/>$projection\n&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>	<sp/><sp/><sp/><sp/>fwrite(<sp/>$fp1,<sp/></highlight><highlight class="stringliteral">&quot;Representation<sp/>(all,<sp/>hydrophobic)<sp/>....................<sp/>crep=<sp/>$representation\n&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/>	<sp/><sp/><sp/><sp/>fwrite(<sp/>$fp1,<sp/></highlight><highlight class="stringliteral">&quot;Number<sp/>of<sp/>matches<sp/>to<sp/>output<sp/>..........................<sp/>maxm=<sp/>1000\n&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>	<sp/><sp/><sp/><sp/>fwrite(<sp/>$fp1,<sp/></highlight><highlight class="stringliteral">&quot;Angle<sp/>for<sp/>rotations,<sp/>deg<sp/>(10,12,15,18,20,30,<sp/>0-no<sp/>rot.)<sp/><sp/>ai=<sp/>10\n&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal">	}</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/>fclose(<sp/>$fp1<sp/>);</highlight></codeline>
+<codeline lineno="181"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="183"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="184"><highlight class="comment"><sp/>*	Write<sp/>configuration<sp/>file<sp/>wlist.gr</highlight></codeline>
+<codeline lineno="185"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="186"><highlight class="comment"><sp/>*	The<sp/>file<sp/>wlist.gr<sp/>is<sp/>used<sp/>by<sp/>GRAMM<sp/>in<sp/>the<sp/>coordinate<sp/>building</highlight></codeline>
+<codeline lineno="187"><highlight class="comment"><sp/>*<sp/>step<sp/>as<sp/>a<sp/>guide<sp/>to<sp/>know<sp/>how<sp/>many<sp/>coordinate<sp/>sets<sp/>for<sp/>the<sp/>docked</highlight></codeline>
+<codeline lineno="188"><highlight class="comment"><sp/>*<sp/>ligand<sp/>and<sp/>receptor<sp/>molecules<sp/>to<sp/>generate.<sp/>It<sp/>tells<sp/>as<sp/>well<sp/>whether</highlight></codeline>
+<codeline lineno="189"><highlight class="comment"><sp/>*<sp/>these<sp/>sets<sp/>should<sp/>be<sp/>saved<sp/>in<sp/>a<sp/>single<sp/>file<sp/>or<sp/>a<sp/>separate<sp/>coordinate</highlight></codeline>
+<codeline lineno="190"><highlight class="comment"><sp/>*<sp/>files.</highlight></codeline>
+<codeline lineno="191"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="192"><highlight class="comment"><sp/>*	We<sp/>use<sp/>a<sp/>single<sp/>file<sp/>to<sp/>provide<sp/>the<sp/>user<sp/>with<sp/>simpler<sp/>browsing</highlight></codeline>
+<codeline lineno="193"><highlight class="comment"><sp/>*<sp/>capabilities.<sp/>Hence<sp/>we<sp/>need<sp/>minimal<sp/>information.</highlight></codeline>
+<codeline lineno="194"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="195"><highlight class="comment"><sp/>*<sp/>@param<sp/>receptor<sp/>the<sp/>file<sp/>containing<sp/>the<sp/>receptor<sp/>(fixed)<sp/>molecule</highlight></codeline>
+<codeline lineno="196"><highlight class="comment"><sp/>*<sp/>@param<sp/>ligand<sp/>the<sp/>file<sp/>containing<sp/>the<sp/>ligand<sp/>(mobile)<sp/>molecule</highlight></codeline>
+<codeline lineno="197"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="198" refid="processor_8php_1a13" refkind="member"><highlight class="normal">function<sp/><ref refid="processor_8php_1a13" kindref="member">write_wlist_gr</ref>($receptor,<sp/>$ligand)</highlight></codeline>
+<codeline lineno="199"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Writing<sp/>wlist.gr</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>$wlist=</highlight><highlight class="stringliteral">&quot;./wlist.gr&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/>$fp2<sp/>=<sp/>fopen(<sp/></highlight><highlight class="stringliteral">&quot;$wlist&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;w&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/>fwrite(<sp/>$fp2,<sp/></highlight><highlight class="stringliteral">&quot;#<sp/>File_of_predictions<sp/><sp/><sp/>First_match<sp/><sp/><sp/>Last_match<sp/><sp/><sp/>separate/joint<sp/><sp/>+init_lig\n&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/>fwrite(<sp/>$fp2,<sp/></highlight><highlight class="stringliteral">&quot;#<sp/>----------------------------------------------------------------------------\n&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/>fwrite(<sp/>$fp2,<sp/></highlight><highlight class="stringliteral">&quot;$receptor-$ligand.res\t1\t10\tsepar\tno\n&quot;</highlight><highlight class="normal"><sp/>);	</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/>fclose(<sp/>$fp2<sp/>);</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="213"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="214"><highlight class="comment"><sp/>*<sp/>Create<sp/>a<sp/>temporary<sp/>work<sp/>directory<sp/>and<sp/>cd<sp/>to<sp/>it.</highlight></codeline>
+<codeline lineno="215"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="216"><highlight class="comment"><sp/>*<sp/>In<sp/>order<sp/>to<sp/>run<sp/>the<sp/>job<sp/>we<sp/>need<sp/>a<sp/>temporary<sp/>directory<sp/>to<sp/>store<sp/>the</highlight></codeline>
+<codeline lineno="217"><highlight class="comment"><sp/>*<sp/>results.<sp/>This<sp/>can<sp/>not<sp/>have<sp/>a<sp/>static<sp/>name<sp/>since<sp/>then<sp/>concurrent<sp/>runs</highlight></codeline>
+<codeline lineno="218"><highlight class="comment"><sp/>*<sp/>would<sp/>overwrite<sp/>each<sp/>other&apos;s<sp/>data.</highlight></codeline>
+<codeline lineno="219"><highlight class="comment"><sp/>*<sp/>The<sp/>solution<sp/>is<sp/>trivial:<sp/>we<sp/>require<sp/>a<sp/>seed<sp/>string<sp/>to<sp/>generate<sp/>the</highlight></codeline>
+<codeline lineno="220"><highlight class="comment"><sp/>*<sp/>directory.<sp/>This<sp/>string<sp/>should<sp/>be<sp/>unique.</highlight></codeline>
+<codeline lineno="221"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="222" refid="processor_8php_1a14" refkind="member"><highlight class="normal">function<sp/><ref refid="processor_8php_1a14" kindref="member">setup_gramm_tmp_dir</ref>(<sp/>$system_tmproot,<sp/>$http_tmproot<sp/>)</highlight></codeline>
+<codeline lineno="223"><highlight class="normal">{<sp/><sp/><sp/>	</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/>$random_str<sp/>=<sp/>rand(1000000,<sp/>9999999);</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="processor_8php_1a9" kindref="member">$work_dir</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;webgramm$random_str&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"></highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/>mkdir<sp/>(</highlight><highlight class="stringliteral">&quot;$system_tmproot/$work_dir&quot;</highlight><highlight class="normal">,<sp/>0755);</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/>copy(</highlight><highlight class="stringliteral">&quot;./gramm.sh&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;$system_tmproot/$work_dir/gramm.sh&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/>copy(</highlight><highlight class="stringliteral">&quot;./Rodin_Penseur.jpg&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;$system_tmproot/$work_dir/Rodin_Penseur.jpg&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/>copy(</highlight><highlight class="stringliteral">&quot;./6h2o-w-small.gif&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;$system_tmproot/$work_dir/6h2o-w-small.gif&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/>copy(</highlight><highlight class="stringliteral">&quot;./left.gif&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;$system_tmproot/$work_dir/left.gif&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/>copy(</highlight><highlight class="stringliteral">&quot;./right.gif&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;$system_tmproot/$work_dir/right.gif&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/>copy(</highlight><highlight class="stringliteral">&quot;./show_results.php&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;$system_tmproot/$work_dir/index.php&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/>chdir(<sp/></highlight><highlight class="stringliteral">&quot;$system_tmproot/$work_dir&quot;</highlight><highlight class="normal"><sp/>);<sp/></highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/>chmod<sp/>(</highlight><highlight class="stringliteral">&quot;./gramm.sh&quot;</highlight><highlight class="normal">,<sp/>0755);</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="processor_8php_1a9" kindref="member">$work_dir</ref>;</highlight></codeline>
+<codeline lineno="238"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="240"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="241"><highlight class="comment"><sp/>*<sp/>Manage<sp/>uploads</highlight></codeline>
+<codeline lineno="242"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="243"><highlight class="comment"><sp/>*<sp/>This<sp/>function<sp/>will<sp/>manage<sp/>the<sp/>upload<sp/>of<sp/>the<sp/>files<sp/>needed<sp/>to<sp/>run<sp/>the</highlight></codeline>
+<codeline lineno="244"><highlight class="comment"><sp/>*<sp/>program.<sp/>We&apos;ll<sp/>retrieve<sp/>two<sp/>files<sp/>which<sp/>will<sp/>be<sp/>saved<sp/>as<sp/>receptor.pdb</highlight></codeline>
+<codeline lineno="245"><highlight class="comment"><sp/>*<sp/>and<sp/>ligand.pdb</highlight></codeline>
+<codeline lineno="246"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"></highlight></codeline>
+<codeline lineno="248" refid="processor_8php_1a15" refkind="member"><highlight class="normal">function<sp/><ref refid="processor_8php_1a15" kindref="member">upload_data</ref>()</highlight></codeline>
+<codeline lineno="249"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Two<sp/>files<sp/>to<sp/>upload:<sp/>Receptor<sp/>file<sp/>and<sp/>Ligand<sp/>file</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>NB<sp/>JR:<sp/>there<sp/>is<sp/>a<sp/>far<sp/>better<sp/>way<sp/>to<sp/>do<sp/>this.<sp/>David<sp/>did<sp/>it</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//	this<sp/>way<sp/>since<sp/>he<sp/>was<sp/>looking<sp/>for<sp/>a<sp/>generic<sp/>solution<sp/>to</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//	upload<sp/>N<sp/>files<sp/>and<sp/>later<sp/>adapted<sp/>it<sp/>to<sp/>this<sp/>problem...</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="normal"></highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>($i=0;<sp/>$i&lt;2;<sp/>$i++)<sp/></highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"></highlight></codeline>
+<codeline lineno="258"><highlight class="normal">	</highlight><highlight class="keywordflow">if</highlight><highlight class="normal">($i==0)</highlight></codeline>
+<codeline lineno="259"><highlight class="normal">	{</highlight></codeline>
+<codeline lineno="260"><highlight class="normal">	<sp/><sp/><sp/><sp/>$file_str=</highlight><highlight class="stringliteral">&quot;Receptor&quot;</highlight><highlight class="normal">;<sp/></highlight></codeline>
+<codeline lineno="261"><highlight class="normal">	<sp/><sp/><sp/><sp/>$upfile=</highlight><highlight class="stringliteral">&quot;receptor.pdb&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="262"><highlight class="normal">	}</highlight></codeline>
+<codeline lineno="263"><highlight class="normal">	</highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="264"><highlight class="normal">	{</highlight></codeline>
+<codeline lineno="265"><highlight class="normal">	<sp/><sp/><sp/><sp/>$file_str=</highlight><highlight class="stringliteral">&quot;Ligand&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="266"><highlight class="normal">	<sp/><sp/><sp/><sp/>$upfile=</highlight><highlight class="stringliteral">&quot;ligand.pdb&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="267"><highlight class="normal">	}</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"></highlight></codeline>
+<codeline lineno="269"><highlight class="normal"></highlight></codeline>
+<codeline lineno="270"><highlight class="normal">	$userfile<sp/>=<sp/>$_FILES[&apos;upload&apos;][&apos;tmp_name&apos;][$i];</highlight></codeline>
+<codeline lineno="271"><highlight class="normal">	$userfile_name<sp/>=<sp/>$_FILES[&apos;upload&apos;][&apos;name&apos;][$i];</highlight></codeline>
+<codeline lineno="272"><highlight class="normal">	$userfile_size<sp/>=<sp/>$_FILES[&apos;upload&apos;][&apos;size&apos;][$i];</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"></highlight></codeline>
+<codeline lineno="274"><highlight class="normal"></highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/>	</highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>($_FILES[&apos;upload&apos;][&apos;tmp_name&apos;][$i]==</highlight><highlight class="stringliteral">&quot;none&quot;</highlight><highlight class="normal"><sp/>||<sp/>$_FILES[&apos;upload&apos;][&apos;tmp_name&apos;][$i]==</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/>	{</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/>	<sp/><sp/><sp/><sp/>echo<sp/></highlight><highlight class="stringliteral">&quot;&lt;h1&gt;Problem:<sp/>no<sp/>$file_str<sp/>file<sp/>uploaded&lt;/h1&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/>	<sp/><sp/><sp/><sp/><ref refid="processor_8php_1a10" kindref="member">exit</ref>;</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/>	}</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"></highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/>	</highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>($_FILES[&apos;upload&apos;][&apos;size&apos;][$i]==0)</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/>	{</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/>	<sp/><sp/><sp/><sp/>echo<sp/></highlight><highlight class="stringliteral">&quot;&lt;h1&gt;Problem:<sp/>uploaded<sp/>$file_str<sp/>file<sp/>is<sp/>zero<sp/>length&lt;/h1&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/>	<sp/><sp/><sp/><sp/><ref refid="processor_8php_1a10" kindref="member">exit</ref>;</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/>	}</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"></highlight></codeline>
+<codeline lineno="287"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>	$upfile<sp/>=<sp/>&quot;./$userfile_name&quot;;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/>	</highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!move_uploaded_file($userfile,<sp/>$upfile))<sp/></highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/>	{</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/>	<sp/><sp/><sp/><sp/>echo<sp/></highlight><highlight class="stringliteral">&quot;&lt;h1&gt;$userfile<sp/>-&amp;gt;<sp/>$upfile<sp/>Problem:<sp/>Could<sp/>not<sp/>move<sp/>file<sp/>into<sp/>directory&lt;/h1&gt;&quot;</highlight><highlight class="normal">;<sp/></highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/>	<sp/><sp/><sp/><sp/><ref refid="processor_8php_1a10" kindref="member">exit</ref>;</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/>	}</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"></highlight></codeline>
+<codeline lineno="294"><highlight class="normal"></highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"></highlight></codeline>
+<codeline lineno="297"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="299"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="300"><highlight class="comment"><sp/>*<sp/>Run<sp/>Gramm</highlight></codeline>
+<codeline lineno="301"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="302"><highlight class="comment"><sp/>*<sp/>We<sp/>now<sp/>have<sp/>everything<sp/>ready<sp/>to<sp/>start<sp/>running<sp/>GRAMM.<sp/>Launch<sp/>it.</highlight></codeline>
+<codeline lineno="303"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="304" refid="processor_8php_1a16" refkind="member"><highlight class="normal">function<sp/><ref refid="processor_8php_1a16" kindref="member">run_gramm</ref>($debug)</highlight></codeline>
+<codeline lineno="305"><highlight class="normal">{	</highlight></codeline>
+<codeline lineno="306"><highlight class="normal">	</highlight><highlight class="comment">//<sp/>Create<sp/>a<sp/>Gramm<sp/>run<sp/>script<sp/>(or<sp/>copy<sp/>it<sp/>from<sp/>our<sp/>install<sp/>dir)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="307"><highlight class="normal">	</highlight><highlight class="comment">//<sp/>run<sp/>the<sp/>driver<sp/>script<sp/>in<sp/>the<sp/>background</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="308"><highlight class="normal">	</highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>The<sp/>driver<sp/>script:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="309"><highlight class="normal">	</highlight><highlight class="comment">//		Runs<sp/>Gramm<sp/>directly<sp/>with<sp/>args</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="310"><highlight class="normal">	</highlight><highlight class="comment">//		touches<sp/>&quot;done&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="311"><highlight class="normal"></highlight></codeline>
+<codeline lineno="312"><highlight class="normal">	$gramm<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;./gramm.sh<sp/>scan<sp/>coord<sp/>&gt;&gt;<sp/>/dev/null<sp/>2&gt;&amp;1&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/><sp/><sp/>	</highlight><highlight class="comment">//<sp/>Note:<sp/><sp/>If<sp/>you<sp/>start<sp/>a<sp/>program<sp/>using<sp/>this<sp/>function<sp/>(<sp/>exec<sp/>)<sp/>and<sp/>want<sp/>to<sp/>leave<sp/>it</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="314"><highlight class="normal">	</highlight><highlight class="comment">//<sp/>running<sp/>in<sp/>the<sp/>background,<sp/>you<sp/>have<sp/>to<sp/>make<sp/>sure<sp/>that<sp/>the<sp/>output<sp/>of<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="315"><highlight class="normal">	</highlight><highlight class="comment">//<sp/>that<sp/>program<sp/>is<sp/>redirected<sp/>to<sp/>a<sp/>file<sp/>or<sp/>some<sp/>other<sp/>output<sp/>stream<sp/>or<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="316"><highlight class="normal">	</highlight><highlight class="comment">//<sp/>else<sp/>PHP<sp/>will<sp/>hang<sp/>until<sp/>the<sp/>execution<sp/>of<sp/>the<sp/>program<sp/>ends.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="317"><highlight class="normal">	</highlight><highlight class="comment">//<sp/>Gramm<sp/>creates<sp/>his<sp/>own<sp/>.log<sp/>file,<sp/>so<sp/>we<sp/>redirect<sp/>the<sp/>output<sp/>to<sp/>a<sp/>file</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="318"><highlight class="normal">	</highlight><highlight class="comment">//<sp/>called<sp/>&quot;gramm.log&quot;<sp/>and<sp/>after<sp/>the<sp/>program<sp/>execution<sp/>the<sp/>modeller.sh</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="319"><highlight class="normal">	</highlight><highlight class="comment">//<sp/>script<sp/>delete<sp/>this<sp/>file.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="320"><highlight class="normal"></highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/><sp/><sp/>	$started<sp/>=<sp/>fopen(</highlight><highlight class="stringliteral">&quot;./started&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;w&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"><sp/><sp/><sp/><sp/>	fclose($started);	</highlight></codeline>
+<codeline lineno="323"><highlight class="normal"></highlight></codeline>
+<codeline lineno="324"><highlight class="normal">	exec(</highlight><highlight class="stringliteral">&quot;$gramm&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"></highlight></codeline>
+<codeline lineno="326"><highlight class="normal">	</highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="processor_8php_1a2" kindref="member">$debug</ref><sp/>&gt;<sp/>0)<sp/></highlight></codeline>
+<codeline lineno="327"><highlight class="normal">	{</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>echo<sp/></highlight><highlight class="stringliteral">&quot;&lt;CENTER&gt;&lt;H1&gt;Done.&lt;/H1&gt;&lt;/CENTER&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="329"><highlight class="normal">	}</highlight></codeline>
+<codeline lineno="330"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="331"><highlight class="normal"></highlight></codeline>
+<codeline lineno="332"><highlight class="normal">?&gt;</highlight></codeline>
+    </programlisting>
+    <location file="/auto/bakunin.data/www/EMBnet/cgi-src/WebGRAMM/WebGramm-v5.0/processor.php"/>
+  </compounddef>
+</doxygen>
