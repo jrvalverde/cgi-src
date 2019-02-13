@@ -1,0 +1,10 @@
+# Users of web mail form.
+#
+#Uname	  Show web?	Real name
+#-------- --------- ------------------------------------------------
+jrvalverde:	Y:	José R. Valverde
+netadmin:	N:	Network Administrator
+netadmin:	N:	Web Master
+genadmin:	N:	Bioinformatics Administrator
+support:	N:	User Support
+help:		N:	Help Desk

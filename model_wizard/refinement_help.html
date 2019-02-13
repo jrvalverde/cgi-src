@@ -1,0 +1,124 @@
+<HTML>
+<HEAD>
+    <TITLE>Refinement</TITLE>
+</HEAD>
+<BODY BGCOLOR="white" BACKGROUND="images/backgrounds/WhiteLeather3.gif">
+
+<IMG SRC="images/crystal_ball-tn.gif" ALT="help" ALIGN="LEFT">
+
+<H1>Refining your model</H1>
+
+<HR>
+
+<P>We can try to improve our model's quality using a variety of
+techniques. The most commonly used of these are <STRONG>simulated
+annealing</STRONG> and <STRONG>molecular dynamics</STRONG>.</P>
+
+<P>Strictly speaking all of these techniques are based on a discipline
+called <STRONG>Molecular Dynamics</STRONG>, however, common jargon uses
+the same term for a special type of modellization technique too.</P>
+
+<H2>Simulated annealing</H2>
+
+<P>A simulated annealing computation consists in simulating the process 
+of heating a molecule up to a given, possibly denaturing temperature and 
+then cooling down to reach again a stable conformation. The reasoning 
+behind is that a structure might lay in a local minimum conformation 
+(i.e. a conformation that partially good but not the optimal one) and 
+by heating we help it exit that configuration and (possibly) find a 
+new, better, more stable one.</P>
+
+<P>This <EM>in silico</EM> experiment is carried on using Molecular Dynamics
+techniques, which relie on a <EM>force field</EM> description of the
+interactions occurring between molecular components to calculate the
+energies and dynamic trajectories of the simulation.
+As such, it requires that you specify a force field to define
+the parameters of the computation.</P>
+
+<H2>Molecular Dynamics</H2>
+
+<P>This simulation may be pictured as taking your molecule and putting 
+it in a bath at the desired temperature for a period of time. This kind
+of simulations may help you picture the dynamic behaviour of your 
+molecule at a given temperature. It will also allow your molecule
+some freedom to explore the conformation space at the desired temperature.
+Selecting a model temperature of 300K (approximately room temperature),
+will hopefully allow us to explore the possible conformation of our
+molecule in its native state.</P>
+
+<P>Like with simulated annealing, we will be using Molecular Dynamics
+methods to run the simulation and we will need to select the parameters
+we use for each interaction modelled, i.e. the <EM>force field</EM> to
+apply.</P>
+
+
+<H2>The force field</H2>
+
+<P>A force field is just a theoretical description of the interactions
+that take place in a molecular environment. It usually assumes the
+form:</P>
+<CENTER><TABLE WIDTH="80%" BORDER="2">
+<TR><TD><CENTER>E<SUB>tot</SUB> = E<SUB>bond</SUB> + E<SUB>angle</SUB> 
++ E<SUB>dihedral</SUB> + E<SUB>non-bond</SUB></TD></TR>
+</TABLE></CENTER>
+
+<P>The total energy of the system is described as the sum of various
+different kinds of interaction energies (bonds, angles, dihedrals and
+non-bonded interactions). Of these, the latter are the most computation
+intensive involving a sum over all atoms of Van der Waals and electrostatic
+interactions.</P>
+
+<P>A number of force fields have been proposed, each differing in the
+values assigned to different parameters and the complexity of the
+interactions computed. These differences are most often oriented to 
+optimize computation for specific kinds of molecules. The force
+fields most commonly used in protein modelling are <STRONG>AMBER</STRONG>
+and <STRONG>CHARMM</STRONG>.</P>
+
+
+<H2>Selecting simulation lengths</H2>
+
+<IMG SRC="images/dragon_fly.gif" ALT="Dragon" WIDTH="112" HEIGHT="75" ALIGN="RIGHT">
+
+<P>Real world processes happen at great speed, normally taking a very
+short time to fold a protein into its native state. However, although
+these times may seem short for us (in the range of microseconds), they 
+are still too long to be simulated in a computer.</P>
+
+<P>A computer simulation will take place in many small steps, usually 
+modelling the molecular behaviour after each <EM>femtosecond</EM>, and
+at a considerable cost in computation time. As a consequence, we can
+usually run the simulation for only a few <EM>picoseconds</EM>, a time 
+that is too short by molecular standards. Attempting to run the
+simulation for longer periods may result in years of computation time.
+<STRONG>Simulated times are too short because they take too long.</STRONG></P>
+
+<TABLE BORDER="0" ALIGN="CENTER">
+<TR><TD>1 second</TD><TD>1000 milliseconds</TD></TR>
+<TR><TD>1 millisecond</TD><TD>1000 microseconds</TD></TR>
+<TR><TD>1 microsecond</TD><TD>1000 nanoseconds</TD></TR>
+<TR><TD>1 nanosecond</TD><TD>1000 picoseconds</TD></TR>
+<TR><TD>1 picosecond</TD><TD>1000 femtoseconds</TD></TR>
+</TABLE>
+
+<P>We <STRONG>must</STRONG> neccessarily use short simulation periods
+(picoseconds), and therefore, we should always bear in mind that these
+are too short for a realistic simulation to take place. However, with a
+bit of luck we will <EM>hopefully</EM> find a structure that is  
+optimal or very close to the real one. But, <STRONG>beware</STRONG>! It may also happen 
+that these cycles take us farther away from the optimal structure we are 
+looking for!</P>
+
+<P><STRONG>That is why we need to iterate the refinement process several 
+times and validate the model after each one</STRONG>: we want to 
+continue improving our model until we feel we are reasonably close enough 
+to the real one. If we instead see that we are getting away (because the
+model quality deteriorates), we should go back to the latest refined
+model and start again (unless every new try deteriorates the model and we
+give up).</P>
+
+<HR>
+
+</BODY>
+
+</HTML>

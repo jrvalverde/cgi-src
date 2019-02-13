@@ -1,0 +1,194 @@
+<HTML>
+<HEAD>
+    <TITLE>Building the initial model</TITLE>
+</HEAD>
+<BODY BGCOLOR="white" BACKGROUND="images/backgrounds/WhiteLeather3.gif">
+
+<IMG SRC="images/crystal_ball-tn.gif" ALT="help" ALIGN="LEFT">
+
+<H1>Building the initial model</H1>
+
+<HR>
+
+<P>When we do not have 3D experimental data for the structure of our
+molecule, we need to build a model from the sequence.</P>
+
+<P>The first step, obviously, is to have a sequence. There are two 
+possibilities here:</P>
+
+<UL>
+    <LI>You have your own sequence (e.g. after sequencing a gene).</LI>
+    
+    <LI>You have modifications to an existing sequence (e.
+    g. you want  to study the effect of mutations).</LI>
+</UL>
+
+<H2>Modifying an existing sequence</H2>
+
+<P>If you are in the second scenario, then you need to "create" or
+"construct" your sequence from an existing one. You  
+don't need sequence editing software, any plain text editor will do.</P>
+
+<P>To edit a sequence with a <STRONG>text editor</STRONG>
+first <EM>convert the sequence to FASTA format</EM>: remove everything 
+but the sequence (all comments, data, numbers,
+etc...) and leave the bare sequence in the file split in various lines,
+then at the top, add a line starting with a &quot;&gt;&quot; sign followed by any
+arbitrary one-word identifier, e.g.:</P>
+
+<CENTER>
+<TABLE WIDTH="80%" BORDER="1">
+<TR><TD><PRE><TT>&gt; mutant01
+VYYRALYPFESRSHDEITIQPGDIVMVDESQTGEPGWLGGELKGKTGWFP
+ANYAEKIP</TT></PRE></TD></TR></TABLE>
+</CENTER>
+
+<P>Make any modifications and save it as <STRONG>Text only with line
+breaks</STRONG> or <STRONG>ASCII text</STRONG> and you are ready to go:
+every existing server will accept the sequence in either FASTA format or
+just the bare sequence (i.e. without the &quot;&gt;title&quot; line).</P>
+
+<P>Now that we have a suitably formatted starting sequence, we can go on
+to build an initial model.</P>
+
+<H2>Building a model from a sequence</H2>
+
+<P>Most methods to get a 3D structure for a novel sequence are based on 
+<STRONG>homology modeling</STRONG>. This method assumes that homologous
+proteins will have similar structures, and works by looking for
+potentially homologous proteins in 3-D databases and using their
+structure as a template for our probe sequence. The same principles
+may be used to model  <EM>protein domains</EM> by <EM>homology
+modelling</EM>.</P>
+
+<P>If we can't find anything in the databases resembling our protein
+or any of its domains, we need to resort to <STRONG>threading 
+technologies</STRONG>; these work by looking for small stretches of
+similarity and trying to reconstruct a probable structure by assembling
+many small pieces that match small sections of known structures.</P>
+
+<P>Furthermore, some servers may add additional refinement
+steps to the initial model they propose to make it hopefully
+better.</P>
+
+<H3>Which server to use?</H3>
+
+<P>As a general rule, it is usually better to start with homology
+models, and if we can not find any protein similar enough, then
+move on to threading servers.</P>
+
+<P>Pay a visit to all them. Read about the methods they use, and
+see which one sounds more convincing to you. Start with it.</P>
+
+<P>Alternately, you may find it useful to visit <STRONG>EVA</STRONG>. 
+EVA continously 
+and automatically analyses protein structure prediction servers in <EM>real 
+time</EM>, providing statistics comparing their performance and results.
+It is an interesting exercise to look at EVA charts and see how well
+each of the most popular/recent servers has been doing lately. Not only
+is it interesting, it may help you decide in case of doubt which server
+yields better predictions.</P>
+
+
+<H2>Interpreting the results</H2>
+
+<P>Some of the servers will send you back an initial model for your
+protein by e-mail together with details about the construction process.
+Other servers will produce a WWW page with one or more temptative
+models and details about the templates used and the process.</P>
+
+<P>Of all this data, the first point to note is the similarity 
+degree between your sequence and the templates used to build the
+temptative model.</P>
+
+<P><STRONG>Remember to save the model</STRONG> you got to a local
+file. This will usually be in PDB format and we will need it for
+further work and analysis. If you got it by e-mail, save the message
+contents (without mail headers) and if you got a WWW link, save the
+link contents.</P>
+
+<H3>Assessing the similarity degree</H3>
+
+<IMG SRC="images/dragon_fly.gif" ALT="Dragon" WIDTH="112" HEIGHT="75" ALIGN="RIGHT">
+
+<P>Obviously, the more similar our sequence is to that of the template
+proteins or domains, the more similar their structures should be, and the 
+better the prediction. Conversely, the more different the templates 
+are from our protein, the less accurate the prediction should be.</P> 
+
+<P>We must answer first: &quot;<EM>How similar is our sequence to the 
+chosen templates?</EM>&quot; As a general rule, homology methods work 
+reasonably well for proteins with similarity above 40%, and are unreliable 
+below 30% similarity levels. In addition loop regions are specially
+difficult to model, and we should look at them suspiciously.</P>
+
+<P>If you used a homology server, and found only proteins with very low
+similarity, then you should consider <STRONG>building a new model</STRONG> 
+using a <STRONG>threading</STRONG> server.</P>
+
+<P>Once you have a model that looks promising, it is time to move on
+in the analysis.</P>
+
+<H3>Verifying model correctness</H3>
+
+<P>We are now faced with a phylosophic decision: should we procceed
+with the modeling process or just stop here?.</P>
+
+<P>Before answering going on, we need to consider that any further steps
+will rely heavily on current theories and many shortcuts. It <EM>might</EM>
+happen that these extra steps worsen the model instead of enhancing
+it.</P>
+
+<P>The options we face are:</P>
+<UL>
+  <LI>if we had a very high degree of similarity,
+chances are that further refinement <EM>might</EM> reduce the quality
+of the model</LI>
+  <LI>if we had low similarity, the initial model is a rough sketch,
+  and will <EM>probably</EM> benefit from refining</LI>
+  <LI>in between lies a gray area that requires either experience or
+  some degree of <EM>in silico</EM> experimentation</LI>
+</UL>
+
+<P>In any case, you don't lose anything by trying extra refinement
+steps and checking if the "refined" models get any better.</P>
+
+<P>We should <STRONG>never</STRONG> produce models blindly and select 
+one because it took more work; our decision must be founded on the
+quality of the model and its fitness to experimental knowledge.</P>
+
+<H3>Going forward</H3>
+
+<P>The careful reader will have noticed one minor detail:
+in the end we'll have to compare various models and decide which of
+them is better, possibly discarding later models. We could save a
+lot of work if we knew when to stop.</P>
+
+<P>To know when to stop we must <STRONG>validate</STRONG> the model.
+This implies running a number of tests to get some 
+<EM>statistical</EM> confidence, <STRONG>AND</STRONG> most importantly,
+verifying that it satisfies the experimental, functional
+and associated knowledge we learned in the previous step.</P>
+
+<P>We now face two possibilities:</P>
+<UL>
+    <LI>Save this model and <A HREF="validation.html">procceed</A> 
+    to obtain a refined model, 
+    leaving validation for later, when we can compare them.</LI>
+
+    <LI><A HREF="validation.html">Validate</A> the initial model now 
+    and, if we feel satisfied
+    with it as is, stop the modelling process.</LI>
+</UL>
+
+<P>Initially it is better to obtain further refined models and compare
+them. Later, as we get used to modelling and get &quot;the hang&quot; of
+it, we may save a lot of work by running an initial validation and
+deciding by ourselves to continue or not.</P>
+
+
+<HR>
+
+</BODY>
+
+</HTML>

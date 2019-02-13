@@ -1,0 +1,65 @@
+#!/usr/local/bin/perl
+
+print "Content-type: text/html\n\n";
+print "<HEAD>\n<TITLE>Contacting people at this server</TITLE>\n";
+print "</HEAD>\n<BODY BGCOLOR=\"white\" BACKGROUND=\"/images/backgrounds/marble2back.gif\">\n";
+
+print "<CENTER><H1>Contacting people at this server</H1>\n";
+print "<BR>\n<H2>Click on any name to send mail to that person</H2></CENTER>\n<BR>\n";
+
+print "<P><FONT COLOR=\"Red\"><B>TIP:<FONT COLOR=\"DarkBlue\"> to find people faster go to your\n";
+print "navigator</FONT> <FONT COLOR=\"Black\">Edit</FONT> <FONT COLOR=\"DarkBlue\">\n";
+print "menu and choose the </GONT><FONT COLOR=\"Black\">Find in Page</FONT>:<FONT COLOR=\"DarkBlue\"> option,\n";
+print "fill in the name and click on the </FONT><FONT COLOR=\"Black\">Find</FONT> <FONT COLOR=\"DarkBlue\">Button</FONT></B></P>\n<BR>\n";
+
+print "<CENTER><TABLE WIDTH=\"75%\" BORDER=\"2\" BGCOLOR=\"#eeeeee\">\n";
+
+# Create the database file
+open (DB, "|sort -t: -k3 > /data/www/common/webmail/webmail.db");
+print DB "#\n";
+print DB "# Users of web mail form.\n";
+print DB "# Uname    Show web?     Real name\n";
+print DB "#-------- --------- ------------------------------------------------\n";
+
+print DB "direction:	N:	 Direction \n";
+print DB "info: 	N:	 General Information Requests \n";
+print DB "webmaster:	N:	 Web Master \n";
+print DB "support:	N:	 User support \n";
+
+open (PASSWD, "</etc/passwd");
+while (<PASSWD>) {
+   next if /^#/;
+   @fields = split(":", $_);
+   $uname = $fields[0];
+   $gid = $fields[3];
+   # filter out system users
+   next if ( $gid < 100 );
+   
+   @gecos = split(",", $fields[4]);
+   $realname = $gecos[0];
+   print DB "$uname:";
+   print DB "	" unless length "$uname:" > 7;
+   print DB "	N:	$realname\n";
+}
+close PASSWD;
+close DB;
+
+# Read the database file
+#
+open (DB, "</data/www/common/webmail/webmail.db");
+while (<DB>) {
+    next if /^#/;
+    @fields = split(":", $_);
+    $realname = @fields[2];
+    $realname =~ s/\n//g;
+    $realname =~ s/\t//g;
+    $formname = $realname;
+    $formname =~ tr/ /+/;
+    $realname =~ s/^\ /<BIG><CENTER>/g;
+    $realname =~ s/\ $/<\/CENTER><\/BIG>/g;
+    print "<TR><TD><A HREF=\"/cgi-bin/emailto?$formname\">$realname</A></TD></TR>\n";
+}
+close DB;
+
+print "</TABLE></CENTER>\n</BODY>\n</HTML>\n";
+exit;

@@ -1,0 +1,105 @@
+#!/bin/sh
+
+cd /data/www/EMBnet/Members
+#rm -f index.html
+
+tmpfile='/tmp/netadmin.members'
+rm -f $tmpfile
+
+# Print header part 1
+cat > $tmpfile << ENDHEADER1
+<HTML>
+<HEAD>
+    <TITLE>EMBnet/CNB member pages</TITLE>
+</HEAD>
+<BODY BGCOLOR="white" BACKGROUND="/images/backgrounds/EMBnetCNB.gif">
+<CENTER>
+ENDHEADER1
+
+# Change logo according to season:
+#   A season is assumed to last 1/4 year = 365/4 = 91.25 days
+#   spring  	> 81
+#   summer  	> 172
+#   fall    	> 263
+#   winter  	> 355
+day=`date +%j`
+
+if [ $day  -ge 355 ] ; then 
+cat >> $tmpfile << ENDWINTER
+    <IMG SRC="/images/logos/EMBnetCNB/logo-frosty-tx.gif" ALT="EMBnet/CNB" WIDTH="95%">
+ENDWINTER
+elif [ $day -ge 263 ] ; then
+cat >> $tmpfile << ENDFALL
+    <IMG SRC="/images/logos/EMBnetCNB/logo-sspace.gif" ALT="EMBnet/CNB" WIDTH="95%">
+ENDFALL
+elif [ $day -ge 172 ] ; then 
+cat >> $tmpfile << ENDSUMMER
+    <IMG SRC="/images/logos/EMBnetCNB/logo-coolm-tx.gif" ALT="EMBnet/CNB" WIDTH="95%">
+ENDSUMMER
+elif [ $day -ge 172 ] ; then 
+cat >> $tmpfile << ENDSPRING
+    <IMG SRC="/images/logos/EMBnetCNB/logo-sburst-tx.gif" ALT="EMBnet/CNB" WIDTH="95%">
+ENDSPRING
+else
+cat >> $tmpfile << ENDWINTER2
+    <IMG SRC="/images/logos/EMBnetCNB/logo-frosty-tx.gif" ALT="EMBnet/CNB" WIDTH="95%">
+ENDWINTER2
+fi
+
+# Continue header
+cat >> $tmpfile << ENDHEADER2
+<BR>
+<H1>Welcome to our Member Pages</H1>
+</CENTER>
+
+<TABLE BORDER="3">
+<TR><TD BGCOLOR="lightpink">We provide hosting of web pages for all EMBnet/CNB 
+members. This service encompasses both, <EM>private user pages</EM> and 
+<EM>common group pages</EM>.</TD></TR>
+
+<TR><TD BGCOLOR="lightyellow">No illegal, commercial or advertising activity 
+is to be allowed</TD></TR>
+
+<TR><TD BGCOLOR="lightpink">Users are ultimately resposible for the contents 
+of their pages.</TD></TR>
+
+<TR><TD BGCOLOR="lightyellow">Institutional or official web pages from groups 
+belonging to CSIC must comply with <A HREF="http://www.csic.es/normaweb/">
+CSIC rules</A>.</TD></TR>
+</TABLE>
+
+<BIG>
+<P>These are all member pages currently available at our host.</P>
+
+<UL>
+ENDHEADER2
+
+# Print list of available pages
+ls -1 | \
+    while read line ; do
+    	name=`echo $line | tr "_" " \ "`
+    	echo "    <LI><A HREF=\"/Members/$line\">$name</A></LI>" >> $tmpfile
+    
+    done
+
+# end the page
+cat >> $tmpfile << ENDFOOTER
+</UL>
+</BIG>
+<HR>
+
+<A HREF="news.html"><IMG SRC="/images/arrows/left.gif" ALT="[PREVIOUS]"></A>
+<A HREF="index.html" TARGET="_top"><IMG SRC="/images/arrows/up.gif" ALT="[BACK]"></A>
+<A HREF="user_support.html"><IMG SRC="/images/arrows/right.gif" ALT="[NEXT]"></A>
+
+</BODY>
+<HR>
+
+<A HREF="mailto:webmaster@www.es.embnet.org">webmaster@www.es.embnet.org</A>
+<P><STRONG><A HREF="/Copyright-CSIC.html">&copy; EMBnet/CNB.</A></STRONG></P> 
+
+</HTML>
+
+ENDFOOTER
+
+#mv $tmpfile /data/www/EMBnet/Members/index.html

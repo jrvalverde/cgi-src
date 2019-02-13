@@ -1,0 +1,162 @@
+#!/usr/local/bin/perl -- -*-perl-*-
+
+# ------------------------------------------------------------
+# Form-mail.pl, by Reuven M. Lerner (reuven@the-tech.mit.edu).
+#
+# Last updated: March 14, 1994
+#
+# Form-mail provides a mechanism by which users of a World-
+# Wide Web browser may submit comments to the webmasters
+# (or anyone else) at a site.  It should be compatible with
+# any CGI-compatible HTTP server.
+# 
+# Please read the README file that came with this distribution
+# for further details.
+# ------------------------------------------------------------
+
+# ------------------------------------------------------------
+# This package is Copyright 1994 by The Tech. 
+
+# Form-mail is free software; you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by the
+# Free Software Foundation; either version 2, or (at your option) any
+# later version.
+
+# Form-mail is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with Form-mail; see the file COPYING.  If not, write to the Free
+# Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
+# ------------------------------------------------------------
+
+# Define fairly-constants
+
+# This should match the mail program on your system.
+$mailprog = '/usr/lib/sendmail';
+
+#This should be the name of the "username:Actual User Name" database
+$userfile = '/data/www/EMBnet/Security/webmail';
+
+# This should be set as default to the username or alias that runs your
+# WWW server.
+$recipient = 'netadmin@es.embnet.org';
+
+# Print out a content-type for HTTP/1.0 compatibility
+print "Content-type: text/html\n\n";
+
+# Print a title and initial heading
+print "<Head><Title>Thank you</Title></Head>";
+print "<Body><H1>Thank you</H1>";
+
+# Get the input
+read(STDIN, $buffer, $ENV{'CONTENT_LENGTH'});
+
+# Split the name-value pairs
+@pairs = split(/&/, $buffer);
+
+foreach $pair (@pairs)
+{
+    ($name, $value) = split(/=/, $pair);
+
+    # Un-Webify plus signs and %-encoding
+    $value =~ tr/+/ /;
+    $value =~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg;
+
+    # Stop people from using subshells to execute commands
+    # Not a big deal when using sendmail, but very important
+    # when using UCB mail (aka mailx).
+    # $value =~ s/~!/ ~!/g; 
+
+    # Uncomment for debugging purposes
+    # print "Setting $name to $value<P>";
+
+    $FORM{$name} = $value;
+}
+#$recipient = $FORM{'recipient'} if $FORM{'recipient'};
+
+$recipientname = $FORM{'recipientname'} if $FORM{'recipientname'};
+#print "<P>Sending mail to $recipientname</P>\n";
+
+# If the fields are blank, then give a "blank form" response
+&badaddress unless $FORM{'username'};
+&badaddress unless $FORM{'username'} =~ /.*@.*\..*/;
+$remotehost = $FORM{'username'};
+$remotehost =~ s/.*@//g;
+#print "host: $remotehost<BR>\n";
+#$host = gethostbyname($remotehost)[0];
+#foreach my $item (gethostbyname($remotehost)) {
+#    print "$item<BR>\n";
+#}
+&badaddress unless gethostbyname($remotehost);
+&blank_response unless $FORM{'realname'};
+&blank_response unless $FORM{'comments'};
+
+# Now send mail to $recipient
+
+#open (DB, "</etc/passwd");
+open (DB, $userfile);
+while (<DB>) {
+   next if /^#/;
+   next  unless $_ =~ /$recipientname/;
+#   print "<P>$_</P>\n";
+   @fields = split(":", $_);
+   $uname = $fields[0];
+   $showweb = $fields[1];
+   last;
+}
+#print "<P>Sending mail to</P>\n";
+#print "<P>$recipientname</P>\n";
+&baduser unless $uname;
+
+$recipient = "$uname\@es.embnet.org";
+#print "<P>$recipient</P>\n";
+#exit;
+
+open (MAIL, "|$mailprog $recipient") || die "Can\'t open $mailprog!\n";
+print MAIL "Reply-to: $FORM{'username'} ($FORM{'realname'})\n";
+print MAIL "Subject: WWW comments (Forms submission)\n\n" unless $FORM{'subject'};
+print MAIL "Subject: WWW mail: $FORM{'subject'}\n\n" if $FORM{'subject'};
+print MAIL "A message has been received for $recipientname through the WWW:\n\n";
+print MAIL "$FORM{'username'} ($FORM{'realname'}) sent the following message\n";
+print MAIL "about \"$FORM{'subject'}\"\n" if $FORM{'subject'};
+print MAIL  "------------------------------------------------------------\n";
+print MAIL "$FORM{'comments'}";
+print MAIL "\n------------------------------------------------------------\n";
+#print MAIL "Server protocol: $ENV{'SERVER_PROTOCOL'}\n";
+#print MAIL "Remote host: $ENV{'REMOTE_HOST'}\n";
+#print MAIL "Remote IP address: $ENV{'REMOTE_ADDR'}\n";
+close (MAIL);
+
+# Make the person feel good for writing to us
+print "<H2>Your message has been delivered to $recipientname</H2>";
+
+print "<H3>You may visit $recipientname\'s <A HREF=\"/~$uname/\">home page</A>, if you want.</H3>"
+if $showweb =~ /Y/;
+# ------------------------------------------------------------
+# subroutine blank_response
+sub blank_response
+{
+    print "<H2>Some fields appear to be blank or incorrect, and thus your\n";
+    print "message has <B>not</B> been sent ";
+    print "to $recipientname.  Please re-enter your data.</H2>";
+    exit;
+}
+
+sub baduser
+{
+    print "<H2>Sorry, you message to $recipientname could not be\n";
+    print "delivered: there\'s nobody with that name on this server</H2>\n";
+    exit;
+}
+
+sub badaddress
+{
+    print "<H2>Sorry, your message to $recipientname cold not be\n";
+    print "delivered: your address seems to be incorrect. Please, review\n";
+    print "your address or contact your system administrator\n";
+    print "and try again</H2>\n";
+    exit;
+}

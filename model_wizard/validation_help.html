@@ -1,0 +1,74 @@
+<HTML>
+<HEAD>
+    <TITLE>Validation</TITLE>
+</HEAD>
+<BODY BGCOLOR="white" BACKGROUND="images/backgrounds/WhiteLeather3.gif">
+
+<IMG SRC="images/crystal_ball-tn.gif" ALT="help" ALIGN="LEFT">
+
+<H1>Validating your model</H1>
+
+<HR>
+
+<P>After each refinement step, it is convenient to validate the
+quality of our model. This <STRONG>cannot faithfully be done</STRONG>!.</P>
+
+<P>What we mean by the above statement is that the only faithful
+validation test is a comparison of our model to the reality, and
+since we don't know the real one, we can hardly do that.</P>
+
+<P>However, we <STRONG>can</STRONG> compare our model against a set
+of rules that are usually followed by most proteins. Experience does
+tell us that <EM>in general</EM> proteins tend to follow a series
+of rules when folding. It is these rules that we can check.</P>
+
+<P>Note that we will compare our model against <EM>rules</EM>. As
+the saying goes, <EM>rules are meant to be broken</EM>! This is to
+say, while most proteins will follow the rules in most instances,
+there are occasions when some may not. After all, these rules are
+derived by finding the "mean" behaviour of residues, bonds and atoms
+in proteins, and they are only "average standards", not stone-clad
+laws.</P>
+
+<P>So, what can we do with this? Well, first, run the validation
+tests and see what comes out. This will tell you how your model
+complies with "standard average" behaviour.</P>
+
+<P>If there are gross deviations from standard behaviour, it most
+probably means that your model needs further refinement. Otherwise,
+you need to look at them closely to see if these deviations do
+actually make sense in the context of your protein.</P>
+
+<P>Easy, isn't it? It all reduces to running the checks and deciding 
+if each deviation seen can be explained by the special properties of
+our protein. But, what are these special properties? And, foremost,
+how do they reflect in the structure?</P>
+
+<P>If you are an expert, it should be obvious, but if you aren't, 
+there's a simple trick that will tell you fast and easy which deviations
+may be "normal" or accpetable for your protein: all that is required is
+that you run the same validation suite against one or more proteins of
+the same family as yours taken from PDB. Since these proteins are
+actual, real-world, wild-type native proteins, any deviations from the
+standard behaviour they display must be "normal" for the family, and
+if they appear in your model too, they may be considered as "normal"
+as well and you may discard them safely.</P>
+
+<IMG SRC="images/dragon_fly.gif" ALT="Dragon" WIDTH="112" HEIGHT="75" ALIGN="LEFT">
+
+<P>Beware: it <EM>might be</EM> that your protein is the exception to the
+rules of the family, and some caution must be exercised when considering
+the relevance of deviations. Moreover, your protein <EM>might have</EM>
+special characteristics that substantially make it differ from the
+family standards. Here it is where the knowledge you gained by reviewing
+the literature and experimental data will be most useful for you as a
+help in decision making.</P>
+
+<P>If you didn't review the literature, please, do so now to ensure you are
+correctly validating your protein.</P>
+
+<HR>
+
+</BODY>
+
+</HTML>

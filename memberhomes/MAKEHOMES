@@ -1,0 +1,26 @@
+#!/bin/csh
+unset -e
+
+foreach i ( /u/* )
+#    echo $i
+    cd $i
+    foreach j ( * )
+    	if ( -d $i/$j/public_html ) then
+	    cd $i/$j/public_html
+	    if ( -f index.html ) then
+	    	# echo $i/$j/public_html/index.html
+		diff -q $i/$j/public_html/index.html \
+		    /usr/local/etc/skel/public_html/index.html >& /dev/null
+		if ( $status == 1 ) then
+#		    echo "$i/$j/public_html/index.html"
+		    set user=`grep "^$j\:" /etc/passwd | cut -d: -f5 | cut -d, -f1`
+		    set user=`echo $user | sed -e 's/ /_/g'`
+		    set user=`echo $user | tr "ÁÉÍÓÚáéíóúÑñ-" "AEIOUaeiouNn_"`
+		    set user=`echo $user | tr -d "\(\)\." `
+		    echo "Creating link for $i/$j/public_html to /data/www/EMBnet/Members/$user"
+		    ln -s $i/$j/public_html /data/www/EMBnet/Members/$user
+		endif
+	    endif
+	endif
+    end
+end

@@ -1,0 +1,90 @@
+#-------------------------------------------------------------
+#   This is free software released under the GNU General Public
+# License with NO GUARANTEES OF ANY KIND WHATSOEVER.
+#   VERIFY IT CAREFULLY BEFORE ATTEMPTING ANY USE.
+#   RUN AT YOUR OWN RISK.
+#-------------------------------------------------------------
+
+
+  	mailn CGI is based on a previous mail interface written
+   by Benny Shomer at the EBI, and Reuven M. Lerner from The Tech.
+
+    	The scripts have been expanded and modified by José R. Valverde
+   at EMBnet/CNB to be made more generic and complete.
+   
+    These files have gone a long way and undergone many modifications.
+    I don't have access to the original files any longer (sorry).
+
+
+These CGIs implement a system-wide mail interface that avoid use of
+actual e-mail addresses in web pages, hence effectively hidden real
+email addresses and usernames from the outside world.
+
+It exposes part of the GECOS field though, i.e. the actual person's
+name, but since it is intended to be used in public institutions where
+this data is already mandatorily free, that's not too bad.
+
+In any case, you can always choose not to run the automated database
+building script and create it by hand, in which case you select yourself
+which information is actually disclosed in web pages. A sample database
+file I use here is included.
+
+To install it, simply edit the makefile, change paths and defaults to
+suit your local setup and then
+
+    make all
+    make install
+    
+If you decide to remove it later, you can always run
+
+    make uninstall
+    
+This will install the base scripts. You can then refer to any user in
+a web page by using his/her long name in the database file (substituting
+spaces by plus signs).
+
+    <A HREF="/cgi-bin/emailto?Network+Administrator">Webmaster</A>
+
+
+A couple of additional sample scripts are provided. These are intended
+to be called as if they were HTML web pages. When called, they build
+a web page listing all people in the database and providing links to
+mail them.
+
+There are two of these, a short version which relies on an existing
+database (e.g. if you keep a customized one or update it by special means 
+like a cron job), and a long one which rebuilds the database first and then
+makes the web page (if you just use the password file as source for
+user addresses). They are
+
+    contactus.short.pl
+    contactus.html
+
+We have a page listing the staff here, and from this we make a link to
+one of these scripts to provide a suitable mail interface for reaching
+our users without giving any info away to spammers. The long one which
+remakes the database every time before computing the web page ensures
+that clients always get an up-to-date listing of e-mail contacts.
+
+There is no provision for searching for a user. That's IMHO unneeded
+since all a user needs to do is use his browser "find in page" functionality
+to achieve the same results.
+
+If you decide to use any of them, review it first, specially the long one,
+where you may want to add more exclusion clauses to reduce the addresses
+exposed below
+    	# filter out system users
+    	next if ( $gid < 100 );
+
+then copy it to your cgi-bin directory and call it as if it were a web page.
+
+And REMEMBER
+
+    THERE ARE NO GUARANTEES.
+    
+    If you want to feel reassured, read the source.
+    If you find any bug, I'd appreciate hearing of it.
+    
+    	    	    jrvalverde@es.embnet.org
+
+

@@ -1,0 +1,124 @@
+<HTML>
+<HEAD>
+    <TITLE>Optimization</TITLE>
+</HEAD>
+<BODY BGCOLOR="white" BACKGROUND="images/backgrounds/WhiteLeather3.gif">
+
+<IMG SRC="images/crystal_ball-tn.gif" ALT="help" ALIGN="LEFT">
+
+<H1>Optimizing your model</H1>
+
+<HR>
+
+<P>When working with a model, we are likely to have a starting 
+configuration which is far from the actual structure, as seen from
+the high energy associated to the conformation. There will probably
+be many non-optimal contacts, deviations of bond-lengths and
+angles, etc...</P>
+
+<P>In general, the more stable a structure is, the lower its
+energy, and therefore, we will normally be looking for the lowest
+energy configuration of a molecule -the most stable structure- as
+the most probable to happen in real life.</P>
+
+<P> At this stage we are interested in first changing the structure with
+as little modifications to the starting framework as possible, later on we'll
+release the constrains and allow further relaxation of the structure.
+It is the initial refinement which we are going to do now.</P>
+
+<P>The most commonly used approach to reduce the energy of the
+system is to look for the optimum value of atomic coordinates
+that minimizes the interactions and forces of the model. These
+interactions and forces are usually described as a <STRONG>force
+field</STRONG>.</P>
+
+<H2>The force field</H2>
+
+<P>A force field is just a theoretical description of the interactions
+that take place in a molecular environment. It usually assumes the
+form:</P>
+<CENTER><TABLE WIDTH="80%" BORDER="2">
+<TR><TD><CENTER>E<SUB>tot</SUB> = E<SUB>bond</SUB> + E<SUB>angle</SUB> 
++ E<SUB>dihedral</SUB> + E<SUB>non-bond</SUB></TD></TR>
+</TABLE></CENTER>
+
+<P>The total energy of the system is described as the sum of various
+different kinds of interaction energies (bonds, angles, dihedrals and
+non-bonded interactions). Of these, the latter are the most computation
+intensive involving a sum over all atoms of Van der Waals and electrostatic
+interactions.</P>
+
+<P>A number of force fields have been proposed, each differing in the
+values assigned to different parameters and the complexity of the
+interactions computed. These differences are most often oriented to 
+optimize computation for specific kinds of molecules. The force
+fields most commonly used in protein modelling are <STRONG>AMBER</STRONG>
+and <STRONG>CHARMM</STRONG>.</P>
+
+<H2>Optimizing for a force field</H2>
+
+<P>Most optimization programs are based on <EM>Newton-Raphson methods</EM>, 
+which require information on the first and second derivatives of the energy
+surface. Storage of the Hessian (second derivative) data requires additional
+memory and implies that for more than about 100 atoms, the calculation
+will proceed slowly.</P>
+
+<P>Other methods do exist which work much faster like the <EM>steepest
+descent</EM> or <EM>gradient downhill</EM>: these assume the Hessian
+to be a constant and thus are driven by force gradients. They require
+less storage and work faster for high differences in energy. However,
+close to a minimum differences may be small while the forces are still
+large, and the method may jump between the sides of the minimum taking 
+many steps to converge.</P>
+
+<H2>Choosing a method</H2>
+
+<P>As a general rule then, whenever one is working with a model that
+may be far from the minimum, a quick method like <EM>steepest descent</EM>
+is preferrable to jump faster towards the minimum. Then as we get closer,
+the method will become slower and a switch to a different method is
+advised.</P>
+
+<P>Once we have a structure with low energy that we expect to be near the 
+minimum, the best choice are accurate methods like <EM>Newton-Raphson</EM>
+or <EM>conjugate gradients</EM>. These may lead to catastrophic results
+when applied to poor structrues, but work great closer to the minimum.</P>
+
+<P>On the main page we have a choice of methods:
+<UL>
+  <LI>If we are working with
+an structure that is already close to the minimum (e.g. it is a point
+mutation of a well known structure) then an accurate method should be
+chosen.</LI>
+  <LI>However, if we have a less accurate model, then we will go faster
+  by 
+  <OL>
+    <LI>selecting a quick method to get closer to the minimum and then</LI>
+    <LI>re-submitting our estructure again to an accurate method for fine
+    tuning.</LI>
+  </OL></LI>
+</UL>
+
+<H2>Procceed with the refinement</H2>
+
+<P>Again, before proceeding we may validate the correctness of the
+optimized model we just obtained to decide if we stop here or we may
+leave it for later when we have other refined models to compare.</P>
+
+<P>It is nevertheless a good idea to have a look at the model and how
+the refinement process is going. It may give us an idea of how are we
+doing and at the same time, get us used to the usage and interpretation of
+validation systems.</P>
+
+<P>The next step is to release as many constrains as possible on the
+structure to reduce chances of any bias. Since we are interested in preserving
+packing of the protein's core, it is better to use methods which try
+to avoid traps in local potential energy minima, such as those based
+in Molecular Dynamics.</P>
+
+
+<HR>
+
+</BODY>
+
+</HTML>

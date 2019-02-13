@@ -1,0 +1,28 @@
+#!/usr/local/bin/perl
+
+print "Content-type: text/html\n\n";
+print "<HEAD>\n<TITLE>Contacting people at our server</TITLE>\n";
+print "</HEAD>\n<BODY BGCOLOR=\"white\">\n";
+
+print "<H1>Contacting people in this server</H1>\n";
+print "<BR>\n<H2>Click on any name to send mail to that person</H2>\n<BR>\n";
+
+print "<CENTER><TABLE BORDER=\"2\">\n";
+
+open (DB, "</data/www/EMBnet/Security/webmail.db");
+while (<DB>) {
+    next if /^#/;
+    @fields = split(":", $_);
+    $realname = @fields[2];
+    $realname =~ s/\n//g;
+    $realname =~ s/\t//g;
+    $formname = $realname;
+    $formname =~ tr/ /+/;
+    $realname =~ s/^\ /<BIG><CENTER>/g;
+    $realname =~ s/\ $/<\/CENTER><\/BIG>/g;
+    print "<TR><TD><A HREF=\"/cgi-bin/emailto?$formname\">$realname</A></TD></TR>\n";
+}
+close DB;
+
+print "</TABLE></CENTER>\n</BODY>\n</HTML>\n";
+exit;
