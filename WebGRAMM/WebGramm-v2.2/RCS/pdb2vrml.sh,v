@@ -1,0 +1,32 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2003.05.07.07.58.37;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@script to convert from pdb to vrml
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#!/bin/sh
+
+pdb2vrml='/opt/structure/bin/pdb2vrml'
+
+echo "Content-type: text/vrml"
+echo ""
+
+cat $1 | $pdb2vrml -pdb - -
+@
