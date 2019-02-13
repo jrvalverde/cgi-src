@@ -1,0 +1,36 @@
+use mysql;
+delete from user where User="rbdb";
+drop database rbdb;
+create database rbdb;
+use rbdb;
+create table mut_nt (
+    location 	varchar(255),
+    genomic 	varchar(255),
+    cdna    	varchar(255),
+    protein 	varchar(255),
+    consequence varchar(255),
+    type    	varchar(255),
+    origin  	varchar(255) default "n.r.",
+    sample  	varchar(255),
+    phenotype  	varchar(255) default "n.r.",
+    sex     	enum('M', 'F'),
+    aged_mo 	int,
+    country 	varchar(255),
+    reference   varchar(255),
+    pm_id    	varchar(255),
+    patient_id  varchar(255) default "n.r.",
+    l_db    	enum('Yes', 'No') default "No",
+    remarks     text,
+    rbdb_accc   int not null auto_increment primary key
+    );
+load data infile '/data/www/EMBnet/cgi-src/rbdb/data/RBGMDB.tab' into table mut_nt 
+#    fields terminated by '\t' 
+#    lines terminated by '\n'
+    ignore 1 lines;
+grant select, insert, delete, update, drop, create on rbdb.* to rbdb@localhost identified by 'password';
+grant select, insert, delete, update, drop, create on rbdb.* to rbdb@ahriman.cnb.uam.es identified by 'password';
+grant select, insert, delete, update, drop, create on rbdb.* to rbdb@volva.cnb.uam.es identified by 'password';
+grant select, insert, delete, update, drop, create on rbdb.* to rbdb@eris.cnb.uam.es identified by 'password';
+grant select, insert, delete, update, drop, create on rbdb.* to rbdb@nemesis.cnb.uam.es identified by 'password';
+grant select, insert, delete, update, drop, create on rbdb.* to rbdb@'bossa-nova.cnb.uam.es' identified by 'password';
+flush privileges;

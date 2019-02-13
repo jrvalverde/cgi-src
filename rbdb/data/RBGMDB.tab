@@ -1,0 +1,935 @@
+Location	Genomic	CDNA	Protein	Consequence	Type	Origin	Sample	Pheno	Sex	Age (m)	Country	Reference	PMID	Patient_ ID	L-DB	Remarks	
+Promoter	1848G>A	(-212G>A)	Promoter	Regulation	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.			
+Promoter	1854del18	(-205del18	SP1-recognition	Regulation	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.			
+Promoter	1862G>A	(-198G>A)	SP1-recognition	Regulation	PM	Germline	PB	LP			United States	Sakai et al., 1991	1881452		Yes		
+Promoter	1862G>A	(1-98G>A)	SP1-recognition	Regulation	PM	Germline	PB	U	M	15	Poland	Zajaczek et al., 1999	10673998	Case 3	Yes		
+Promoter	1871G>T	(-188G>T	ATF-recognition	Regulation	PM	Germline	PB	LP			United States	Sakai et al., 1991	1881452		Yes		
+Promoter	1871G>T 	(-188G>T	ATF-recognition 	Regulation	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.			
+Promoter	1910G>C	(-149G>C)	SP1-recognition	Regulation	PM	Germline	PB	LP			United Kindom	Cowell et al., 1996	8570221		Yes		
+E01	2100C>T	41C>T	A14V	MS	PM	Germline	PB	U			United Kindom	Hogg et al., 1992	1352398	GOS19			
+E01	2072insC	13insC	P7fsX30	FS	IN	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.			
+E01	2083del32	24del32	P10fsX19	FS	DE	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.			
+E01	2104ins23	45ins23	72X	FS	IN	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.			
+E01	2118C>T	59C>T	P20L	MS	PM	Germline	PB	U		5	France	Houdayer et al, 2004	14722923	n.r.			
+E01	2118C>T	59C>T	P20L	MS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.			
+E01	2121delC	62delC	R21fsX64	FS	DE	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		Nomenclature revised (c. 58delC in the article)	
+E01	2125dup.2102_2124	66dup23	L23fsX72	FS	DU	Germline	PB	BF			Spain	Najera et al. 2001	11333669	fRB35			
+E01	2144insT	83insT	S29fsX30	FS	IN	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E01	2147G>T	88G>T	E30X	NS	PM	Germline	PB	B			United Kindom	Cowell et al., 1994	7704558	TS8	Yes	
+E01	2157G>T	88G>T	E30X	NS	PM	Somatic	retino	U			Russia	Babenko et al., 2003	12173465	n.r		
+E01	2168del8	109del8	R37fsX45	FS	DE	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E01	2168insG	109insG	R37fsX48	FS	IN	Germline	PB	B			France	Houdayer et al, 2004	14722923	n.r.		
+E01	2187insC	128insC	s44sX48	FS	IN	Germline	PB	B			France	Houdayer et al, 2004	14722923	n.r.		
+I01	5422A>G	138-2A>G	splice	SP	PM	Germline	PB	BF			France	Houdayer et al, 2004	14722923	n.r.		
+I01	5423G>A	138-1G>A	splice	SP	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E02	5440delA	154delA	Q52fsX65	FS	DE	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		Nomenclature revised (c.152delA in the article)
+E02	5446G>T	160G>T	E54X	NS	PM	Germline	PB	B	F	24	China	Choy et al., 2002	12402348	Yu24		recurrence, osteosarcoma
+E02	5446G>T	160G>T	E54X	NS	PM	Somatic	retino	B			China	Choy et al., 2002	12402348	Yu38		
+E02	5465T>G/A	179T>G/A	L64X	NS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E02	5470C>T	184C>T	Q62X	NS	PM	Somatic	retino	U		17	Germany	Lohmann et al., 1997	9311732	M3297	Yes	
+E02	5480insA	194insA	N66fs109X	FS	IN	Germline	PB	B		12	Germany	Lohmann et al., 1994	7881418	G431	Yes	
+E02	5481delGA	195delGA	N65fsX108	FS	DE	Germline	PB	U			France	Blanquet et al., 1993	8364580	BOD	Yes	
+E02	5483insA	197insA	T67fsX109	FS	IN	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E02	5489delA	203delA	V68fsX76	FS	DE	Germline	PB	B			Germany	Yilmaz et al., 1998	10671068	M4440	Yes
+E02	5493insT	207insT	C70fsX109	FS	IN	Germline	PB	B	F	1	Spain	Alonso et al., 2004	15605413	0773	
+E02	5495delTC	209delTC	E70fsX108	FS	DE	Germline	PB	B			United States	Liu et al., 1995	8605116	TS102	Yes
+E02	5496insG	210insG	E71fs109X	FS	IN	Somatic	retino	U			Japan	Shimizu et al., 1994	8178820	RB202	Yes
+E02	5502delGAGAG	216del5	D72fsX107	FS	DE	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.	
+E02	5502G>C	216G>C	E72D	MS	PM	Germline	PB	BF			United States	Liu et al., 1995	8605116	TS37	Yes
+E02	5503delAGAG	217del4	E73fsX75	FS	DE	Germline	PB	B	F	8	Spain	Alonso et al., 2001	11317357	JA023	
+E02	5505dupGA	219dupGA	A74fsX79	FS	DU	Germline	PB	B	M	6	Spain	Alonso et al., 2004	15605413	1313	
+E02	5506delGA	218delGA	S73fsX108	FS	DE	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.	
+E02	5506insAG	220insAG	E74fsX77	FS	IN	Germline	PB	B	M		Brazil	Braggio et al, 2004	15166261	HC17	
+E02	5510G>A	224G>A	W75X	NS	PM	Germline	PB	B			France	Houdayer et al, 2004	14722923	n.r.	
+E02	5513delG	227delT	L76X	FS	DE	Somatic	retino	U		13	Germany	Lohmann et al., 1997	9311732	M5812	Yes
+E02	5515delA	229delA	L77fsX110	FS	DE	Somatic	HCC	other t.			Japan	Zhang et al., 1994	8033150	n.r.	Yes
+E02	5531C>A	245C>A	S82X	NS	PM	Somatic	lung ca. cell line	other t.			Japan	Murakami et al., 1991	1992444	Lu65	Yes
+E02	5531C>A	245C>A	S82X	NS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.	
+I02	5551G>C	264+1G>C	splice	SP	PM	Germline	PB	B	M	9	China	Choy et al., 2002	12402348	Yu28	
+I02	5551G>C	264+1G>C	splice	SP	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.	
+I02	5554delA	264+4delA	splice	SP	DE	Germline	PB	U		24	France	Houdayer et al, 2004	14722923	n.r.	
+I02	39443insC	265-3insC	splice	SP	IN	Germline	PB	U			France	Blanquet et al., 1993	8364580	AND	Yes
+I02	39444A>G	265-2A>G	Splice	SP	PM	Germline	PB	B	M	5	Spain	Alonso et al., 2004	15605413	0883	
+E03	39468delA	288delA	R96fsX110X	FS	DE	Somatic	lung carcinoma	other t.			Japan	Sachse et al., 1994	8302602		Yes
+E03	39469delGG	288delGG	T97fsX108	FS	DE	Germline	PB	B			France	Blanquet et al., 1993	8364580	REK	Yes
+E03	39477G>A	296G>A	W99X	NS	PM	Germline	PB	BF		7	Germany	Lohmann et al., 1996	8651278	G349	Yes
+E03	39478G>A	297G>A	W99X	NS	PM	Germline	PB	B			France	Blanquet et al., 1995	7795591	RB244	Yes
+E03	39478G>A	297G>A	W99X	NS	PM	Germline	PB	U	M	38	China	Choy et al., 2002	12402348	Yu50	
+E03	39478G>A	297G>A	W99X	NS	PM	Somatic	retino	U			Russia	Babenko et al., 2003	12173465	n.r	
+E03	39480delG	299delG	E100fsX110	FS	DE	Germline	PB	B			United States	Van Orsouw et al, 1996	8776589	9	
+E03	39486delGT	305delGT	Y102fsX108	FS	DE	Germline	PB	B			France	Blanquet et al., 1995	7795591	RB499	Yes
+E03	39493del16	312del16	F104fsX105	FS	Del	Somatic	osteosarcoma	other t.			Japan	Wadayama et al., 1995	8187094	KS-118	Yes
+E03	39516delAGATG	335del5	V112fsX128	FS	DE	Somatic	retino	U		27	Germany	Lohmann et al., 1997	9311732	M4955	Yes
+E03	39518insT	337insT	I113fsX119	FS	IN	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.	
+E03	39522C>A	341C>A	S114X	NS	PM	Somatic	retino	B			China	Choy et al., 2002	12402348	Yu45	
+E03	39538insACTTT	357insACTTT	T120fsX126	FS	IN	Germline	PB	B			Germany	Yilmaz et al., 1998	10671068	M2049	Yes	
+E03	39549insA	368insA	Y123fsX130	FS	IN	Germline	PB	B			France	Blanquet et al., 1995	7795591	RB455	Yes	
+E03	39551delAT	369delAT	R124fsX129	FS	DE	Somatic	retino	U		17	Germany	Lohmann et al., 1997	9311732	G1166	Yes	
+E03	39552delTA	371delTA	R124fsX129	FS	DE	Germline	PB	B			United Kindom	Onadim et al., 1993	8217609	RBF64	Yes	
+E03	39558T>G	377T>G	I126S	MS	PM	Somatic	retino	B			China	Choy et al., 2002	12402348	Rb2		
+E03	39561G>C	380G>C	splice	SP	PM	Germline	PB	B			United States	Van Orsouw et al, 1996	8776589	5		
+I03	39562G>A	380+1G>A	splice	SP	PM	Germline	PB	B			Germany	Yilmaz et al., 1998	10671068	M2648	Yes	
+I03	39562G>T	380+1G>T	splice	SP	PM	Somatic	retino	U		12	Germany	Lohmann et al., 1997	9311732	M5702	Yes	
+I03	41924A>C	381-2A>C	splice	SP	PM	Germline	PB	B	M	36	India	Kiran et al, 2003	12955724	RB66		
+E04	41926delTG	381delTG	P128fsX129	FS	DE	Germline	PB	B			United States	Liu et al., 1995	8605116	TS53	Yes	Do not changes 3' splicing site (gtagT/CTCA>gtagT/CCA) but causes frameshift
+E04	41946delTACT	401del4	L134X	FS	DE	Somatic	retino	U			United Kindom	Hogg et al., 1993	8346255	GOS561	Yes	Nucleotide position in cDNA changed to the first ATG
+E04	41946delTACT	401del4	L134X	FS	DE	Germline	PB	BF		1	Germany	Lohmann et al., 1994	7881418	G821	Yes	
+E04	41951A>T	406A>T	K136X	NS	PM	Somatic	retino	U			Germany	Klutz et al ., 1999	9973307	M424	Yes	
+E04	41954G>T	409G>T	E137X	NS	PM	Somatic	retino	U			Russia	Babenko et al., 2003	12173465	n.r		
+E04	41954G>T	409G>T	E137X	NS	PM	Somatic	retino	U			Germany	Klutz et al ., 1999	9973307	M7376	Yes	
+E04	41954G>T	409G>T	E137X	NS	PM	Germline	PB	B		7	Germany	Lohmann et al., 1996	8651278	G421	Yes	
+E04	41954G>T	409G>T	E137X	NS	PM	Somatic	retino	U		26	Germany	Lohmann et al., 1997	9311732	M1990	Yes	
+E04	41954G>T	409G>T	E137X	NS	PM	Somatic	retino	U		22	Germany	Lohmann et al., 1997	9311732	M3865	Yes	
+E04	41954G>T	409G>T	E137X	NS	PM	Germline	PB	n.r.			Canada	Richter et al. et al., 2003	12541220	n.r.		
+E04	41956A>T	411A>T	E137D	MS	PM	Germline	PB	B			France	Blanquet et al., 1993	8364580	HIV	Yes	
+E04	41956A>T	411A>T	E137D	MS	PM	Germline	PB	U		60	Germany	Lohmann et al., 1997	9311732	M2408	Yes	
+E04	41968del8	423del8	X142	FS	DE	Somatic	retino	U			Russia	Babenko et al., 2003	12173465	n.r		
+E04	42006insAA	462insAA	S155fsX175	FS	IN	Germline	PB	B			France	Houdayer et al, 2004	14722923	n.r.		
+E04	42022delT	477delT	L159fsX174X	FS	DE	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E04	42023insTTTG	478ins4	V160fs171X	FS	IN	Germline	PB	B		29	Germany	Lohmann et al., 1994	7881418	G401	Yes	
+E04	42029delTTinsC	484delTTinsC	P162fsX174	FS	I_D	Somatic	retino	B			United Kindom	Hogg et al., 1993	8346255	GOS537	Yes	Nucleotide position in cDNA changed to the first ATG
+E04	42035ins27	480ins27	X165	FS	IN	Somatic	retino	U			Russia	Babenko et al., 2003	12173465	n.r		
+I04	42047delT	500+2delT	splice	SP	DE	Somatic	retino	B			United Kindom	Hogg et al., 1993	8346255	GOS197	Yes	Nucleotide position in cDNA changed to the first ATG
+I04	44667G>A	501-1G>A	splice	SP	PM	Germline	PB	B			France	Blanquet et al., 1995	7795591	RB313	Yes	
+E05	44693C>T	526C>T	Q176X	NS	PM	Germline	PB	B			France	Houdayer et al, 2004	14722923	n.r.		
+E05	44693C>T	526C>T	Q176X	NS	PM	Germline	PB	B			United States	Van Orsouw et al, 1996	8776589	20		
+E05	44699insACCCA	528ins5	N179fs187X	FS	IN	Germline	PB	BF			Germany	Lohmann et al., 1994	7881418	G279	Yes	
+I05	44707delG	539+1delG	splice	SP	DE	Germline	PB	LP			Spain	Sanchez et al, 2000	10991691	fRB59		1 unilateral, 2 carriers
+I05	44707G>A	539+1G>A	splice	SP	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.		
+I05	45797G>A	540-2A>G	splice	SP	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+I05	45798G>A	540-1G>A	splice	SP	PM	Germline	PB	B			France	Blanquet et al., 1993	8364580	DUM	Yes	
+I05	45798G>A	540-1G>A	splice	SP	PM	Germline	PB	B			France	Houdayer et al, 2004	14722923	n.r.		
+I05	45798G>A	540-1G>A	splice	SP	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E06	45801T>C	542T>C	I181T	MS	PM	Somatic	retino	U			Russia	Babenko et al., 2003	12173465	n.r		
+E06	45812insA	553insA	N185fsX202	FS	IN	Germline	PB	B			France	Blanquet et al., 1993	8364580	CAT	Yes	
+E06	45813T>C	554T>C	I185T	MS	PM	Germline	PB	B			France	Blanquet et al., 1995	7795591	RB302	Yes	
+E06	458333delAA	575delAA	K192fsX201	FS	DE	Germline	PB	B	M	6	Spain	Alonso et al., 2001	11317357	JA213		
+E06	45844G>A	585G>A	W195X	NS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E06	45851del7	592del7	198X	FS	DE	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E06	45855delT	596delT	Y199fsX200	FS	DE	Somatic	melanoma cell line	other t.			United States	Bartkova et al., 1996	8968104		Yes	
+E06	45858insT_61delC	599insT_602delC	L200F_A201S	IF	I_D	Germline	PB	BF			United States	Liu et al., 1995	8605116	TS96	Yes	Inframe substitution of L and A at codons 2001 and 2002 by F and S
+E06	45865delA	606delA	A201fsX213	FS	DE	Germline	PB	B	M	2	Spain	Alonso et al., 2004	11317357	JA363		
+I06	45867G>A	607+1G>A	Splice	SP	PM	Germline	PB	B			France	Houdayer et al, 2004	14722923	n.r.		
+I06	45867G>A	607+1G>A	Splice	SP	PM	Germline	PB	B			France	Houdayer et al, 2004	14722923	n.r.		
+I06	45867G>A	607+1G>A	Splice	SP	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+I06	45867G>A	607+1G>A	splice	SP	PM	Germline	PB	B			United States	Van Orsouw et al, 1996	8776589	23		
+I06	45867G>C	607+1G>C	splice	SP	PM	Germline	PB	B			Russia	Babenko et al., 2003	12173465	n.r		
+I06	45867G>C	607+1G>C	splice	SP	PM	Germline	PB	BF		21	Germany	Lohmann et al., 1996	8651278	G162	Yes	
+I06	45867G>C	607+1G>A	splice	SP	PM	Germline	PB	B			Germany	Yilmaz et al., 1998	10671068	M2188	Yes	
+I06	45867G>T	607+1G>T	Splice	SP	PM	Germline	PB	LP	F	90	Spain	Alonso et al., 2001	11317357	JA123		Low penetrance (2 unilateral)
+I06	45867G>T	607+1G>T	Splice	SP	PM	Germline	PB	LP	M	11	Cuba	Alonso et al., 2004	15605413	CU006		Lpw penetrance (2 unilateral)
+I06	45867G>T	607+1G>T	Splice	SP	PM	Germline	PB	BF			France	Houdayer et al, 2004	14722923	n.r.		
+I06	45867G>T	607+1G>T	Splice	SP	PM	Germline	PB	UF			France	Houdayer et al, 2005	14722923	n.r.		
+I06	45867G>T	607+1G>T	splice	SP	PM	Germline	PB	LP			Germany	Klutz et al ., 2002	12016586	G162		12 asymptomatic carriers
+I06	45867G>T	607+1G>T	splice	SP	PM	Germline	PB	LP			Germany	Klutz et al ., 2002	12016586	M12487		8 asymptomatica carriers
+I06	45867G>T	607+1G>T	splice	SP	PM	Germline	PB	B		12	Germany	Lohmann et al., 1996	8651278	G381	Yes	
+I06	45867G>T	607+1G>T	Splice	SP	PM	Germline	PB	U			Canada	Richter et al., 2003	12541220	n.r.		
+I06	45867G>T	607+1G>T	Splice	SP	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.		
+I06	45867G>T	607+1G>T	splice	SP	PM	Germline	PB	BF			United Kindom	Sútterlin et al, 1999	10660960			
+I06	45867G>T	607+1G>T	splice	SP	PM	Germline	PB	U	F	5	Poland	Zajaczek et al., 1999	10673998	Case 1	Yes	RNA assayed
+I06	45867insC	607+1insC	splice	SP	IN	Germline	PB	U	F	18	Spain	Alonso et al., 2004	15605413	1063		
+I06	45868T>G	607+2T>G	splice	SP	PM	Germline	PB	B	M	4	Spain	Alonso et al., 2001	11317357	JA183		
+I06	56852G>A	608-1G>A	splice	SP	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E07	56864C>T	619C>T	Q207X	NS	PM	Germline	PB	B			United States	Van Orsouw et al, 1996	8776589	17		
+E07	56869insT	624insT	X209	FS	IN	Somatic	retino	U			Russia	Babenko et al., 2003	12173465	n.r		
+E07	56869insT	624insT	X209	FS	IN	Germline	PB	B			Russia	Babenko et al., 2003	12173465	n.r		
+E07	56889C>A	644C>A	S215X	NS	PM	Somatic	retino	U			Germany	Klutz et al ., 1999	9973307	M6177	Yes	
+E07	56889C>A	644C>A	S215X	NS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E07	56890delATTTC	645del5	V216fsX222X	FS	DE	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E07	56894C>A	644C>A	S215X	NS	PM	Somatic	retino	U			Russia	Babenko et al., 2003	12173465	n.r		
+E07	56923delT	678delT	L226fsX263	FS	DE	Germline	PB	U			France	Blanquet et al., 1993	8364580	ANA	Yes	
+E07	56927A>T	682A>T	K228X	NS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E07	56929insAA	684insAA	N229fsX264	FS	IN	Germline	PB	B		1	Korea	Yu et al., 2001	11524739	SNU-RB11		
+E07	56932delCT	687delCT	T230fsX239	FS	DE	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E07	56934C>A	689C>A	S230X	NS	PM	Germline	PB	B	F	5	Colombia	Alonso et al., 2004	15605413	CO408		
+E07	56947insGTTG	702ins4	P235fsX241	FS	IN	Germline	PB	B			Argentina	Szijan et al., 1994	7666401	Rb3	Yes	
+E07	56963A>T	718A>T	K240X	NS	PM	Germline	PB	B	F	14	Japan	Matsumoto et al, 2003	14651550			Multifocal bone tumors 10 years latter
+E07	56963insAA	718insAA	L240fsX286	FS	IN	Germline	PB	B			United States	Liu et al., 1995	8605116	TS11	Yes	
+I07	56968G>A	718+5G>A	splice	SP	PM	Germline	PB	B			Poland	Jakubowsca et al., 2001	11668642	P.1		
+I07	59642C>G	719-10C>G	splice	SP	PM	Germline	PB	B	F	50	Spain	Alonso et al., 2001	11317357	JA233		Alternative splicing (in silico)
+I07	59650G>C	719-1G>C	splice	SP	PM	Germline	PB	B			United States	Van Orsouw et al, 1996	8776589	11		
+E08	59659del5ins18	727del5ins18	V243X	FS	I_D	Germline	PB	B	F	22	Spain	Alonso et al., 2001	11317357	JA053		
+E08	59683C>T	751C>T	R251X	NS	PM	Germline	PB	BF	M	3	Cuba	Alonso et al., 2004	15605413	CU033		
+E08	59683C>T	751C>T	R251X	NS	PM	Somatic	retino	U			Russia	Babenko et al., 2003	12173465	n.r		
+E08	59683C>T	751C>T	R251X	NS	PM	Germline	PB	BF			Russia	Babenko et al., 2003	12173465	n.r		
+E08	59683C>T	751C>T	R251X	NS	PM	Somatic	retino	B			China	Choy et al., 2002	12402348	Yu49		
+E08	59683C>T	751C>T	R251X	NS	PM	Germline	PB	BF			United Kindom	Cowell et al., 1994	7704558	Family G	Yes	
+E08	59683C>T	751C>T	R251X	NS	PM	Germline	PB	BF			United Kindom	Cowell et al., 1994	7704558	Family H	Yes	
+E08	59683C>T	751C>T	R251X	NS	PM	Germline	PB	B			United Kindom	Cowell et al., 1994	7704558	n.r.	Yes	
+E08	59683C>T	751C>T	R251X	NS	PM	Germline	PB	B			United Kindom	Cowell et al., 1994	7704558	n.r.	Yes	
+E08	59683C>T	751C>T	R251X	NS	PM	Germline	PB	B			United Kindom	Cowell et al., 1994	7704558	n.r.	Yes	
+E08	59683C>T	751C>T	R251X	NS	PM	Germline	PB	B			France	Houdayer et al, 2004	14722923	n.r.		
+E08	59683C>T	751C>T	R251X	NS	PM	Germline	PB	U		39	France	Houdayer et al, 2004	14722923	n.r.		
+E08	59683C>T	751C>T	R251X	NS	PM	Somatic	retino	U			Germany	Klutz et al ., 1999	9973307	G320	Yes	
+E08	59683C>T	751C>T	R251X	NS	PM	Somatic	retino	U			Germany	Klutz et al ., 1999	9973307	M1366	Yes	
+E08	59683C>T	751C>T	R251X	NS	PM	Germline	PB	B		8	Germany	Lohmann et al., 1996	8651278	G383	Yes	
+E08	59683C>T	751C>T	R251X	NS	PM	Germline	PB	B		13	Germany	Lohmann et al., 1996	8651278	G405	Yes	
+E08	59683C>T	751C>T	R251X	NS	PM	Germline	PB	B		12	Germany	Lohmann et al., 1996	8651278	G422	Yes	
+E08	59683C>T	751C>T	R251X	NS	PM	Somatic	retino	U		60	Germany	Lohmann et al., 1997	9311732	M5450	Yes	
+E08	59683C>T	751C>T	R251X	NS	PM	Germline	PB	U			Canada	Richter et al., 2003	12541220	n.r.		
+E08	59683C>T	751C>T	R251X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.		
+E08	59683C>T	751C>T	R251X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.		
+E08	59683C>T	751C>T	R251X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.		
+E08	59683C>T	751C>T	R251X	NS	PM	Germline	PB	U			United States	Sippel et al., 1998	9497263	f344	Yes	Mosaicism
+E08	59683C>T	751C>T	R251X	NS	PM	Germline	PB	n.r.			United States	Tsai et al., 2004	14769601	Rb67		
+E08	59683C>T	751C>T	R251X	NS	PM	Germline	PB	B			United States	Van Orsouw et al, 1996	8776589	33		
+E08	59683C>T	751C>T	R251X	NS	PM	Germline	PB	B			Germany	Yilmaz et al., 1998	10671068	M2233	Yes	
+E08	59683C>T	751C>T	R251X	NS	PM	Germline	PB	B			Germany	Yilmaz et al., 1998	10671068	M3748	Yes
+E08	59695C>T	763C>T	R255X	NS	PM	Germline	PB	B	M	15	Spain	Alonso et al., 2001	11317357	JA193	
+E08	59695C>T	763C>T	R255X	NS	PM	Germline	PB	BF			France	Blanquet et al., 1994	7981694	RB197	Yes
+E08	59695C>T	763C>T	R255X	NS	PM	Germline	PB	B			France	Blanquet et al., 1994	7981694	RB431	Yes
+E08	59695C>T	763C>T	R255X	NS	PM	Germline	PB	BF			France	Blanquet et al., 1995	7795591	RB297	Yes
+E08	59695C>T	763C>T	R255X	NS	PM	Germline	PB	BF			France	Blanquet et al., 1995	7795591	RB181	Yes
+E08	59695C>T	763C>T	R255X	NS	PM	Germline	PB	B			France	Blanquet et al., 1995	7795591	RB11	Yes
+E08	59695C>T	763C>T	R255X	NS	PM	Germline	PB	B			France	Blanquet et al., 1995	7795591	RB123	Yes
+E08	59695C>T	763C>T	R255X	NS	PM	Germline	PB	B			France	Blanquet et al., 1995	7795591	RB281	Yes
+E08	59695C>T	763C>T	R255X	NS	PM	Germline	PB	B			United Kindom	Cowell et al., 1994	7704558	n.r.	Yes
+E08	59695C>T	763C>T	R255X	NS	PM	Germline	PB	B			France	Houdayer et al, 2005	14722923	n.r.	
+E08	59695C>T	763C>T	R255X	NS	PM	Somatic	retino	U	F	144	India	Kiran et al, 2003	12955724	RB25	
+E08	59695C>T	763C>T	R255X	NS	PM	Germline	PB	B	M	24	India	Kiran et al, 2003	12955724	RB56	
+E08	59695C>T	763C>T	R255X	NS	PM	Somatic	retino	U			Germany	Klutz et al ., 1999	9973307	M7421	Yes
+E08	59695C>T	763C>T	R255X	NS	PM	Germline	PB	B		11	Germany	Lohmann et al., 1996	8651278	G420	Yes
+E08	59695C>T	763C>T	R255X	NS	PM	Germline	PB	B			Spain	Mateu et al., 1997	9140452	RB-190	Yes
+E08	59695C>T	763C>T	R255X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.	
+E08	59695C>T	763C>T	R255X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.	
+E08	59695C>T	763C>T	R255X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.	
+E08	59695C>T	763C>T	R255X	NS	PM	Germline	PB	B			United States	Van Orsouw et al, 1996	8776589	13	
+E08	59699delG	767delG	V256fs263X	FS	DE	Germline	PB	B		5	Germany	Lohmann et al., 1994	7881418	G394	Yes
+E08	59699insG	767insG	S257fsX270	FS	IN	Germline	PB	BF			Germany	Yilmaz et al., 1998	10671068	M2595	Yes
+E08	59701C>T	769C>T	Q257X	NS	PM	Germline	PB	B	F	6	Spain	Alonso et al., 2004	15605413	0713	
+E08	59701C>T	769C>T	Q257X	NS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.	
+E08	59701delCAGAA	769del5	E258fsX268X	FS	DE	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.	
+E08	59704delAACAG	772del5	E258fsX268X	FS	DE	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.	
+E08	59705insA	774insA	K258fsX270	FS	IN	Somatic	retino	B			Mexico	Rodriguez et al., 2002	12419581	RB-2	
+E08	59709delG	777delG	V260fs263X	FS	DE	Germline	PB	BF		2	Germany	Lohmann et al., 1994	7881418	G429	Yes
+E08	59728C>T	796C>T	Q266X	NS	PM	Germline	PB	B		39	Germany	Lohmann et al., 1996	8651278	G392	Yes
+E08	59728C>T	796C>T	Q266X	NS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.	
+E08	59731insAC	799insAC	H267fsX268	FS	IN	Germline	PB	BF	F	5	Cuba	Alonso et al., 2004	15605413	CU037	
+E08	59736ins8	804ins8	272X	FS	IN	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.	
+E08	59754delT	822delT	I274fsX285	FS	DE	Germline	PB	B	F	36	Spain	Alonso et al., 2004	15605413	1273		
+E08	59770G>T	838G>T	E280X	NS	PM	Germline	PB	BF			Russia	Babenko et al., 2003	12173465	n.r		
+E08	59793G>C	861G>C	splice/E287D	SP-MS	PM	Germline	PB	B	M	16	Spain	Alonso et al., 2001	11317357	JA293		RNA assay showed skiping of exon 8
+I08	59795T>C	861+2T>C	splice	SP	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+I08	61720T>C	862-10T>C	splice	SP	PM	Germline	PB	LP			France	Lefevre et al, 2002	12011162	n.r.		5 asymtomatic carriers. 3 unilateral tumors
+I08	61727C>A	862-3C>A	splice	SP	PM	Germline	PB	B			United States	Van Orsouw et al, 1996	8776589	18		
+E09	61750delAAAT	882del4	F293fsX299	FS	DE	Germline	PB	BF	M	8	Spain	Alonso et al., 2001	11317357	JA263		
+E09	61751dup16	883dup16	K300fsX314	FS	IN	Germline	PB	B			France	Blanquet et al., 1995	7795591	RB493	Yes	
+E09	61756delT	888delT	L296fsX300	FS	DE	Germline	PB	B			France	Houdayer et al, 2004	14722923	n.r.		
+E09	61776T>A	908T>A	L303H	MS	PM	Germline	PB	B			Russia	Babenko et al., 2003	12173465	n.r		
+E09	61777delT	909delT	D304fs306X	FS	DE	Germline	PB	B			Germany	Lohmann et al., 1994	7881418	G1115	Yes	
+E09	61788C>T	920C>T	T307I	MS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E09	61788delCAinsTGGACT	920del2ins6	M307fsX310	FS	I_D	Germline	PB	U	F	16	Spain	Alonso et al., 2004	15605413	0753		
+E09	61796G>T	928G>T	G310X	NS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E09	61796G>T	928G>T	G310X	NS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E09	61797G>A	929G>A	E310G	MS	PM	Somatic	retino	U			Germany	Klutz et al, 1999	9973307	M6485	yes	¿Polymorphism?. Secon Somatic mutation in tumor
+E09	61797delG	929delG	D310fsX331	FS	DE	Germline	PB	U			Canada	Richter et al., 2003	12541220	n.r.		
+E09	61797delG	929delG	D310fsX331	FS	DE	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.		
+E09	61799delC	931delC	F311fsX331	FS	DE	Germline	PB	U	F	36	Spain	Alonso et al., 2004	15605413	0723		
+E09	61806A>G	938A>G	splice/E313G	SP-MS	PM	Germline	PB	B			France	Houdayer et al, 2004	14722923	n.r.		
+E09	61807G>T	939G>T	splice/E313D	SP-MS	PM	Germline	PB	B			France	Houdayer et al, 2005	14722923	n.r.		
+I09	64329G>C	940-1G>C	splice	SP	PM	Germline	PB	B			France	Houdayer et al, 2004	14722923	n.r.		
+I09	64329G>C	940-1G>C	splice	SP	PM	Germline	PB	B		10	Germany	Lohmann et al., 1996	8651278	G447	Yes	
+E10	64346A>T	956A>T	K359R	MS	PM	Somatic	retino	U			Russia	Babenko et al., 2003	12173465	n.r		
+E10	64347delACinsGT	957AC>GT	R320X	FS	I_D	Germline	PB	B		10	Germany	Lohmann et al., 1996	8651278	G368	Yes	
+E10	64348C>T	958C>T	R320X	NS	PM	Germline	PB	B	M	7	Spain	Alonso et al., 2001	11317357	JA133		
+E10	64348C>T	958C>T	R320X	NS	PM	Germline	PB	BF	F	27	Spain	Alonso et al., 2004	15605413	0993		
+E10	64348C>T	958C>T	R320X	NS	PM	Germline	PB	B	F	10	Spain	Alonso et al., 2004	15605413	0823		
+E10	64348C>T	958C>T	R320X	NS	PM	Germline	PB	B	M	9	Spain	Alonso et al., 2004	15605413	1113		
+E10	64348C>T	958C>T	R320X	NS	PM	Germline	PB	B	M	5	Spain	Alonso et al., 2004	15605413	1173		
+E10	64348C>T	958C>T	R320X	NS	PM	Germline	PB	B	M	3	Colombia	Alonso et al., 2004	15605413	CO402		
+E10	64348C>T	958C>T	R320X	NS	PM	Somatic	retino	U	M		Brazil	Braggio et al, 2004	15166261	HC6		
+E10	64348C>T	958C>T	R320X	NS	PM	Germline	PB	B	F	48	China	Choy et al., 2002	12402348	Yu13		
+E10	64348C>T	958C>T	R320X	NS	PM	Germline	PB	B	F	4	China	Choy et al., 2002	12402348	Yu44		
+E10	64348C>T	958C>T	R320X	NS	PM	Germline	PB	B			United Kindom	Cowell et al., 1994	7704558	n.r.	Yes	
+E10	64348C>T	958C>T	R320X	NS	PM	Somatic	retino	U			United Kindom	Hogg et al., 1993	8346255	GOS559	Yes	Nucleotide position in cDNA changed to the first ATG
+E10	64348C>T	958C>T	R320X	NS	PM	Germline	PB	B			France	Houdayer et al, 2004	14722923	n.r.		
+E10	64348C>T	958C>T	R320X	NS	PM	Germline	PB	B			France	Houdayer et al, 2004	14722923	n.r.		
+E10	64348C>T	958C>T	R320X	NS	PM	Germline	PB	B			France	Houdayer et al, 2004	14722923	n.r.		
+E10	64348C>T	958C>T	R320X	NS	PM	Germline	PB	B			France	Houdayer et al, 2004	14722923	n.r.		
+E10	64348C>T	958C>T	R320X	NS	PM	Germline	PB	BF			France	Houdayer et al, 2004	14722923	n.r.		
+E10	64348C>T	958C>T	R320X	NS	PM	Germline	PB	BF			France	Houdayer et al, 2004	14722923	n.r.		
+E10	64348C>T	958C>T	R320X	NS	PM	Somatic	retino	U	M	24	India	Kiran et al, 2003	12955724	RB27		
+E10	64348C>T	958C>T	R320X	NS	PM	Somatic	retino	U			Germany	Klutz et al ., 1999	9973307	M10087	Yes	
+E10	64348C>T	958C>T	R320X	NS	PM	Somatic	retino	U			Germany	Klutz et al ., 1999	9973307	M10148	Yes	
+E10	64348C>T	958C>T	R320X	NS	PM	Somatic	retino	U			Germany	Klutz et al ., 1999	9973307	M7412	Yes	
+E10	64348C>T	958C>T	R320X	NS	PM	Germline	PB	BF			United States	Liu et al., 1995	8605116	BB17	Yes	
+E10	64348C>T	958C>T	R320X	NS	PM	Germline	PB	BF		4	Germany	Lohmann et al., 1996	8651278	G371	Yes	
+E10	64348C>T	958C>T	R320X	NS	PM	Germline	PB	B		9	Germany	Lohmann et al., 1996	8651278	G372	Yes
+E10	64348C>T	958C>T	R320X	NS	PM	Germline	PB	B		6	Germany	Lohmann et al., 1996	8651278	G432	Yes
+E10	64348C>T	958C>T	R320X	NS	PM	Germline	PB	B		4	Germany	Lohmann et al., 1996	8651278	M1317	Yes
+E10	64348C>T	958C>T	R320X	NS	PM	Somatic	retino	U		10	Germany	Lohmann et al., 1997	9311732	M3293	Yes
+E10	64348C>T	958C>T	R320X	NS	PM	Somatic	retino	U		16	Germany	Lohmann et al., 1997	9311732	M4372	Yes
+E10	64348C>T	958C>T	R320X	NS	PM	Somatic	retino	U		15	Germany	Lohmann et al., 1997	9311732	M5500	Yes
+E10	64348C>T	958C>T	R320X	NS	PM	Germline	PB	U		36	Germany	Lohmann et al., 1997	9311732	M6301	Yes
+E10	64348C>T	958C>T	R320X	NS	PM	Somatic	retino	U		10	Germany	Lohmann et al., 1997	9311732	M4957	Yes
+E10	64348C>T	958C>T	R320X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.	
+E10	64348C>T	958C>T	R320X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.	
+E10	64348C>T	958C>T	R320X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.	
+E10	64348C>T	958C>T	R320X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.	
+E10	64348C>T	958C>T	R320X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.	
+E10	64348C>T	958C>T	R320X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.	
+E10	64348C>T	958C>T	R320X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.	
+E10	64348C>T	958C>T	R320X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.	
+E10	64348C>T	958C>T	R320X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.		
+E10	64348C>T	958C>T	R320X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.		
+E10	64348C>T	958C>T	R320X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.		
+E10	64348C>T	958C>T	R320X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.		
+E10	64348C>T	958C>T	R320X	NS	PM	Germline	PB	B			United States	Sippel et al., 1998	9497263	f452	Yes	Mosaicism
+E10	64348C>T	958C>T	R32OX	NS	PM	Germline	PB	B			United States	Van Orsouw et al, 1996	8776589	31		
+E10	64348C>T	958C>T	R320X	NS	PM	Germline	PB	B			Germany	Yilmaz et al., 1999	10671068	M1317	Yes	
+E10	64348C>T	958C>T	R320X	NS	PM	Germline	PB	BF			Germany	Yilmaz et al., 2000	10671068	M5014	Yes	
+E10	64353C>A	963C>A	Y321X	NS	PM	Germline	PB	B	F	6	Colombia	Alonso et al., 2004	15605413	CO415		
+E10	64353C>A	963C>A	Y321X	NS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E10	64357G>T	967G>T	E323X	NS	PM	Germline	PB	B	F	16	Cuba	Alonso et al., 2004	15605413	CU025		
+E10	64357G>T	967G>T	E323X	NS	PM	Somatic	retino	U			United Kindom	Hogg et al., 1993	8346255	GOS563	Yes	Nucleotide position in cDNA changed to the first ATG
+E10	64357G>T	967G>T	E323X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.		
+E10	64357G>T	967G>T	E323X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.		
+E10	64365T>G	975T>G	Y325X	NS	PM	Somatic	retino	U	F	24	India	Kiran et al, 2003	12955724	RB4O		
+E10	64368delT	984delT	I328fsX231	FS	DE	Germline	PB	B			France	Houdayer et al., 2004	14722923	n.r.		
+E10	64372A>C	982A>C	N328H	MS	PM	Somatic	retino	U	F	48	India	Ata-ur-Rashed et al., 2001	12187430	RB19		
+E10	64377delA	987delA	I330fsX331	FS	DE	Germline	PB	B			United States	Sippel et al., 1998	9497263	f26	Yes	Mosaicism
+E10	64401delG	1011delG	I338fsX348	FS	DE	Germline	PB	B			Spain	Najera et al. 2001	11333669	FranceB54		
+E10	64414delA	1024delA	L342fsX347	FS	DE	Germline	PB	BF			France	Houdayer et al., 2004	14722923	n.r.		
+E10	64420C>T	1030C>T	Q344X	NS	PM	Germline	PB	BF			France	Houdayer et al., 2004	14722923	n.r.		
+E10	64423dup55	1033dup979_1033	L345fsX347	FS	DU	Germline	PB	B			Canada	Dunn et al., 1989	2601691	EBV538	Yes	
+E10	64429del14	1039del14	splice	SP	DE	Germline	PB	B			United Kindom	Cowell et al., 1994	7704558	TS28	Yes	
+I10	64440G>T	1049+1G>T	splice	SP	PM	Somatic	retino	U		3	United States	Yandell et al., 1989	2594029	RB-119	Yes	
+I10	64442A>G	1049+3A>G	splice	SP	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+I10	65362A>G	1050-2A>G	splice	SP	PM	Germline	FB	B			Japan	Shimizu et al., 1994	8178820	RB266	Yes	
+E11	65371delAC	1057delAC	E354fsX360	FS	DE	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E11	65374C>T	1060C>T	Q354X	NS	PM	Germline	PB	B		7	Germany	Lohmann et al., 1996	8651278	G365	Yes	
+E11	65374delCA	1060delCA	G354fsX359	FS	DE	Germline	PB	B	M	7	Colombia	Alonso et al., 2004	15605413	CO270		
+E11	65376delGA	1062delGA	N355fsX360	FS	DE	Somatic	retino	U			Russia	Babenko et al., 2003	12173465	n.r		
+E11	65386C>T	1072C>T	R358X	NS	PM	Germline	PB	B	F	9	Spain	Alonso et al., 2001	11317357	JA333		
+E11	65386C>T	1072C>T	R358X	NS	PM	Germline	PB	B	F	15	Spain	Alonso et al., 2004	15605413	0913		
+E11	65386C>T	1072C>T	R358X	NS	PM	Germline	PB	U			France	Blanquet et al., 1995	7795591	RB398	Yes	
+E11	65386C>T	1072C>T	R358X	NS	PM	Somatic	retino	U			China	Choy et al., 2002	12402348	Yu54		
+E11	65386C>T	1072C>T	R358X	NS	PM	Germline	PB	BF	F	2	Argentina	Dalamon et al, 2004	15469703	163		
+E11	65386C>T	1072C>T	R358X	NS	PM	Somatic	retino	U			United Kindom	Hogg et al., 1993	8346255	GOS159	Yes	Nucleotide position in cDNA changed to the first ATG
+E11	65386C>T	1072C>T	R358X	NS	PM	Somatic	retino	U			Germany	Klutz et al ., 1999	9973307	M8718	Yes	
+E11	65386C>T	1072C>T	R358X	NS	PM	Germline	PB	B			United States	Liu et al., 1995	8605116	TS3	Yes	
+E11	65386C>T	1072C>T	R358X	NS	PM	Germline	PB	UF		11	Germany	Lohmann et al., 1996	8651278	G94	Yes	
+E11	65386C>T	1072C>T	R358X	NS	PM	Germline	PB	BF		11	Germany	Lohmann et al., 1996	8651278	G434	Yes	
+E11	65386C>T	1072C>T	R358X	NS	PM	Germline	PB	BF		7	Germany	Lohmann et al., 1996	8651278	G486	Yes	
+E11	65386C>T	1072C>T	R358X	NS	PM	Germline	PB	BF		3	Germany	Lohmann et al., 1996	8651278	G823	Yes	
+E11	65386C>T	1072C>T	R358X	NS	PM	Somatic	retino	U		2	Germany	Lohmann et al., 1997	9311732	M6306	Yes	
+E11	65386C>T	1072C>T	R358X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.		
+E11	65386C>T	1072C>T	R358X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.		
+E11	65386C>T	1072C>T	R358X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.		
+E11	65386C>T	1072C>T	R358X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.		
+E11	65386C>T	1072C>T	R358X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.		
+E11	65386C>T	1072C>T	R358X	NS	PM	Germline	PB	n.r.			United States	Tsai et al., 2004	14769601	Rb79		
+E11	65386C>T	1072C>T	R358X	NS	PM	n.r.	retino	B			United States	Yandell et al., 1989	2594029	RB-W24	Yes	
+E11	65386C>T	1072C>T	R358X	NS	PM	Germline	PB	B			Germany	Yilmaz et al., 1998	10671068	M4193	Yes	
+E11	65386C>T	1072C>T	R358X	NS	PM	Germline	PB	U	F	5	Poland	Zajaczek et al., 1999	10673998	Case 2	Yes	
+E11	65386cC>G	1072C>G	R358G	MS	PM	Germline	PB	B			United States	Van Orsouw et al, 1996	8776589	25		
+E11	65387G>A	1073G>A	R358Q	MS	PM	n.r.	HCC	other t.			Japan	Zhang et al., 1994	8033150	n.r.	Yes	Polandimorphism
+E11	65401insG	1087insG	G363fs364X	FS	IN	Germline	PB	B		7	Germany	Lohmann et al., 1994	7881418	G492	Yes	
+E11	65406delA	1092delA	R365fs366X	FS	DE	Germline	PB	BF		1	Germany	Lohmann et al., 1994	7881418	M655	Yes	
+E11	65409ins(?)	1096ins(?)	X383	FS	IN	Germline	PB	B			Russia	Babenko et al., 2003	12173465	n.r		
+E11	65417delT	1103delT	E368fsX379	FS	DE	Somatic	retino	B			United States	Sippel et al., 1998	9497263	f377	Yes	Mosaicism
+E11	65435delCA	1121delCA	R374fsX375	FS	DE	Germline	PB	B			France	Blanquet et al., 1995	7795591	RB155	Yes	
+E11 	65435delCA	1121delCA	R375fsX375	FS	DE	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.		
+E11 	65435delCA	1121delCA	R375fsX375	FS	DE	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.		
+I11	65442G>A	1127+1G>A	splice	SP	PM	Somatic	retino	U			Russia	Babenko et al., 2003	12173465	n.r		
+I11	70240insAGAA	1128-2insAGAA	splice	SP	IN	Somatic	retino	U			Russia	Babenko et al., 2003	12173465	n.r		
+E12	70243A>T	1129A>T	T377S	MS	PM	Germline	PB	n.r.			United States	Tsai et al., 2004	14769601	Rb222		
+E12	70245delT	1131delT	L378fsX379	FS	DE	Germline	PB	B			France	Houdayer et al., 2004	14722923	n.r.		
+E12	70256insA	1142insA	Y382fsX394	FS	IN	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E12	70261C>T	1147C>T	Q383X	NS	PM	Germline	PB	B	M	8	Colombia	Alonso et al., 2004	15605413	CO350		
+E12	70261C>T	1147C>T	Q383X	NS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E12	70264C>T	1150C>T	Q384X	NS	PM	Somatic	retino	U			Russia	Babenko et al., 2003	12173465	n.r		
+E12	70264C>T	1150C>T	Q384X	NS	PM	Germline	FB	B			Japan	Shimizu et al., 1994	8178820	RB313	Yes	
+E12	70270insA	1156insA	N386fsX394	FS	IN	Germline	PB	B			France	Houdayer et al., 2004	14722923	n.r.		
+E12	70273insT	1160insT	I387fs394X	FS	IN	Germline	PB	B		18	Germany	Lohmann et al., 1994	7881418	G414	Yes	
+E12	70275delG	1161delG	I387fsX389	FS	DE	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E12	70280T>A	1166T>A	L389X	NS	PM	Somatic	retino	U			Japan	Shimizu et al., 1994	8178820	RB232	Yes	
+E12	70281delAAATTCAG	1167del8	F389fsX391	FS	DE	Somatic	HCC	other t.			Japan	Zhang et al., 1994	8033150	HCC1C	Yes	
+E12	70292delGT	1178delGT	R393fsX404	FS	DE	Germline	PB	B			United States	Liu et al., 1995	8605116	TS22	Yes	
+E12	70297C>T	1183C>T	Q395X	NS	PM	Somatic	retino	U			United Kindom	Hogg et al., 1993	8346255	GOS559	Yes	Nucleotide position in cDNA changed to the first ATG
+E12	70304C>G	1190C>G	S397X	NS	PM	Germline	PB	B			United States	Van Orsouw et al, 1996	8776589	7		
+E12	70305delA	1191delA	K398fsX400	FS	DE	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E12	70313del7	1199del7	P400fsX407	FS	DE	Germline	PB	n.r.			United States	Tsai et al., 2004	14769601	Rb80		
+E12	70322delA	1208delA	F404fsX409	FS	DE	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E12	70326delTA	1212delTA	L404fsX426	FS	DE	Germline	PB	B			United States	Van Orsouw et al, 1996	8776589	32		
+E12	70329delAC	1214delAC	splice	SP	PM	Germline	PB	B			United States	Van Orsouw et al, 1996	8776589	24		
+I12	70330G>A	1215+1G>A	splice	SP	PM	Germline	PB	U	M	6	Spain	Alonso et al., 2004	15605413	1163		
+I12	70330G>A	1215+1G>A	splice	SP	PM	Germline	PB	U	M	12	Spain	Alonso et al., 2004	15605413	1223		
+I12	70330G>A	1215+1G>A	splice	SP	PM	Germline	PB	B	M	36	India	Ata-ur-Rashed et al., 2001	12187430	RB18		
+I12	70330G>A	1215+1G>A	splice	SP	PM	Somatic	retino	U			Canada	Dunn et al., 1989	2601691	RB571	Yes	
+I12	70330G>A	1215+1G>A	splice	SP	PM	Somatic	retino	U			Canada	Dunn et al., 1989	2601691	RB600	Yes	
+I12	70330G>A	1215+1G>A	splice	SP	PM	Germline	PB	BF			France	Houdayer et al., 2004	14722923	n.r.		
+I12	70330G>A	1215+1G>A	splice	SP-IF	PM	Germline	PB	B	M	24	India	Kiran et al, 2003	12955724	RB23		
+I12	70330G>A	1215+1G>A	splice	SP-IF	PM	Somatic	retino	U	F	36	India	Kiran et al, 2003	12955724	RB29		
+I12	70330G>A	1215+1G>A	splice	SP	PM	Somatic	retino	U			Germany	Klutz et al ., 1999	9973307	M3985	Yes	
+I12	70330G>A	1215+1G>A	splice	SP	PM	Somatic	retino	U		26	Germany	Lohmann et al., 1997	9311732	M1886	Yes	
+I12	70330G>A	1215+1G>A	splice	SP	PM	Somatic	retino	U		3	Germany	Lohmann et al., 1997	9311732	M1353	Yes	
+I12	70330G>A	1215+1G>A	splice	SP	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.		
+I12	70330G>A	1215+1G>A	splice	SP	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.		
+I12	70330G>A	1215+1G>A	splice	SP	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.		
+I12	70330G>A	1215+1G>A	splice	SP	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.		
+I12	70330G>A	1215+1G>A	splice	SP	PM	Germline	PB	U			Canada	Richter et al., 2003	12541220	n.r.		
+I12	70330G>A	1215+1G>A	splicE	SP	PM	Germline	PB	BF			United States	Xu et al, 2004	14700639			
+I12	70330G>A	1215+1G>A	splice	SP	PM	Germline	PB	B			Germany	Yilmaz et al., 1998	10671068	M4197	Yes	
+I12	70330G>C	1215+1G>C	splice	SP	PM	Germline	PB	B			Germany	Yilmaz et al., 1998	10671068	M1510	Yes	
+I12	73751A>G	1216-2A>G	splice	SP	PM	Somatic	retino	U		67	Germany	Lohmann et al., 1997	9311732	G902	Yes	
+I12	73752G>A	1216-1G>A	splice	SP	PM	Germline	PB	B	M	60	India	Kiran et al, 2003	12955724	RB73		
+I12	73752G>A	1216-1G>A	splice	SP	PM	Germline	PB	U		2	Germany	Lohmann et al., 1997	9311732	M6680	Yes	
+E13	73753del22	1216del22	K406fsX409	FS	DE	Somatic	retino	U			United Kindom	Hogg et al., 1993	8346255	GOS13	Yes	Nucleotide position in cDNA changed to the first ATG
+E13	73772delAAinsC	1235delAAinsC	T412fsX416	FS	I_D	Germline	PB	B			Russia	Babenko et al., 2003	12173465	n.r		
+E13	73773delA	1236delA	K413fsX416	FS	DE	Somatic	retino	U			Japan	Shimizu et al., 1994	8178820	RB226	Yes	
+E13	73774delG	1273delG	K413fs416X	FS	DE	Germline	PB	BF		9	Germany	Lohmann et al., 1994	7881418	G452	Yes	
+E13	73774G>T	1237G>T	E413X	NS	PM	Germline	PB	BF			Russia	Babenko et al., 2003	12173465	n.r		
+E13	73774G>T	1237G>T	E413X	NS	PM	Somatic	retino	U			Germany	Klutz et al ., 1999	9973307	G1031	Yes	
+E13	73779insG	1242insG	D415fsX427	FS	IN	Somatic	retino	B			China	Choy et al., 2002	12402348	Yu55		
+E13	73789dupA	1252dupA	K418fs426X	FS	DUP	Germline	PB	BF	M	3	Colombia	Alonso et al., 2004	15605413	CO293		
+E13	73799delA	1262delA	V421fsX422X	FS	DE	Germline	PB	n.r.			France	Blanquet et al., 1995	7795591	RB403	Yes	
+E13	73801insA	1264insA	N422fsX427	FS	IN	Germline	PB	n.r.			United Kindom	Onadim et al., 1993	8217609	RBF58	Yes	
+E13	73804G>T	1267G>T	G423X	NS	PM	Germline	PB	U			Russia	Babenko et al., 2003	12173465	n.r		
+E13	73815delT	1278delT	L426fsX456	FS	DE	Germline	PB	B			United States	Van Orsouw et al, 1996	8776589	22		
+E13	73827delT	1290delT	L430fsX456	FS	DE	Germline	PB	B			Germany	Yilmaz et al., 1998	10671068	M1104	Yes	
+E13	73835C>T	1298C>T	A433V	MS	PM	Germline	PB	B	F	33	Argentina	Dalamon et al, 2004	15469703	176		
+E13	73842insC	1305insC	P436fsX462	FS	IN	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E13	73858delA	1321delA	L441fsX456	FS	DE	Germline	PB	n.r.			United States	Tsai et al., 2004	14769601	Rb71		
+E13	73865C>A	1328C>A	S443X	NS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E13 	73867C>T	1330C>T	Q444X	NS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E13	73867delC	1330delC	S444fsX456	FS	DE	Germline	FB	B			Japan	Shimizu et al., 1994	8178820	RB303	Yes	
+E13	73868A>G	1331A>G	del:E13	SP-IF	PM	Germline	PB	LP			Nederland	Scheffer et al,  2000	10882758	RB43		RNA assayed. 2 unilateral, 5 assymptomatic carriers 
+E13	73869G>A	1332G>A	del:E13	SP-IF	PM	Germline	PB	U		49	Germany	Lohmann et al., 1997	9311732	M2920	Yes	RNA assayed
+E13	73869G>A	1332G>A	del:E13	SP-IF	PM	Germline	PB	B			Nederland	Scheffer et al,  2000	10882758	RB163		
+I13	73870G>A	1332+1G>A	del:E13	SP-IF	PM	Germline	PB	B	M	35	Cuba	Alonso et al., 2004	15605413	CU016		
+I13	73870G>A	1332+1G>A	del:E13	SP-IF	PM	Germline	PB	B	F	24	China	Choy et al., 2002	12402348	Yu45		
+I13	73870G>A	1332+1G>A	del:E13	SP-IF	PM	Germline	PB	B		5	Germany	Lohmann et al., 1996	8651278	G1	Yes	
+I13	73870G>T	1332+1G>T	del:E13	SP-IF	PM	Germline	PB	B			Japan	Kato et al., 1994	8118465		Yes	
+I13	73871T>C	1332+2T>C	del:E13	SP-IF	PM	Germline	PB	BF			Germany	Yilmaz et al., 1998	10671068	M2779	Yes	
+I13	76428A>G	1333-2A>G	del:E13	SP-IF	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+I13	76429del11	1333-1del11	del:E13	SP-IF	DE	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+I13	76429G>A	1333-1G>A	del:E13	SP-IF	PM	Germline	PB	U	M		Brazil	Braggio et al, 2004	15166261	HC1		
+E14	76430C>T	1333C>T	R445X	NS	PM	Germline	PB	BF	M	3	Colombia	Alonso et al., 2004	15605413	CO345		
+E14	76430C>T	1333C>T	R445X	NS	PM	Germline	PB	B	F		Brazil	Braggio et al, 2004	15166261	HC27		
+E14	76430C>T	1333C>T	R445X	NS	PM	Somatic	retino	U			China	Choy et al., 2002	12402348	Rb14		
+E14	76430C>T	1333C>T	R445X	NS	PM	Germline	PB	B			France	Houdayer et al., 2004	14722923	n.r.		
+E14	76430C>T	1333C>T	R445X	NS	PM	Germline	PB	B			France	Houdayer et al., 2004	14722923	n.r.		
+E14	76430C>T	1333C>T	R445X	NS	PM	Somatic	retino	B	M	12	India	Kiran et al, 2003	12955724	RB261		
+E14	76430C>T	1333C>T	R445X	NS	PM	Somatic	retino	B	M	4	India	Kiran et al, 2003	12955724	RB34		
+E14	76430C>T	1333C>T	R445X	NS	PM	Somatic	retino	U			Germany	Klutz et al ., 1999	9973307	M1726	Yes	
+E14	76430C>T	1333C>T	R445X	NS	PM	Somatic	retino	U			Germany	Klutz et al ., 1999	9973307	M6483	Yes	
+E14	76430C>T	1333C>T	R445X	NS	PM	Somatic	retino	U			Germany	Klutz et al ., 1999	9973307	M7897	Yes
+E14	76430C>T	1333C>T	R445X	NS	PM	Germline	PB	B		11	Germany	Lohmann et al., 1996	8651278	G397	Yes
+E14	76430C>T	1333C>T	R445X	NS	PM	Germline	PB	B		7	Germany	Lohmann et al., 1996	8651278	G427	Yes
+E14	76430C>T	1333C>T	R445X	NS	PM	Germline	PB	BF		12	Germany	Lohmann et al., 1996	8651278	G468	Yes
+E14	76430C>T	1333C>T	R445X	NS	PM	Germline	PB	B		2	Germany	Lohmann et al., 1996	8651278	G1092	Yes
+E14	76430C>T	1333C>T	R445X	NS	PM	Somatic	retino	U		6	Germany	Lohmann et al., 1997	9311732	M461	Yes
+E14	76430C>T	1333C>T	R445X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.	
+E14	76430C>T	1333C>T	R445X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.	
+E14	76430C>T	1333C>T	R445X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.	
+E14	76430C>T	1333C>T	R445X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.	
+E14	76430C>T	1333C>T	R445X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.	
+E14	76430C>T	1333C>T	R445X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.	
+E14	76430C>T	1333C>T	R445X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.	
+E14	76430C>T	1333C>T	R445X	NS	PM	Germline	PB	n.r.			United States	Tsai et al., 2004	14769601	Rb200	
+E14	76430C>T	1333C>T	R445X	NS	PM	Germline	PB	B		4	United States	Yandell et al., 1989	2594029	RB-74	Yes
+E14	76430del7ins9	1333del7ins9	R445X	FS	I_D	Germline	PB	B	F	14	Spain	Alonso et al., 2001	11317357	JA523	
+E14	76436A>C	1339A>C	K447Q	MS	PM	Germline	PB	U			Spain	Mateu et al., 1997	9140452	RB-142	Yes	
+E14	76436A>T	1339A>T	K447X	NS	PM	Germline	PB	U			Spain	Najera et al. 2001	11333669	fRB24		
+E14	76443G>A	1346G>A	G449E	MS	PM	Germline	PB	B	M	1	Cuba	Alonso et al., 2004	15605413	CU013		
+E14	76443G>A	1346G>A	G449E	MS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E14	76453delG	13456delG	F452fsX456	FS	DE	Germline	PB	B			France	Houdayer et al., 2004	14722923	n.r.		
+E14	76460C>T	1363C>T	R455X	NS	PM	Germline	PB	B	M	5	Spain	Alonso et al., 2001	11317357	JA013		
+E14	76460C>T	1363C>T	R455X	NS	PM	Germline	PB	UMF	F	11	Spain	Alonso et al., 2004	15605413	1213		
+E14	76460C>T	1363C>T	R455X	NS	PM	Somatic	melanoma cell line	other t.			United States	Bartkova et al., 1996	8968104		Yes	
+E14	76460C>T	1363C>T	R455X	NS	PM	Germline	PB	B			United Kindom	Hogg et al., 1992	1352398	AF	Yes	
+E14	76460C>T	1363C>T	R455X	NS	PM	Somatic	retino	U			United Kindom	Hogg et al., 1993	8346255	GOS159	Yes	Nucleotide position in cDNA changed to the first ATG
+E14	76460C>T	1363C>T	R455X	NS	PM	Germline	PB	B			France	Houdayer et al., 2004	14722923	n.r.		
+E14	76460C>T	1363C>T	R455X	NS	PM	Germline	PB	B			France	Houdayer et al., 2004	14722923	n.r.		
+E14	76460C>T	1363C>T	R455X	NS	PM	Germline	PB	B		2	Germany	Lohmann et al., 1996	8651278	G416	Yes	
+E14	76460C>T	1363C>T	R455X	NS	PM	Somatic	retino	U		8	Germany	Lohmann et al., 1997	9311732	M4042	Yes	
+E14	76460C>T	1363C>T	R455X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.		
+E14	76460C>T	1363C>T	R455X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.		
+E14	76460C>T	1363C>T	R455X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.		
+E14	76460C>T	1363C>T	R455X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.		
+E14	76460C>T	1363C>T	R455X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.		
+E14	76460C>T	1363C>T	R455X	NS	PM	Somatic	retino	U			Japan	Shimizu et al., 1994	8178820	RB151	Yes	
+E14	76460C>T	1363C>T	R455X	NS	PM	Germline	PB	n.r.			United States	Tsai et al., 2004	14769601	Rb228		
+E14	76460C>T	1363C>T	R455X	NS	PM	Germline	PB	B			Germany	Yilmaz et al., 1998	10671068	M4694	Yes	
+E14	76467T>G	1370T>G	M457R	MS	PM	Somatic	retino	B			United Kindom	Hogg et al., 1993	8346255	GOS109	Yes	Nucleotide position in cDNA changed to the first ATG
+E14	76469G>T	1372G>T	E458X	NS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E14	76471delA	1374delA	D458fsX477	FS	DE	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E14	76485C>G	1388C>G	S463X	NS	PM	Germline	PB	B			Germany	Yilmaz et al., 1998	10671068	M3254	Yes	
+I14	76487G>A	1389+1G>A	del:E14	SP-IF	PM	Germline	PB	U		18	France	Houdayer et al., 2004	14722923	n.r.		
+I14	76487G>C	1389+1G>C	del:E14	SP-IF	PM	Somatic	retino	B			China	Choy et al., 2002	12402348	Rb13		
+I14	76487G>C	1389+1G>C	del:E14	SP-IF	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+I14	76487G>C	1389+1G>C	del:E14	SP-IF	PM	Germline	PB	n.r.			United States	Tsai et al., 2004	14769601	Rb219		
+I14	76488T>C	1389+2T>C	del:E14	SP-IF	PM	Germline	PB	B	M	5	India	Ata-ur-Rashed et al., 2001	12187430	RB14		
+I14	76488T>C	1389+2T>C	del:E14	SP-IF	PM	Somatic	retino	B	M	12	India	Kiran et al, 2003	12955724	RB62		
+I14	76491G>A	1389+5G>A	del:E14	SP-IF	PM	Germline	PB	B	F	28	Spain	Alonso et al., 2001	11317357	JA223		
+I14	76491G>A	1389+5G>A	del:E14	SP-IF	PM	Germline	PB	BF	M	25	Spain	Alonso et al., 2001	11317357	JA243		RNA assay shoewd  skipping of exon 14
+I14	76491G>A	1389+5G>A	del:E14	SP-IF	PM	Germline	PB	B			Germany	Yilmaz et al., 1998	10671068	G1505	Yes	
+I14	76491G>C	1389+5G>C	del:E14	SP-IF	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+I14	76888G>C	1390-1G>C	del:E14	SP-IF	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E15	76889del137	1390del59	Y464fsX472	FS	DE	Germline	PB	U	F	18	Poland	Zajaczek et al., 1999	10673998	Case 4	Yes	
+E15	76895G>T	1396G>T	E466X	NS	PM	Germline	PB	B			France	Houdayer et al., 2004	14722923	n.r.		
+E15	76898C>T	1399C>T	R467X	NS	PM	Germline	PB	B			France	Blanquet et al., 1995	7795591	RB127	Yes	
+E15	76898C>T	1399C>T	R467X	NS	PM	Germline	PB	B			France	Houdayer et al., 2004	14722923	n.r.		
+E15	76898C>T	1399C>T	R467X	NS	PM	Germline	PB	B			France	Houdayer et al., 2004	14722923	n.r.		
+E15	76898C>T	1399C>T	R467X	NS	PM	Germline	PB	BF			France	Houdayer et al., 2004	14722923	n.r.		
+E15	76898C>T	1399C>T	R467X	NS	PM	Germline	PB	B	M	11	India	Kiran et al, 2003	12955724	RB600		
+E15	76898C>T	1399C>T	R467X	NS	PM	Somatic	retino	U			Germany	Klutz et al ., 1999	9973307	M4119	Yes	
+E15	76898C>T	1399C>T	R467X	NS	PM	Somatic	retino	U			Germany	Klutz et al ., 1999	9973307	M6485	Yes	
+E15	76898C>T	1399C>T	R467X	NS	PM	Somatic	retino	U			Germany	Klutz et al ., 1999	9973307	M6777	Yes	
+E15	76898C>T	1399C>T	R467X	NS	PM	Germline	PB	B		2	Germany	Lohmann et al., 1996	8651278	G430	Yes	
+E15	76898C>T	1399C>T	R467X	NS	PM	Germline	PB	BF		2	Germany	Lohmann et al., 1996	8651278	G496	Yes	
+E15	76898C>T	1399C>T	R467X	NS	PM	Germline	PB	BF		23	Germany	Lohmann et al., 1996	8651278	G1001	Yes	
+E15	76898C>T	1399C>T	R467X	NS	PM	Germline	PB	U			Canada	Richter et al., 2003	12541220	n.r.		
+E15	76898C>T	1399C>T	R467X	NS	PM	Germline	PB	U			Canada	Richter et al., 2003	12541220	n.r.		
+E15	76898C>T	1399C>T	R467X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.		
+E15	76898C>T	1399C>T	R467X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.		
+E15	76898C>T	1399C>T	R467X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.		
+E15	76898C>T	1399C>T	R467X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.		
+E15	76898C>T	1399C>T	R467X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.		
+E15	76898C>T	1399C>T	R467X	NS	PM	Germline	PB	B			United States	Van Orsouw et al, 1996	8776589	6		
+E15	76898C>T	1399C>T	R467X	NS	PM	Somatic	osteosarcoma	other t.			Japan	Wadayama et al., 1994	8187094	KS-163	Yes	
+E15	76900dup11	1400dup11	H471fsX481	FS	DUP	Germline	PB	B			United States	Sippel et al., 1998	9497263	f139	Yes	Mosaicism
+E15	76913del32	1414del32	S471fsX480	FS	DE	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E15	76915insAAAT	1416ins4	K472fsX475X	FS	IN	Somatic	retino	U			Japan	Shimizu et al., 1994	8178820	RB270	Yes	
+E15	76918del45	1419del45	delF472_A487	IF	DE	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E15	76919del30	1420del2	splice	SP	DE	Germline	PB	B			France	Blanquet et al., 1995	7795591	RB495	Yes	Destroys splicing site or creates a frameshift
+E15	76920G>A	1421G>A	Splice/S474N	SP-MS	PM	Somatic	retino	U			ECU	Leone et al., 2003	14625809	n.r.		
+I15	76923A>T	1421+3A>T	Splice	SP	PM	Germline	PB	n.r.			United States	Tsai et al., 2004	14769601	Rb221		
+I15	76923del21	1421+3del21	splice	SP	DE	Germline	PB	B			United States	Sippel et al., 1998	9497263	f385	Yes	Mosaicism
+I15	76932del21	1421+12del21	unknown	SP	DE	Germline	PB	B			United States	Liu et al., 1995	8605116	TS78	Yes	Polymorphism?
+I15	76938del21	1421+17del21	unknown	SP	DE	Germline	PB	BF			France	Houdayer et al., 2004	14722923	n.r.		
+I15	76940del14	1390-9del14	splice	SP	DE	Germline	PB	B	F	36	India	Kiran et al, 2003	12955724	RB72		
+I15	76983T>C	1422-18T>C	unknown	SP	PM	Somatic	osteosarcoma	other t.			Japan	Wadayama et al., 1996	8187094	KS-228		Polymorphism?
+I15	76983T>C	1422-18T>C	unknown	SP	PM	Somatic	osteosarcoma	other t.			Japan	Wadayama et al., 1996	8187094	KS-273		Polymorphism?
+I15	76993delT	1422-8delT	unknown	SP	DE	Somatic	osteosarcoma	other t.			Japan	Wadayama et al., 1996	8187094	KS-152		Polymorphism?
+I15	76999A>G	1422-2A>G	splice	SP	PM	Germline	PB	UF			France	Houdayer et al., 2004	14722923	n.r.		
+I16	77000G>C	1422-1G>C	splice	SP	PM	Germline	PB	B	F	4	Spain	Alonso et al., 2001	11317357	JA143		
+E16	77003ins10	1424ins10	X476	FS	IN	Somatic	retino	U			Russia	Babenko et al., 2003	12173465	n.r		
+E16	77015del13	1436del13	V479fsX490	FS	DE	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E16	77018delAC	1439delAC	F481fsX491	FS	DE	Somatic	retino	U			Russia	Babenko et al., 2003	12173465	n.r		
+E16	77018delACA	1439delACA	delN480	IF	DE	Germline	PB	LP			Germany	Lohmann et al., 1992	1577465	Family Rö	Yes	1 bilateral, 3 unilateral1 unaffected carrier)
+E16	77018insA	1438insA	L480fsX492	FS	IN	Somatic	retino	U			United Kindom	Hogg et al., 1993	8346255	GOS568	Yes	Nucleotide position in cDNA changed to the first ATG
+E16	77024delTT	1445delTT	S482fsX491	FS	DE	Germline	PB	B			Germany	Yilmaz et al., 1998	10671068	M4187	Yes	
+E16	77026delCA	1447delCA	Y483fsX491	FS	DE	Somatic	retino	U		8	Germany	Lohmann et al., 1997	9311732	M4042	Yes	
+E16	77027insT	1448insT	Y484fsX492	FS	IN	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E16	77029delAT	1450delAT	V484fsX491	FS	DE	Germline	PB	BF	M	3	Spain	Alonso et al., 2001	11317357	JA083		
+E16	77029delAT	1450delAT	V484fsX491	FS	DE	Germline	PB	B		3	Germany	Lohmann et al., 1996	8651278	G415	Yes	
+E16	77029T>G	1449T>G	H483Q	MS	PM	Germline	PB	B			Turkia	Dundar et al., 2001	11480772	C.2		Nucleotide position in cDNA changedd to the first ATG
+E16	77036delTATT	1457del4	W486fs490X	FS	DE	Germline	PB	B		10	Germany	Lohmann et al., 1994	7881418	G419	Yes	
+E16	77037ins35	1457ins35	X498	FS	IN	Somatic	retino	U			Russia	Babenko et al., 2003	12173465	n.r		
+E16	77046C>A	1467C>A	C489X	NS	PM	Somatic	retino	U			Japan	Shimizu et al., 1994	8178820	RB231	Yes	
+E16	77046C>A	1467C>A	C489X	NS	PM	Somatic	retino	U			Russia	Babenko et al., 2003	12173465	n.r		
+E16	77065del13ins4	1476del13ins4	A496X	FS	I_D	Germline	PB	BF	F	2	Spain	Alonso et al., 2001	11317357	JA453		
+E16	77069delAC	1489delAC	I497fsX498	FS	DE	Germline	PB	B		24	Germany	Lohmann et al., 1996	8651278	G448	Yes	
+E16	77073T>A	1494T>A	Y498X	NS	PM	Germline	PB	B			Russia	Babenko et al., 2003	12173465	n.r		
+E16	77073T>A	1494T>A	Y498X	NS	PM	Somatic	retino	U		23	Germany	Lohmann et al., 1997	9311732	M6418	Yes	
+E16	77073T>A	1494T>A	Y498X	NS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E16	77073T>G	1494T>G	Y498X	NS	PM	Germline	PB	B	M	12	India	Kiran et al, 2003	12955724	RB44		
+E16	77074insTA	1495insTA	I499fsX519	FS	IN	Germline	PB	B			United Kindom	Cowell et al., 1994	7704558	TS76	Yes		
+E16	77077A>G	1498A>G	splice/R500G	SP-MS	PM	Germline	PB	U		30	Korea	Yu et al., 2001	11524739	SNU-RB24			
+I16	77082G>A	1498+5G>A	splice	SP	PM	Germline	PB	B		4	Germany	Lohmann et al., 1996	8651278	G393	Yes		
+I16	77082G>C	1498+5G>C	splice	SP	PM	Germline	PB	n.r.			United States	Tsai et al., 2004	14769601	Rb225			
+E16	77077A>C	1498A>C	splice	SP	PM	Germline	PB	B			Turkia	Dundar et al., 2001	11480772	C.4		Nucleotide position in cDNA changedd to the first ATG	
+I16	78081A>C	1499-2A>C	splice	SP	PM	Germline	PB	B			Turkia	Dundar et al., 2001	11480772	C.1		RNA asasy. Nucleotide position in cDNA changedd to the first ATG	
+I16	78082G>A	1499-1G>A	splice	SP	PM	Germline	PB	B			France	Blanquet et al., 1994	7981694	RB294			
+I16	78082G>A	1499-1G>A	splice	SP	PM	Germline	PB	B			France	Blanquet et al., 1995	7795591	RB173			
+E17	78085delA	1501delA	V501fs518X	FS	DE	Germline	PB	BF		5	Germany	Lohmann et al., 1994	7881418	G364	Yes		
+E17	78087del7ins21	1503del7ins21	S502fsX523	FS	I_D	Somatic	retino	B			Japan	Shimizu et al., 1994	8178820	RB247	Yes		
+E17	78094C>T	1510C>T	Q504X	NS	PM	Somatic	retino	U			Russia	Babenko et al., 2003	12173465	n.r			
+E17	78094C>T	1510C>T	Q504X	NS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.			
+E17	78119delT	1535delT	C512fsX518	FS	DE	Germline	PB	B		7	Germany	Lohmann et al., 1996	8651278	G32	Yes		
+E17	78121delT	1537delT	L513fsX518	FS	DE	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.			
+E17	78131G>A	1547G>A	W516X	NS	PM	Germline	PB	B	M	12	India	Kiran et al, 2003	12955724	RB59			
+E17	78141ins7	1557ins7	C522sX524	FS	IN	Germline	PB	B			United States	Liu et al., 1995	8605116	BB18	Yes		
+E17	78158C>G	1574C>G	A525G	MS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E17	78159delC	1575delC	L526fsX531	FS	DE	Germline	PB	BF	M	12	Spain	Alonso et al., 2004	15605413	1013		
+E17	78169insT	1585insT	L529fsX554	FS	IN	Somatic	retino	U		56	Germany	Lohmann et al., 1997	9311732	M5682	Yes	
+E17	78171C/A-G	1587C>A/G	W(Y)529X	NS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E17	78173A>G	1589A>G	K530R	MS	PM	Germline	PB	B			United Kindom	Cowell et al., 1994	7704558	TS23	Yes	
+E17	78177delGinsTTT	1593delGinsTTT	L532fsX543	FS	I_D	Germline	PB	B	M	4	China	Choy et al., 2002	12402348	Yu1		
+E17	78181G>T	1597G>T	E533X	NS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E17	78189delT	1605delT	L535fsX542	FS	dE	Germline	PB	B			United States	Van Orsouw et al, 1996	8776589	2		
+E17	78199G>T	1615G>T	E539X	NS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E17	78202del18	1618del18	delG540-E545	IF	DE	Germline	PB	B		4	Germany	Lohmann et al., 1994	7881418	G384	Yes	
+E17	78214delA	1630delA	E544fsX546	FS	DE	Germline	PB	B			United Kindom	Onadim et al., 1993	8217609	RBF59	Yes	
+E17	78217G>T	1633G>T	E545X	NS	PM	Germline	PB	B			France	Houdayer et al., 2004	14722923	n.r.		78218G>T in reference
+E17	78228insAA	1644insAA	N549fsX551	FS	IN	Somatic	retino	U			Germany	Klutz et al ., 1999	9973307	M8995	Yes	
+E17	78229C>T	1645C>T	H549Y	MS	PM	Germline	PB	BF			United States	Liu et al., 1995	8605116	TS106	Yes	
+E17	78238C>T	1654C>T	R552X	NS	PM	Germline	PB	B	F	10	Spain	Alonso et al., 2001	11317357	JA253		
+E17	78238C>T	1654C>T	R552X	NS	PM	Somatic	retino	U			Russia	Babenko et al., 2003	12173465	n.r		
+E17	78238C>T	1654C>T	R552X	NS	PM	Somatic	retino	B	M		Brazil	Braggio et al, 2004	15166261	HC17		
+E17	78238C>T	1654C>T	R552X	NS	PM	Germline	PB	BF	F		Brazil	Braggio et al, 2004	15166261	HC7		
+E17	78238C>T	1654C>T	R552X	NS	PM	Germline	PB	BF	F		Brazil	Braggio et al, 2004	15166261	HC38		
+E17	78238C>T	1654C>T	R552X	NS	PM	Germline	PB	B			United Kindom	Cowell et al., 1994	7704558	n.r.	Yes	
+E17	78238C>T	1654C>T	R552X	NS	PM	Germline	PB	B			United Kindom	Cowell et al., 1994	7704558	n.r.	Yes	
+E17	78238C>T	1654C>T	R552X	NS	PM	Germline	PB	B			United Kindom	Cowell et al., 1994	7704558	n.r.	Yes	
+E17	78238C>T	1654C>T	R552X	NS	PM	Germline	PB	B			United Kindom	Cowell et al., 1994	7704558	n.r.	Yes	
+E17	78238C>T	1654C>T	R552X	NS	PM	Germline	PB	BF			United Kindom	Bia & Cowell, 1995	7675457	TIII.3	Yes	Independent mutations in cousins
+E17	78238C>T	1654C>T	R552X	NS	PM	Germline	PB	U		12	United Kindom	Cowell & Cragg,1995	8983285	n.r.	Yes	Early onset (<12m) unilateral
+E17	78238C>T	1654C>T	R552X	NS	PM	Germline	PB	B	M	12	India	Kiran et al, 2003	12955724	RB58		
+E17	78238C>T	1654C>T	R552X	NS	PM	Germline	PB	B		14	Germany	Lohmann et al., 1996	8651278	M624	Yes	
+E17	78238C>T	1654C>T	R552X	NS	PM	Somatic	retino	U		14	Germany	Lohmann et al., 1997	9311732	M1324	Yes	
+E17	78238C>T	1654C>T	R552X	NS	PM	Somatic	retino	U		17	Germany	Lohmann et al., 1997	9311732	M3297	Yes	
+E17	78238C>T	1654C>T	R552X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.		
+E17	78238C>T	1654C>T	R552X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.		
+E17	78238C>T	1654C>T	R552X	NS	PM	Germline	PB	B			Germany	Yilmaz et al., 1998	10671068	M2481	Yes	
+E17	78238C>T	1654C>T	R552X	NS	PM	Somatic	retino	U			United Kindom	Hogg et al., 1993	8346255	GOS563	Yes	Nucleotide position in cDNA changed to the first ATG
+E17	78238C>T	1654C>T	R552X	NS	PM	Germline	PB	B			Germany	Yilmaz et al., 1999	10671068	M2904	Yes	
+E17	78243T>A	1666C>T	C553X	NS	PM	Germline	PB	BF		12	Germany	Lohmann et al., 1996	8651278	G740	Yes	
+E17	78244G>T	1666C>T	E554X	NS	PM	Germline	PB	BF		21	Germany	Lohmann et al., 1996	8651278	G189	Yes	
+E17	78250C>T	1666C>T	R556X	NS	PM	Germline	PB	BF	M	1	Cuba	Alonso et al., 2004	15605413	CU001		
+E17	78250C>T	1666C>T	R556X	NS	PM	Germline	PB	B			Russia	Babenko et al., 2003	12173465	n.r		
+E17	78250C>T	1666C>T	R556X	NS	PM	Germline	PB	B	M		Brazil	Braggio et al, 2004	15166261	HC9		
+E17	78250C>T	1666C>T	R556X	NS	PM	Germline	PB	B			United Kindom	Cowell et al., 1994	7704558	n.r.	Yes	
+E17	78250C>T	1666C>T	R556X	NS	PM	Somatic	retino	U			United Kindom	Hogg et al., 1993	8346255	GOS561	Yes	Nucleotide position in cDNA changed to the first ATG
+E18	78250C>T	1666C>T	R556X	NS	PM	Germline	PB	B			France	Houdayer et al., 2004	14722923	n.r.		
+E19	78250C>T	1666C>T	R556X	NS	PM	Germline	PB	B			France	Houdayer et al., 2004	14722923	n.r.		
+E17	78250C>T	1666C>T	R556X	NS	PM	Somatic	retino	U	M	84	India	Kiran et al, 2003	12955724	RB63		
+E17	78250C>T	1666C>T	R556X	NS	PM	Somatic	retino	U			Germany	Klutz et al ., 1999	9973307	G505	Yes	
+E17	78250C>T	1666C>T	R556X	NS	PM	Germline	PB	BF			United States	Liu et al., 1995	8605116	TS81	Yes	
+E17	78250C>T	1666C>T	R556X	NS	PM	Somatic	retino	U		14	Germany	Lohmann et al., 1997	9311732	M1324	Yes	
+E17	78250C>T	1666C>T	R556X	NS	PM	Somatic	retino	U		28	Germany	Lohmann et al., 1997	9311732	M5266	Yes	
+E17	78250C>T	1666C>T	R556X	NS	PM	Germline	PB	B	F	13	United Kindom	Onadim et al., 1997	9400934	n.r.	Yes	Also found in ectopic intracraneal retinoblastoma (pinealoma)
+E17	78250C>T	1666C>T	R556X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.		
+E17	78250C>T	1666C>T	R556X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.		
+E17	78250C>T	1666C>T	R556X	NS	PM	Germline	PB	B			United States	Sippel et al., 1998	9497263	f262	Yes	Mosaicism
+E17	78250C>T	1666C>T	R556X	NS	PM	Germline	PB	n.r.			United States	Tsai et al., 2004	14769601	RB313		
+E17	78250C>T	1666C>T	R556X	NS	PM	Germline	PB	n.r.			United States	Tsai et al., 2004	14769601	Rb227		
+E17	78272G>A	1688G>A	W563X	NS	PM	Germline	PB	B			France	Houdayer et al., 2004	14722923	n.r.		
+E17	78272G>T	1688G>T	W563L	MS	PM	Germline	PB	LP			Nederland	Scheffer et al,  2000	10882758	RB-K		3 bilateral, 2 carriers
+E17	78273G>T	1689G>T	W563C	MS	PM	Germline	PB	UF	M	3	Cuba	Alonso et al., 2004	15605413	CU009		
+E17	78277del14	1693del14	splice	SP	DE	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+I17	78281T>C	1695+2T>G	splice	SP	PM	Somatic	lung carcinoma	other t.			Japan	Sachse et al., 1994	8302602		Yes	
+I17	78281T>G	1695+2T>G	splice	SP	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+I17	78282A>C	1695+3A>C	splice	SP	PM	Germline	PB	B		20	Germany	Lohmann et al., 1996	8651278	G438	Yes	
+I17	78282A>T	1695+3A>T	splice	SP	PM	Germline	PB	B			United States	Van Orsouw et al, 1996	8776589	19		
+I17	78284G>A	1695+5G>A	splice	SP	PM	Germline	PB	B			France	Houdayer et al., 2004	14722923	n.r.		
+I17	78285T>G	1695+6T>G	splice	SP	PM	Germline	FB	B			Japan	Shimizu et al., 1994	8178820	RB299	Yes	
+I17	149997G>A	1696-1G>A	splice	SP	PM	Germline	PB	B			United Kindom	Cowell et al., 1994	7704558	TS94	Yes		
+E18	149998G>A	1696G>A	splice	SP	PM	Germline	PB	B			United States	Van Orsouw et al, 1996	8776589	10			
+E18	150001delT	1699delT	H567fsX610	FS	DE	Somatic	retino	U			Mexico	Rodriguez et al., 2002	12419581	RB-12			
+E18	150002C>T	1700C>T	S567L	MS	PM	Germline	PB	B		4	United States	Yandell et al., 1989	2594029	RB-104	Yes		
+E18	150002C>T	1700C>T	S567L	MS	PM	Germline	PB	B			Germany	Yilmaz et al., 1998	10671068	M4034	Yes		
+E18	150005del4	1703del14	H568fsX609	FS	DE	Germline	PB	B			France	Houdayer et al., 2004	14722923	n.r.			
+E18	150006delTTT	1704delTTT	delP569	IF	DE	Germline	PB	B			France	Blanquet et al., 1995	7795591	RB62	Yes		
+E18	150009delA	1707delA	F569fsX610	FS	IN	Germline	PB	B			France	Blanquet et al., 1993	8364580	VER	Yes		
+E18	150011delTT	1709delTT	F570fsX570	FS	DE	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.			
+E18	150025C>T	1723C>T	Q575X	NS	PM	Germline	PB	BF		21	Germany	Lohmann et al., 1996	8651278	G461	Yes		
+E18	150025C>T	1723C>T	Q575X	NS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.			
+E18	150025C>T	1723C>T	Q575X	NS	PM	Germline	PB	B			United States	Sippel et al., 1998	9497263	f296	Yes	Mosaicism	
+E18	150025delCAAT	1723del4	R576fsX609	FS	DE	Somatic	retino	U		56	Germany	Lohmann et al., 1997	9311732	M5682	Yes		
+E18	150029delCAAA	1727del4	W576fsX609	FS	DE	Germline	PB	n.r.			United States	Tsai et al., 2004	14769601	Rb232			
+E18	150037C<T	1735C<T	R579X	NS	PM	Germline	PB	B	M	6	Spain	Alonso et al., 2004	15605413	1303			
+E18	150037C>T	1735C>T	R579X	NS	PM	Germline	PB	B	M	72	India	Ata-ur-Rashed et al., 2001	12187430	RB12			
+E18	150037C>T	1735C>T	R579X	NS	PM	Somatic	retino	U			Russia	Babenko et al., 2003	12173465	n.r			
+E18	150037C>T	1735C>T	R579X	NS	PM	Germline	PB	B			France	Blanquet et al., 1994	7981694	RB427	Yes		
+E18	150037C>T	1735C>T	R579X	NS	PM	Germline	PB	B			France	Blanquet et al., 1995	7795591	RB399	Yes		
+E18	150037C>T	1735C>T	R579X	NS	PM	Germline	PB	n.r.			France	Blanquet et al., 1995	7795591	RB160	Yes		
+E18	150037C>T	1735C>T	R579X	NS	PM	Somatic	retino	B	M		Brazil	Braggio et al, 2004	15166261	HC38			
+E18	150037C>T	1735C>T	R579X	NS	PM	Somatic	retino	U	F		Brazil	Braggio et al, 2004	15166261	HC19			
+E18	150037C>T	1735C>T	R579X	NS	PM	Germline	PB	B			United Kindom	Cowell et al., 1994	7704558	n.r.	Yes		
+E18	150037C>T	1735C>T	R579X	NS	PM	Germline	PB	B			United Kindom	Cowell et al., 1994	7704558	n.r.	Yes		
+E18	150037C>T	1735C>T	R579X	NS	PM	Germline	PB	B			United Kindom	Cowell et al., 1994	7704558	n.r.	Yes		
+E18	150037C>T	1735C>T	R579X	NS	PM	Germline	PB	BF			Argentina	Dalamon et al, 2001	11721186			Also prenatal (Chorionic villus)	
+E18	150037C>T	1735C>T	R579X	NS	PM	Germline	PB	BF	F	22	Argentina	Dalamon et al, 2004	15469703	132			
+E18	150037C>T	1735C>T	R579X	NS	PM	Germline	PB	U	F	36	Argentina	Dalamon et al, 2004	15469703	227			
+E18	150037C>T	1735C>T	R579X	NS	PM	Somatic	retino	U			Germany	Klutz et al ., 1999	9973307	G494	Yes		
+E18	150037C>T	1735C>T	R579X	NS	PM	Somatic	retino	U			Germany	Klutz et al ., 1999	9973307	M6787	Yes		
+E18	150037C>T	1735C>T	R579X	NS	PM	Germline	PB	B		18	Germany	Lohmann et al., 1996	8651278	G445	Yes		
+E18	150037C>T	1735C>T	R579X	NS	PM	Germline	PB	BF		13	Germany	Lohmann et al., 1996	8651278	G818	Yes		
+E18	150037C>T	1735C>T	R579X	NS	PM	Germline	PB	BF		15	Germany	Lohmann et al., 1996	8651278	G852	Yes		
+E18	150037C>T	1735C>T	R579X	NS	PM	Germline	PB	BF		6	Germany	Lohmann et al., 1996	8651278	G1313	Yes		
+E18	150037C>T	1735C>T	R579X	NS	PM	Somatic	retino	U		10	Germany	Lohmann et al., 1997	9311732	M3293	Yes		
+E18	150037C>T	1735C>T	R579X	NS	PM	Germline	PB	B			Spain	Mateu et al., 1997	9140452	RB-198	Yes		
+E18	150037C>T	1735C>T	R579X	NS	PM	Germline	PB	B			Spain	Najera et al. 2001	11333669	FranceB-34			
+E18	150037C>T	1735C>T	R579X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.			
+E18	150037C>T	1735C>T	R579X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.			
+E18	150037C>T	1735C>T	R579X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.			
+E18	150037C>T	1735C>T	R579X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.			
+E18	150037C>T	1735C>T	R579X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.			
+E18	150037C>T	1735C>T	R579X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.			
+E18	150037C>T	1735C>T	R579X	NS	PM	Germline	PB	U			Canada	Richter et al., 2003	12541220	n.r.			
+E18	150037C>T	1735C>T	R579X	NS	PM	Germline	PB	B			Argentina	Szijan et al., 1994	7666401	Rb1	Yes		
+E18	150037C>T	1735C>T	R579X	NS	PM	Germline	PB	n.r.			United States	Tsai et al., 2004	14769601	Rb211			
+E18	150037C>T	1735C>T	R579X	NS	PM	Germline	PB	n.r.			United States	Tsai et al., 2004	14769601	Rb217			
+E18	150037C>T	1735C>T	R579X	NS	PM	Germline	PB	n.r.			United States	Tsai et al., 2004	14769601	Rb230			
+E18	150087C>T	1735C>T	R579X	NS	PM	Germline	PB	B			United States	Van Orsouw et al, 1996	8776589	8			
+E18	150037C>T	1735C>T	R579X	NS	PM	Germline	PB	BF			Germany	Yilmaz et al., 1999	10671068	M1154	Yes		
+E18	150037del10	1735del10	Q579fsX607	FS	DE	Somatic	retino	U		10	Germany	Lohmann et al., 1997	9311732	M4008	Yes		
+E18	150038dupAGGACCG	1736dupAGGACCG	G580fsX586	FS	DU	Germline	PB	B			United Kindom	Cowell et al., 1994	7704558	TS72	Yes		
+E18	150040G>T	1738G>T	E580X	NS	PM	Germline	PB	B			France	Blanquet et al., 1995	7795591	RB61	Yes		
+E18	150045A>C	1733A>C	D578A	MS	PM	Germline	PB	B			Russia	Babenko et al., 2003	12173465	n.r			
+E18	150055C>T	1753C>T	H585Y	MS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.			
+E18	150056del10	1754del10	L585fsX607	FS	DE	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.			
+E18	150058del10	1756del10	L589fsX607	FS	DE	Germline	PB	B			United Kindom	Cowell et al., 1994	7704558	TS64	Yes		
+E18	150061del10	1759del10	V587fsX607	FS	DE	Germline	PB	B			Canada	Dunn et al., 1989	2601691	EBV543	Yes		
+E18	150061del10	1759del10	V587fsX607	FS	DE	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.			
+E18	150061G>T	1759G>T	E587X	NS	PM	Somatic	retino	B	F	3	India	Kiran et al, 2003	12955724	RB543			
+E18	150064ins4	1762ins4	X604	FS	IN	Germline	PB	B	F	24	India	Kiran et al, 2003	12955724	RB65			
+E18	150067insGG	1765insGG	G589fsX611	FS	IN	Somatic	retino	U			Russia	Babenko et al., 2003	12173465	n.r			
+E18	150067insGG	1765insGG	G589fsX611	FS	IN	Germline	PB	BF			Russia	Babenko et al., 2003	12173465	n.r			
+E18	150084T>G	1782T>G	L594L	MS	PM	Somatic	retino	U			Mexico	Rodriguez et al., 2002	12419581	RB-12		Non oncogenic second Somatic mutation	
+E18	150102delC	1801delC	N599fsX610	FS	DE	Germline	PB	B	F	4	Spain	Alonso et al., 2001	11317357	JA303			
+E18	150108delG	1807delG	Q603fsX610	FS	DE	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.			
+E18	150113insGA	1811insGA	E604fs611X	FS	IN	Germline	PB	BF		7	Germany	Lohmann et al., 1994	7881418	G457	Yes		
+E18	150115A>G	1813A>G	splice	SP	PM	Germline	PB	B			United States	Van Orsouw et al, 1996	8776589	1		A>G in codon 605 for reported splicing consequences	
+I18	150117G>C	1814+1G>C	splice	SP	PM	Germline	PB	B		10	Germany	Lohmann et al., 1996	8651278	G1111	Yes		
+I18	150118T>C	1814+2T>C	splice	SP	PM	Germline	PB	B	F	3	Spain	Alonso et al., 2001	11317357	JA533			
+I18	150118T>C	1814+2T>C	splice	SP	PM	Germline	PB	B			United States	Van Orsouw et al, 1996	8776589	12			
+I18	150127T>C	1814+11T>C	splice	SP	PM	Germline	PB	B			France	Blanquet et al., 1993	8364580	DEB		Polymorphism?	
+I18	153204insTC	1815-4insTC	splice	SP	IN	Germline	PB	B			United States	Liu et al., 1995	8605116	BB1	Yes		
+E19	153209insT	1816insT	L606fsX652	FS	IN	Somatic	retino	U		33	Germany	Lohmann et al., 1997	9311732	M5714	Yes		
+E19	153211T>G	1819T>G	Y606X	NS	PM	Germline	PB	BF			Spain	Najera et al. 2001	11333669	fRB17			
+E19	153221delGT	1828delGT	K61Ofs651X	FS	DE	Germline	PB	BF		2	Germany	Lohmann et al., 1994	7881418	G232	Yes		
+E19	153226delA	1833delA	S611fsX621	FS	DE	Germline	PB	B	M	4	Colombia	Alonso et al., 2004	15605413	CO285			
+E19	153239A>G	1846A>G	K616E	MS	PM	Germline	PB	B		2	Korea	Yu et al., 2001	11524739	SNU-RB3		Osteosarcoma after 15 years	
+E19	153241delA	1848delA	V617fsX622	FS	DE	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.			
+E19	153243delG	1850delG	V617fsX622	FS	DE	Germline	PB	BF			Spain	Mateu et al., 1997	9140452	RB-210	Yes		
+E19	153252delCG	1859delCG	C621fsX651	FS	DE	Germline	PB	B			France	Blanquet et al., 1995	7795591	RB205	Yes	
+E19 	153252delCG	1859delCG	C621fsX651	FS	DE	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E19	153266delA	1873delA	S624fsX642	FS	DE	Germline	PB	BF	M	17	Spain	Alonso et al., 2001	11317357	JA173		
+E19	153276delCA	1883delCA	G628fsX651	FS	DE	Germline	PB	B			United States	Sippel et al., 1998	9497263	f333	Yes	Mosaicism
+E19	153277delAG	1884delAG	D629fsX651	FS	DE	Germline	PB	n.r.			France	Blanquet et al., 1995	7795591	RB261	Yes	
+E19 	153280delGA	1887delGA	H630fsX642X	FS	DE	Germline	PB	n.r.			United States	Tsai et al., 2004	14769601	Rb36		
+E19	153284C>T	1891C>T	Q631X	NS	PM	Germline	PB	B	M	108	India	Kiran et al, 2003	12955724	RB55		
+E19	153284C>T	1891C>T	Q631X	NS	PM	Somatic	retino	U			Germany	Klutz et al ., 1999	9973307	M7847	Yes	
+E19	153285delAA	1892delAA	R631fsX651	FS	DE	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E19	153285ins32	1892ins32	Q631fsX653	FS	IN	Somatic	retino	U			Germany	Klutz et al ., 1999	9973307	M9218	Yes	
+E19	153288delC	1895delC	E632fsX642	FS	DE	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E19	153294C>G	1901C>G	S634X	NS	PM	Germline	PB	B		8	Germany	Lohmann et al., 1996	8651278	G373	Yes	
+E19	153295insTC	1902insTC	S635fsX643	FS	IN	Somatic	retino	B			United States	Sippel et al., 1998	9497263	f266	Yes	Mosaicism
+E19	153296G>C	1903G>C	A635P	MS	PM	Germline	PB	B			France	Blanquet et al., 1995	7795591	RB327	Yes	
+E19	153302C>T	1909C>T	Q637X	NS	PM	Germline	PB	B	M	15	Spain	Alonso et al., 2001	11317357	JA103		
+E19	153302C>T	1909C>T	Q637X	NS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E19	153308C>T	1915C>T	Q639X	NS	PM	Germline	PB	B			Germany	Lohmann et al., 1996	8651278	G377	Yes	
+E19	153330delC	1937delC	F646fsx657	FS	DE	Germline	PB	BF		6	Germany	Lohmann et al., 1994	7881418	G362	Yes	
+E19	153331delTC	1938delTC	F647fsX651	FS	IN	Somatic	retino	U			United Kindom	Hogg et al., 1993	8346255	GOS45	Yes	Nucleotide position in cDNA changed to the first ATG
+E19	153332delCT	1939delCT	F647fsX651	FS	DE	Somatic	retino	U			Japan	Shimizu et al., 1994	8178820	RB272	Yes	
+E19	153332delCT	1939delCT	F647fsX651	FS	DE	Germline	PB	B			Argentina	Szijan et al., 1994	7666401	Rb7	Yes	
+E19	153335delT	1942delT	H648fsX657	FS	DE	Germline	PB	B			United States	Sippel et al., 1998	9497263	f345	Yes	Mosaicism
+E19	153338delCTGTT	1945del5	L649fsX650X	FS	DE	Germline	PB	n.r.			France	Blanquet et al., 1995	7795591	RB143	Yes	
+E19	153342del9	1949del9	F650fsX650	FS	DE	Somatic	retino	B			Canada	Dunn et al., 1989	2601691	RB570	Yes	
+E19 	153342del9	1949del9	F650fsX650	FS	DE	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E19	153350delAAAC	1957del4	C653fsX656	FS	DE	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E19	153352dupA	1959dupA	S654fsX667	FS	DU	Germline	PB	B	M	10	Spain	Alonso et al., 2004	15605413	0763		
+I19	153353G>C	1960G>C	Splice/V654L	SP-MS	PM	Germline	PB	B	M	3	Spain	Alonso et al., 2004	15605413	CU09		
+E19	153353G>C	1960G>C	Splice/V654L	SP-MS	PM	Germline	PB	LP			Canada	Richter et al., 2003	12541220	n.r.		
+I19	153354delG	1960+1delG	Splice	SP	DE	Germline	PB	B	F	24	Spain	Alonso et al., 2001	11317357	JA383		RNA assay: Frameshift
+I19	153354delG	1960+1delG	splice	SP	DE	Germline	PB	B			France	Blanquet et al., 1995	7795591	RB67	Yes	
+I19	153354delG	1960+1delG	splice	SP	DE	Germline	PB	B			France	Blanquet et al., 1995	7795591	RB121	Yes	
+I19	153354delG	1960+1delG	splice	SP	DE	Germline	PB	BF			France	Houdayer et al., 2004	14722923	n.r.		
+I19	153354delG	1960+1delG	Splice	SP	DE	Germline	PB	BF			Poland	Jakubowsca et al., 2001	11668642	P.4		
+I19	153354delG	1960+1delG	splice DONOR	SP	DE	Germline	PB	B		2	Germany	Lohmann et al., 1994	7881418	G376	Yes	
+I19	153354delG	1960+1delG	splice	SP	DE	Germline	PB	B			Germany	Yilmaz et al., 1998	10671068	M3829	Yes	
+I19	153354G>A	1960+1G>A	splice	SP	PM	Somatic	retino	UMF		21	Germany	Lohmann et al., 1997	9311732	M3619	Yes	
+I19	153355insG	1960+2insG	splice	SP	IN	Germline	PB	B			United States	Sippel et al., 1998	9497263	f218	Yes	Mosaicism
+I19	153355T>C	1960+2T>C	splice	SP	PM	Somatic	retino	U		54	United States	Yandell et al., 1989	2594029	RB-88	Yes	
+I19	153358G>C	1960+5G>C	splice	SP	PM	Germline	PB	n.r.			United States	Tsai et al., 2004	14769601	Rb132		
+I19	153358insG	1960+5insC	splice	SP	IN	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+I19	156681T>C	1861-12T>C	splice	SP	PM	Germline	PB	B	F	29	Spain	Alonso et al., 2004	15605413	1053		BP change. ¿Polymorphism?
+I19	156691A>G	1961-2A>G	splice	SP	PM	Germline	PB	B			France	Houdayer et al., 2004	14722923	n.r.		
+I19	156691A>G	1961-2A>G	splice	SP	PM	Somatic	retino	U			Germany	Klutz et al ., 1999	9973307	M7862	Yes	
+I19	156691A>G	1961-2A>G	splice	SP	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E20	156693T>A	1961T>A	V654E	MS	PM	Germline	PB	B			France	Blanquet et al., 1995	7795591	RB208	Yes	
+E20	156695insT	1963insT	G667fsX667	FS	IN	Germline	PB	B			Spain	Mateu et al., 1997	9140452	RB-61	Yes	
+E20	156697delT	1965delT	G656fsX657	FS	DE	Germline	PB	U			Mexico	Rodriguez et al., 2002	12419581	RB-8		
+E20	156698C>T	1966C>T	R656W	MS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E20	156702T>C	1970T>C	L657P	MS	PM	Germline	PB	B			United States	Van Orsouw et al, 1996	8776589	14		
+E20	156702T>C	1970T>C	L657P	MS	PM	Germline	PB	BF			Nederland	Scheffer et al,  2000	10882758	n.r.		
+E20	156704del15	1973del15	A658_L662del (in Franceme)	IF	DE	Germline	PB	B			France	Houdayer et al., 2004	14722923	n.r.		
+E20	156704G>T	1972G>T	A658S	MS	PM	Somatic	retino	B			Mexico	Rodriguez et al., 2002	12419581	RB-2		Non oncogenic second Somatic mutation
+E20	156705del8	1973del8	A659fsX664	FS	DE	Germline	PB	BF			United Kindom	Bia & Cowell, 1995	7675457	TIII.1	Yes	Independent mutations in cousins
+E20	156705delC	1974delC	I659fsX662	FS	DE	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E20	156709T>A	1977T>A	Y659X	NS	PM	Germline	PB	BF			Poland	Jakubowsca et al., 2001	11668642	P.2		
+E20	156713C>T	1981C>T	R661W	NS	PM	Germline	PB	UF			Russia	Babenko et al., 2003	12173465	n.r		
+E20	156713C>T	1981C>T	R661W	MS	PM	Germline	PB	LP			China	Huang et al., 1998	9621119	n.r.		Low penetrance
+E20	156713C>T	1981C>T	R661W	MS	PM	Germline	PB	LP			China	Huang et al., 1998	9621119	n.r.		Low penetrance
+E20	156713C>T	1981C>T	R661W	MS	PM	Germline	PB	LP			China	Huang et al., 1998	9621119	n.r.		Low penetrance
+E20	156713C>T	1981C>T	R661W	MS	PM	Germline	PB	LP			China	Huang et al., 1998	9621119	n.r.		Low penetrance
+E20	156713C>T	1981C>T	R661W	MS	PM	Germline	PB	LP			China	Huang et al., 1998	9621119	n.r.		Low penetrance
+E20	156713C>T	1981C>T	R661W	MS	PM	Germline	PB	LP			Germany	Lohmann et al., 1994	7927327	Family De	Yes	1 bilateral, 4 unilateral, 1 carrier
+E20	156713C>T	1981C>T	R661W	MS	PM	Germline	PB	LP			Germany	Lohmann et al., 1994	7927327	Family Li	Yes	3 unilateral, 1 carrier
+E20	156713C>T	1981C>T	R661W	MS	PM	Germline	PB	U		11	Germany	Lohmann et al., 1997	9311732	G1142	Yes		
+E20	156713C>T	1981C>T	R661W	MS	PM	Germline	PB	LP			United Kindom	Onadim et al., 1992	1352883	RBF29	Yes	2 bilateral, 2 unilateral, 4 regressed tumours, 4 carriers	
+E20	156713C>T	1981C>T	R661W	MS	PM	Germline	PB	U			Canada	Richter et al., 2003	12541220	n.r.			
+E20	156713C>T	1981C>T	R661W	MS	PM	Germline	PB	U			Canada	Richter et al., 2003	12541220	n.r.			
+E20	156713C>T	1981C>T	R661W	MS	PM	Germline	PB	U			Canada	Richter et al., 2003	12541220	n.r.			
+E20	156713C>T	1981C>T	R661W	MS	PM	Germline	PB	U			Canada	Richter et al., 2003	12541220	n.r.			
+E20	156713C>T	1981C>T	R661W	MS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.			
+E20	156713C>T	1981C>T	R661W	MS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.			
+E20	156713C>T	1981C>T	R661W	MS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.			
+E20	156713C>T	1981C>T	R661W	MS	PM	Germline	PB	n.r.			Nederland	Scheffer et al,  2000	10882758	n.r.			
+E20	156713C>T	1981C>T	R661W	MS	PM	Germline	PB	n.r.			United States	Tsai et al., 2004	14769601	Rb177			
+E20	156713C>T	1981C>T	R661W	MS	PM	Germline	PB	B			United States	Van Orsouw et al, 1996	8776589	27			
+E20	156713del8ins1	1981del8ins1	I661fsX674	FS	I_D	Germline	PB	U		12	United Kindom	Cowell & Cragg,1996	8983285	n.r.		Early onset (<12m) unilateral	
+E20	156713delCGGC	1981del4	R661X	FS	DE	Somatic	lung carcinoma	other t.			Japan	Mori et al., 1990	2176283	Lu-135	Yes		
+E20	156717T>C	1985T>C	L662P	MS	PM	Somatic	retino	U			Russia	Babenko et al., 2003	12173465	n.r			
+E20	156717T>C	1985T>C	L662P	MS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.			
+E20	156717T>C	1985T>C	L662P	MS	PM	Germline	PB	BF			Germany	Yilmaz et al., 1998	10671068	M3256	Yes	
+E20	156720ins19	1988ins19	S670fsX675	FS	IN	Somatic	retino	U	M	24	India	Ata-ur-Rashed et al., 2001	12187430	RB16		
+E20	156728dupT	1996dupT	L665fsX666	FS	DU	Germline	PB	BF	F	5	Colombia	Alonso et al., 2004	15605413	CO320		Father with retinoma
+E20	156744insT	2012insT	E672fsX672	FS	IN	Germline	PB	B			United Kindom	Hogg et al., 1992	1352398	ST	Yes	
+E20	156750A>C	2018A>C	H673P	MS	PM	Somatic	lung carcinoma	other t.			Japan	Sachse et al., 1994	8302602		Yes	
+E20	156755G>T	2023G>T	Q675X	NS	PM	Germline	PB	LP			United Kindom	Onadim et al., 1992	1352883	RBF18	Yes	3 bilateral, 2 unilateral, 5 regressed tumours
+E20	156759T>G/A	2027T>G/A	L676X	NS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E20	156760del13	2028del13	F676fs691	FS	DE	Somatic	lung ca. cell 	other t.			Japan	Kashii et al., 1994	8263009		Yes	
+E20	156774(5)G>A	2042(3)G>A	W681X	NS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E20	156783delT	2051delT	S684fsX695	FS	DE	Germline	PB	BF			Germany	Lohmann et al., 1992	1577465	Family Fe	Yes	
+E20	156784ins16	2052ins16	F684fsX696	FS	IN	Germline	PB	B			Germany	Yilmaz et al., 1998	10671068	M1932	Yes	
+E20	156785C>T	2053C>T	Q685X	NS	PM	Germline	PB	B			Spain	Najera et al. 2001	11333669	FranceB44		
+E20	156786A>C	2054A>C	Q685P	MS	PM	Germline	PB	B			France	Blanquet et al., 1995	7795591	RB389	Yes	
+E20	156786A>C	2054A>C	Q685P	MS	PM	Germline	PB	BF			Spain	Najera et al. 2001	11333669	fRB49		
+E20	156794delC	2062delC	C688fsX695	FS	DE	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E20	156795T>C	2063T>C	L688P	MS	PM	Somatic	retino	U	M		Brazil	Braggio et al, 2004	15166261	HC22		
+E20	156797ins100	2065ins100	Q689fsX700	FS	IN	Somatic	retino	U		17	Germany	Lohmann et al., 1997	9311732	M1821	Yes	
+E20	156801A>G	2069A>G	N690S	MS	PM	Germline	PB	B	F	9	Spain	Alonso et al., 2004	15605413	0873		
+E20	156816delT	2084delT	R695fsX704	FS	DE	Somatic	retino	U		16	Germany	Lohmann et al., 1997	9311732	M4372	Yes	
+E20	156820delA	2088delA	T697fsX704	FS	DE	Germline	PB	B			Argentina	Szijan et al., 1994	7666401	Rb80	Yes	
+E20	156836C>A	2104C>A	Q702K	MS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E20	156837A>G	2105A>G	Q702R	MS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+I20	156840del4	2106+2del4	splice	SP	DE	Germline	PB	B			France	Houdayer et al., 2004	14722923	n.r.		
+I20	156840T>C	2106+2T>C	splice	SP	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+I20	160728A>G	2107-2A>G	splice	SP	PM	Somatic	lung ca. cell 	other t.			United States	Horowitz et al., 1989	2521957	J82	Yes	
+I20	160728A>G	2107-2A>G	splice	SP	PM	Somatic	bladder carcinoma	other t.			United States	Yandell et al., 1989	2594029	J82	Yes	
+E21	160729del22	2107-1del22	A702fsX706	FS	DE	Germline	PB	B	F	48	India	Kiran et al, 2003	12955724	RB74		
+E21	160737T>G	2114T>G	M704R	MS	PM	Germline	PB	B			Nederland	Scheffer et al,  2000	10882758	n.r.		
+E21	160740G>A	2117G>A	C706Y	MS	PM	Germline	PB	B			Japan	Kato et al., 1994	8118465		Yes	
+E21	160750T>G	2127T>G	Y709X	NS	PM	Germline	PB	B	F	7	Colombia	Alonso et al., 2004	15605413	CO425		
+E21	160750T>G	2127T>G	Y709X	NS	PM	Germline	PB	B			France	Houdayer et al., 2004	14722923	n.r.		
+E21	160757T>C	2134T>C	C712R	MS	PM	Germline	PB	LP			United Kindom	Cowell & Bia, 1998	9671401	Family H	Yes	4 unilateral, 3 carriers
+E21	160757T>C	2134T>C	C712R	MS	PM	Germline	PB	LP			Syria	Ahmad et al, 1999	10617920	n.r	 	1 bilateral, 4 unilateral, 3 carriers
+E21	160757T>C	2134T>C	C712R	MS	PM	Germline	PB	B			Poland	Jakubowsca et al., 2001	11668642	P.5		
+E21	160757T>C	2134T>C	C712R	MS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E21	160757T>C	2134T>C	C712R	MS	PM	Germline	PB	B			Germany	Yilmaz et al., 1998	10671068	G1483	Yes	
+E21	160762delA	2139delA	V714X	FS	DE	Germline	PB	BF			France	Houdayer et al., 2004	14722923	n.r.		Deletion of nucleotide A in L713 changes V714 for a stop signal
+E21	160766A>T	2143A>T	L715X	NS	PM	Somatic	retino	U			Russia	Babenko et al., 2003	12173465	n.r		
+E21	160766A>T	2143A>T	L715X	NS	PM	Somatic	prostate 	other t.			United States	Bookstein et al., 1990	2217208		Yes	
+E21	160770insT	2147insT	Y717fsX720	FS	IN	Germline	PB	B			United States	Liu et al., 1995	8605116	TS16	Yes	
+E21	160775G>A	2152G>A	D718N	MS	PM	Somatic	retino	U			China	Choy et al., 2002	12402348	Rb8		
+E21	160781A>T	2158A>T	K720X	NS	PM	Somatic	retino	U		26	Germany	Lohmann et al., 1997	9311732	M1886	Yes	"Nucleotide 2158 is an A not a C as in the publication; A>T transversion results in a TAA codon"
+E21	160787A>T	2164A>T	K722X	NS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E21	160790dupA	2167dupA	L723fsX750	FS	DU	Germline	PB	B	F	24	Spain	Alonso et al., 2001	11317357	JA073		
+E21	160793del22	2161del22	T722fsX736	FS	DE	Germline	PB	B	F	3	India	Ata-ur-Rashed et al., 2001	12187430	RB17		
+E21	160799delA	2176delA	Q726fsX734	FS	DE	Germline	PB	BF		12	Germany	Lohmann et al., 1994	7881418	G367	Yes	
+E21	160807C>A	2184C>A	Y728X	NS	PM	Germline	PB	B		2	Germany	Lohmann et al., 1996	8651278	G382	Yes	
+E21	160819delT	2196delT	M733fsX743	FS	DE	Germline	PB	BF		10	Germany	Lohmann et al., 1994	7881418	G385	Yes	
+E21	160823insG	2200insG	G734fsX750	FS	IN	Germline	PB	BF		7	Germany	Lohmann et al., 1994	7881418	G435	Yes	
+E21	160832delG	2209delG	R737fsX743	FS	DE	Germline	PB	B			France	Houdayer et al., 2004	14722923	n.r.		
+E21	160834G>C/T	2211G>C/T	splice/E737D	SP-MS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E21	160834G>A	2211G>A	del:E21	SP	PM	Germline	PB	LP			Hungary	Schubert et al., 1997	9341870	RTB-120	Yes	5 unilateral, 1 bilateral, 7 assymptomatic carriers
+I21	160835G>A	2211+1G>A	del:E21	SP-IF	PM	Germline	PB	B			Poland	Jakubowsca et al., 2001	11668642	P.3		
+I21	160835G>C	2211+1G>C	del:E21	SP-IF	PM	Germline	PB	B	M	24	China	Choy et al., 2002	12402348	Yu11		
+I21	160835G>T	2211+1G>T	del:E21	SP-IF	PM	Germline	PB	BF			France	Houdayer et al., 2004	14722923	n.r.		
+I21	160835G>T	2211+1G>T	del:E21	SP-IF	PM	Germline	PB	UF			France	Houdayer et al., 2004	14722923	n.r.		
+I21	160839delG	2211+4delG	del:E21	SP-IF	DE	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+I21	161996G>A	2212-1G>A	del:E21	SP-IF	PM	Somatic	retino	B			Canada	Dunn et al., 1989	2601691	RB570	Yes	
+E22	161969insA	2214insA	I739fsX750	FS	IN	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E22	162021delGAAGA	2236del5	G746fsX748	FS	DE	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E22	162021G>T	2236G>T	E746X	NS	PM	Germline	PB	B			Russia	Babenko et al., 2003	12173465	n.r		
+E22	162021G>T	2236G>T	E746X	NS	PM	Somatic	PB	B			France	Houdayer et al., 2004	14722923	n.r.		
+E22	162027G>T	2242G>T	E748X	NS	PM	Germline	PB	B			Russia	Babenko et al., 2003	12173465	n.r		
+E22	162027G>T	2242G>T	E748X	NS	PM	Somatic	lung ca. Cell	other t.			Japan	Kashii et al., 1994	8263009	H69	Yes	
+E22	162027G>T	2242G>T	E748X	NS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E22	162027G>T	2242G>T	E748X	NS	PM	Somatic	lung (SCCL)	other t.			United States	Yandell et al., 1989	2594029	H69	Yes	
+E22	162029delG	2244delG	D748fsX753	FS	DE	Somatic	retino	U		13	United States	Yandell et al., 1989	2594029	RB-45	Yes	
+E22	162029ins8	2244ins8	Y749fsX756	FS	IN	Somatic	retino	U		2	Germany	Lohmann et al., 1997	9311732	M6680	Yes	
+E22	162032insG	2247insG	G750fsX757	FS	IN	Germline	PB	B			France	Houdayer et al., 2004	14722923	n.r.		
+E22	162048delTTinsAA	2263delTTinsAA	F755N	IF	I_D	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E22	162049delTTC	2264delTTC	delF750	IF	DE	Germline	PB	B		13	Germany	Lohmann et al., 1994	7881418	G387	Yes	
+E22	162057T<C	2272T>C	S758P	MS	PM	Germline	PB	UMF	M	23	Spain	Alonso et al., 2004	15605413	0473		
+E22	162069C>T	2284C>T	Q762X	NS	PM	Germline	PB	B			United States	Van Orsouw et al, 1996	8776589	4		
+E22	162091T>A	2306T>A	L769X	NS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E22	162092delGCinsTT	2307GC>TT	Q770X	NS	PM	Somatic	lung ca. cell line	other t.			Japan	Mori et al., 1990	2176283	Lu-24	Yes	
+E22	162093C>T	2308C>T	Q770X	NS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E22	162096insT	2311insT	L771fsX794	FS	IN	Somatic	retino	U			Japan	Shimizu et al., 1994	8178820	RB264	Yes	
+I22	162115G>A	2325+5G>A	del:E22	SP-IF	PM	Germline	PB	LP			United Kindom	Weir-Thompson et al., 1991	1622795	n.r.	Yes	RNA assayed. 2 bilateral, 3 unilateral, 1 carrier
+I22	162190T>C	2326-14T>C	unknown	SP	PM	Germline	PB	U			ECU	Leone et al., 2003	14625809	n.r.		Polymorphism?
+I22	162196T>A	2326-7T>A	splice	SP	PM	Germline	PB	BF	M	1	Spain	Alonso et al., 2004	15605413	CU031		New splicing site
+I22	162201T>G	2326-2T>G	splice	SP	PM	Somatic	retino	U			Russia	Babenko et al., 2003	12173465	n.r	
+I22	162203delG	2326-1delG	splice	SP	DE	Germline	PB	B F			France	Houdayer et al., 2004	14722923	n.r.	
+I22	162203delG	2326-1delG	splice	SP	DE	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.	
+I22 	162203G>T	2326-1G>T	Splice 	SP	PM	Germline	PB	n.r.			United States	Tsai et al., 2004	14769601	RB357	
+E23	162208delC	2330delC	L777fsX809	FS	DE	Germline	PB	B	M	4	Colombia	Alonso et al., 2004	15605413	CO451	
+E23	162208delC	2330delC	L777fsX809	FS	DE	Germline	PB	B			Germany	Lohmann et al., 1994	7881418	G834	Yes
+E23	162208delC	2330delC	L777fsX809	FS	DE	Somatic	lung ca. cell line	other t.			Japan	Mori et al., 1990	2176283	Lu-141	Yes
+E23	162208delC	2330delC	L777fsX809	FS	DE	Germline	PB	B			United States	Van Orsouw et al, 1996	8776589	15	
+E23	162209delT	2331delT	P778fsX809	FS	DE	Germline	PB	B			France	Blanquet et al., 1995	7795591	RB232	Yes
+E23	162225del7	2347del7	F783fsX807	FS	DE	Germline	PB	B			France	Blanquet et al., 1995	7795591	RB40	Yes
+E23	162237C>T	2359C>T	R787X	NS	PM	Germline	PB	BF	M	7	Spain	Alonso et al., 2001	11317357	JA543	
+E23	162237C>T	2359C>T	R787X	NS	PM	Germline	PB	B	M	7	Colombia	Alonso et al., 2001	15605413	CO313	
+E23	162237C>T	2359C>T	R787X	NS	PM	Germline	PB	B			United Kindom	Cowell et al., 1994	7704558	n.r.	Yes
+E23	162237C>T	2359C>T	R787X	NS	PM	Germline	PB	B	M	3	Argentina	Dalamon et al, 2004	15469703	237	
+E23	162237C>T	2359C>T	R787X	NS	PM	Germline	PB	B		7	Colombia	Alonso et al., 2004	15605413	CO313	
+E23	162237C>T	2359C>T	R787X	NS	PM	Germline	PB	B			France	Houdayer et al., 2004	14722923	n.r.	
+E23	162237C>T	2359C>T	R787X	NS	PM	Germline	PB	B			France	Houdayer et al., 2004	14722923	n.r.	
+E23	162237C>T	2359C>T	R787X	NS	PM	Germline	PB	B			France	Houdayer et al., 2004	14722923	n.r.	
+E23	162237C>T	2359C>T	R787X	NS	PM	Germline	PB	B		5	Germany	Lohmann et al., 1996	8651278	G370	Yes
+E23	162237C>T	2359C>T	R787X	NS	PM	Germline	PB	B		4	Germany	Lohmann et al., 1996	8651278	G433	Yes
+E23	162237C>T	2359C>T	R787X	NS	PM	Germline	PB	B		11	Germany	Lohmann et al., 1996	8651278	G449	Yes
+E23	162237C>T	2359C>T	R787X	NS	PM	Germline	PB	BF			Germany	Lohmann et al., 1996	8651278	G917	Yes
+E23	162237C>T	2359C>T	R787X	NS	PM	Germline	PB	U		18	Germany	Lohmann et al., 1997	9311732	M2205	Yes
+E23	162237C>T	2359C>T	R787X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.	
+E23	162237C>T	2359C>T	R787X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.	
+E23	162237C>T	2359C>T	R787X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.	
+E23	162237C>T	2359C>T	R787X	NS	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.	
+E23	162237C>T	2359C>T	R787X	NS	PM	Germline	PB	B			United States	Van Orsouw et al, 1996	8776589	29	
+E23	162237C>T	2359C>T	R787X	NS	PM	Germline	PB	B		1.5	United States	Yandell et al., 1989	2594029	RB-53	Yes
+E23	162237C>T	2359C>T	R787X	NS	PM	Germline	PB	B			Germany	Yilmaz et al., 1998	10671068	M2696	Yes
+E23	162237C>T	2359C>T	R787X	NS	PM	Germline	PB	B			Germany	Yilmaz et al., 1998	10671068	M4086	Yes
+E23	162238C>T	2359C>T	R787X	NS	PM	Somatic	retino	U			Russia	Babenko et al., 2003	12173465	n.r	
+E23	162238G>A	2360G>A	R787Q	MS	PM	Germline	PB	U	M	3	Spain	Alonso et al., 2004	15605413	1093		Low penetrance (1 unilateral, 4 carriers)
+E23	162248C>A	2370C>A	Y790X	NS	PM	Germline	PB	B	M	2	Spain	Alonso et al., 2001	11317357	JA403		
+E23	162248C>A	2370C>A	Y790X	NS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E23	162254delT	2376delT	V794sX809	FS	DE	Germline	PB	BF			United States	Liu et al., 1995	8605116	TS88	Yes	
+E23	162258del10	2380del10	Y794fsX810	FS	DE	Germline	PB	B			Germany	Lohmann et al., 1992	1577465	FamilyBe	Yes	
+E23	162264del10	2386del10	F795fsX806	FS	DE	Somatic	retino	U			Germany	Klutz et al ., 1999	9973307	G325	Yes	
+E23	162266delC	2388delC	T797fsX809	FS	DE	Germline	PB	BF	F	7	Spain	Alonso et al., 2001	11317357	JA273		
+E23	162268T>A	2390T>A	L797X	NS	PM	Germline	PB	BF	M	12	India	Ata-ur-Rashed et al., 2001	12187430	RB13		
+E23	162269insA	2391insA	T798fsX814	FS	IN	Germline	PB	B		7	Korea	Yu et al., 2001	11524739	SNU-RB29		
+E23	162287C>G	2409C>G	N803K	MS	PM	Germline	PB	B			United States	Liu et al., 1995	8605116	TS17	Yes	
+E23	162293delT	2415delT	Y805X	FS	DE	Germline	PB	BF			Germany	Lohmann et al., 1994	7881418	G1358	Yes	
+E23	162293delT	2415delT	Y805X	FS	DE	Germline	PB	B		10	Germany	Lohmann et al., 1994	7881418	G407	Yes	
+E23	162299del19	2421del19	K808fsX819	FS	DE	Somatic	osteosarcoma	other t.			Japan	Wadayama et al., 1996	8187094	KS-149	Yes	
+E23	162303delC	2425delC	L809X	FS	DE	Germline	PB	BF		1	Germany	Lohmann et al., 1994	7881418	G10	Yes	
+E23	162317insAT	2442insAT	F816fsX826X	FS	IN	Germline	PB	B			France	Blanquet et al., 1995	7795591	RB96	Yes	
+E23	162317T>G	2439T>G	Y813X	NS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E23	162324delT	2446delT	Q816fsX825	FS	DE	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.	
+E23	162325C>G	2447C>G	S816X	NS	PM	Germline	PB	B			Germany	Lohmann et al., 1996	8651278	G1241	Yes
+E23	162325C>G	2447C>G	S816X	NS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.	
+E23	162358delC	2480delC	Q827fsX732	FS	DE	Germline	PB	B			France	Houdayer et al., 2004	14722923	n.r.	
+I23	162368G>C	2489+1G>C	Splice	SP	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.	
+I23	162368G>C	2489+1G>C	Splice	SP	PM	Germline	PB	n.r.			United States	Tsai et al., 2004	14769601	Rb224	
+I23	162368G>T	2489+1G>T	splice	SP	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.	
+I23	162368G>T	2489+1G>T	splice	SP	PM	Germline	PB	B			Canada	Richter et al., 2003	12541220	n.r.	
+I23	170366T>A	2490-6T>A	splice	SP	PM	Germline	PB	B			Spain	Najera et al. 2001	11333669	FranceB22	
+I23	170369C>A	2490-3C>A	splice	SP	PM	Somatic	retino	U			Russia	Babenko et al., 2003	12173465	n.r	
+I23	170369C>A	2490-3C>A	splice	SP	PM	Somatic	retino	U			Russia	Babenko et al., 2003	12173465	n.r	
+E24	170379delG	2497delG	Y833fsX848	FS	DE	Germline	FB	B			Japan	Shimizu et al., 1994	8178820	RB357	Yes
+E24	170380insT	2498insT	I834fsX737	FS	IN	Germline	PB	B			France	Houdayer et al., 2004	14722923	n.r.	
+E24	170383C>G	2501C>G	S834X	NS	PM	Germline	PB	B	F	1	India	Kiran et al, 2003	12955724	RB57	
+E24	170383C>G	2501C>G	S834X	NS	PM	Germline	PB	B			France	Houdayer et al., 2004	14722923	n.r.	
+E24	170384delAins8	2502delAins8	V835fsX839	FS	I_D	Germline	PB	B			United States	Liu et al., 1995	8605116	TS71	Yes
+E24	170395C>G	2513C>G	S838X	NS	PM	Germline	PB	BF			United States	Liu et al., 1995	8605116	TS113	Yes	
+E24	170398delT	2516delT	S839fsX848	FS	DE	Germline	PB	U			Germany	Yilmaz et al., 1998	10671068	M4525	Yes	
+E24	170402delG	2520delG	L841sX848	FS	DE	Somatic	retino	B		7	United States	Yandell et al., 1989	2594029	RB-2	Yes	
+I24	170403delGTGA	2520+1del4	splice	SP	DE	Somatic	retino	U			United Kindom	Hogg et al., 1993	8346255	GOS551	Yes	Nucleotide position in cDNA changed to the first ATG
+I24	170403delGTGA	2520+1del4	splice	SP	DE	Germline	PB	B			United States	Liu et al., 1995	8605116	TS27	Yes	
+I24	170403delGTGA	2520+1del4	splice	SP	DE	Germline	PB	B		9	Germany	Lohmann et al., 1994	7881418	G444	Yes	
+I24	170403G>A	2520+1G>A	splice	SP	PM	Germline	PB	B			France	Houdayer et al., 2004	14722923	n.r.		
+I24	170403G>A	2520+1G>A	splice	SP	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+I24	170403G>A	2520+1G>A	splice	SP	PM	Germline	PB	n.r.			United States	Tsai et al., 2004	14769601	Rb74		
+I24	170404T>A	2520+2T>A	splice	SP	PM	Germline	PB	B	F	2	Cuba	Alonso et al., 2004	15605413	CU010		
+I24	170405delGAGT	2520+3del4	splice	SP	DE	Germline	PB	BF			United States	Liu et al., 1995	8605116	TS125	Yes	
+I24	170405delGAGT	2520+3del4	Splice	SP	DE	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+I24	170407G>A	2520+5G>A	splice	SP	PM	Germline	PB	B	M	12	Spain	Alonso et al., 2004	15605413	0853		
+I24	170407G>A	2520+5G>A	splice	SP	PM	Germline	PB	B	F	24	Cuba	Alonso et al., 2004	15605413	CU035		
+I24	170407G>C 	2520+5G>C	splice	SP	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.		
+E25	173721C>A	2535C>A	F845L	MS	PM	Somatic	retino	U			Russia	Babenko et al., 2003	12173465	n.r		
+E25	173722C>T	2536C>T	Q846X	NS	PM	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.			
+E25	173736insG	2550insG	D851fsX854	FS	IN	Somatic	glioma cell line	other t.			Italy	Paggi et al., 1994	8313367		Yes		
+E25	173768insT	2582insT	S861fsX864	FS	IN	Germline	PB	n.r.			Canada	Richter et al., 2003	12541220	n.r.			
+E25	173813delG	2627delG	P876fsX904	FS	DE	Germline	PB	U	F	5	Spain	Alonso et al., 2004	15605413	0973			
+I25	173882T>C	2663+33T>C	unknown		PM	Germline	PB	B	M	24	India	Kiran et al, 2003	12955724	RB35		Polymorphism?	
+I25	173882T>C	2663+33T>C	unknown		PM	Somatic	retino	U	M	48	India	Kiran et al, 2003	12955724	RB39		Polymorphism?	
+I25	174351T>A	2664-10T>A	unknown		PM	Germline	PB	B	M	60	India	Kiran et al, 2003	12955724	RB36		Polymorphism?	
