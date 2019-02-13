@@ -1,0 +1,114 @@
+<HTML>
+<HEAD>
+    <TITLE>PREDATOR help</TITLE>
+</HEAD>
+<BODY BGCOLOR="white" BACKGROUND="6h2o-w-small.gif">
+
+<CENTER><H1><A HREF="http://www-db.embl-heidelberg.de/jss/servlet/de.embl.bk.wwwTools.GroupLeftEMBL/argos/predator/predator_info.html">PREDATOR</A></H1>
+<STRONG><EM>Protein secondary structure prediction from single sequence or a set
+         of sequences</EM></STRONG></CENTER>
+
+
+<TABLE WIDTH="90%" ALIGN="CENTER" CELLSPACING="18">
+<TR><TH><CENTER><H2>PREDATOR</H2></CENTER></TH></TR>
+
+<TR><TD BGCOLOR="lightgreen">
+<BR>
+<P>This server is able to predict the structure for just the first
+protein in the file, or for all of them. In every case, it always
+uses <EM>ALL</EM> the sequences in the file to do the prediction.
+If you want to predict the structure of a single sequence without
+using any other one as a guidance, them you <EM>must</EM> put the
+sequence in a separate file all by itself.</P>
+
+<P>The following are excerpts from the documentation of PREDATOR:</P>
+
+<P>    PREDATOR	[1,2] is a secondary structure prediction program.  It	takes
+       as  input  a single protein sequence to be predicted and	can optimally
+       use a set of unaligned sequences	as additional information to  predict
+       the  query  sequence.  The mean prediction accuracy of PREDATOR is 68%
+       for a single sequence and 75% for a set of related sequences. PREDATOR
+       does  not  use  multiple	 sequence  alignment.  Instead,	 it relies on
+       careful pairwise	local alignments of the	sequences in the set with the
+       query   sequence	to  be predicted. If you supply	a set of sequences in
+       the form	of a  multiple alignment  in  CLUSTAL or  MSF	format,	  the
+       sequences will be used but as unaligned.</P>
+       
+<P>    Below follow the	abstracts of the papers	describing the method.</P>
+
+<P>    Prediction from a single	sequence [1]:</P>
+
+<P>    "Existing approaches to protein secondary  structure  prediction	 from
+       the  amino  acid	 sequence usually rely on statistics of	local residue
+       interactions within a sliding  window  and  the secondary   structural
+       state  of the central residue. The practically achieved accuracy	limit
+       of such single residue and single sequence prediction methods is	about
+       65% in three structural states (a-helix,	b-strand, and coil).  Further
+       improvement  in the  prediction	quality	   is  likely	to    require
+       exploitation   of   various   aspects   of  three-dimensional  protein
+       architecture. Here we make such an attempt  and present	an   accurate
+       algorithm  for  secondary structure prediction based on recognition of
+       potentially hydrogen-bonded residues in the amino acid  sequence.  The
+       unique	feature	of our approach	involves data-base derived statistics
+       on residue type occurrences  in different  classes  of  b-bridges   to
+       delineate  interacting  b-strands.   The	a-helical structures are also
+       recognized on the basis of amino	acid occurrences  in  hydrogen-bonded
+       pairs   (i,i+4).	The  algorithm has a prediction	accuracy 68% in	three
+       structural states on only a  single  protein  sequence, and  has	  the
+       potential  to  be improved by 5-7% if homologous	aligned	sequences are
+       also considered".</P>
+
+<P>    Prediction from a set of	sequences [2]:</P>
+
+<P>    "In this	work we	present	an accurate  secondary structure   prediction
+       procedure  for a	query sequence with related sequences. The most	novel
+       aspect of our approach is its reliance on pairwise alignments  of  the
+       related sequences rather	than utilization of a multiple alignment. The
+       residue-by-residue accuracy of the method is 75%	in  three  structural
+       states  after  jack-knife  tests.  The  gain  in	 prediction  accuracy
+       compared	to the existing	techniques (which are near 72%)	 is  achieved
+       by  better  secondary  structure	propensities for individual sequences
+       which  account  for  long-range effects,	 utilization  of   homologous
+       information   in	the  from  of  carefully  selected pairwise alignment
+       fragments, and reliance on a much larger	collection of protein primary
+       structures.  The	 method	 is  especially	 appropriate  for large-scale
+       sequence	analysis efforts,  such	 as  genome  characterization,	where
+       precise	and   significant  multiple  alignments	are  not available or
+       achievable".</P>
+
+<P> .  The quality of the	prediction depends dramatically	on the number
+       of	  sequences   in the  set.  The	more sequence information you
+       provide, the better results  you  will  get.  Therefore,  it  is
+       strongly recommended to perform a sensitive sequence search with
+       your sequence against the largest sequence	database available to
+       extract  as  many related sequences as you	can. For example, the
+       FASTA program with	ktuple=1  gives	 good  results.	 The  largest
+       collections  of  protein  sequences  (about  160000 entries) are
+       currently	TREMBL	and  GENPEPT.	The   following	  steps	  are
+       recommended.</P>
+       <UL>  
+         <LI>a)  Run   a	 database   search  with  your single
+       sequence against a	large sequence database. 
+         <LI>b) Make the  set  of
+       sequences	extracted  as  a result	of the	database search	 non-
+       redundant such  that  no  two  sequences  share  more  than  95%
+       sequence identity.	
+         <LI>c) Merge your
+       search  sequence	with  the  resulting  non-redundant  set.  
+         <LI>d) Perform  secondary structure  prediction.</P>
+<BR>
+</TD></TR>
+<TR><TD BGCOLOR="lightyellow"><PRE>
+
+1.  Frishman, D. & Argos, P. (1996) Incorporation  of	long-distance
+    interactions  into	 a  secondary structure	prediction algorithm.
+    Protein Engineering,  9, 133-142.
+
+2.  Frishman,	D.  &  Argos,  P.  (1997)  75%	accuracy  in  protein
+    secondary structure prediction.  Proteins,	 27, 329-335.
+</PRE>
+</TD></TR>
+</TABLE>
+
+</BODY>
+</HTML>

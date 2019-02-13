@@ -1,0 +1,310 @@
+#!/usr/local/bin/perl
+# stride.cgi
+#
+# ------------------------------------------------------------
+# stride.pl, by José R. Valverde (jrvalverde@es.embnet.org).
+#
+# Created: February 6th, 2002
+# Last updated: February 6th, 2002
+#
+# STRIDE.CGI provides a simplified mechanism to run STRIDE
+# over the web.
+# ------------------------------------------------------------
+# This package is Copyright 2002 by José R. Valverde
+#
+# $Id: ProFit.cgi,v 1.2 2002/07/26 08:58:35 netadmin Exp $
+# $Log: ProFit.cgi,v $
+# Revision 1.2  2002/07/26 08:58:35  netadmin
+# Modified to fit only N,CA,C,O atoms (accommodating similar residues) [j]
+#
+# Revision 1.1  2002/07/26 07:46:29  netadmin
+# Initial revision
+#
+# Revision 1.2  2002/02/06 10:46:26  netadmin
+# Minor changes [j]
+#
+# 
+
+use CGI;
+
+#$debug= 1;
+
+$babel=        "/opt/structure/bin/babel"; 
+$apptitle=     "ProFit";
+$applongtitle= "Protein Least Squares Fitting";
+$babel_dir=    "/opt/structure/babel";
+$profit=       "/opt/structure/bin/profit";
+$profitmat=    "/opt/structure/ProFit/mdm78.mat";
+$molauto=      "/opt/structure/bin/molauto";
+$molscript=    "/opt/structure/bin/molscript";
+$serverpath=   "/data/www/EMBnet";  	## $ENV{'DOCUMENT_ROOT'};
+$httptmp=      "/tmp/";  	    	## inside serverpath
+
+$maintainer =  "netadmin\@es.embnet.org";
+
+$dir            ="profit$$";
+$workdir        =$serverpath . $httptmp . $dir ;
+$fn             = "profit";
+# script
+$scriptfile     = $serverpath . $httptmp . $dir . "/" . $fn . ".scr";
+#reference input file
+$refuri  	= $httptmp . $dir . "/" . $fn . "-ref.in";
+$reffile 	= $serverpath . $refuri;
+#reference PDB file
+$refpdburi  	= $httptmp . $dir . "/" . $fn . "-ref.pdb";
+$refpdbfile 	= $serverpath . $refpdburi;
+##mobile input file
+$moburi  	= $httptmp . $dir . "/" . $fn . "-mob.in";
+$mobfile 	= $serverpath . $moburi;
+#mobile PDB file
+$mobpdburi  	= $httptmp . $dir . "/" . $fn . "-mob.pdb";
+$mobpdbfile 	= $serverpath . $mobpdburi;
+
+#output PDB file
+$outpdburi 	= $httptmp . $dir . "/"  . $fn . "-out.pdb";
+$outpdbfile 	= $serverpath . $outpdburi;
+#output RMS file
+$outuri 	= $httptmp . $dir . "/"  . $fn . "-rms.out";
+$outfile 	= $serverpath . $outuri;
+#molscript file
+$msuri 	= $httptmp . $dir . "/"  . $fn . ".ms";
+$msfile 	= $serverpath . $msuri;
+#summary file
+$sumuri         = $httptmp . $dir . "/"  . $fn . ".sum";
+$sumfile        = $serverpath . $sumuri;
+#molscript PS output
+$psuri         = $httptmp . $dir . "/"  . $fn . ".ps";
+$psfile        = $serverpath . $psuri;
+#molscript vrml-2.0 output
+$vruri         = $httptmp . $dir . "/"  . $fn . ".wrl";
+$vrfile        = $serverpath . $vruri;
+
+
+$iformatopts= "";
+$oformatopts= " -opdb";     # Make BABEL produce a PDB file
+$useropts = "";
+
+#################### S T A R T    P R O C E S S I N G ####################
+
+$query = new CGI;
+
+print $query->header;
+print $query->start_html($apptitle);
+print "<CENTER><H2>$applongtitle</H2></CENTER>\n";
+
+&do_work($query);
+&print_tail;
+
+print $query->end_html;
+
+exit;
+
+##/////////////////////////////////////////////
+
+sub getHttpServerUrl  {
+	my $host= $ENV{"SERVER_NAME"};
+	my $port= $ENV{"SERVER_PORT"};
+	if ($port==80 || $port==0) { return "http://" . $host; }
+	else { return "http://" . $host . ':' . $port; }
+}
+
+
+sub do_work {
+	my($query) = @_;
+	my(@values,$val,$key);
+	my $havein = 0;
+	my $havemail = 0;
+
+    	# 1. Create working dir and cd to it
+	die "<H1>ERROR, HORROR: cannot create neccessary temporary files</H1>\n" 
+    	unless mkdir $workdir, 0777;
+	chdir $workdir or die 
+	"<H1>ERROR, HORROR: cannot access needed temporary files</H1>\n";
+
+ 	foreach $key ($query->param) {
+  	    
+  	  $val = $query->param($key); ## @values =  
+   	  $useropts .= " " . $val if ($val =~ /^-/);
+   	  
+   	  if ($key =~ /^reffile/ && $val) {
+	        ## The user selected a local reference input file
+   	  	open(INFR,">$reffile");
+				while (<$val>) { tr/\r/\n/; print INFR $_;  $havein1= 1; }
+				close(INFR);
+   	  	}
+   	  elsif ($key =~ /^refdata/ && $val && !$havein1 ) {
+   	  	## The user entered the data directly
+		## Takes precedence over selected file.
+   	  	$val =~ tr/\r/\n/;
+   	  	open(INFR,">$reffile");
+				print INFR $val; 
+				close(INFR);
+   	  	$havein1= 1;
+   	  	}
+	  # Process mobile input file
+	  elsif ($key =~ /^mobfile/ && $val) {
+	        ## The user selected a local reference input file
+   	  	open(INFM,">$mobfile");
+				while (<$val>) { tr/\r/\n/; print INFM $_;  $havein2= 1; }
+				close(INFM);
+   	  	}
+   	  elsif ($key =~ /^mobdata/ && $val && !$havein2 ) {
+   	  	## The user entered the data directly
+		## Takes precedence over selected file.
+   	  	$val =~ tr/\r/\n/;
+   	  	open(INFM,">$mobfile");
+				print INFM $val; 
+				close(INFM);
+   	  	$havein2= 1;
+   	  	}
+   	  elsif ($key =~ /^informat/ && $val) {
+   	  	$iformatopts .= " -i" . $val;
+   	  	}
+	} # foreach $key
+		
+	if ($havein1 && $havein2) { &runApp($useropts); }
+	else { 
+ 		print "<H3>No input data found</H3>";
+		}
+
+	print "<P>\n";
+	
+	return if (!$debug);
+
+ 	print "<H2>Here are the current settings in this form</H2>";
+ 	foreach $key ($query->param) {
+		print "<STRONG>$key</STRONG> -> ";
+		@values = $query->param($key);
+		print join(", ",@values),"<BR>\n";
+		}
+
+	$filename = $query->param('reffile');
+	if ($filename) {
+	  print "uploaded file '$filename'<br>\n";
+	  print "info<br>\n";
+    	  my %info= %{$query->uploadInfo($filename)};
+    	  foreach $key (keys %info) {
+            print "<B>$key</B> -> ";
+            my $val = $info{$key};
+            print "$val<BR>\n";
+	   }
+    	} # end DEBUG
+}
+
+
+sub runApp {
+	local($useropts)= @_;
+
+	$|= 1; # flush
+
+
+	print  "<CENTER><BR><STRONG>Running: BABEL + ProFit</STRONG><BR></CENTER>\n";
+	print <<ENDDONE1;
+	&nbsp;<BR>
+	<TABLE WIDTH="80%" BGCOLOR="white" ALIGN="CENTER" BORDER="2" 
+        CELLSPACING="1" CELLPADDING="5" >
+	<TR><TD>
+	Your job has been started in our server.</STRONG></TT>
+	</TD></TR></TABLE>
+ENDDONE1
+	# Convert to PDB format if needed
+	#
+	#	For some reason BABEL gives problems converting to TINKER
+	# directly: convert first to PDB and then to TINKER.
+	#
+	if ( $iformatopts =~ / -ipdb$/ ) {
+    	    # no need to use babel
+	    system("cp $reffile $refpdbfile");
+	    system("cp $mobfile $mobpdbfile");
+	} else {
+	    $ENV{'BABEL_DIR'} = $babel_dir;
+	    system ("$babel $iformatopts $reffile $oformatopts $refpdbfile");
+	    system ("$babel $iformatopts $mobfile $oformatopts $mobpdbfile");
+   	}
+
+	# analyze structure:
+	##  1. Prepare alignment matrix
+	system("cp $profitmat mdm78.mat");
+	##  2. Prepare script
+	open (SCRIPTF, ">$scriptfile");
+	print SCRIPTF "align\natoms n,ca,c,o\nfit\nnfitted\nmatrix\n";
+	print SCRIPTF "residue $outfile\n";
+	print SCRIPTF "write $outpdbfile\nquit\n";
+	close (SCRIPT);
+	##  3. Do analysis
+	system("$profit $refpdbfile $mobpdbfile < $scriptfile > $sumfile");
+	##  4. generate molscript file
+	system("$molauto $outpdbfile > $msfile");
+	##  5. generate molscript PS file
+	system("$molscript -ps < $msfile > $psfile 2> /dev/null");
+	##  6. generate molscript VRML-2 file
+	system("$molscript -vrml < $msfile > $vrfile 2> /dev/null");
+	
+	&print_report;
+
+    	# WE DON'T DELETE THE FILES. A CRON JOB WILL DO IT ONE DAY LATER
+
+}
+
+sub print_report {
+    print "<CENTER><H2>Here are your results</H2></CENTER>";
+    print "<TABLE BORDER=\"2\" BGCOLOR=\"white\">";
+    if (-f $reffile) {
+	print "<TR><TD BGCOLOR=\"lightcyan\"><I>Your  reference input data was</I> </TD><TD><A HREF=\"$refuri\">REFERENCE</A></TD></TR>\n";
+    }
+    if (-f $refpdbfile) {
+	print "<TR><TD BGCOLOR=\"lightcyan\"><I>Your reference data in PDB format</I> </TD><TD><A HREF=\"$refpdburi\">PDB REF</A></TD></TR>\n";
+    }
+    if (-f $mobfile) {
+	print "<TR><TD BGCOLOR=\"lightcyan\"><I>Your  mobile input data was</I> </TD><TD><A HREF=\"$moburi\">MOBILE</A></TD></TR>\n";
+    }
+    if (-f $mobpdbfile) {
+	print "<TR><TD BGCOLOR=\"lightcyan\"><I>Your mobile data in PDB format</I> </TD><TD><A HREF=\"$mobpdburi\">PDB MOB</A></TD></TR>\n";
+    }
+    
+    if (-f $sumfile) {
+	print "<TR><TD BGCOLOR=\"lightgreen\"><I>Protein fit summary</I> </TD><TD BGCOLOR=\"lightgreen\"><A HREF=\"$sumuri\">SUMMARY</A></TD></TR>\n";
+	if (-f $outfile) {
+	    print "<TR><TD BGCOLOR=\"lightgreen\"><I>Detailed by amino RMS analysis</I> </TD><TD BGCOLOR=\"lightgreen\"><A HREF=\"$outuri\">RMS BY AMINOACID</A></TD></TR>\n";
+	}
+	if (-f $outpdbfile) {
+	    print "<TR><TD BGCOLOR=\"lightgreen\"><I>Fitted structure in PDB format</I> </TD><TD BGCOLOR=\"lightgreen\"><A HREF=\"$outpdburi\">FITTED STRUCTURE</A></TD></TR>\n";
+	}
+	if (-f $psfile) {
+	    print "<TR><TD BGCOLOR=\"yellow\"><I>A PostScript view of the fitted structure</I> </TD><TD><A HREF=\"$psuri\">PS</A></TD></TR>\n";
+	}
+	if (-f $vrfile) {
+	    print "<TR><TD BGCOLOR=\"yellow\"><I>A Virtual Reality view of the fitted structure</I> </TD><TD><A HREF=\"$vruri\">VRML2</A></TD></TR>\n";
+	}
+    }
+    else {
+        print "<TR><TD><I>ERROR: no output file</I></TD></TR>\n";
+    }
+    print "</TABLE>";
+    print "<BR><HR>";
+    print "<CENTER><H3>Your results will be kept for one day and deleted afterwards</H3></CENTER>";
+    print "<BR>";
+}
+
+sub print_tail {
+   print <<END;
+<HR>
+
+<TABLE WIDTH="100%">
+  <TR ><TD ALIGN=CENTER>
+    <P>If you have any trouble, please contact our
+    <A HREF="/cgi-bin/emailto?Bioinformatics+Administrator">Bioinformatics
+    Administrator</A></P>
+    <P><A HREF="/Copyright-CSIC.html">&copy; EMBnet/CNB</A></P>
+  </TD></TR>
+</TABLE>
+END
+}
+
+sub blank_response {
+    print "<H2>Some fields appear to be blank or incorrect, and thus your\n";
+    print "job has <B>not</B> been processed.\n";
+    print "Please, go back and re-enter your data.</H2>\n";
+    exit;
+}
+

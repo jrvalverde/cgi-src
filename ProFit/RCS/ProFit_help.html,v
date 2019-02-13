@@ -1,0 +1,130 @@
+head	1.3;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.3
+date	2002.07.26.09.28.52;	author netadmin;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2002.07.26.08.58.35;	author netadmin;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2002.07.26.07.46.29;	author netadmin;	state Exp;
+branches;
+next	;
+
+
+desc
+@WWW help for the ProFit CGI interface [j]
+@
+
+
+1.3
+log
+@Updated for v2.2 new (c) and usage notice [j]
+@
+text
+@<HTML>
+<HEAD>
+    <TITLE>ProFit help</TITLE>
+</HEAD>
+<BODY BGCOLOR="white" BACKGROUND="6h2o-w-small.gif">
+
+<CENTER><H1><A HREF="http://www.bioinf.org.uk/software/">ProFit</A></H1>
+<H2>Protein Least Squares Fitting<H2></CENTER>
+
+
+<TABLE WIDTH="90%" ALIGN="CENTER" CELLSPACING="18">
+<TR><TH><CENTER><H2>ProFit</H2></CENTER></TH></TR>
+
+<TR><TD BGCOLOR="lightgreen">
+<P><STRONG>ProFit</STRONG> [1] (pronounced Pro-Fit, not profit!) uses 
+McLachlan fitting algorithm,
+essentially a steepest descents minimisation as described in McLachlan, A.D.
+(1982) <I>Rapid comparison of Protein Structures</I>, <B>Acta Cryst. A38</B>,
+871-873. ProFit is designed to be the ultimate program for performins least 
+squares fits of two protein structures. <STRONG>The following paragraphs
+address the functionality of ProFit that is available from THIS 
+service.</STRONG></P>
+
+<P>ProFit requires as input two structures: the <EM>reference</EM> structure
+that remains static in space and the <EM>mobile</EM> structure which is
+fitted onto it.</P>
+
+<P>ProFit addresses the question of sorting out equivalent atoms by doing
+a sequence alignment using the Needleman-Wunsch algorithm. It then performs
+a least squares fitting of the equivalent residues in the two structures
+using N, C-alpha, C and O atoms, and produces the following reports:</P>
+<UL>
+    <LI>A summary of the run describing what has been done and including
+    <UL>
+    	<LI>The Needleman-Wunsch alignment used to guide the fit</LI>
+	<LI>The summary of RMS deviation between both structures</LI>
+	<LI>The Centers of Gravity of the structures</LI>
+	<LI>The space transformations used for the fit</LI>
+    </UL></LI>
+    <LI>A detailed RMS calculation describing the by residue RMS deviation</LI>
+    <LI>The fitted <EM>mobile</EM> structure in PDB format</LI>
+    <LI>A PostScript representation of the fitted molecule</LI>
+    <LI>A VRML 2 model of the fitted molecule.</LI>
+</UL>
+
+<P>Please note that the program is called <STRONG>ProFit</STRONG> --- not PROFIT, Profit or
+profit; this attempts to avoid confusion with the threading program
+known as PROFIT. <STRONG>ProFit</STRONG> was written first and released to the public
+around the same time.</P>
+
+<P>ProFit is able to perform more powerful and detailed analysis. To access
+its full functionality you should use it with the command line interface</P>
+</TD></TR>
+<TR><TD BGCOLOR="pink">
+
+<P>This program is not in the public domain.</P>
+
+<P>It may not be copied or made available to third parties, but may be
+freely used by non-profit-making organisations and commercial companies 
+who have obtained it directly from the author or by FTP.</P>
+
+</TD></TR>
+<TR><TD BGCOLOR="lightyellow">
+[1]  Please reference usage of this program as follows:<BR>
+  Fitting was performed using the McLachlan algorithm (MnLachlan, A. D.,
+  1982 "Rapid Comparison of Protein Structures", Acta Cryst A38, 871-873)
+  as implemented in the program ProFit (Martin, A.C.R., 
+  <A HREF="http://www.bioinf.org.uk/software/">http://www.bioinf.org.uk/software/</A>).
+</TD></TR>
+</TABLE>
+
+</BODY>
+</HTML>
+@
+
+
+1.2
+log
+@Modified to fit only N,CA,C,O atoms (accommodating similar residues) [j]
+@
+text
+@d59 2
+a60 2
+freely used by non-profit-making organisations who have obtained it
+directly from the author or by FTP.</P>
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d31 1
+a31 1
+and produces the following reports:</P>
+@
