@@ -1,0 +1,229 @@
+head	1.2;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.2
+date	2003.04.21.09.33.50;	author root;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2003.04.16.16.17.22;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@report module
+@
+
+
+1.2
+log
+@Fixed receptor-ligand filenames [j]
+@
+text
+@<?
+echo "<HTML><HEAD><TITLE>WebGramm results</TITLE></HEAD><BODY BGCOLOR=\"white\">";
+
+$job=basename( dirname(__FILE__) );
+
+$file="./rpar.gr";
+$date=date( "j F Y H:i", filemtime("$file") );
+
+if ( file_exists("./done") )
+{ 
+	$current_dir = ".";
+  	$dir = dir($current_dir);
+
+	echo "<center><h1>WebGramm: Gramm results:<br></h1><center><hr>";
+	echo "<center><table border=2>";
+	
+	$dir->rewind();
+	while ($file = $dir->read())
+  	{
+		if ($file !="." && $file!=".." && $file!="index.php" && $file!="done")
+		{
+			if ( $file=="receptor.pdb" )
+			{
+				echo "<tr>";
+				echo "<td>Structure of your receptor molecule.</td>"; 
+				echo "<td><a href=./$file>$file</a></td>";
+				echo "<td><a href=\"receptor.vrml\">VRML1</a></td>";
+				echo "<td><a href=\"receptor.wrl\">VRML2</a></td>";
+				echo "<td><a href=\"receptor.ps\">PS</a></td>";
+				echo "</tr>";	
+			}
+		}
+	}
+	$dir->rewind();
+	while ($file = $dir->read())
+  	{
+		if ($file !="." && $file!=".." && $file!="index.php" && $file!="done")
+		{
+			if ( $file=="ligand.pdb" )
+			{
+				echo "<tr>";
+				echo "<td>Structure of your ligand molecule.</td>"; 
+				echo "<td><a href=./$file>$file</a></td>";
+				echo "<td><a href=\"ligand.vrml\">VRML1</a></td>";
+				echo "<td><a href=\"ligand.wrl\">VRML2</a></td>";
+				echo "<td><a href=\"ligand.ps\">PS</a></td>";
+				echo "</tr>";	
+			}
+		}
+	}
+	$dir->rewind();
+	while ($file = $dir->read())
+  	{
+		if ($file !="." && $file!=".." && $file!="index.php" && $file!="done")
+		{
+			if ( $file=="rpar.gr" )
+			{
+				echo "<tr>";
+				echo "<td>Parameters used for the docking procedure</td>"; 
+				echo "<td colspan=\"4\"><a href=./$file>$file</a></td>";
+				echo "</tr>";	
+			}
+		}
+	}
+	$dir->rewind();
+	while ($file = $dir->read())
+  	{
+		if ($file !="." && $file!=".." && $file!="index.php" && $file!="done")
+		{
+			if ( $file=="rmol.gr" )
+			{
+				echo "<tr>";
+				echo "<td>Description of the molecules.</td>"; 
+				echo "<td colspan=\"4\"><a href=./$file>$file</a></td>";
+				echo "</tr>";	
+			}
+		}
+	}
+	$dir->rewind();
+	while ($file = $dir->read())
+  	{
+		if ($file !="." && $file!=".." && $file!="index.php" && $file!="done")
+		{
+			if ( $file=="gramm.log" )
+			{
+				echo "<tr>";
+				echo "<td>Log output produced by GRAMM</td>"; 
+				echo "<td colspan=\"4\"><a href=./$file>$file</a></td>";
+				echo "</tr>";	
+			}
+		}
+	}
+	$dir->rewind();
+	while ($file = $dir->read())
+  	{
+		if ($file !="." && $file!=".." && $file!="index.php" && $file!="done")
+		{
+			if ( $file=="wlist.gr" )
+			{
+				echo "<tr>";
+				echo "<td>Config file to set the results</td>"; 
+				echo "<td colspan=\"4\"><a href=./$file>$file</a></td>";
+				echo "</tr>";	
+			}
+		}
+	}
+	$dir->rewind();
+	while ($file = $dir->read())
+  	{
+		if ($file !="." && $file!=".." && $file!="index.php" && $file!="done")
+		{
+			if ( $file=="receptor-ligand.res" )
+			{
+				echo "<tr>";
+				echo "<td>Listing of the 1000 best scoring docks</td>"; 
+				echo "<td colspan=\"4\"><a href=./$file>$file</a></td>";
+				echo "</tr>";	
+			}
+		}
+	}
+	$dir->rewind();
+	while ($file = $dir->read())
+  	{
+		if ($file !="." && $file!=".." && $file!="index.php" && $file!="done")
+		{
+			if ( ereg("^receptor-ligand+_[0-9]+.pdb$", $file))
+			{
+				$filename = basename($file, ".pdb");
+				echo "<tr>";
+				echo "<td>Structure of the receptor-ligand complex</td>"; 
+				echo "<td><a href=\"$filename.pdb\">$filename</a></td>";
+				echo "<td><a href=\"$filename.vrml\">VRML1</a></td>";
+				echo "<td><a href=\"$filename.wrl\">VRML2</a></td>";
+				echo "<td><a href=\"$filename.ps\">PS</a></td>";
+				echo "</tr>";	
+			}
+		}
+	}
+	
+	echo "</table></center>";
+  	echo "<hr><br>";
+  	$dir->close();
+
+}else
+{
+	echo "<script language=	\"JavaScript1.2\">";
+	echo "<!--";
+	echo "var bookmarkurl=\"/tmp/$job\"";
+	echo "var bookmarktitle=\"$job Results\"";
+	echo "function bookmark()";
+	echo "{";
+	echo "   window.external.AddFavorite(bookmarkurl,bookmarktitle)";
+	echo "}";
+	echo "//-->";
+	echo "</script>";
+
+
+	echo "<CENTER><p><H2>WebGramm. Gramm results.</H2><p><br><br>";
+
+        echo "<TABLE BORDER=\"0\"><TR><TD><IMG SRC=\"Rodin_Penseur.jpg\"></TD><TD ALIGN=\"center\">";
+
+        echo "<H3><A HREF=\"/tmp/$job\" style=\"color:blue; text-decoration:none\">Reload</A> this page to update your job status</H3>";
+	echo "<H3>or</H3>";
+	echo "<H3><a href=\"javascript:bookmark();\" style=\"color:blue; text-decoration:none\">Bookmark</A> this page to access it later</H3>";
+	echo "<TABLE border=2 align=center>";
+	echo "<tr>";
+	echo "<td VALIGN=\"top\" ALIGN=\"center\" COLSPAN=\"6\"><b>Your Gramm Job is running.</b></td>";
+	echo "</tr>";
+	echo "<tr>";
+
+	echo "<td BGCOLOR=\"#cccccc\" VALIGN=\"top\" ALIGN=\"center\"><b>Gramm Job number: </b></td>";
+	echo "<td BGCOLOR=\"LightBlue\" VALIGN=\"top\" ALIGN=\"center\"><b> $job </b></td>";
+	
+	echo "<td BGCOLOR=\"#cccccc\" VALIGN=\"top\" ALIGN=\"center\"><b>Status: </b></td>";
+	$status="Running"; $color="LightGreen";
+	echo "<td BGCOLOR=\"$color\" VALIGN=\"top\" ALIGN=\"center\" BGCOLOR=\"$color\"><b> $status </b></td>";
+
+	echo "<td BGCOLOR=\"#cccccc\" VALIGN=\"top\" ALIGN=\"center\"><b>Start Date: </b></td>";
+	echo "<td BGCOLOR=\"LightBlue\" VALIGN=\"top\" ALIGN=\"center\"><b> $date </b></td>";
+
+	echo "</tr>";	
+	echo "</TABLE>";
+
+        echo "</TR></TABLE></CENTER>";
+}
+
+echo "</BODY></HTML>";
+
+?>
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d131 1
+a131 1
+				echo "<td><a href=./$file>$file</a></td>";
+@
