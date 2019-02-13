@@ -1,0 +1,70 @@
+<HTML>
+<HEAD>
+	<TITLE>Wake Me Up</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="white" BACKGROUND="/images/backgrounds/EMBnetCNB.gif">
+
+<CENTER><H1>Wake Me Up</H1></CENTER>
+
+<H2>This form allows you to set a wake-up message to be delivered
+to an e-mail address at a given time.</H2>
+
+<FORM METHOD="POST" ACTION="/cgi-bin/wakemeup">
+
+<P><B>Step 1.</B> Enter delivery time (allow for ~5 min. variation
+due to network latencies).</P>
+
+<CENTER>
+<TABLE>
+<TR>
+  <TD><CENTER>
+  <b>Hour:</b>
+  <INPUT NAME="hour" SIZE="2"></TEXTAREA>
+  </CENTER></TD>
+  <TD><CENTER>
+  <b>Minutes:</b>
+  <INPUT NAME="mins" SIZE="2"></TEXTAREA>
+  </CENTER></TD>
+</TR>
+</TABLE>
+</CENTER>
+
+<P><B>Step 2.</B> Enter the message to send</P>
+
+<CENTER>
+<TABLE>
+<TR>
+  <TD>
+  <CENTER><TEXTAREA NAME="msg" ROWS="2" COLS="40"></TEXTAREA></CENTER>
+  </TD>
+</TR>
+</TR>
+</TABLE>
+</CENTER>
+<P>&nbsp;</P>
+
+<P><B>Step 3.</B> Enter your e-mail address below:</P>
+
+<P>E-mail: <INPUT NAME="username" SIZE="60" VALUE="your_name@your.site.net"></P>
+
+<P><B>Step 4.</B> Press the <I>Submit</I> button to send your request
+or <I>Reset</I> to clean this form and start all over again.</P>
+
+<Input TYPE="submit" VALUE="Submit">
+
+<Input TYPE="reset" VALUE="Reset">
+
+</FORM>
+
+<HR>
+
+<P>
+<CENTER><TABLE WIDTH="90%" BORDER="0"><TR>
+<TD><A HREF="http://www.es.embnet.org/Copyright-CSIC.html">&copy; EMBnet/CNB</A></TD>
+<TD ALIGN="RIGHT"><A HREF="/cgi-bin/emailto?Bioinformatics+Administrator"><EM>Bioinformatics Administrator</EM></A></TD>
+</TR></TABLE></CENTER>
+
+</BODY>
+</HTML>
+

@@ -1,0 +1,65 @@
+The program in this directory allow you to access a tip-of-the-day file.
+It will access one tip at random and display it in its standard
+output.
+
+The program 'totd-cgi' is a cgi helper application for HTTP daemons
+and generates HTML output.
+
+To install the program you must first edit the Makefile, giving the
+appropriate pathnames and run make.
+
+Without arguments 'make' will build the executables in the current
+directory.
+
+'make all' is the same as 'make': it just builds the executables.
+
+'make install' will install everything.
+
+'make installbin' will only install the binaries, which is handy when you
+have already installed the data files and want to make changes or debug
+the programs.
+
+'make uninstall' will remove all the installed files. Please, be sure you
+no longer need any of them.
+
+CREDITS: most of the backgrounds have been picked from the net. Well, actually
+all of them. Wonderful thing the net. Really. Amazing.
+
+	The programs where made by me, José R. Valverde, to provide my 
+users with a tip of the day when connecting to a web page. The way I
+call this is using
+
+- --------------------
+<SCRIPT LANGUAGE="javascript"><!--
+function openNewWindow(fileName,windowName,theWidth,theHeight) {
+        window.open(fileName,windowName,
+	"toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=0,width="+theWidth+",height="+theHeight)
+}
+
+--></SCRIPT>
+
+<SCRIPT LANGUAGE="javascript"><!--
+    openNewWindow('/cgi-bin/cookie-cgi', 'inlineHelpWindow',200,200)
+--></SCRIPT>
+
+- --------------------
+
+The format of the Tip-Of-The-Day database is rather simple: any line
+starting with a space character " " (NOTE that it is NOT a blank, it 
+must be space) starts a tip, and it will continue over subsequent lines
+starting with a space until a new tip is found.
+
+
+DISCLAIMER: the programs are unsupported. And all the usual disclaimers 
+apply: I don't assume any responsibility either express or implied or of
+any type at all regarding anything at all relative to these programs and
+son on, etc, etc, etc...
+
+			Have fun!
+
+				j
+
+--
+José R. Valverde
+EMBnet/CNB
+jrvalverde@es.embnet.org

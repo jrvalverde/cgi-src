@@ -1,0 +1,68 @@
+#!/bin/sh
+
+upload_dir='/u/sysadmin/jr/public_html/upload/'
+upload_url='http://www.es.embnet.org/~jr/upload/'
+
+echo "Content-type: text/html"
+echo ""
+
+cd $upload_dir
+
+# First check if we have been invoked with an RM argument
+if [ $# -ne 0 ] ; then
+    if [ $# -eq 2 ] ; then
+    	if [ "$1" = "rm" ] ; then
+	    if [ -f "$2" ] ; then
+	    	rm $2
+	    fi
+    	fi
+    fi
+fi
+
+cat <<ENDHEADER
+<HTML>
+<HEAD><TITLE>Upload File Manager</TITLE></HEAD>
+<BODY BGCOLOR="white" BACKGROUND="/~jr/images/backgrounds/marble.jpg">
+<HR ALIGN=CENTER SIZE=8 WIDTH="75%" NOSHADE>
+<CENTER><H1>Upload File Manager</H1></CENTER>
+<HR ALIGN=CENTER SIZE=8 WIDTH="75%" NOSHADE>
+
+<TABLE BGCOLOR="lightpink" CENTER WIDTH="100%" CELLPADDING="5">
+<TR><TD><CENTER><STRONG>The following files have been uploaded to
+your personal upload area</STRONG></CENTER></TD></TR>
+</TABLE>
+<HR ALIGN=CENTER SIZE=8 WIDTH="75%" NOSHADE>
+
+<TABLE WIDTH="100%" ALIGN=CENTER BGCOLOR="lightblue" 
+       CELLSPACING=0 CELLPADDING=5  BORDER="2">
+    <TR BORDER="4"><TH>Download</TH><TH>Delete</TH><TH WIDTH="90%">File Name</TH></TR>
+ENDHEADER
+
+
+ls -1 $upload_dir | while read line ; do
+    cat <<ENDENTRY
+    <TR>
+    	<TD><A HREF="${upload_url}${line}"><IMG SRC="/~jr/images/ark.jpg"></A></TD>
+    	<TD><A HREF="/~jr/cgi-bin/upload_mgr.cgi?rm+$line"><IMG SRC="/~jr/images/shredder.jpg"></A></TD>
+    	<TD><A HREF="${upload_url}${line}">$line</A></TD>
+    </TR>
+ENDENTRY
+
+done
+
+cat << ENDFOOTER
+</TABLE>
+<HR ALIGN=CENTER SIZE=8 WIDTH="75%" NOSHADE>
+<TABLE WIDTH="100%">
+  <TR ><TD ALIGN=CENTER>
+    <address>
+    <!-- app info here -->
+    <P>If you have any trouble, please contact our
+    <A HREF="/cgi-bin/emailto?José+R.+Valverde">José R. Valverde</A></P>
+    <P><A HREF="/~jr/Copyright-JR_AH.html">&copy; JR</A></P>
+    </address>
+  </TD></TR>
+</TABLE>
+</BODY></HTML>
+
+ENDFOOTER
