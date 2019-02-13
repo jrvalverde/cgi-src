@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos  -->
+			<title>Docs for page complex_query_pdf.php</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+						<script src="../media/lib/classTree.js"></script>
+												<script language="javascript" type="text/javascript">
+				var imgPlus = new Image();
+				var imgMinus = new Image();
+				imgPlus.src = "../media/images/plus.png";
+				imgMinus.src = "../media/images/minus.png";
+				
+				function showNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgMinus.src;
+					oTable.style.display = "block";
+				}
+				
+				function hideNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgPlus.src;
+					oTable.style.display = "none";
+				}
+				
+				function nodeIsVisible(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+									break;
+							}
+					return (oTable && oTable.style.display == "block");
+				}
+				
+				function toggleNodeVisibility(Node){
+					if (nodeIsVisible(Node)){
+						hideNode(Node);
+					}else{
+						showNode(Node);
+					}
+				}
+			</script>
+					</head>
+		<body>
+			<div class="page-body">			
+<h2 class="file-name"><img src="../media/images/Page_logo.png" alt="File" style="vertical-align: middle">/complex_query_pdf.php</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+									<a href="#sec-includes">Includes</a>
+			|											<a href="#sec-functions">Functions</a>
+			</div>
+	<div class="info-box-body">	
+		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">show the user the available data sorted by key</p>
+<p class="description"><p>PHP version 4 and up</p><p>LICENSE:  This library is free software; you can redistribute it and/or  modify it under the terms of the GNU Lesser General Public  License as published by the Free Software Foundation; either  version 2.1 of the License, or (at your option) any later version.</p><p>This library is distributed in the hope that it will be useful,  but WITHOUT ANY WARRANTY; without even the implied warranty of  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU  Lesser General Public License for more details.</p><p>You should have received a copy of the GNU Lesser General Public  License along with this library; if not, write to the Free Software  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA</p></p>
+	<ul class="tags">
+				<li><span class="field">see:</span> utils.php config.inc mysql_report.php</li>
+				<li><span class="field">since:</span> File available since Release 1.0</li>
+				<li><span class="field">filesource:</span> <a href="..//__filesource/fsource_RBGMDB__complex_query_pdf.php.html">Source Code for this file</a></li>
+				<li><span class="field">link:</span> <a href="http://www.es.embnet.org/Services/MolBio/rbgmdb/">http://www.es.embnet.org/Services/MolBio/rbgmdb/</a></li>
+				<li><span class="field">version:</span> $Id$</li>
+				<li><span class="field">copyright:</span> José R. Valverde &lt;jrvalverde@acm.org&gt;</li>
+				<li><span class="field">license:</span> c/lgpl.txt</li>
+				<li><span class="field">author:</span> José R. Valverde &lt;jrvalverde@acm.org&gt;</li>
+			</ul>
+		
+			</div>
+</div>
+		
+
+	<a name="sec-includes"></a>	
+	<div class="info-box">
+		<div class="info-box-title">Includes</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Includes</span>
+			|													<a href="#sec-functions">Functions</a>
+					</div>
+		<div class="info-box-body">	
+			<a name="_mysql_report_php"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<img src="../media/images/Page.png" alt=" " />
+		<span class="include-title">
+			<span class="include-type">include</span>
+			(<span class="include-name">'mysql_report.php'</span>)
+			(line <span class="line-number"><a href="..//__filesource/fsource_RBGMDB__complex_query_pdf.php.html#a38">38</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">include fPDF tools</p>
+	
+</div>
+<a name="_utils_php"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<img src="../media/images/Page.png" alt=" " />
+		<span class="include-title">
+			<span class="include-type">include</span>
+			(<span class="include-name"><a href="../RBGMDB/_utils_php.html">'utils.php'</a></span>)
+			(line <span class="line-number"><a href="..//__filesource/fsource_RBGMDB__complex_query_pdf.php.html#a46">46</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">include utility functions</p>
+	
+</div>
+<a name="_config_inc"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<img src="../media/images/Page.png" alt=" " />
+		<span class="include-title">
+			<span class="include-type">include</span>
+			(<span class="include-name">'config.inc'</span>)
+			(line <span class="line-number"><a href="..//__filesource/fsource_RBGMDB__complex_query_pdf.php.html#a42">42</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">include DBMS credentials</p>
+	
+</div>
+		</div>
+	</div>
+	
+	
+	
+	<a name="sec-functions"></a>	
+	<div class="info-box">
+		<div class="info-box-title">Functions</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-includes">Includes</a>
+				|												<span class="disabled">Functions</span>
+		</div>
+		<div class="info-box-body">	
+			<a name="functiondb_complex_query_pdf" id="functiondb_complex_query_pdf"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<img src="../media/images/Function.png" />
+		<span class="method-title">db_complex_query_pdf</span> (line <span class="line-number"><a href="..//__filesource/fsource_RBGMDB__complex_query_pdf.php.html#a69">69</a></span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Generate a PDF report out of a user query</p>
+<p class="description"><p>This function will connect to the specified database manager system using the ID   and password provided, open the database (which we should have access to), run the   user supplied query and generate a PDF report sorted according to user criteria.</p><p>The report will be returned directly to the user with the appropriate MIME type   generated by the auxiliary library fPDF.</p></p>
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			db_complex_query_pdf
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$db_host</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$db_user</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$db_password</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$db_name</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$request</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$how</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$db_host</span><span class="var-description">: the DBMS host</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$db_user</span><span class="var-description">: the user to connect to the DBMS as (should have access to the                               database</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$db_password</span><span class="var-description">: the user's password to gaina access to the DBMS</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$db_name</span><span class="var-description">: the name of the database</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$request</span><span class="var-description">: an associative array containing the query fields, keys and                               boolean algebra combinations</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$how</span><span class="var-description">: how to sort the resulting output</span>			</li>
+				</ul>
+		
+	
+</div>
+		</div>
+	</div>
+	
+	<p class="notes" id="credit">
+		Documentation generated on Wed, 11 Jan 2006 11:09:41 +0100 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</div></body>
+</ht

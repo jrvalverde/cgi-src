@@ -1,0 +1,486 @@
+PHP Version 4.3.3
+phpDocumentor version 1.3.0RC4
+
+Parsing configuration file phpDocumentor.ini...
+done
+using tokenizer Parser
+File /mnt/data/www/EMBnet/cgi-src/rbdb/update/CVS/Entries Ignored
+File /mnt/data/www/EMBnet/cgi-src/rbdb/update/CVS/Repository Ignored
+File /mnt/data/www/EMBnet/cgi-src/rbdb/update/CVS/Root Ignored
+
+
+Grabbing README/INSTALL/CHANGELOG
+
+done
+
+
+Tutorial/Extended Documentation Parsing Stage
+
+done
+
+
+General Parsing Stage
+
+Reading file /mnt/data/www/EMBnet/cgi-src/rbdb/complex_query.php -- Parsing file
+Reading file /mnt/data/www/EMBnet/cgi-src/rbdb/complex_query_export.php -- Parsing file
+Reading file /mnt/data/www/EMBnet/cgi-src/rbdb/complex_query_pdf.php -- Parsing file
+Reading file /mnt/data/www/EMBnet/cgi-src/rbdb/sorted_query.php -- Parsing file
+Reading file /mnt/data/www/EMBnet/cgi-src/rbdb/sorted_query_export.php -- Parsing file
+Reading file /mnt/data/www/EMBnet/cgi-src/rbdb/sorted_query_pdf.php -- Parsing file
+Reading file /mnt/data/www/EMBnet/cgi-src/rbdb/submit.php -- Parsing file
+Reading file /mnt/data/www/EMBnet/cgi-src/rbdb/utils.php -- Parsing file
+Reading file /mnt/data/www/EMBnet/cgi-src/rbdb/update/db_add.php -- Parsing file
+WARNING in db_add.php on line 88: File "/mnt/data/www/EMBnet/cgi-src/rbdb/update/db_add.php" has no page-level DocBlock, use @package in the first DocBlock to create one
+Reading file /mnt/data/www/EMBnet/cgi-src/rbdb/update/db_delete.php -- Parsing file
+WARNING in db_delete.php on line 82: File "/mnt/data/www/EMBnet/cgi-src/rbdb/update/db_delete.php" has no page-level DocBlock, use @package in the first DocBlock to create one
+Reading file /mnt/data/www/EMBnet/cgi-src/rbdb/update/db_edit.php -- Parsing file
+WARNING in db_edit.php on line 108: File "/mnt/data/www/EMBnet/cgi-src/rbdb/update/db_edit.php" has no page-level DocBlock, use @package in the first DocBlock to create one
+Reading file /mnt/data/www/EMBnet/cgi-src/rbdb/update/db_update.php -- Parsing file
+WARNING in db_update.php on line 134: File "/mnt/data/www/EMBnet/cgi-src/rbdb/update/db_update.php" has no page-level DocBlock, use @package in the first DocBlock to create one
+Reading file /mnt/data/www/EMBnet/cgi-src/rbdb/update/db_update.sh -- File not parsed, not a php file
+Reading file /mnt/data/www/EMBnet/cgi-src/rbdb/update/delete_record.php -- Parsing file
+WARNING in delete_record.php on line 248: File "/mnt/data/www/EMBnet/cgi-src/rbdb/update/delete_record.php" has no page-level DocBlock, use @package in the first DocBlock to create one
+Reading file /mnt/data/www/EMBnet/cgi-src/rbdb/update/edit_record.php -- Parsing file
+WARNING in edit_record.php on line 824: File "/mnt/data/www/EMBnet/cgi-src/rbdb/update/edit_record.php" has no page-level DocBlock, use @package in the first DocBlock to create one
+Reading file /mnt/data/www/EMBnet/cgi-src/rbdb/update/index.html -- File not parsed, not a php file
+Reading file /mnt/data/www/EMBnet/cgi-src/rbdb/update/rbdb-add.html -- File not parsed, not a php file
+Reading file /mnt/data/www/EMBnet/cgi-src/rbdb/update/rbdb-update.html -- File not parsed, not a php file
+done
+
+Converting From Abstract Parsed Data
+
+Processing Class Inheritance
+
+
+Processing Root Trees
+
+
+Processing leftover classes (classes that extend root classes not found in the same package)
+done processing leftover classes
+
+Processing Procedural Page Element Name Conflicts
+
+WARNING: 
+duplicate function element "db_open" in file /mnt/data/www/EMBnet/cgi-src/rbdb/complex_query_export.php will be ignored.
+Use an @ignore tag on the original if you want this case to be documented.
+WARNING: 
+duplicate function element "db_open" in file /mnt/data/www/EMBnet/cgi-src/rbdb/sorted_query.php will be ignored.
+Use an @ignore tag on the original if you want this case to be documented.
+WARNING: 
+duplicate function element "db_open" in file /mnt/data/www/EMBnet/cgi-src/rbdb/sorted_query_export.php will be ignored.
+Use an @ignore tag on the original if you want this case to be documented.
+WARNING: 
+duplicate function element "db_open" in file /mnt/data/www/EMBnet/cgi-src/rbdb/update/db_add.php will be ignored.
+Use an @ignore tag on the original if you want this case to be documented.
+WARNING: 
+duplicate function element "db_open" in file /mnt/data/www/EMBnet/cgi-src/rbdb/update/db_delete.php will be ignored.
+Use an @ignore tag on the original if you want this case to be documented.
+WARNING: 
+duplicate function element "db_open" in file /mnt/data/www/EMBnet/cgi-src/rbdb/update/db_edit.php will be ignored.
+Use an @ignore tag on the original if you want this case to be documented.
+WARNING: 
+duplicate function element "db_open" in file /mnt/data/www/EMBnet/cgi-src/rbdb/update/delete_record.php will be ignored.
+Use an @ignore tag on the original if you want this case to be documented.
+WARNING: 
+duplicate function element "db_open" in file /mnt/data/www/EMBnet/cgi-src/rbdb/update/edit_record.php will be ignored.
+Use an @ignore tag on the original if you want this case to be documented.
+WARNING: 
+duplicate function element "db_complex_query_sort" in file /mnt/data/www/EMBnet/cgi-src/rbdb/complex_query_export.php will be ignored.
+Use an @ignore tag on the original if you want this case to be documented.
+WARNING: 
+duplicate function element "show_field_header" in file /mnt/data/www/EMBnet/cgi-src/rbdb/complex_query_export.php will be ignored.
+Use an @ignore tag on the original if you want this case to be documented.
+WARNING: 
+duplicate function element "show_field_header" in file /mnt/data/www/EMBnet/cgi-src/rbdb/sorted_query.php will be ignored.
+Use an @ignore tag on the original if you want this case to be documented.
+WARNING: 
+duplicate function element "show_field_header" in file /mnt/data/www/EMBnet/cgi-src/rbdb/sorted_query_export.php will be ignored.
+Use an @ignore tag on the original if you want this case to be documented.
+WARNING: 
+duplicate function element "show_field_header" in file /mnt/data/www/EMBnet/cgi-src/rbdb/update/delete_record.php will be ignored.
+Use an @ignore tag on the original if you want this case to be documented.
+WARNING: 
+duplicate function element "show_field" in file /mnt/data/www/EMBnet/cgi-src/rbdb/complex_query_export.php will be ignored.
+Use an @ignore tag on the original if you want this case to be documented.
+WARNING: 
+duplicate function element "show_field" in file /mnt/data/www/EMBnet/cgi-src/rbdb/sorted_query.php will be ignored.
+Use an @ignore tag on the original if you want this case to be documented.
+WARNING: 
+duplicate function element "show_field" in file /mnt/data/www/EMBnet/cgi-src/rbdb/sorted_query_export.php will be ignored.
+Use an @ignore tag on the original if you want this case to be documented.
+WARNING: 
+duplicate function element "show_field" in file /mnt/data/www/EMBnet/cgi-src/rbdb/update/delete_record.php will be ignored.
+Use an @ignore tag on the original if you want this case to be documented.
+WARNING: 
+duplicate function element "show_field" in file /mnt/data/www/EMBnet/cgi-src/rbdb/update/edit_record.php will be ignored.
+Use an @ignore tag on the original if you want this case to be documented.
+WARNING: 
+duplicate function element "show_field_url" in file /mnt/data/www/EMBnet/cgi-src/rbdb/sorted_query.php will be ignored.
+Use an @ignore tag on the original if you want this case to be documented.
+WARNING: 
+duplicate function element "show_field_url" in file /mnt/data/www/EMBnet/cgi-src/rbdb/update/delete_record.php will be ignored.
+Use an @ignore tag on the original if you want this case to be documented.
+WARNING: 
+duplicate function element "show_result" in file /mnt/data/www/EMBnet/cgi-src/rbdb/complex_query_export.php will be ignored.
+Use an @ignore tag on the original if you want this case to be documented.
+WARNING: 
+duplicate function element "show_result" in file /mnt/data/www/EMBnet/cgi-src/rbdb/sorted_query.php will be ignored.
+Use an @ignore tag on the original if you want this case to be documented.
+WARNING: 
+duplicate function element "show_result" in file /mnt/data/www/EMBnet/cgi-src/rbdb/sorted_query_export.php will be ignored.
+Use an @ignore tag on the original if you want this case to be documented.
+WARNING: 
+duplicate function element "show_result" in file /mnt/data/www/EMBnet/cgi-src/rbdb/update/delete_record.php will be ignored.
+Use an @ignore tag on the original if you want this case to be documented.
+WARNING: 
+duplicate function element "show_result" in file /mnt/data/www/EMBnet/cgi-src/rbdb/update/edit_record.php will be ignored.
+Use an @ignore tag on the original if you want this case to be documented.
+WARNING: 
+duplicate function element "db_query_sort" in file /mnt/data/www/EMBnet/cgi-src/rbdb/sorted_query_export.php will be ignored.
+Use an @ignore tag on the original if you want this case to be documented.
+WARNING: 
+duplicate function element "show_copyright" in file /mnt/data/www/EMBnet/cgi-src/rbdb/update/delete_record.php will be ignored.
+Use an @ignore tag on the original if you want this case to be documented.
+WARNING: 
+duplicate function element "show_copyright" in file /mnt/data/www/EMBnet/cgi-src/rbdb/update/edit_record.php will be ignored.
+Use an @ignore tag on the original if you want this case to be documented.
+WARNING: 
+duplicate function element "show_header" in file /mnt/data/www/EMBnet/cgi-src/rbdb/update/delete_record.php will be ignored.
+Use an @ignore tag on the original if you want this case to be documented.
+WARNING: 
+duplicate function element "show_header" in file /mnt/data/www/EMBnet/cgi-src/rbdb/update/edit_record.php will be ignored.
+Use an @ignore tag on the original if you want this case to be documented.
+WARNING: 
+duplicate function element "db_lock" in file /mnt/data/www/EMBnet/cgi-src/rbdb/update/db_delete.php will be ignored.
+Use an @ignore tag on the original if you want this case to be documented.
+WARNING: 
+duplicate function element "db_lock" in file /mnt/data/www/EMBnet/cgi-src/rbdb/update/db_edit.php will be ignored.
+Use an @ignore tag on the original if you want this case to be documented.
+WARNING: 
+duplicate function element "db_unlock" in file /mnt/data/www/EMBnet/cgi-src/rbdb/update/db_delete.php will be ignored.
+Use an @ignore tag on the original if you want this case to be documented.
+WARNING: 
+duplicate function element "db_unlock" in file /mnt/data/www/EMBnet/cgi-src/rbdb/update/db_edit.php will be ignored.
+Use an @ignore tag on the original if you want this case to be documented.
+WARNING: 
+duplicate function element "err_invalid_request" in file /mnt/data/www/EMBnet/cgi-src/rbdb/update/db_edit.php will be ignored.
+Use an @ignore tag on the original if you want this case to be documented.
+WARNING: 
+duplicate function element "err_invalid_request" in file /mnt/data/www/EMBnet/cgi-src/rbdb/update/delete_record.php will be ignored.
+Use an @ignore tag on the original if you want this case to be documented.
+WARNING: 
+duplicate function element "err_invalid_request" in file /mnt/data/www/EMBnet/cgi-src/rbdb/update/edit_record.php will be ignored.
+Use an @ignore tag on the original if you want this case to be documented.
+WARNING: 
+duplicate function element "my_is_int" in file /mnt/data/www/EMBnet/cgi-src/rbdb/update/db_edit.php will be ignored.
+Use an @ignore tag on the original if you want this case to be documented.
+WARNING: 
+duplicate function element "my_is_int" in file /mnt/data/www/EMBnet/cgi-src/rbdb/update/delete_record.php will be ignored.
+Use an @ignore tag on the original if you want this case to be documented.
+WARNING: 
+duplicate function element "my_is_int" in file /mnt/data/www/EMBnet/cgi-src/rbdb/update/edit_record.php will be ignored.
+Use an @ignore tag on the original if you want this case to be documented.
+WARNING: 
+duplicate function element "db_query_accno" in file /mnt/data/www/EMBnet/cgi-src/rbdb/update/edit_record.php will be ignored.
+Use an @ignore tag on the original if you want this case to be documented.
+
+Sorting page elements...done
+Formatting @uses list...done
+
+creating /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media
+Creating Directory /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/banner.css
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/stylesheet.css
+creating /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images
+Creating Directory /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/AbstractClass.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/AbstractClass_logo.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/AbstractMethod.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/AbstractPrivateClass.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/AbstractPrivateClass_logo.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/AbstractPrivateMethod.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/blank.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/Class.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/class_folder.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/Class_logo.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/Constant.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/Constructor.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/Destructor.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/empty.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/file.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/folder.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/Function.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/function_folder.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/Global.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/I.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/Index.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/L.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/Lminus.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/Lplus.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/Method.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/minus.gif
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/next_button.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/next_button_disabled.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/package.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/package_folder.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/Page.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/Page_logo.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/plus.gif
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/previous_button.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/previous_button_disabled.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/PrivateClass.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/PrivateClass_logo.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/PrivateMethod.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/PrivateVariable.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/private_class_logo.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/T.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/Tminus.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/Tplus.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/tutorial.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/tutorial_folder.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/up_button.png
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/images/Variable.png
+creating /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/lib
+Creating Directory /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/lib
+copying /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/media/lib/classTree.js
+Building indexes...done
+
+Sorting Indexes...done
+
+Sorting @todo list...done
+Converting tutorials/extended docs
+Formatting Package Indexes...    Writing /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/elementindex_RBGMDB.html
+
+done
+Formatting Index...
+    Writing /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/elementindex.html
+    Writing /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/blank.html
+
+    Writing /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/index.html
+    Writing /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/packages.html
+done
+
+Formatting Left Quick Index...
+    Writing /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/li_RBGMDB.html
+    Writing /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/classtrees_RBGMDB.html
+
+done
+
+Converting /mnt/data/www/EMBnet/cgi-src/rbdb/complex_query.phpCreating Directory /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/__filesource
+
+    Writing /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/__filesource/fsource_RBGMDB__complex_query.php.html
+ Procedural Page Elements... Classes... done
+Creating Directory /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/RBGMDB
+    Writing /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/RBGMDB/_complex_query_php.html
+Converting /mnt/data/www/EMBnet/cgi-src/rbdb/complex_query_export.php
+    Writing /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/__filesource/fsource_RBGMDB__complex_query_export.php.html
+ Procedural Page Elements... Classes... done
+    Writing /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/RBGMDB/_complex_query_export_php.html
+Converting /mnt/data/www/EMBnet/cgi-src/rbdb/complex_query_pdf.php
+    Writing /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/__filesource/fsource_RBGMDB__complex_query_pdf.php.html
+ Procedural Page Elements... Classes... done
+    Writing /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/RBGMDB/_complex_query_pdf_php.html
+Converting /mnt/data/www/EMBnet/cgi-src/rbdb/update/db_add.php
+    Writing /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/__filesource/fsource_RBGMDB__updatedb_add.php.html
+ Procedural Page Elements... Classes... done
+    Writing /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/RBGMDB/_update_db_add_php.html
+Converting /mnt/data/www/EMBnet/cgi-src/rbdb/update/db_delete.php
+    Writing /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/__filesource/fsource_RBGMDB__updatedb_delete.php.html
+ Procedural Page Elements... Classes... done
+    Writing /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/RBGMDB/_update_db_delete_php.html
+Converting /mnt/data/www/EMBnet/cgi-src/rbdb/update/db_edit.php
+    Writing /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/__filesource/fsource_RBGMDB__updatedb_edit.php.html
+ Procedural Page Elements... Classes... done
+    Writing /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/RBGMDB/_update_db_edit_php.html
+Converting /mnt/data/www/EMBnet/cgi-src/rbdb/update/db_update.php
+    Writing /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/__filesource/fsource_RBGMDB__updatedb_update.php.html
+ Procedural Page Elements... Classes... done
+    Writing /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/RBGMDB/_update_db_update_php.html
+Converting /mnt/data/www/EMBnet/cgi-src/rbdb/update/delete_record.php
+    Writing /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/__filesource/fsource_RBGMDB__updatedelete_record.php.html
+ Procedural Page Elements... Classes... done
+    Writing /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/RBGMDB/_update_delete_record_php.html
+Converting /mnt/data/www/EMBnet/cgi-src/rbdb/update/edit_record.php
+    Writing /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/__filesource/fsource_RBGMDB__updateedit_record.php.html
+ Procedural Page Elements... Classes... done
+    Writing /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/RBGMDB/_update_edit_record_php.html
+Converting /mnt/data/www/EMBnet/cgi-src/rbdb/sorted_query.php
+    Writing /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/__filesource/fsource_RBGMDB__sorted_query.php.html
+ Procedural Page Elements... Classes... done
+    Writing /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/RBGMDB/_sorted_query_php.html
+Converting /mnt/data/www/EMBnet/cgi-src/rbdb/sorted_query_export.php
+    Writing /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/__filesource/fsource_RBGMDB__sorted_query_export.php.html
+ Procedural Page Elements... Classes... done
+    Writing /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/RBGMDB/_sorted_query_export_php.html
+Converting /mnt/data/www/EMBnet/cgi-src/rbdb/sorted_query_pdf.php
+    Writing /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/__filesource/fsource_RBGMDB__sorted_query_pdf.php.html
+ Procedural Page Elements... Classes... done
+    Writing /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/RBGMDB/_sorted_query_pdf_php.html
+Converting /mnt/data/www/EMBnet/cgi-src/rbdb/submit.php
+    Writing /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/__filesource/fsource_RBGMDB__submit.php.html
+ Procedural Page Elements... Classes... done
+    Writing /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/RBGMDB/_submit_php.html
+Converting /mnt/data/www/EMBnet/cgi-src/rbdb/utils.php
+    Writing /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/__filesource/fsource_RBGMDB__utils.php.html
+ Procedural Page Elements... Classes... done
+    Writing /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/RBGMDB/_utils_php.html
+
+Converting @todo List...done
+
+Converting Error Log...    Writing /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/errors.html
+
+
+To view errors and warnings, look at /data/www/EMBnet/cgi-src/rbdb/doc/pDoc/errors.html
+done
+
+Parsing time: 22 seconds
+
+Conversion time: 20 seconds
+
+Total Documentation Time: 42 seconds
+done
+/src/build/lppc/php-4.3.3/Zend/zend_hash.c(272) :  Freeing 0x11A31390 (43 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+Last leak repeated 5814 times
+/src/build/lppc/php-4.3.3/Zend/zend_execute.c(2294) :  Freeing 0x11A20330 (44 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+/src/build/lppc/php-4.3.3/Zend/zend_variables.c(122) : Actual location (location was relayed)
+Last leak repeated 272 times
+/src/build/lppc/php-4.3.3/Zend/zend_hash.c(188) :  Freeing 0x1195F248 (32 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+Last leak repeated 19162 times
+/src/build/lppc/php-4.3.3/Zend/zend_hash.c(416) :  Freeing 0x1193B978 (35 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+Last leak repeated 62407 times
+/src/build/lppc/php-4.3.3/Zend/zend_operators.c(1049) :  Freeing 0x11D956B8 (22702 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+Last leak repeated 35 times
+/src/build/lppc/php-4.3.3/Zend/zend_execute.c(2018) :  Freeing 0x11A218F8 (16 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+Last leak repeated 1332 times
+/src/build/lppc/php-4.3.3/ext/standard/string.c(2542) :  Freeing 0x11449BA0 (4 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+Last leak repeated 11855 times
+/src/build/lppc/php-4.3.3/Zend/zend_execute.c(1735) :  Freeing 0x119E4448 (16 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+Last leak repeated 55 times
+/src/build/lppc/php-4.3.3/Zend/zend_execute.c(499) :  Freeing 0x119428F8 (16 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+Last leak repeated 1828 times
+/src/build/lppc/php-4.3.3/ext/standard/string.c(2742) :  Freeing 0x119F56B0 (16 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+Last leak repeated 14827 times
+/src/build/lppc/php-4.3.3/Zend/zend_execute.c(1758) :  Freeing 0x11940248 (16 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+Last leak repeated 14938 times
+/src/build/lppc/php-4.3.3/Zend/zend_execute.c(488) :  Freeing 0x11940130 (16 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+Last leak repeated 219 times
+/src/build/lppc/php-4.3.3/Zend/zend_execute.c(1611) :  Freeing 0x119AF528 (16 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+Last leak repeated 718 times
+/src/build/lppc/php-4.3.3/Zend/zend_execute.c(1761) :  Freeing 0x1199E788 (16 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+/src/build/lppc/php-4.3.3/Zend/zend_variables.c(111) : Actual location (location was relayed)
+Last leak repeated 58 times
+/src/build/lppc/php-4.3.3/Zend/zend_execute.c(1224) :  Freeing 0x11993F08 (16 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+Last leak repeated 13 times
+/src/build/lppc/php-4.3.3/ext/standard/string.c(2735) :  Freeing 0x118FD7B8 (44 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+/src/build/lppc/php-4.3.3/Zend/zend_API.c(562) : Actual location (location was relayed)
+Last leak repeated 34 times
+/src/build/lppc/php-4.3.3/Zend/zend_execute.c(2010) :  Freeing 0x1192B4E0 (44 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+/src/build/lppc/php-4.3.3/Zend/zend_API.c(562) : Actual location (location was relayed)
+Last leak repeated 15831 times
+/src/build/lppc/php-4.3.3/Zend/zend_execute.c(1826) :  Freeing 0x11996390 (16 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+Last leak repeated 147 times
+/src/build/lppc/php-4.3.3/Zend/zend_hash.c(450) :  Freeing 0x1168D4B0 (1024 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+Last leak repeated 970 times
+/src/build/lppc/php-4.3.3/Zend/zend_execute.c(2033) :  Freeing 0x119CD850 (23 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+/src/build/lppc/php-4.3.3/Zend/zend_variables.c(111) : Actual location (location was relayed)
+Last leak repeated 307 times
+/src/build/lppc/php-4.3.3/Zend/zend_execute.c(1979) :  Freeing 0x119CD790 (16 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+Last leak repeated 183 times
+/src/build/lppc/php-4.3.3/Zend/zend_execute.c(2030) :  Freeing 0x1197DEE8 (16 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+Last leak repeated 307 times
+/src/build/lppc/php-4.3.3/Zend/zend_operators.c(1056) :  Freeing 0x1192EB78 (11 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+Last leak repeated 44 times
+/src/build/lppc/php-4.3.3/Zend/zend_API.c(594) :  Freeing 0x118E9F10 (44 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+/src/build/lppc/php-4.3.3/Zend/zend_API.c(582) : Actual location (location was relayed)
+Last leak repeated 183 times
+/src/build/lppc/php-4.3.3/Zend/zend_execute.c(763) :  Freeing 0x117A1380 (16 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+Last leak repeated 3402 times
+/src/build/lppc/php-4.3.3/Zend/zend_execute.c(491) :  Freeing 0x11982FA0 (44 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+/src/build/lppc/php-4.3.3/Zend/zend_variables.c(122) : Actual location (location was relayed)
+Last leak repeated 43 times
+/src/build/lppc/php-4.3.3/Zend/zend_execute.c(766) :  Freeing 0x119A2A08 (44 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+/src/build/lppc/php-4.3.3/Zend/zend_API.c(562) : Actual location (location was relayed)
+Last leak repeated 3402 times
+/src/build/lppc/php-4.3.3/Zend/zend_execute.c(774) :  Freeing 0x11982EF0 (16 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+Last leak repeated 351 times
+/src/build/lppc/php-4.3.3/Zend/zend_execute_API.c(341) :  Freeing 0x11374338 (44 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+/src/build/lppc/php-4.3.3/Zend/zend_variables.c(122) : Actual location (location was relayed)
+Last leak repeated 21 times
+/src/build/lppc/php-4.3.3/Zend/zend_execute_API.c(314) :  Freeing 0x11A6BCC8 (16 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+Last leak repeated 61 times
+/src/build/lppc/php-4.3.3/Zend/zend_execute_API.c(374) :  Freeing 0x1195A2F0 (23 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+/src/build/lppc/php-4.3.3/Zend/zend_variables.c(111) : Actual location (location was relayed)
+Last leak repeated 33 times
+/src/build/lppc/php-4.3.3/Zend/zend_execute_API.c(372) :  Freeing 0x118CE738 (16 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+Last leak repeated 33 times
+/src/build/lppc/php-4.3.3/Zend/zend_operators.c(1017) :  Freeing 0x116791B0 (15 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+/src/build/lppc/php-4.3.3/Zend/zend_execute.c(1725) :  Freeing 0x11645D48 (16 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+Last leak repeated 46 times
+/src/build/lppc/php-4.3.3/Zend/zend_execute.c(1729) :  Freeing 0x111D68E0 (44 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+/src/build/lppc/php-4.3.3/Zend/zend_variables.c(135) : Actual location (location was relayed)
+Last leak repeated 46 times
+/src/build/lppc/php-4.3.3/Zend/zend_execute.c(143) :  Freeing 0x114EB000 (16 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+Last leak repeated 55 times
+/src/build/lppc/php-4.3.3/Zend/zend_execute.c(2350) :  Freeing 0x111B0F70 (16 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+/src/build/lppc/php-4.3.3/ext/standard/string.c(570) :  Freeing 0x114E4AC8 (10 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+Last leak repeated 518 times
+/src/build/lppc/php-4.3.3/ext/standard/string.c(2297) :  Freeing 0x10E098A0 (2 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+Last leak repeated 1 time
+/src/build/lppc/php-4.3.3/Zend/zend_execute.c(937) :  Freeing 0x117A0BD0 (44 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+/src/build/lppc/php-4.3.3/Zend/zend_variables.c(135) : Actual location (location was relayed)
+Last leak repeated 238 times
+/src/build/lppc/php-4.3.3/Zend/zend_execute.c(446) :  Freeing 0x11447A28 (44 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+/src/build/lppc/php-4.3.3/Zend/zend_variables.c(135) : Actual location (location was relayed)
+/src/build/lppc/php-4.3.3/Zend/zend_execute.c(1347) :  Freeing 0x11A5F0E0 (44 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+/src/build/lppc/php-4.3.3/Zend/zend_variables.c(122) : Actual location (location was relayed)
+Last leak repeated 47 times
+/src/build/lppc/php-4.3.3/Zend/zend_execute.c(464) :  Freeing 0x11A6E028 (44 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+/src/build/lppc/php-4.3.3/Zend/zend_variables.c(135) : Actual location (location was relayed)
+Last leak repeated 5 times
+/src/build/lppc/php-4.3.3/ext/standard/string.c(1116) :  Freeing 0x118C54E8 (16 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+Last leak repeated 13 times
+/src/build/lppc/php-4.3.3/ext/standard/string.c(2610) :  Freeing 0x11D2B6A0 (1 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+Last leak repeated 3012 times
+/src/build/lppc/php-4.3.3/Zend/zend_API.c(776) :  Freeing 0x11A5CE80 (16 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+Last leak repeated 11520 times
+/src/build/lppc/php-4.3.3/Zend/zend_API.c(843) :  Freeing 0x11A5CA50 (2 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+Last leak repeated 5545 times
+/src/build/lppc/php-4.3.3/Zend/zend_API.c(842) :  Freeing 0x11A5CA10 (16 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+Last leak repeated 5545 times
+/src/build/lppc/php-4.3.3/ext/mbstring/mbfilter.c(8046) :  Freeing 0x11997EC8 (19 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+Last leak repeated 72 times
+/src/build/lppc/php-4.3.3/Zend/zend_hash.c(1066) :  Freeing 0x117DD0F0 (8 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+Zend/zend_language_scanner.c(3212) :  Freeing 0x118DF9C0 (30197 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+Last leak repeated 13 times
+Zend/zend_language_scanner.c(3196) :  Freeing 0x118D8398 (30196 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+Last leak repeated 13 times
+/src/build/lppc/php-4.3.3/Zend/zend_operators.c(1047) :  Freeing 0x118AAEE0 (7 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+Last leak repeated 5 times
+/src/build/lppc/php-4.3.3/Zend/zend_execute.c(1188) :  Freeing 0x117CFE48 (16 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+Last leak repeated 26 times
+/src/build/lppc/php-4.3.3/ext/standard/array.c(1577) :  Freeing 0x11750AF0 (44 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+/src/build/lppc/php-4.3.3/Zend/zend_execute.c(278) :  Freeing 0x114E2B88 (16 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+Last leak repeated 6 times
+/src/build/lppc/php-4.3.3/Zend/zend_execute.c(281) :  Freeing 0x114623D0 (8 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+/src/build/lppc/php-4.3.3/Zend/zend_variables.c(111) : Actual location (location was relayed)
+Last leak repeated 6 times
+/src/build/lppc/php-4.3.3/Zend/zend_constants.c(239) :  Freeing 0x10CA28A8 (9 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+/src/build/lppc/php-4.3.3/Zend/zend_variables.c(111) : Actual location (location was relayed)
+/src/build/lppc/php-4.3.3/Zend/zend_compile.c(1674) :  Freeing 0x10CC8D80 (16 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+Last leak repeated 89 times
+Zend/zend_language_parser.c(2665) :  Freeing 0x10CC8AE8 (44 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+/src/build/lppc/php-4.3.3/Zend/zend_API.c(562) : Actual location (location was relayed)
+Last leak repeated 28 times
+/src/build/lppc/php-4.3.3/Zend/zend_compile.c(1870) :  Freeing 0x10CC8828 (16 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+Last leak repeated 67 times
+Zend/zend_language_parser.c(2677) :  Freeing 0x10CC8548 (44 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+/src/build/lppc/php-4.3.3/Zend/zend_API.c(562) : Actual location (location was relayed)
+Last leak repeated 2 times
+/src/build/lppc/php-4.3.3/ext/standard/array.c(2171) :  Freeing 0x10C8FE50 (44 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+/src/build/lppc/php-4.3.3/Zend/zend_API.c(562) : Actual location (location was relayed)
+Zend/zend_language_scanner.c(4718) :  Freeing 0x109D82B8 (9 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+Last leak repeated 67 times
+Zend/zend_language_parser.c(2680) :  Freeing 0x1076A220 (44 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+/src/build/lppc/php-4.3.3/Zend/zend_API.c(562) : Actual location (location was relayed)
+/src/build/lppc/php-4.3.3/main/main.c(1564) :  Freeing 0x102C20F8 (7 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc
+/src/build/lppc/php-4.3.3/main/main.c(1561) :  Freeing 0x102C20B8 (16 bytes), script=/opt/tools/PhpDocumentor-1.3.0RC4/phpdoc

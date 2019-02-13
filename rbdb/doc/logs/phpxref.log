@@ -1,0 +1,29 @@
+PHPXref 0.4.1 
+(c) Gareth Watts 2003
+
+Processing RBGMDB...
+Source.............: /mnt/data/www/EMBnet/cgi-src/rbdb/doc/..
+Target.............: /mnt/data/www/EMBnet/cgi-src/rbdb/doc/pXref
+Scanning Tree......: OK - 34 files to process
+Pass One...........: 0%..20%..50%..70%..100%
+Generating Output..: 0%..20%..50%..70%..100%
+Variable references: 0%..10%..20%..30%..40%..50%..60%..70%..80%..90%..100%
+Function references: 0%..10%..20%..30%..40%..50%..60%..70%..80%..90%..100%
+Class references...: 100%
+Table references...: 
+
+Some values were referenced in require and include statements
+for which no value could be found in the configuration file so cross-referencing
+may be incomplete: 
+Unknown constant names (ref count): DBMS (5)
+
+Summary statistics:
+Files Scanned: 34
+144 variable names in 220 definitions and 1662 references.
+184 function/method names in 90 definitions and 1201 references.
+1 class names in 1 definitions and 2 references.
+0 table names in 0 references.
+
+Local front page URL: file:///mnt/data/www/EMBnet/cgi-src/rbdb/doc/pXref/index.html
+
+Done.

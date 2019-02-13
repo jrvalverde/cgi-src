@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos  -->
+			<title>File Source for delete_record.php</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+											</head>
+		<body>
+						<h1>Source for file delete_record.php</h1>
+<p>Documentation is available at <a href="../RBGMDB/_update_delete_record_php.html">delete_record.php</a></p>
+<div class="src-code">
+<pre><ol><li><a name="a1"></a><span class="src-php">&lt;?php</span></li>
+<li><a name="a2"></a>&nbsp;</li>
+<li><a name="a3"></a>    <span class="src-comm">// Connect to db</span></li>
+<li><a name="a4"></a>    <span class="src-comm">// Check the specified record exists (fecth it)</span></li>
+<li><a name="a5"></a>    <span class="src-comm">// Display record to the user</span></li>
+<li><a name="a6"></a>    <span class="src-comm">//    if confirmed, delete it by calling db_delete.php</span></li>
+<li><a name="a7"></a>&nbsp;</li>
+<li><a name="a8"></a><span class="src-comm">// show the user the available data sorted by key</span></li>
+<li><a name="a9"></a>    </li>
+<li><a name="a10"></a><span class="src-comm">// include DBMS credentials</span></li>
+<li><a name="a11"></a><span class="src-inc">include </span><span class="src-str">'../config.inc'</span><span class="src-sym">;</span></li>
+<li><a name="a12"></a><span class="src-inc">include </span><span class="src-str">'../utils.php'</span><span class="src-sym">;</span></li>
+<li><a name="a13"></a>&nbsp;</li>
+<li><a name="a14"></a>&nbsp;</li>
+<li><a name="a15"></a><span class="src-key">function </span><a href="../RBGMDB/_complex_query_php.html#functiondb_open">db_open</a><span class="src-sym">(</span><span class="src-var">$host</span><span class="src-sym">, </span><span class="src-var">$user</span><span class="src-sym">, </span><span class="src-var">$password</span><span class="src-sym">, </span><span class="src-var">$db</span><span class="src-sym">)</span></li>
+<li><a name="a16"></a><span class="src-sym">{</span></li>
+<li><a name="a17"></a>    <span class="src-key">if </span><span class="src-sym">(</span><span class="src-sym">! </span><span class="src-sym">(</span><span class="src-var">$connection </span>= <span class="src-sym">@ </span><a href="http://www.php.net/mysql_connect">mysql_connect</a><span class="src-sym">(</span><span class="src-var">$host</span><span class="src-sym">, </span><span class="src-var">$user</span><span class="src-sym">, </span><span class="src-var">$password</span><span class="src-sym">)))</span></li>
+<li><a name="a18"></a>        <a href="../RBGMDB/_utils_php.html#functionshow_error">show_error</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a19"></a>    </li>
+<li><a name="a20"></a>    <span class="src-key">if </span><span class="src-sym">(</span><span class="src-sym">! </span><a href="http://www.php.net/mysql_select_db">mysql_select_db</a><span class="src-sym">(</span><span class="src-var">$db</span><span class="src-sym">, </span><span class="src-var">$connection</span><span class="src-sym">))</span></li>
+<li><a name="a21"></a>        <a href="../RBGMDB/_utils_php.html#functionshow_error">show_error</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a22"></a>    </li>
+<li><a name="a23"></a>    <span class="src-key">return </span><span class="src-var">$connection</span><span class="src-sym">;</span></li>
+<li><a name="a24"></a><span class="src-sym">}</span></li>
+<li><a name="a25"></a>&nbsp;</li>
+<li><a name="a26"></a><span class="src-doc">/** retrieve the data</span></li>
+<li><a name="a27"></a><span class="src-doc"> *</span></li>
+<li><a name="a28"></a><span class="src-doc"> * </span><span class="src-doc-coretag">@param </span><span class="src-doc-type">$db </span><span class="src-doc">           an open connection to the DBMS</span></li>
+<li><a name="a29"></a><span class="src-doc"> * </span><span class="src-doc-coretag">@param </span><span class="src-doc-type">$where </span><span class="src-doc">       the field to search for</span></li>
+<li><a name="a30"></a><span class="src-doc"> * </span><span class="src-doc-coretag">@param </span><span class="src-doc-type">$what </span><span class="src-doc">       what to find</span></li>
+<li><a name="a31"></a><span class="src-doc"> * </span><span class="src-doc-coretag">@return </span><span class="src-doc-type">$result </span><span class="src-doc">     Query result</span></li>
+<li><a name="a32"></a><span class="src-doc"> */</span></li>
+<li><a name="a33"></a><span class="src-key">function </span><a href="../RBGMDB/_update_delete_record_php.html#functiondb_query_accno">db_query_accno</a><span class="src-sym">(</span><span class="src-var">$db</span><span class="src-sym">, </span><span class="src-var">$id</span><span class="src-sym">)</span></li>
+<li><a name="a34"></a><span class="src-sym">{</span></li>
+<li><a name="a35"></a>    <span class="src-key">global </span><span class="src-var">$debug</span><span class="src-sym">;</span></li>
+<li><a name="a36"></a>    </li>
+<li><a name="a37"></a>    <span class="src-comm">// Set up a query to show what we were requested</span></li>
+<li><a name="a38"></a>    <span class="src-key">if </span><span class="src-sym">((</span><span class="src-var">$id </span>== <span class="src-str">&quot;&quot;</span><span class="src-sym">) </span>|| <span class="src-sym">(</span><span class="src-sym">! </span><a href="../RBGMDB/_update_db_delete_php.html#functionmy_is_int">my_is_int</a><span class="src-sym">(</span><span class="src-var">$id</span><span class="src-sym">)))</span></li>
+<li><a name="a39"></a>        <span class="src-key">return </span><span class="src-id">FALSE</span><span class="src-sym">;</span></li>
+<li><a name="a40"></a>    <span class="src-key">else</span></li>
+<li><a name="a41"></a>        <span class="src-comm">// show all</span></li>
+<li><a name="a42"></a>    <span class="src-var">$query </span>= <span class="src-str">&quot;</span><span class="src-str"><span class="src-id">SELECT</span> * <span class="src-id">FROM</span> <span class="src-id">mut_nt</span> <span class="src-id">WHERE</span> <span class="src-id">rbdb_acc</span>='<span class="src-var">$id</span>'</span><span class="src-str">&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a43"></a>&nbsp;</li>
+<li><a name="a44"></a><span class="src-comm">#    if ($debug) echo &quot;&lt;h3&gt;$query&lt;/h3&gt;&quot;;</span></li>
+<li><a name="a45"></a>&nbsp;</li>
+<li><a name="a46"></a>    <span class="src-comm">// run the query</span></li>
+<li><a name="a47"></a>    <span class="src-key">if </span><span class="src-sym">(</span><span class="src-sym">! </span><span class="src-sym">(</span><span class="src-var">$result </span>= <span class="src-sym">@ </span><a href="http://www.php.net/mysql_query">mysql_query</a><span class="src-sym">(</span><span class="src-var">$query</span><span class="src-sym">, </span><span class="src-var">$db</span><span class="src-sym">)) )</span></li>
+<li><a name="a48"></a>        <a href="../RBGMDB/_utils_php.html#functionshow_error">show_error</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a49"></a>&nbsp;</li>
+<li><a name="a50"></a>    <span class="src-key">return </span><span class="src-var">$result</span><span class="src-sym">;</span></li>
+<li><a name="a51"></a><span class="src-sym">}</span></li>
+<li><a name="a52"></a>&nbsp;</li>
+<li><a name="a53"></a><span class="src-doc">/** show header for a given field</span></li>
+<li><a name="a54"></a><span class="src-doc"> *</span></li>
+<li><a name="a55"></a><span class="src-doc"> *  The header allows re-submitting the search request sorting by this</span></li>
+<li><a name="a56"></a><span class="src-doc"> *  field. In practice, the user sees it as a way to sort the results</span></li>
+<li><a name="a57"></a><span class="src-doc"> *  table by the field selected.</span></li>
+<li><a name="a58"></a><span class="src-doc"> */</span></li>
+<li><a name="a59"></a><span class="src-key">function </span><a href="../RBGMDB/_complex_query_php.html#functionshow_field_header">show_field_header</a><span class="src-sym">(</span><span class="src-var">$field</span><span class="src-sym">, </span><span class="src-var">$description</span><span class="src-sym">)</span></li>
+<li><a name="a60"></a><span class="src-sym">{</span></li>
+<li><a name="a61"></a>    echo <span class="src-str">&quot;\t&lt;th &quot; </span>.</li>
+<li><a name="a62"></a>        <span class="src-str">&quot;</span><span class="src-str"><span class="src-id">onMouseOver</span>=\&quot;<span class="src-id">showtip</span>(<span class="src-id">this</span>,<span class="src-id">event</span>,'&lt;<span class="src-id">b</span>&gt;<span class="src-var">$field</span>&lt;/<span class="src-id">b</span>&gt;')\&quot; </span><span class="src-str">&quot; </span>.</li>
+<li><a name="a63"></a>        <span class="src-str">&quot;</span><span class="src-str"><span class="src-id">onMouseOut</span>=\&quot;<span class="src-id">hidetip</span>()\&quot;&gt;<span class="src-var">$description</span></span><span class="src-str">&quot; </span>.</li>
+<li><a name="a64"></a>     <span class="src-str">&quot;&lt;/th&gt;\n&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a65"></a><span class="src-sym">}</span></li>
+<li><a name="a66"></a>&nbsp;</li>
+<li><a name="a67"></a><span class="src-doc">/** show an item as a table cell</span></li>
+<li><a name="a68"></a><span class="src-doc"> *</span></li>
+<li><a name="a69"></a><span class="src-doc"> * The field contents are formatted as a table cell, with provision for</span></li>
+<li><a name="a70"></a><span class="src-doc"> * display of additional information as Javascript content.</span></li>
+<li><a name="a71"></a><span class="src-doc"> *</span></li>
+<li><a name="a72"></a><span class="src-doc"> *  </span><span class="src-doc-coretag">@param </span><span class="src-doc-type">$data </span><span class="src-doc">   contents to display</span></li>
+<li><a name="a73"></a><span class="src-doc"> *  </span><span class="src-doc-coretag">@param </span><span class="src-doc-type">$tip </span><span class="src-doc">    tip to associate to the contents</span></li>
+<li><a name="a74"></a><span class="src-doc"> */</span></li>
+<li><a name="a75"></a><span class="src-key">function </span><a href="../RBGMDB/_complex_query_php.html#functionshow_field">show_field</a><span class="src-sym">(</span><span class="src-var">$data</span><span class="src-sym">, </span><span class="src-var">$tip</span><span class="src-sym">)</span></li>
+<li><a name="a76"></a><span class="src-sym">{</span></li>
+<li><a name="a77"></a>echo <span class="src-str">&quot;\t&lt;td &quot; </span>.</li>
+<li><a name="a78"></a>         <span class="src-str">&quot;</span><span class="src-str"><span class="src-id">onMouseOver</span>=\&quot;<span class="src-id">showtip</span>(<span class="src-id">this</span>,<span class="src-id">event</span>,'<span class="src-var">$tip</span>')\&quot; </span><span class="src-str">&quot; </span>.</li>
+<li><a name="a79"></a>         <span class="src-str">&quot;onMouseOut=\&quot;hidetip()\&quot;&gt;&quot;</span>.<span class="src-var">$data</span>.<span class="src-str">&quot;&amp;nbsp;&quot; </span>.</li>
+<li><a name="a80"></a>     <span class="src-str">&quot;&lt;/td&gt;\n&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a81"></a><span class="src-sym">}</span></li>
+<li><a name="a82"></a>&nbsp;</li>
+<li><a name="a83"></a><span class="src-doc">/** show an item as a table cell embedded in a URL</span></li>
+<li><a name="a84"></a><span class="src-doc"> *</span></li>
+<li><a name="a85"></a><span class="src-doc"> * The field contents are formatted as a table cell, with provision for</span></li>
+<li><a name="a86"></a><span class="src-doc"> * display of additional information as Javascript content. Contents are</span></li>
+<li><a name="a87"></a><span class="src-doc"> * formatted as a hyperlink, embedding the same contents in the specified</span></li>
+<li><a name="a88"></a><span class="src-doc"> * URL.</span></li>
+<li><a name="a89"></a><span class="src-doc"> *</span></li>
+<li><a name="a90"></a><span class="src-doc"> * i.e.</span></li>
+<li><a name="a91"></a><span class="src-doc"> *  &lt;td&gt;&lt;a href=&quot;$preurl$data$posturl&quot;&gt;$data&lt;/a&gt;&lt;/td&gt;</span></li>
+<li><a name="a92"></a><span class="src-doc"> * e.g.</span></li>
+<li><a name="a93"></a><span class="src-doc"> *  &lt;td&gt;&lt;a href=&quot;http://somesite/get?MyData&quot;&gt;MyData&lt;/a&gt;&lt;/td&gt;</span></li>
+<li><a name="a94"></a><span class="src-doc"> *</span></li>
+<li><a name="a95"></a><span class="src-doc"> *  </span><span class="src-doc-coretag">@param </span><span class="src-doc-type">$data </span><span class="src-doc">   contents to display</span></li>
+<li><a name="a96"></a><span class="src-doc"> *  </span><span class="src-doc-coretag">@param </span><span class="src-doc-type">$tip </span><span class="src-doc">    tip to associate to the contents</span></li>
+<li><a name="a97"></a><span class="src-doc"> *  </span><span class="src-doc-coretag">@param </span><span class="src-doc-type">$preurl </span><span class="src-doc"> URL to embed the data in (prologue before $data)</span></li>
+<li><a name="a98"></a><span class="src-doc"> *  </span><span class="src-doc-coretag">@param </span><span class="src-doc-type">$posturl </span><span class="src-doc">URL to embed the data in (epilogue after $data)</span></li>
+<li><a name="a99"></a><span class="src-doc"> */</span></li>
+<li><a name="a100"></a><span class="src-key">function </span><a href="../RBGMDB/_complex_query_php.html#functionshow_field_url">show_field_url</a><span class="src-sym">(</span><span class="src-var">$data</span><span class="src-sym">, </span><span class="src-var">$tip</span><span class="src-sym">, </span><span class="src-var">$preurl</span><span class="src-sym">, </span><span class="src-var">$posturl</span><span class="src-sym">)</span></li>
+<li><a name="a101"></a><span class="src-sym">{</span></li>
+<li><a name="a102"></a>echo <span class="src-str">&quot;\t&lt;td &quot; </span>.</li>
+<li><a name="a103"></a>        <span class="src-str">&quot;</span><span class="src-str"><span class="src-id">onMouseOver</span>=\&quot;<span class="src-id">showtip</span>(<span class="src-id">this</span>,<span class="src-id">event</span>,'<span class="src-var">$tip</span>')\&quot; </span><span class="src-str">&quot; </span>.</li>
+<li><a name="a104"></a>        <span class="src-str">&quot;onMouseOut=\&quot;hidetip()\&quot;&gt;&quot; </span>.</li>
+<li><a name="a105"></a>        <span class="src-str">&quot;&lt;a href=\&quot;&quot;</span>.<span class="src-var">$preurl</span>.<span class="src-var">$data</span>.<span class="src-var">$posturl</span>.<span class="src-str">&quot;\&quot;&gt;&quot; </span>.</li>
+<li><a name="a106"></a>        <span class="src-str">&quot;</span><span class="src-str"><span class="src-var">$data</span>&lt;/<span class="src-id">a</span>&gt;&amp;<span class="src-id">nbsp</span>;</span><span class="src-str">&quot; </span>.</li>
+<li><a name="a107"></a>     <span class="src-str">&quot;&lt;/td&gt;\n&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a108"></a>&nbsp;</li>
+<li><a name="a109"></a><span class="src-sym">}</span></li>
+<li><a name="a110"></a>&nbsp;</li>
+<li><a name="a111"></a><span class="src-key">function </span><a href="../RBGMDB/_complex_query_php.html#functionshow_result">show_result</a><span class="src-sym">(</span><span class="src-var">$id</span><span class="src-sym">, </span><span class="src-var">$result</span><span class="src-sym">)</span></li>
+<li><a name="a112"></a><span class="src-sym">{</span></li>
+<li><a name="a113"></a>    <span class="src-comm">// did we find anything?</span></li>
+<li><a name="a114"></a>    <span class="src-var">$count </span>= <span class="src-sym">@ </span><a href="http://www.php.net/mysql_num_rows">mysql_num_rows</a><span class="src-sym">(</span><span class="src-var">$result</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a115"></a>    <span class="src-key">if </span><span class="src-sym">( </span><span class="src-var">$count </span>!= <span class="src-num">0</span><span class="src-sym">)</span></li>
+<li><a name="a116"></a>    <span class="src-sym">{</span></li>
+<li><a name="a117"></a>        <span class="src-comm">// yes, show results as a table and allow to print the results</span></li>
+<li><a name="a118"></a>        echo <span class="src-str">&quot;&lt;center&gt;&lt;h1&gt;This is the record you selected&lt;/h1&gt;\n&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a119"></a>        echo <span class="src-str">&quot;&lt;h2&gt;Are you sure you want to delete this record?&lt;/h2&gt;&lt;/center&gt;\n&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a120"></a>        echo <span class="src-str">&quot;&lt;p&gt;This is the record that you selected for deletion.&lt;/p&gt;\n&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a121"></a>    echo <span class="src-str">&quot;&lt;p&gt;Please, review it carefully before confirming its removal.&lt;/p&gt;\n&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a122"></a>    </li>
+<li><a name="a123"></a>    <span class="src-comm">// create table headings</span></li>
+<li><a name="a124"></a>        echo <span class="src-str">&quot;\n&lt;table border=\&quot;1\&quot; width=\&quot;100%\&quot;&gt;\n&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a125"></a>    echo <span class="src-str">&quot;&lt;tr&gt;\n&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a126"></a>            <a href="../RBGMDB/_complex_query_php.html#functionshow_field_header">show_field_header</a><span class="src-sym">(</span><span class="src-str">'location'</span><span class="src-sym">, </span><span class="src-str">'Location'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a127"></a>        <a href="../RBGMDB/_complex_query_php.html#functionshow_field_header">show_field_header</a><span class="src-sym">(</span><span class="src-str">'genomic'</span><span class="src-sym">, </span><span class="src-str">'Genomic'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a128"></a>        <a href="../RBGMDB/_complex_query_php.html#functionshow_field_header">show_field_header</a><span class="src-sym">(</span><span class="src-str">'cdna'</span><span class="src-sym">, </span><span class="src-str">'cDNA'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a129"></a>        <a href="../RBGMDB/_complex_query_php.html#functionshow_field_header">show_field_header</a><span class="src-sym">(</span><span class="src-str">'protein'</span><span class="src-sym">, </span><span class="src-str">'Protein'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a130"></a>        <a href="../RBGMDB/_complex_query_php.html#functionshow_field_header">show_field_header</a><span class="src-sym">(</span><span class="src-str">'consequence'</span><span class="src-sym">, </span><span class="src-str">'Consequence'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a131"></a>        <a href="../RBGMDB/_complex_query_php.html#functionshow_field_header">show_field_header</a><span class="src-sym">(</span><span class="src-str">'type'</span><span class="src-sym">, </span><span class="src-str">'Type'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a132"></a>        <a href="../RBGMDB/_complex_query_php.html#functionshow_field_header">show_field_header</a><span class="src-sym">(</span><span class="src-str">'origin'</span><span class="src-sym">, </span><span class="src-str">'Origin'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a133"></a>        <a href="../RBGMDB/_complex_query_php.html#functionshow_field_header">show_field_header</a><span class="src-sym">(</span><span class="src-str">'sample'</span><span class="src-sym">, </span><span class="src-str">'Sample'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a134"></a>        <a href="../RBGMDB/_complex_query_php.html#functionshow_field_header">show_field_header</a><span class="src-sym">(</span><span class="src-str">'phenotype'</span><span class="src-sym">, </span><span class="src-str">'Phenotype'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a135"></a>        <a href="../RBGMDB/_complex_query_php.html#functionshow_field_header">show_field_header</a><span class="src-sym">(</span><span class="src-str">'sex'</span><span class="src-sym">, </span><span class="src-str">'Sex'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a136"></a>        <a href="../RBGMDB/_complex_query_php.html#functionshow_field_header">show_field_header</a><span class="src-sym">(</span><span class="src-str">'age_months'</span><span class="src-sym">, </span><span class="src-str">'Age (months)'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a137"></a>        <a href="../RBGMDB/_complex_query_php.html#functionshow_field_header">show_field_header</a><span class="src-sym">(</span><span class="src-str">'country'</span><span class="src-sym">, </span><span class="src-str">'Country'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a138"></a>        <a href="../RBGMDB/_complex_query_php.html#functionshow_field_header">show_field_header</a><span class="src-sym">(</span><span class="src-str">'reference'</span><span class="src-sym">, </span><span class="src-str">'Reference'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a139"></a>        <a href="../RBGMDB/_complex_query_php.html#functionshow_field_header">show_field_header</a><span class="src-sym">(</span><span class="src-str">'pm_id'</span><span class="src-sym">, </span><span class="src-str">'PubMed ID'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a140"></a>        <a href="../RBGMDB/_complex_query_php.html#functionshow_field_header">show_field_header</a><span class="src-sym">(</span><span class="src-str">'patient_id'</span><span class="src-sym">, </span><span class="src-str">'Patient ID'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a141"></a>        <a href="../RBGMDB/_complex_query_php.html#functionshow_field_header">show_field_header</a><span class="src-sym">(</span><span class="src-str">'l_db'</span><span class="src-sym">, </span><span class="src-str">'L-DB'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a142"></a>        <a href="../RBGMDB/_complex_query_php.html#functionshow_field_header">show_field_header</a><span class="src-sym">(</span><span class="src-str">'remarks'</span><span class="src-sym">, </span><span class="src-str">'Remarks'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a143"></a>        echo<span class="src-str">&quot;&lt;/tr&gt;\n&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a144"></a>    </li>
+<li><a name="a145"></a>        <span class="src-comm">// fetch each database table row of the results</span></li>
+<li><a name="a146"></a>    <span class="src-key">while </span><span class="src-sym">(</span><span class="src-var">$row </span>= <a href="http://www.php.net/mysql_fetch_array">mysql_fetch_array</a><span class="src-sym">(</span><span class="src-var">$result</span><span class="src-sym">))</span></li>
+<li><a name="a147"></a>    <span class="src-sym">{</span></li>
+<li><a name="a148"></a>        <span class="src-comm">// display the data as a table row</span></li>
+<li><a name="a149"></a>        echo <span class="src-str">&quot;&lt;tr&gt;\n&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a150"></a>        <a href="../RBGMDB/_complex_query_php.html#functionshow_field">show_field</a><span class="src-sym">(</span><span class="src-var">$row</span><span class="src-sym">[</span><span class="src-str">&quot;location&quot;</span><span class="src-sym">]</span><span class="src-sym">, </span><span class="src-str">'&lt;b&gt;Location:&lt;/b&gt;&lt;br /&gt;Exon (E) and intron (I) number&lt;br /&gt;according to cDNA sequence&lt;br /&gt;NCBI (NM_000321.1)'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a151"></a>        <a href="../RBGMDB/_complex_query_php.html#functionshow_field">show_field</a><span class="src-sym">(</span><span class="src-var">$row</span><span class="src-sym">[</span><span class="src-str">&quot;genomic&quot;</span><span class="src-sym">]</span><span class="src-sym">, </span><span class="src-str">'&lt;b&gt;Genomic:&lt;/b&gt;&lt;br /&gt;Description follows the recommendations&lt;br /&gt;published by Donnan and Antonarakis (2000)&lt;br /&gt;using the genomic sequence&lt;br /&gt;GenBank: L11910.1'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a152"></a>        <a href="../RBGMDB/_complex_query_php.html#functionshow_field">show_field</a><span class="src-sym">(</span><span class="src-var">$row</span><span class="src-sym">[</span><span class="src-str">&quot;cdna&quot;</span><span class="src-sym">]</span><span class="src-sym">,</span><span class="src-str">'&lt;b&gt;cDNA:&lt;/b&gt;&lt;br /&gt;changes as in Donnen and Antonarakis (2000),&lt;br /&gt;using the cDNA sequence NCBI: NM_000321.1.'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a153"></a>            <a href="../RBGMDB/_complex_query_php.html#functionshow_field">show_field</a><span class="src-sym">(</span><span class="src-var">$row</span><span class="src-sym">[</span><span class="src-str">&quot;protein&quot;</span><span class="src-sym">]</span><span class="src-sym">, </span><span class="src-str">'&lt;b&gt;Protein:&lt;/b&gt;&lt;br /&gt;Deduced changes at the protein level&lt;br /&gt;follow the recommendations of Dunnen and Antonarakis (2000)&lt;br /&gt;using the protein sequence NCBI: NP_000312.1.'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a154"></a>        <a href="../RBGMDB/_complex_query_php.html#functionshow_field">show_field</a><span class="src-sym">(</span><span class="src-var">$row</span><span class="src-sym">[</span><span class="src-str">&quot;consequence&quot;</span><span class="src-sym">]</span><span class="src-sym">, </span><span class="src-str">'&lt;b&gt;Consequence:&lt;/b&gt;&lt;br /&gt;predicted consequences are as follows:&lt;br /&gt;&lt;ul&gt;&lt;li&gt;regulation (promoter)&lt;/li&gt;&lt;li&gt;FS (trunckating frameshift)&lt;/li&gt;&lt;li&gt;IF (non-truncating inframe changes)&lt;/li&gt;&lt;li&gt;MS (missense changes)&lt;/li&gt;&lt;li&gt;NS (non-sense trunckating mutations)&lt;/li&gt;&lt;li&gt;SP (trunckating mutations affecting splicing sites)&lt;/li&gt;&lt;li&gt;SP-IF (in frame exon deletion due to splicing mutations)&lt;/li&gt;&lt;li&gt;SP-MS (mutations affecting the last two nucleotides in exon can either be considered as  MS or splicing mutations).&lt;/li&gt;&lt;/ul&gt;'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a155"></a>        <a href="../RBGMDB/_complex_query_php.html#functionshow_field">show_field</a><span class="src-sym">(</span><span class="src-var">$row</span><span class="src-sym">[</span><span class="src-str">&quot;type&quot;</span><span class="src-sym">]</span><span class="src-sym">, </span><span class="src-str">'&lt;b&gt;Type of mutation:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;DUP (duplication)&lt;/li&gt;&lt;li&gt;IN (insertion)&lt;/li&gt;&lt;li&gt;DE (deletion)&lt;/li&gt;&lt;li&gt;I_D (complex insertion and deletion)&lt;/li&gt;&lt;li&gt;PM (point mutation)&lt;/li&gt;&lt;/ul&gt;'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a156"></a>        <a href="../RBGMDB/_complex_query_php.html#functionshow_field">show_field</a><span class="src-sym">(</span><span class="src-var">$row</span><span class="src-sym">[</span><span class="src-str">&quot;origin&quot;</span><span class="src-sym">]</span><span class="src-sym">, </span><span class="src-str">'&lt;b&gt;Origin:&lt;/b&gt;&lt;br /&gt;Germline or somatic.'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a157"></a>        <a href="../RBGMDB/_complex_query_php.html#functionshow_field">show_field</a><span class="src-sym">(</span><span class="src-var">$row</span><span class="src-sym">[</span><span class="src-str">&quot;sample&quot;</span><span class="src-sym">]</span><span class="src-sym">, </span><span class="src-str">'&lt;b&gt;Sample:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;PB (peripheral blood for germline)&lt;/li&gt;&lt;li&gt;retino (retinoblastoma)&lt;/li&gt;&lt;li&gt;other (other  tumors)&lt;/li&gt;&lt;/ul&gt;'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a158"></a>        <a href="../RBGMDB/_complex_query_php.html#functionshow_field">show_field</a><span class="src-sym">(</span><span class="src-var">$row</span><span class="src-sym">[</span><span class="src-str">&quot;phenotype&quot;</span><span class="src-sym">]</span><span class="src-sym">, </span><span class="src-str">'&lt;b&gt;Phenotype:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;B (sporadic bilateral)&lt;/li&gt;&lt;li&gt;BF (bilateral familiar)&lt;/li&gt;&lt;li&gt;U (sporadic unilateral)&lt;/li&gt;&lt;li&gt;UF (unilateral familiar)&lt;/li&gt;&lt;li&gt;UMF (unilateral multifocal)&lt;/li&gt;&lt;li&gt;LP (familiar with low penetrance)&lt;/li&gt;&lt;/ul&gt;'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a159"></a>        <a href="../RBGMDB/_complex_query_php.html#functionshow_field">show_field</a><span class="src-sym">(</span><span class="src-var">$row</span><span class="src-sym">[</span><span class="src-str">&quot;sex&quot;</span><span class="src-sym">]</span><span class="src-sym">, </span><span class="src-str">'&lt;b&gt;Sex:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;F (female)&lt;/li&gt;&lt;li&gt;M (male)&lt;/li&gt;&lt;/ul&gt;'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a160"></a>        <a href="../RBGMDB/_complex_query_php.html#functionshow_field">show_field</a><span class="src-sym">(</span><span class="src-var">$row</span><span class="src-sym">[</span><span class="src-str">&quot;age_months&quot;</span><span class="src-sym">]</span><span class="src-sym">, </span><span class="src-str">'&lt;b&gt;Age (months):&lt;/b&gt;&lt;br /&gt;at diagnosis or treatment in months.'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a161"></a>        <a href="../RBGMDB/_complex_query_php.html#functionshow_field">show_field</a><span class="src-sym">(</span><span class="src-var">$row</span><span class="src-sym">[</span><span class="src-str">&quot;country&quot;</span><span class="src-sym">]</span><span class="src-sym">, </span><span class="src-str">'&lt;b&gt;Country:&lt;/b&gt;&lt;br /&gt;of origin of probands or &lt;br /&gt;of the main research group&lt;br /&gt;in publications.'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a162"></a>        <a href="../RBGMDB/_complex_query_php.html#functionshow_field">show_field</a><span class="src-sym">(</span><span class="src-var">$row</span><span class="src-sym">[</span><span class="src-str">&quot;reference&quot;</span><span class="src-sym">]</span><span class="src-sym">, </span><span class="src-str">'&lt;b&gt;Reference&lt;/b&gt;'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a163"></a>        <a href="../RBGMDB/_complex_query_php.html#functionshow_field_url">show_field_url</a><span class="src-sym">(</span><span class="src-var">$row</span><span class="src-sym">[</span><span class="src-str">&quot;pm_id&quot;</span><span class="src-sym">]</span><span class="src-sym">, </span><span class="src-str">'&lt;b&gt;PubMed ID:&lt;/b&gt;&lt;br /&gt;Click to retrieve the abstract'</span><span class="src-sym">,</span></li>
+<li><a name="a164"></a>                           <span class="src-str">&quot;http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=&quot;</span><span class="src-sym">,</span></li>
+<li><a name="a165"></a>                   <span class="src-str">&quot;&amp;dopt=Abstract&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a166"></a>        <a href="../RBGMDB/_complex_query_php.html#functionshow_field">show_field</a><span class="src-sym">(</span><span class="src-var">$row</span><span class="src-sym">[</span><span class="src-str">&quot;patient_id&quot;</span><span class="src-sym">]</span><span class="src-sym">, </span><span class="src-str">'&lt;b&gt;Patient ID:&lt;/b&gt;&lt;br /&gt;as reported in publication.'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a167"></a>        <a href="../RBGMDB/_complex_query_php.html#functionshow_field">show_field</a><span class="src-sym">(</span><span class="src-var">$row</span><span class="src-sym">[</span><span class="src-str">&quot;l_db&quot;</span><span class="src-sym">]</span><span class="src-sym">, </span><span class="src-str">'&lt;b&gt;L-DB&lt;/b&gt;'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a168"></a>        <a href="../RBGMDB/_complex_query_php.html#functionshow_field">show_field</a><span class="src-sym">(</span><span class="src-var">$row</span><span class="src-sym">[</span><span class="src-str">&quot;remarks&quot;</span><span class="src-sym">]</span><span class="src-sym">, </span><span class="src-str">'&lt;b&gt;Remarks:&lt;/b&gt;&lt;br /&gt;any observation which can be useful in the context of a given mutation'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a169"></a>        echo <span class="src-str">&quot;&lt;/tr&gt;\n&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a170"></a>    <span class="src-sym">}</span></li>
+<li><a name="a171"></a>    echo <span class="src-str">&quot;&lt;/table&gt;\n&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a172"></a>    <span class="src-sym">}</span></li>
+<li><a name="a173"></a>    <span class="src-key">else </span></li>
+<li><a name="a174"></a>    <span class="src-sym">{</span></li>
+<li><a name="a175"></a>        <span class="src-comm">// no data was returned by the query</span></li>
+<li><a name="a176"></a>    <span class="src-comm">// show an appropriate message</span></li>
+<li><a name="a177"></a>        <a href="../RBGMDB/_update_db_delete_php.html#functionerr_invalid_request">err_invalid_request</a><span class="src-sym">(</span><span class="src-var">$id</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a178"></a>    <span class="src-sym">}</span></li>
+<li><a name="a179"></a><span class="src-sym">}</span></li>
+<li><a name="a180"></a>&nbsp;</li>
+<li><a name="a181"></a><span class="src-key">function </span><a href="../RBGMDB/_update_delete_record_php.html#functionprompt_for_deletion">prompt_for_deletion</a><span class="src-sym">(</span><span class="src-var">$id</span><span class="src-sym">)</span></li>
+<li><a name="a182"></a><span class="src-sym">{</span></li>
+<li><a name="a183"></a>    echo <span class="src-str">&quot;</span><span class="src-str">&lt;<span class="src-id">form</span> <span class="src-id">method</span>=\&quot;<span class="src-id">GET</span>\&quot; <span class="src-id">action</span>=\&quot;<span class="src-id">db_delete</span>.<span class="src-id">php</span>?<span class="src-id">id</span>=<span class="src-var">$id</span>\&quot;&gt;\n</span><span class="src-str">&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a184"></a>    echo <span class="src-str">&quot;</span><span class="src-str">&lt;<span class="src-id">input</span> <span class="src-id">type</span>=\&quot;<span class="src-id">hidden</span>\&quot; <span class="src-id">name</span>=\&quot;<span class="src-id">id</span>\&quot; <span class="src-id">value</span>=\&quot;<span class="src-var">$id</span>\&quot;&gt;\n</span><span class="src-str">&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a185"></a>    echo <span class="src-str">&quot;&lt;table width=\&quot;100%\&quot; bgcolor=\&quot;lightblue\&quot; align=\&quot;center\&quot;&gt;\n&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a186"></a>    echo <span class="src-str">&quot;&lt;tr&gt;\n    &lt;td align=\&quot;center\&quot;&gt;&lt;input type=\&quot;submit\&quot; &quot;</span>.</li>
+<li><a name="a187"></a>         <span class="src-str">&quot; value=\&quot;Definitely destroy\&quot;&gt;&amp;nbsp;&lt;/td&gt;\n&quot; </span>.</li>
+<li><a name="a188"></a>     <span class="src-str">&quot;    &lt;td align=\&quot;center\&quot;&gt;&lt;input type=\&quot;button\&quot; name=\&quot;Cancel\&quot; &quot;</span>.</li>
+<li><a name="a189"></a>     <span class="src-str">&quot; value=\&quot;Cancel\&quot; onClick=\&quot;history.go(-1)\&quot;&gt;&lt;/td&gt;\n&lt;/tr&gt;\n&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a190"></a>    echo <span class="src-str">&quot;&lt;/table&gt;&lt;/form&gt;\n&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a191"></a><span class="src-sym">}</span></li>
+<li><a name="a192"></a>&nbsp;</li>
+<li><a name="a193"></a><span class="src-comm">// We use a special header with the style and JavaScrip code needed to</span></li>
+<li><a name="a194"></a><span class="src-comm">// enhance the user experience.</span></li>
+<li><a name="a195"></a><span class="src-key">function </span><a href="../RBGMDB/_utils_php.html#functionshow_header">show_header</a><span class="src-sym">(</span><span class="src-sym">)</span></li>
+<li><a name="a196"></a><span class="src-sym">{</span></li>
+<li><a name="a197"></a>    echo <span class="src-str">&quot;&lt;head&gt;\n&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a198"></a>    echo <span class="src-str">&quot;\t&lt;title&gt;RBDB Query results&lt;/title&gt;\n&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a199"></a>    <span class="src-var">$showtips </span>= <a href="http://www.php.net/file_get_contents">file_get_contents</a><span class="src-sym">(</span><span class="src-str">&quot;../js/showtips_inline.js&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a200"></a>    echo <span class="src-var">$showtips</span><span class="src-sym">;</span></li>
+<li><a name="a201"></a>    echo <span class="src-str">&quot;&lt;/head&gt;\n&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a202"></a><span class="src-sym">}</span></li>
+<li><a name="a203"></a>&nbsp;</li>
+<li><a name="a204"></a><span class="src-key">function </span><a href="../RBGMDB/_utils_php.html#functionshow_copyright">show_copyright</a><span class="src-sym">(</span><span class="src-sym">)</span></li>
+<li><a name="a205"></a><span class="src-sym">{</span></li>
+<li><a name="a206"></a>    echo <span class="src-str">&quot;\n&lt;hr&gt;\n&quot; </span>.</li>
+<li><a name="a207"></a>         <span class="src-str">&quot;&lt;table&gt;\n&lt;tr&gt;\n&quot; </span>.</li>
+<li><a name="a208"></a>     <span class="src-str">&quot;&lt;td align=\&quot;left\&quot;&gt;Data compilation &amp;copy; Angel Pesta&amp;ntilde;a, 2005&lt;/td&gt;\n&quot; </span>.</li>
+<li><a name="a209"></a>     <span class="src-str">&quot;&lt;td align=\&quot;right\&quot;&gt;Please cite (manuscript in preparation) to reference this data&lt;/td&gt;\n&quot; </span>.</li>
+<li><a name="a210"></a>        <span class="src-str">&quot;&lt;/tr&gt;\n&lt;/table&gt;\n&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a211"></a><span class="src-sym">}</span></li>
+<li><a name="a212"></a>&nbsp;</li>
+<li><a name="a213"></a><span class="src-key">function </span><a href="../RBGMDB/_update_db_delete_php.html#functionerr_invalid_request">err_invalid_request</a><span class="src-sym">(</span><span class="src-var">$id</span><span class="src-sym">)</span></li>
+<li><a name="a214"></a><span class="src-sym">{</span></li>
+<li><a name="a215"></a>    echo <span class="src-str">&quot;</span><span class="src-str">&lt;<span class="src-id">h3</span>&gt;&lt;<span class="src-id">font</span> <span class="src-id">color</span>=\&quot;<span class="src-id">red</span>\&quot;&gt;<span class="src-id">You</span> <span class="src-id">supplied</span> <span class="src-id">an</span> <span class="src-id">invalid</span> <span class="src-id">record</span> <span class="src-id">ID</span> (<span class="src-var">$id</span>) <span class="src-id">for</span> <span class="src-id">deletion</span>&lt;/<span class="src-id">font</span>&gt;&lt;/<span class="src-id">h3</span>&gt;</span><span class="src-str">&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a216"></a>    <span class="src-key">exit</span><span class="src-sym">;</span></li>
+<li><a name="a217"></a><span class="src-sym">}</span></li>
+<li><a name="a218"></a>&nbsp;</li>
+<li><a name="a219"></a><span class="src-key">function </span><a href="../RBGMDB/_update_db_delete_php.html#functionmy_is_int">my_is_int</a><span class="src-sym">(</span><span class="src-var">$x</span><span class="src-sym">) </span><span class="src-sym">{</span></li>
+<li><a name="a220"></a>   <span class="src-key">return </span><span class="src-sym">(</span><a href="http://www.php.net/is_numeric">is_numeric</a><span class="src-sym">(</span><span class="src-var">$x</span><span class="src-sym">) </span>? <a href="http://www.php.net/intval">intval</a><span class="src-sym">(</span><span class="src-var">$x</span><span class="src-sym">) </span>== <span class="src-var">$x </span>: <span class="src-id">false</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a221"></a><span class="src-sym">}</span></li>
+<li><a name="a222"></a><span class="src-comm">// Here we go</span></li>
+<li><a name="a223"></a>&nbsp;</li>
+<li><a name="a224"></a><span class="src-var">$id </span>= <a href="http://www.php.net/escapeshellcmd">escapeshellcmd</a><span class="src-sym">(</span><span class="src-var">$_GET</span><span class="src-sym">[</span><span class="src-str">&quot;id&quot;</span><span class="src-sym">]</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a225"></a>&nbsp;</li>
+<li><a name="a226"></a>echo <span class="src-str">&quot;&lt;html&gt;\n&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a227"></a><a href="../RBGMDB/_utils_php.html#functionshow_header">show_header</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a228"></a>echo <span class="src-str">&quot;&lt;body bgcolor=\&quot;#ccccff\&quot;&gt;\n&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a229"></a>echo <span class="src-str">&quot;&lt;div id=\&quot;tooltip\&quot; style=\&quot;position:absolute;visibility:hidden;border:1px solid black;font-size:12px;layer-background-color:lightyellow;background-color:lightyellow;padding:1px\&quot;&gt;&lt;/div&gt;\n&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a230"></a>&nbsp;</li>
+<li><a name="a231"></a><span class="src-key">if </span><span class="src-sym">((</span><span class="src-var">$id </span>== <span class="src-str">&quot;&quot;</span><span class="src-sym">) </span>|| <span class="src-sym">(</span><span class="src-sym">! </span><a href="../RBGMDB/_update_db_delete_php.html#functionmy_is_int">my_is_int</a><span class="src-sym">(</span><span class="src-var">$id</span><span class="src-sym">))) </span><span class="src-sym">{</span></li>
+<li><a name="a232"></a>    <a href="../RBGMDB/_update_db_delete_php.html#functionerr_invalid_request">err_invalid_request</a><span class="src-sym">(</span><span class="src-var">$id</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a233"></a>    <span class="src-key">exit</span><span class="src-sym">;</span></li>
+<li><a name="a234"></a><span class="src-sym">}</span></li>
+<li><a name="a235"></a>&nbsp;</li>
+<li><a name="a236"></a><span class="src-var">$db </span>= <a href="../RBGMDB/_complex_query_php.html#functiondb_open">db_open</a><span class="src-sym">(</span><span class="src-var">$db_host</span><span class="src-sym">, </span><span class="src-var">$db_user</span><span class="src-sym">, </span><span class="src-var">$db_password</span><span class="src-sym">, </span><span class="src-var">$db_name</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a237"></a>&nbsp;</li>
+<li><a name="a238"></a><span class="src-comm">// show all</span></li>
+<li><a name="a239"></a><span class="src-var">$res </span>= <a href="../RBGMDB/_update_delete_record_php.html#functiondb_query_accno">db_query_accno</a><span class="src-sym">(</span><span class="src-var">$db</span><span class="src-sym">, </span><span class="src-var">$id</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a240"></a>&nbsp;</li>
+<li><a name="a241"></a><a href="../RBGMDB/_complex_query_php.html#functionshow_result">show_result</a><span class="src-sym">(</span><span class="src-var">$id</span><span class="src-sym">, </span><span class="src-var">$res</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a242"></a>&nbsp;</li>
+<li><a name="a243"></a><a href="../RBGMDB/_update_delete_record_php.html#functionprompt_for_deletion">prompt_for_deletion</a><span class="src-sym">(</span><span class="src-var">$id</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a244"></a>&nbsp;</li>
+<li><a name="a245"></a><a href="../RBGMDB/_utils_php.html#functionshow_copyright">show_copyright</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a246"></a>&nbsp;</li>
+<li><a name="a247"></a><span class="src-comm">// this might be show_footer()</span></li>
+<li><a name="a248"></a>echo <span class="src-str">&quot;\n&lt;/body&gt;\n&lt;/html&gt;&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a249"></a><span class="src-php">?&gt;</span></li>
+</ol></pre>
+</div>
+	<p class="notes" id="credit">
+		Documentation generated on Wed, 11 Jan 2006 11:09:46 +0100 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC4</a>
+	</p>
+	</body>
+</html>
