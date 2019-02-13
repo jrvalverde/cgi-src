@@ -1,0 +1,78 @@
+#VRML V2.0 utf8
+# (C) 2000, José R. Valverde, EMBnet/CNB
+#	jrvalverde@es.embnet.org
+
+WorldInfo {
+  info [
+    "Author: jr@es.embnet.org"
+  ]
+  title "PDB2VRML results"
+}
+
+
+Collision {
+  collide FALSE
+  children [
+    Transform {
+      scale 0.05 0.05 0.05
+      scaleOrientation 0 0 1 0
+      children [
+	DEF mol_aspect Switch {
+	  whichChoice 0
+	  choice [
+	    Inline { url "EcoRI.wrl" }
+	    Inline { url "EcoRI-cyl.wrl" }
+	  ]
+	}
+      ]
+    }
+  ]
+}
+
+DEF label Billboard {
+    axisOfRotation 0 0 0        # Always face the user
+    children [
+    	Inline { url "switch.wrl" }
+	DEF switch_touched TouchSensor { enabled TRUE }
+    ]
+}
+
+
+DEF switch_view Script {
+    eventIn SFBool isActive
+    eventOut SFInt32 whichChoice
+    field SFInt32 oldchoice 1
+    url "javascript:
+    	function isActive(value) {
+    	    if (value)
+		if (whichChoice==0)
+	    	    whichChoice=1;
+		else
+	    	    whichChoice=0;
+	}
+    "
+}
+
+Sound {
+      source    DEF clip AudioClip {
+        loop FALSE
+        url     "clip.wav"
+	description "Me estoy volviendo loco (C) Azul y Negro"
+      }
+      spatialize TRUE
+      minFront  10
+      maxFront  10
+      minBack   50
+      maxBack   50
+}
+
+
+ROUTE switch_touched.isActive TO switch_view.isActive
+ROUTE switch_view.whichChoice TO mol_aspect.whichChoice
+
+NavigationInfo {
+  speed 4
+  type [
+    "EXAMINE" "FLY"
+  ]
+}

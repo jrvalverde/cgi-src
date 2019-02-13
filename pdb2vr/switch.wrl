@@ -1,0 +1,48 @@
+#VRML V2.0 utf8
+# (C) 2000, José R. Valverde, EMBnet/CNB
+#	jrvalverde@es.embnet.org
+
+Transform {
+    translation 2 0.4 0           # origin of the local coordinate system
+    scale 0.1 0.1 0.1
+    scaleOrientation 0 0 1 0
+    children[
+
+	Shape {
+	    geometry Text {
+    		string [ "Switch molecule"]
+		fontStyle FontStyle {
+		    family "SERIF"  	# "SANS" "TYPEWRITER"
+		    style "PLAIN"   	# "BOLD" "ITALIC" "BOLDITALIC"
+		    horizontal TRUE
+		    leftToRight TRUE
+		    topToBottom TRUE
+		    justify "FIRST" 	# "BEGIN" "MIDDLE" "END"
+		    language ""
+		    size 2.0
+		    spacing 2.0
+		}
+    		length [0.0, 0.0, 0.0]
+		maxExtent 0.0
+	    }
+	}
+    ]
+}
+
+Transform {
+    translation 2.5 0.5 -0.1           # origin of the local coordinate system
+    scale 0.15 0.1 0.1
+    scaleOrientation 0 0 1 0
+    children[
+	Shape {
+    	    appearance Appearance {
+		material Material {
+		    diffuseColor 0.5 0.5 0.8
+		}
+	    }
+	    geometry Box {
+    		size 12 2.2 0.1
+	    }
+	}
+    ]
+}
