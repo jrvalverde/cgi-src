@@ -1,0 +1,119 @@
+head	1.2;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.2
+date	2003.05.07.07.59.37;	author root;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2003.04.16.16.17.22;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@form
+@
+
+
+1.2
+log
+@Added link to GRAMM home page [j]
+@
+text
+@<html>
+<head>
+<title>
+WebGramm ( a docking Interface )
+</title>
+</head>
+
+<SCRIPT LANGUAGE="JavaScript">
+
+//function for the help window
+function openNewWindow(fileName,windowName,theWidth,theHeight) 
+{
+        window.open(fileName,windowName,"toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=0,width="+theWidth+",height="+theHeight);
+}
+
+</SCRIPT>
+
+<body background="back.png">
+<center>
+<p><h1>WebGramm (LR)</h1>
+
+<H2>Web interface for Low-Resolution ligand-receptor docking using 
+<STRONG><A HREF="http://reco3.ams.sunysb.edu/gramm/">GRAMM</A></STRONG>.</H2>
+
+<form name="form1" enctype="multipart/form-data" method="post" action="./processor.php">
+	
+<TABLE WIDTH="80%" BGCOLOR="lightblue" CELLPADDING="5" CELLSPACING="0" BORDER="0">
+<TR><TD>
+<table width="100%" border="1" cellpadding="5" cellspacing="0">
+      <tr> 
+        <td width="30%" valign="center"><b>Receptor molecule in PDB format</b></td>
+        <td width="70%" valign="center" align="center"> 
+          <input type="file" name="upload[0]" size="40">
+          <!--<input type="hidden" name="MAX_FILE_SIZE" value="3000000">-->
+        </td>
+      </tr>
+    </table>
+</TR></TD>
+<TR><TD>&nbsp;</TD></TR>
+<TR><TD>
+    <table width="100%" border="1" cellpadding="5" cellspacing="0">
+      <tr> 
+        <td width="30%" valign="center"><b>Ligand molecule in PDB format</b></td>
+        <td width="70%" valign="center" align="center"> 
+            <input type="file" name="upload[1]" size="40" >
+            <!--<input type="hidden" name="MAX_FILE_SIZE" value="3000000">-->
+        </td>
+      </tr> 
+    </table>
+</TD></TR>
+<TR><TD>&nbsp</TD></TR>
+<TR><TD>
+	<CENTER><input type="submit" value="Run Gramm"></CENTER>
+</TD></TR>
+<TR><TD>&nbsp</TD></TR>
+<TR><TD>
+    <CENTER>
+	<a href="JavaScript:openNewWindow('./help.html','Help',650,370)"><IMG SRC="help.gif" ALT="[HELP]"></a>
+    </CENTER>
+</TD></TR>
+</TABLE>
+</form>
+                                       
+</center>
+<hr>
+<table WIDTH="100%">
+<tr><td ALIGN=CENTER>
+<address>
+<!-- app info here -->
+<p>If you have any trouble, please contact our
+    <a HREF="/cgi-bin/emailto?Bioinformatics+Administrator">Bioinformatics
+    Administrator</a></p>
+<p><a HREF="./Copyright-CSIC.html">&copy; EMBnet/CNB</a></p>
+</address>
+</td></tr>
+</table>
+
+</body>
+</html>
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d22 2
+a23 1
+<H2>Web interface for Low-Resolution docking with Gramm.</H2>
+@
