@@ -6,6 +6,6 @@ services.
 
 I will add a more detailed listing later on.
 
-All of these formed part of the once mytical CNB web site, a place where you could do 
-practically anything imaginable in Molecular Biology or Computational Biology (before
+All of these formed part of the once mytical EMBnet/CNB web site, a place where you could 
+do practically anything imaginable in Molecular Biology or Computational Biology (before
 funding cuts forced its shutdown).
