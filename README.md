@@ -1,5 +1,6 @@
 # cgi-src
-Various CGIs I have written along the years (for Molecular Biology mainly, but not only)
+Various CGIs we have written along the years (for Molecular Biology mainly, but not only)
+in the Scientific Computing Service of CNB/CSIC
 
 You will also find here some servlets to manipulate Computational Biology data using web
 services.
