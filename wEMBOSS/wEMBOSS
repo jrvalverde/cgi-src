@@ -1,0 +1,785 @@
+#!/usr/local/bin/perl -w
+# 
+# This script is intended to be a lightweighted web interface for EMBOSS programs.
+# Get information and source at http://sol.biol.unlp.edu.ar/wEMBOSS
+#
+# Please send any comments to 
+#				Martin Sarachu
+#				mad@biol.unlp.edu.ar
+
+#
+use CGI qw/:standard :cgi-lib *table -nosticky font/;
+
+#######		STARTING GLOBAL VARIABLES DEFINITION		########
+#
+# ALL DIRECTORIES MUST BE FULLPATHNAME WITHOUT TRAILING SLASH
+#
+# directory to write files
+#
+$writeDir = "/export/home/gcg/gcgdata5/servicestemp";
+
+# directory accesible for httpd where we put the graphics 
+#
+$graphicsDir = "/embnet/servicestemp";
+
+# directory and text to put at bottom of applications menu and results page
+#
+$backLinkDir = "/embnet";
+$backLinkText = "EMBNet Argentina";
+
+# location of PLPLOT_LIB, adding it to %ENV
+#
+$ENV{"PLPLOT_LIB"} = "/usr/local/lib";
+
+# place in @filter the GROUPS and applications you don't want
+#
+@filter = ( "DATABASE INDEXING", "MENUS", "TEXT SEARCH", "UTILITIES", "UTILITIES HELP", "meme", "abiview", "mse" );
+
+# standard labels
+#
+%stdLabels = (	"integer", "Enter an integer number",
+		"float", "Enter a real number",
+		"range", "Specify a range",
+		"regexp", "Enter a regular expression pattern",
+		"infile", "Input file",
+		"matrix", "Scoring matrix (integer)",
+		"matrixf", "Scoring matrix (float)",
+		"codon", "Codon usage table",
+		"sequence", "Enter one sequence",
+		"seqset", "Enter a set of sequences",
+		"seqall", "Enter one or more sequences",
+		"features", "Features table",
+		"boolean", "Select a value",
+		"single", "Select one option",
+		"multiple", "Select one or more options"
+		);
+
+# graphic devices available
+#
+@graphDev = ( "png", "postscript", "ps", "hpgl", "hp7470", "hp7580", "meta", "colourps", "cps", "data", "none" );
+
+# graphDev => graphExtension
+#
+%graphExt = (	"png", "png",
+		"postscript", "ps", 
+		"ps", "ps",
+		"hpgl", "hpgl",
+		"hp7470", "hpgl",
+		"hp7580", "hpgl",
+		"meta", "meta",
+		"colourps", "ps",
+		"cps", "ps",
+		"none", "",
+		"xwindows", "",
+		"x11", "",
+		"tektronics", "",
+		"tekt", "",
+		"tek4107t", "",
+		"tek", "",
+		"null", "",
+		"text", "",
+		"data", "dat",
+		"xterm", ""
+		);
+
+
+
+#######		END OF GLOBAL VARIABLES DEFINITION		#######
+
+
+# returns backlink and link to script
+#
+sub backLinks {
+	my( $links );
+	$links = "Back to <a href=\"" . script_name() . "\">wEMBOSS</a>" . br .	"Back to <a href=\"$backLinkDir\">$backLinkText</a>";
+	return $links;
+}
+
+# custom error
+#
+sub printError {
+	my( $error ) = @_;
+	print	header(),
+		start_html( -title=>'There was an error', -bgcolor=>'white' ),
+		h1( 'There was an error' ),
+		"<pre>$error</pre><p>",
+		hr,
+		"<font face=\"arial\" size=\"-1\">",
+		&backLinks,
+		"</font>",
+		end_html();
+	die;
+}
+
+# array of lines to (group, [apps])
+#
+sub toHash {
+	my(@array) = @_;
+	my(%hash);
+	foreach $elem ( @array ) {
+		if ( $elem =~ /^[A-Z]/ ) {
+			$hash{$elem} = [];
+			$group = $elem;
+		} else {
+			push( @{$hash{$group}}, $elem ) if $elem =~ /^[a-z]/;
+		}
+	}
+	return %hash;
+}
+
+# filtering the hash
+#
+sub filteredHash {
+	my( %hash ) = @_;
+	foreach $name ( @filter ) {
+		if ( $name =~ /^[a-z]/ ) {
+			while ( ( $grp, $refApp ) = each( %hash ) ) {	
+				@{$refApp} = grep( !/^$name/, @{$refApp} );
+				delete( $hash{$grp} ) if not @{$refApp}; # delete if empty
+			} # works, but very slow
+		} else {
+			delete( $hash{$name} );
+		}
+	}	
+	return %hash;
+}
+
+# returns the value of the doc attribute
+#
+sub getAppDoc {
+	my( $line );
+	$line = <ACD>;
+	while ( $line !~ /doc[a-z]*:\s+.*/ ) {
+		$line = <ACD>;
+	}
+	$line =~ /doc[a-z]*:\s+(.*)/;
+	$line = $1;
+	$line = substr( $line, 1, -1 ) if $line =~ /^\W/; # strip the starting and ending delimiters if any
+	return $line;
+}
+
+# return the full data type name
+#
+sub longName {
+	my( $shortName ) = @_;
+	my( $fullName );
+	if ( $shortName =~ /^int/ ) {
+		$fullName = "integer";
+	} elsif ( $shortName =~ /^fl/ ) {
+		$fullName = "float";
+	} elsif ( $shortName =~ /^ra/ ) {
+		$fullName = "range"
+	} elsif ( $shortName =~ /^re/ ) {
+		$fullName = "regexp";
+	} elsif ( $shortName =~ /^st/ ) {
+		$fullName = "string";
+	} elsif ( $shortName =~ /^inf/ ) {
+		$fullName = "infile";
+	} elsif ( $shortName =~ /^matrixf$/ ) {
+		$fullName = "matrixf";
+	} elsif ( $shortName =~ /^matrix$/ ) {
+		$fullName = "matrix";
+	} elsif ( $shortName =~ /^c/ ) {
+		$fullName = "codon";
+	} elsif ( $shortName =~ /^sequ/ ) {
+		$fullName = "sequence";
+	} elsif ( $shortName =~ /^seqs/ ) {
+		$fullName = "seqset";
+	} elsif ( $shortName =~ /^seqa/ ) {
+		$fullName = "seqall";
+	} elsif ( $shortName =~ /^fe/ ) {
+		$fullName = "features";
+	} elsif ( $shortName =~ /^b/ ) {
+		$fullName = "boolean";
+	} elsif ( $shortName =~ /^l/ ) {
+		$fullName = "list";
+	} elsif ( $shortName =~ /^sel/ ) {
+		$fullName = "selection";
+	} elsif ( $shortName =~ /^o/ ) {
+		$fullName = "outfile";
+	} elsif ( $shortName =~ /^seqout$/ ) {
+		$fullName = "seqout";
+	} elsif ( $shortName =~ /^seqouts/ ) {
+		$fullName = "seqoutset";
+	} elsif ( $shortName =~ /^seqouta/ ) {
+		$fullName = "seqoutall";
+	} elsif ( $shortName =~ /^feato/ ) {
+		$fullName = "featout";
+	} elsif ( $shortName =~ /^g/ ) {
+		$fullName = "graph";
+	} elsif ( $shortName =~ /^x/ ) {
+		$fullName = "xygraph";
+	}
+	return $fullName;
+}
+
+# parse the ACD file
+# the file is clean of the appl: name [...] portion
+# put in three hashes the mandatory, optional, and advanced parameters
+# 
+sub parseACD {
+	my( $line, $attName, $attValue, %temp );
+	while ( $line = <ACD> ) {
+		
+		if ( $line =~ /(^[a-z]+):\s+([a-z]+)\s+\[/ ) { # new parameter
+			$paramName = $2;
+			$temp{"dataType"} = &longName( $1 );
+			$line = <ACD>;
+			while ( ( ! eof( ACD) ) && ( $line !~ /\]/ ) ) { 
+				$line =~ /([a-z]+)[:=]\s+(.*)/; # attName: attValue
+				$attName = $1;
+				$attValue = $2;
+				$attValue = substr( $attValue, 1, -1 ) if $attValue =~ /^\"/; # strip delimiters
+				$temp{$attName} = $attValue; # new entry
+				$line = <ACD>;
+			} # all attributes parsed
+		
+			if ( ( exists( $temp{"parameter"} ) && ( $temp{"parameter"} !~ /n|N/ ) ) || ( exists( $temp{"required"} ) && ( $temp{"required"} =~ /y|Y/ ) ) ) {
+				%{ ${mandatory}{$paramName} } = %temp;
+			} elsif ( ( exists( $temp{"optional"} ) && ( $temp{"optional"} !~ /n|N/ ) ) || ( exists( $temp{"required"} ) && ( $temp{"required"} !~ /y|Y/ ) ) ) {
+				%{ ${optional}{$paramName} } = %temp;
+			} elsif ( ( ! exists( $temp{"optional"} ) ) || ( $temp{"optional"} =~ /n|N/ ) ) {
+				%{ ${advanced}{$paramName} } = %temp;
+			} # placing the parameter
+		} # finished processing the parameter
+		undef( %temp ); # cleaning for new parameter
+	}
+	return 1;
+}
+
+		
+
+# show the menu, very ugly code, mixing html tags with CGI.pm functions
+# have to clean-up javascript
+#
+sub printTable {
+	my( %myHash ) = @_;
+	print	header(),
+		start_html(
+			-title=>'wEMBOSS v0.1', 
+			-script=>
+				{ -language=> 'javascript',
+				-code=> $jscript },
+			-bgcolor=>'#CCFFCC' 
+			),
+		"<font face=\"arial\" size=\"-1\">",
+		h1('wEMBOSS v0.1 - Choose an application'),
+		start_form( 'get', $ENV{"SCRIPT_NAME"} ),
+		"<input type=hidden name=appName>",
+		"<table border=1>";
+	$i = 1;
+	$j = 1;
+	foreach $group ( sort( keys( %myHash ) ) ) {
+		if ( $j == 1 ) {
+			print "<tr>";
+		}
+
+		print "<td><font face=\"arial\" size=\"-1\">$group<br>";
+		print "<select size=1 name=grp$i>";
+		foreach $app ( sort( @{$myHash{$group}} ) ) {
+			$app =~ /^\w+/;
+			print "<option>$&";
+		}	
+
+		print "</select><input type=submit value=Select onClick=setValue(document.forms[0].grp$i.options[document.forms[0].grp$i.selectedIndex].text)></font></td>";
+		$i++;
+		if ( $j == 3 ) {
+			print "</tr>";
+			$j = 1;
+		} else {
+			$j++;
+		}
+	}
+	print	"</table>",
+		endform(),
+		br,
+		"Back to <a href=\"$backLinkDir\">$backLinkText</a>",
+		"</font>",
+		end_html();
+}
+
+# print the input form
+#
+sub printInputForm {
+	my( $appName, $appDoc ) = @_;
+	my( $outType, @outfiles, @temp );
+	select( STDOUT );
+	$| = 1;
+	print	header(),
+		start_html( -title=>"$appName options", -bgcolor=>'#CCFFCC' ),
+		"<font face=\"arial\" size=\"-1\">",
+		h2( "$appName - $appDoc" ),
+		hr,
+		start_form( 'post' ),
+		b( i( 'Mandatory parameters' ) ),
+		br;
+	
+	( $outType, @temp ) = &getOutFiles( \%mandatory, $outType );
+	@outfiles = ( @outfiles, @temp );
+
+	( $outType, @temp ) = &getOutFiles( \%optional, $outType );
+	@outfiles = ( @outfiles, @temp );
+
+	( $outType, @temp ) = &getOutFiles( \%advanced, $outType );
+	@outfiles = ( @outfiles, @temp );
+
+	print hidden( 'outType', $outType );
+	print hidden( 'appName', param( 'appName' ) );
+	print hidden( 'outFiles', "@outfiles" );
+	
+	&printParameters( \%mandatory );
+	print	hr,
+		b( i( 'Optional parameters' ) ),
+		br;
+	&printParameters( \%optional );
+	print	hr,
+		b( i( 'Advanced parameters' ) ),
+		br;
+	&printParameters( \%advanced );
+	print	end_form,
+		"</font>",
+		hr,
+		"<font face=\"arial\" size=\"-1\">",
+		&backLinks,
+		"</font>",
+		end_html;
+}
+
+# returns the output type: text or graph
+# returns the parameters names for the output file/s
+#
+sub getOutFiles {
+	my( $refHash, $outType ) = @_;
+	my( @outfiles );
+	while ( ( $param, $refAtts ) = each( %{$refHash} ) ) {
+		push( @outfiles, $param ) if ( ${$refAtts}{"dataType"} =~ /out|graph/ );
+		if ( ${$refAtts}{"dataType"} =~ /graph/ ) {
+			$outType = "graph";
+		} elsif ( ${$refAtts}{"dataType"} =~ /out/ ) {
+			$outType = "text";
+		}
+	}
+	return( $outType, @outfiles );
+}
+
+# print the parameters "formalized"
+#
+sub printParameters {
+	my( $refHash ) = @_;
+	my( $i, $printed, @values );
+	select( STDOUT );
+	$| = 1;
+	$i = 1;
+	$printed = 0;
+
+	print "<TABLE BORDER=1>";
+	
+	while ( ( $paramName, $paramAtts ) = each( %{$refHash} ) ) {
+		if ( $i == 1 ) {
+			print "<TR>";
+		}
+		if ( ${$paramAtts}{"dataType"} !~ /out|graph/ ) {
+			print &getHtmlTag( $paramName, $paramAtts );
+		} else {
+			if ( ${$paramAtts}{"dataType"} =~ /graph/ ) {
+				print	td( 	"<font face=\"arial\" size=\"-1\">",
+						"Select graphic output", br,
+						scrolling_list(	-name=>$paramName,
+							-values=>\@graphDev,
+							-labels=>\%labels,
+							-size=>1,
+							-defaults=>"$graphDev[0]"
+								),
+						"</font>"
+					),						
+					hidden( 'graphField', "$paramName" );
+			}
+		}
+		$printed = 1;
+		if ( $i == 3 ) {
+			print "</TR>";
+			$i = 1;
+		} else {
+			$i++;
+		}
+	}
+	
+	print "</TABLE>";
+	print submit( -value=>'Submit' ) if $printed;
+}
+
+# return the default value for the parameter
+#
+sub getDefaultValue {
+	my( $refAtts ) = @_;
+	my( @i, $def );
+	@i = grep( /^def.*/, keys( %{$refAtts} )  );
+
+	if ( @i > 0 && ${$refAtts}{$i[0]} !~ /^[\@\$]/ ) { # getting the default value if any, discard calculations
+		$def = ${$refAtts}{$i[0]};
+	} else {
+		$def = ""; # no need to test if defined
+	}
+	return $def;
+}
+
+# returns the label for the parameter
+#
+sub getLabel {
+	my( $refAtts ) = @_;
+	my( @i, $label );
+	
+	@i = grep( /^info/, keys( %{$refAtts} ) );
+	if ( @i > 0) { # parameter label
+		$label = ${$refAtts}{$i[0]};
+	} elsif ( exists( ${$refAtts}{"prompt"} ) ) {
+		$label = ${$refAtts}{"prompt"}; 
+	} elsif ( exists( ${$refAtts}{"help"} ) ) {
+		$label = ${$refAtts}{"help"};
+	} else {
+		$label = $stdLabels{ ${$refAtts}{"dataType"} };
+	}
+	
+	@i = grep( /^exp/, keys( %{$refAtts} ) );
+	if ( @i > 0 ) {
+		$label .= ". Expected: ${$refAtts}{$i[0]}";
+	}
+	
+	return $label;
+}
+
+# return the appropiate html tag
+#
+sub getHtmlTag {
+	my( $paramName, $refAtts ) = @_;
+	my( $tag, $def, $info, $delimiter, $codedelimiter, @i, @j, %labels );
+
+	$def = &getDefaultValue( $refAtts );
+
+	$info = &getLabel( $refAtts );
+
+	if ( ${$refAtts}{"dataType"} =~ /^int|^fl|^ra|^re|^st/ ) { # integer, float, range, regexp, string TEXT
+		$tag = td( "<font face=\"arial\" size=\"-1\">", $info, br, 
+			textfield(	-name=>"$paramName",
+					-default=>"$def",
+					-size=>8
+				),
+			"</font>"
+			);
+	} elsif ( ${$refAtts}{"dataType"} =~ /^inf|^ma|^co|^seq|^fe/ ) { # infile, matrix/f, codon, seq*, features TEXTAREA
+		$tag = td( "<font face=\"arial\" size=\"-1\">", $info, br, 
+			textarea(	-name=>"$paramName",
+					-default=>"$def",
+					-rows=>10,
+					-columns=>50
+				),
+			"</font>"
+			);
+	} elsif ( ${$refAtts}{"dataType"} =~ /^b/ ) { # boolean CHECKBOX
+		if ( $def =~ /y|Y/ || $def !~ /n|N/ ) {
+			$def = "Y";
+		} else {
+			$def = "N";
+		}
+		%labels = ( "Y", "Yes", "N", "No" );
+		$tag = td( "<font face=\"arial\" size=\"-1\">", $info, br,
+			radio_group( -name=>"$paramName",
+					-values=>['Y','N'],
+					-linebreak=>true,
+					-default=>uc( $def ),
+					-labels=>\%labels
+					),
+			"</font>"
+			);
+	} elsif ( ${$refAtts}{"dataType"} =~ /^li|^sel/ ) { # list, selection SELECT (multiple) or RADIO (single)
+		
+		if ( exists( ${$refAtts}{"delimiter"} ) ) {
+			$delimiter = ${$refAtts}{"delimiter"};
+		} else {
+			$delimiter = ";";
+		}
+		if ( exists( ${$refAtts}{"codedelimiter"} ) ) {
+			$codedelimiter = ${$refAtts}{"codedelimiter"};
+		} else {
+			$codedelimiter = ":";
+		}
+		if ( ${$refAtts}{"dataType"} !~ /li/ ) { # build %labels
+			
+			@temp = split( /$delimiter/, ${$refAtts}{"values"} );
+			foreach $elem ( @temp ) {
+				${labels}{$elem} = $elem;
+			}
+			
+		} else { # dataType = list
+
+			@temp = split( /$delimiter/, ${$refAtts}{"values"} );
+
+			foreach $elem ( @temp ) {
+				
+				$elem =~ /([\w-]+)$codedelimiter\s*([\w\s\(\)\,\/-]+)/;
+				${labels}{$1} = $2;
+
+			}
+			
+		}
+
+		@i = keys( %labels );
+		@j = split( /[\s;,-]+/, $def );
+		
+		if ( ${$refAtts}{"maximum"} == 1 ) {
+				
+			$tag = td( "<font face=\"arial\" size=\"-1\">", $info, br,
+					scrolling_list(	-name=>$paramName,
+							-values=>\@i,
+							-labels=>\%labels,
+							-default=>\@j,
+							-size=>1
+						),
+					"</font>"
+					);
+		} elsif ( ! exists( ${$refAtts}{"button"} ) or ${$refAtts}{"button"} =~ /n|N/ ) {
+			$tag = td( "<font face=\"arial\" size=\"-1\">", $info, br, ${$refAtts}{"values"},
+					textfield(-name=>$paramName,
+						-default=>"$def",
+						-size=>8
+						),
+					"</font>"
+				);
+		} else {
+			$tag = td( "<font face=\"arial\" size=\"-1\">", $info, br,
+					checkbox_group(	-name=>$paramName,
+							-values=>\@i,
+							-linebreak=>'true',
+							-default=>\@j,
+							-labels=>\%labels,
+						),
+					"</font>"
+					);
+		}
+		
+		return $tag;
+	}
+}
+
+# runs the selected program
+# returns the output type, the error value, the error log and the command executed
+#
+sub runProgram {
+	
+	my( $id, $filecount, $appName, $key, $value, @list, $outType, $myError, $myStdout, $errVal, $command, @outfiles );
+	ReadParse;
+	chdir( $writeDir );
+	$id = time();
+	( $infilecount, $outfilecount ) = ( 1, 1 );
+	$appName = &escapeInput( param( 'appName' ) );
+	$outType = $in{"outType"};
+	$myError = "$appName$id.error";
+	$myStdout = "$appName$id.stdout";
+
+	$command = $appName;
+	
+	@list = split( /\s+/, $in{"outFiles"} ); # getting output file/s
+
+	foreach $file ( @list ) {
+		$command = $command." -$file $appName$id.$outfilecount.out" if ( $file !~ /graph/ );
+		@outfiles = ( @outfiles, "$appName$id.$outfilecount.out" );
+		$outfilecount++;
+	}
+
+	delete( $in{"outFiles"} );
+	delete( $in{"outType"} );
+	delete( $in{"appName"} );
+	
+	while ( ($key, $value) = each( %in ) ) {
+		
+		if ( $key =~ /^infil|^seq|^inseq/ ) { # creating input file
+			open( INFILE, ">$appName$id.$infilecount.in" );
+			print INFILE $value;
+			close INFILE;
+			$command .= " -$key $appName$id.$infilecount.in";
+			$infilecount++;
+		} else {
+			if ( $value =~ /\0/ ) { # multiple parameters separeted with \0
+				@list = split( /\0/, lc( $value ) );
+				$command .= " -$key \"@list\"";
+			} else {
+				if ( $value =~ /\w\s+\w/ ) { # multiple from textfield
+					$command .= " -$key \"$value\"";
+				} elsif ( $value eq "y" || $value eq "Y" ) {
+					$command .= " -$key";
+				} elsif ( $value eq "n" || $value eq "N" ) {
+					$command .= " -no$key";
+				} elsif ( $value ne "" && $key ne "graphField" ) { #leaving out hidden graphField
+					$command .= " -$key $value";
+				}
+
+			}
+			
+		}
+		
+	}
+
+	if ( $outType eq "text" ) {
+		$errVal = system( "$command > $myStdout 2> $myError" );
+	} else {
+		while ( -e "$appName.lock" ) {
+			sleep 5;
+		} # somebody else getting graphical output from this program
+		open( LOCK, ">$appName.lock" ); # locking so nobody writes over
+		close( LOCK );
+		$errVal = system( "$command > $myStdout 2> $myError" );
+		unlink( "$appName.lock" ); # unlocking
+	}
+		
+	return( $outType, $errVal, $myError, $myStdout, $command, @outfiles );
+	
+}
+
+# returns 1 if multiple output, 0 if single
+#
+sub hasMultiple {
+	my( $graphDev ) = @_;
+	if ( $graphDev eq "data" || $graphDev eq "png" ) {
+		return 1;
+	} else {
+		return 0;
+	}
+}
+
+# prints the results for your application
+#
+sub printResults {
+	my( $outType, $errVal, $errorLog, $stdout, $command, @outfiles ) = @_; 
+	
+	print	header,
+		start_html( -title=>"$appName results", -bgcolor=>'white' ),
+		"<font face=\"arial\" size=\"-2\">",
+		h1( "$appName results" ),
+		br,
+		;
+		
+	open( OUT, "$stdout" );
+	@out = <OUT>;
+	close( OUT );
+	
+	print	"</font>",
+		"<pre>@out</pre>",
+		br;
+
+	foreach $file ( @outfiles ) {
+		if ( $command =~ /$file/ ) {
+			print "<pre>";
+			open( FILE, "$file" );
+			while ( $line = <FILE> ) {
+				print "$line";
+			}
+			print "</pre>";
+			close( FILE );
+		} else {
+			$filecount = 1;
+			$graphExt = param( param( 'graphField' ) );
+			$graphExt = ${graphExt}{ $graphExt };
+
+			if ( $graphExt ne "null" && $graphExt ne "none" ) {
+
+				if ( $graphExt eq "png" ) {
+					while ( -e "$appName.$filecount.$graphExt" ) {
+						print "<img src=$graphicsDir/$appName.$filecount.$graphExt><br>";
+						$filecount++;
+					}
+				} elsif ( $graphExt eq "dat" ) {
+					while ( -e "$appName$filecount.$graphExt" ) {
+						print "<img src=$graphicsDir/$appName$filecount.$graphExt><br>";
+						$filecount++;
+					}
+				} else {
+					print "<img src=$graphicsDir/$appName.$graphExt><br>";
+				}
+			}
+		}
+	}
+	print	"</pre>",
+		"<font face=\"arial\" size=\"-1\">",
+		&backLinks,
+		"</font>",
+		end_html;
+	return 0;
+}
+
+# escaping naughty chars
+#
+sub escapeInput {
+	my( $str ) = @_;
+        $str =~ s/([;<>\*\|`&\$!?#\(\)\[\]\{\}:'"\\])/\\$1/g;
+        return $str;
+}
+
+# the javascript
+#
+$jscript = <<END;
+// Select the application
+function setValue(app) {
+	document.forms[0].appName.value = app;
+	document.forms[0].submit()
+}
+END
+
+# main script 
+#
+
+if ( param( 'appName' ) eq "" ) {
+	chdir( $writeDir );
+	if ( ! -e "emboss.apps" ) {
+		system( "wossname", "-auto", "-outfile", "emboss.apps" ) == 0 || &printError( "EMBOSS not correctly installed." );
+	}
+	open( APPS, "emboss.apps") || &printError( "Cannot read EMBOSS applications." );
+	@programs = <APPS>; # get EMBOSS programs
+	chop( @programs ); # bye to \n
+	
+	foreach $line ( @programs ) {
+		$line = $& if $line =~ /^[a-z0-9]+/;
+	} # get rid of description, could be a popup help in the menu?
+	
+	%byGroup = &toHash( @programs );
+	%filteredGroup = &filteredHash( %byGroup );
+	&printTable( %filteredGroup );
+
+} elsif ( ( param( 'appName' ) ne "" ) && ( ! defined( param( 'outFiles' ) ) ) ){
+
+	chdir( $writeDir );
+	$appName = param( 'appName' );
+	
+	if ( ! -e "$appName.pretty" ) {
+		system( "$appName", "-acdpretty" ) == 0 || &printError( "$appName not found." );
+	}
+	open( ACD, "$appName.acdpretty" ) || &printError( "Can't read $appName parameters." );
+
+	$appDoc = &getAppDoc;
+	%mandatory = (), %optional = (), %advanced = (); # init hashes
+	&parseACD;
+	&printInputForm( $appName, $appDoc );
+
+} elsif ( defined( param( 'outFiles' ) ) ) {
+
+	chdir( $writeDir );
+	$appName = param( 'appName' );
+	$filecount = 1;
+	( $outType, $errVal, $errorLog, $stdout, $command, @outfiles ) = &runProgram;
+	
+	if ( $errVal == 0 ) {
+		&printResults( $outType, $errVal, $errorLog, $stdout, $command, @outfiles );
+	} else {
+		open( ERROR, "$errorLog" );
+		@error = <ERROR>;
+		close( ERROR );
+		$errorLog = join( '', @error );  
+		&printError( $errorLog );
+	}
+	
+	
+} else {
+	&printError( "Nothing to do." );
+}
+
+#
+# end of main script
