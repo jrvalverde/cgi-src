@@ -1,0 +1,211 @@
+<HTML><HEAD>
+<TITLE>BABEL</TITLE>
+</HEAD><BODY BGCOLOR="white" BACKGROUND="6h2o-w-small.gif">
+<!-- (C) José R. Valverde, jrvalverde@es.embnet.org -->
+<CENTER>
+    	    	    	<H1><A HREF="http://www.eyesopen.com/babel.html">BABEL</A></H1>
+    	<H2>Structure file format conversion</H2>
+</CENTER>
+<HR>
+<CENTER>
+              <BOLD>Babel version 1.6 Copyright (C) 1992-1996</BOLD><BR>
+                                  by<BR>
+                      <EM>Pat Walters and Matt Stahl</EM><BR>
+
+                   <TT>babel@mercury.aichem.arizona.edu</TT><BR>
+</CENTER>
+<BR>
+
+<FORM  METHOD="POST" ACTION="/cgi-bin/babel.cgi" ENCTYPE="multipart/form-data">
+<TABLE WIDTH="100%" BGCOLOR="lightblue" ALIGN=CENTER BORDER=0 
+       CELLSPACING=0 CELLPADDING=5 >
+
+  <!---- data box --->
+  <TR ><TD ALIGN=CENTER>
+  <TABLE  WIDTH="100%" CELLSPACING=0 CELLPADDING=2>
+    <TR ><TH >Structure file to reformat</TH></TR>
+    <TR><TD ALIGN=CENTER  VALIGN=TOP>
+    Upload file: 
+    <INPUT TYPE="file" NAME="infile" VALUE="" SIZE=40 MAXLENGTH=80 ><BR>
+    <i>or</i> enter <b>data</b> 
+    in box below
+    <BR>
+    <TEXTAREA NAME="indata" ROWS=6 COLS=75></TEXTAREA><BR>
+    </TD></TR>
+    <TR><TD><CENTER>
+    	See sample <A HREF="babel-sample.html">data</A>
+    </CENTER></TD></TR>
+  </TABLE>
+  </TD></TR>
+  <!---- end data box --->
+
+  <!---- options box --->
+  <TR> 
+  <TD  ALIGN=CENTER  VALIGN=TOP>
+  <TABLE  WIDTH="100%" CELLSPACING=0 CELLPADDING=2>
+    <TR><TD>&nbsp;</TD> </TR>
+    <TR>
+
+    <!---- Input format cell --->
+    <TD ALIGN=CENTER VALIGN=TOP>
+    <TABLE BORDER=1 bgcolor="#e8e8e8" CELLSPACING=1 CELLPADDING=2>
+      <TR ><TH >Input format</TH></TR>
+      <TR ><TD>
+        <SELECT NAME="informat">
+        <OPTION SELECTED VALUE="pdb">PDB
+	<OPTION VALUE="alc">Alchemy file
+	<OPTION VALUE="prep">AMBER prep file
+	<OPTION VALUE="bs">Ball and Stick file
+        <OPTION VALUE="bgf">MSI BGF file
+        <OPTION VALUE="car">Biosym .CAR file
+        <OPTION VALUE="boog">Boogie file
+        <OPTION VALUE="caccrt">Cacao Cartesian file
+        <OPTION VALUE="cadpac">Cambridge CADPAC file
+        <OPTION VALUE="charmm">CHARMm file
+        <OPTION VALUE="c3d1">Chem3D Cartesian 1 file
+        <OPTION VALUE="c3d2">Chem3D Cartesian 2 file
+        <OPTION VALUE="cssr">CSD CSSR file
+        <OPTION VALUE="fdat">CSD FDAT file
+        <OPTION VALUE="gstat">CSD GSTAT file
+        <OPTION VALUE="dock">Dock Database file
+        <OPTION VALUE="dpdb">Dock PDB file
+        <OPTION VALUE="feat">Feature file
+        <OPTION VALUE="fract">Free Form Fractional file
+        <OPTION VALUE="gamout">GAMESS Output file
+        <OPTION VALUE="gzmat">Gaussian Z-Matrix file
+        <OPTION VALUE="gauout">Gaussian 92 Output file
+        <OPTION VALUE="g94">Gaussian 94 Output file
+        <OPTION VALUE="gr96A">GROMOS96 (A) file
+        <OPTION VALUE="gr96N">GROMOS96 (nm) file
+        <OPTION VALUE="hin">Hyperchem HIN file
+        <OPTION VALUE="sdf">MDL Isis SDF file
+        <OPTION VALUE="m3d">M3D file
+        <OPTION VALUE="macmol">Mac Molecule file
+        <OPTION VALUE="macmod">Macromodel file
+        <OPTION VALUE="micro">Micro World file
+        <OPTION VALUE="mm2in">MM2 Input file
+        <OPTION VALUE="mm2out">MM2 Output file
+        <OPTION VALUE="mm3">MM3 file
+        <OPTION VALUE="mmads">MMADS file
+        <OPTION VALUE="mdl">MDL MOLfile file
+        <OPTION VALUE="molen">MOLIN file
+        <OPTION VALUE="mopcrt">Mopac Cartesian file
+        <OPTION VALUE="mopint">Mopac Internal file
+        <OPTION VALUE="mopout">Mopac Output file
+        <OPTION VALUE="pcmod">PC Model file
+        <OPTION VALUE="pdb">PDB file
+        <OPTION VALUE="psin">PS-GVB Input file
+        <OPTION VALUE="psout">PS-GVB Output file
+        <OPTION VALUE="msf">Quanta MSF file
+        <OPTION VALUE="schakal">Schakal file
+        <OPTION VALUE="shelx">ShelX file
+        <OPTION VALUE="smiles">SMILES file
+        <OPTION VALUE="spar">Spartan file
+        <OPTION VALUE="semi">Spartan Semi-Empirical file
+        <OPTION VALUE="spmm">Spartan Mol. Mechanics file
+        <OPTION VALUE="mol">Sybyl Mol file
+        <OPTION VALUE="mol2">Sybyl Mol2 file
+        <OPTION VALUE="wiz">Conjure file
+        <OPTION VALUE="unixyz">UniChem XYZ file
+        <OPTION VALUE="xyz">XYZ file
+        <OPTION VALUE="xed">XED file
+        </SELECT>
+      </TD></TR>
+   </TABLE>
+   </TD>
+   <!---- end input format cell --->
+
+    <!---- Other cell --->
+    <TD ALIGN=CENTER VALIGN=TOP>
+    <TABLE BORDER=1 bgcolor="#e8e8e8" CELLSPACING=1 CELLPADDING=3>
+      <TR ><TH >Output format</TH></TR>
+      <TR ><TD>
+        <SELECT NAME="outformat">
+	<OPTION SELECTED VALUE="tinker">TINKER
+        <OPTION VALUE="diag">DIAGNOTICS file
+        <OPTION VALUE="alc">Alchemy file
+        <OPTION VALUE="bs">Ball and Stick file
+        <OPTION VALUE="bgf">BGF file
+        <OPTION VALUE="bmin">Batchmin Command file
+        <OPTION VALUE="box">DOCK 3.5 box file
+        <OPTION VALUE="caccrt">Cacao Cartesian file
+        <OPTION VALUE="cacint">Cacao Internal file
+        <OPTION VALUE="cache">CAChe MolStruct file
+        <OPTION VALUE="c3d1">Chem3D Cartesian 1 file
+        <OPTION VALUE="c3d2">Chem3D Cartesian 2 file
+        <OPTION VALUE="cdct">ChemDraw Conn. Table file
+        <OPTION VALUE="dock">Dock Database file
+        <OPTION VALUE="wiz">Wizard file
+        <OPTION VALUE="contmp">Conjure Template file
+        <OPTION VALUE="cssr">CSD CSSR file
+        <OPTION VALUE="dpdb">Dock PDB file
+        <OPTION VALUE="feat">Feature file
+        <OPTION VALUE="fhz">Fenske-Hall ZMatrix file
+        <OPTION VALUE="gamin">Gamess Input file
+        <OPTION VALUE="gcart">Gaussian Cartesian file
+        <OPTION VALUE="gzmat">Gaussian Z-matrix file
+        <OPTION VALUE="gotmp">Gaussian Z-matrix tmplt file
+        <OPTION VALUE="gr96A">GROMOS96 (A) file
+        <OPTION VALUE="gr96N">GROMOS96 (nm) file
+        <OPTION VALUE="hin">Hyperchem HIN file
+        <OPTION VALUE="icon">Icon 8 file
+        <OPTION VALUE="idatm">IDATM file
+        <OPTION VALUE="sdf">MDL Isis SDF file
+        <OPTION VALUE="m3d">M3D file
+        <OPTION VALUE="macmol">Mac Molecule file
+        <OPTION VALUE="macmod">Macromodel file
+        <OPTION VALUE="micro">Micro World file
+        <OPTION VALUE="mm2in">MM2 Input file
+        <OPTION VALUE="mm2out">MM2 Ouput file
+        <OPTION VALUE="mm3">MM3 file
+        <OPTION VALUE="mmads">MMADS file
+        <OPTION VALUE="mdl">MDL Molfile file
+        <OPTION VALUE="miv">MolInventor file
+        <OPTION VALUE="mopcrt">Mopac Cartesian file
+        <OPTION VALUE="mopint">Mopac Internal file
+        <OPTION VALUE="csr">MSI Quanta CSR file
+        <OPTION VALUE="pcmod">PC Model file
+        <OPTION VALUE="pdb">PDB file
+        <OPTION VALUE="psz">PS-GVB Z-Matrix file
+        <OPTION VALUE="psc">PS-GVB Cartesian file
+        <OPTION VALUE="report">Report file
+        <OPTION VALUE="smiles">SMILES file
+        <OPTION VALUE="spar">Spartan file
+        <OPTION VALUE="mol">Sybyl Mol file
+        <OPTION VALUE="mol2">Sybyl Mol2 file
+        <OPTION VALUE="maccs">MDL Maccs file
+        <OPTION VALUE="torlist">Torsion List file
+        <OPTION VALUE="tinker">Tinker XYZ file
+        <OPTION VALUE="unixyz">UniChem XYZ file
+        <OPTION VALUE="xyz">XYZ file
+        <OPTION VALUE="xed">XED file
+        </SELECT>
+      </TD></TR>
+      </TABLE>
+    </TD>
+    <!---- end Other cell --->
+
+  </TABLE> </TD></TR>
+  <!---- end options box --->
+  </TD></TR>
+
+  <TR ><TD ALIGN=CENTER>
+    <INPUT TYPE="submit" NAME="Action" VALUE="Submit">&nbsp; &nbsp;
+    <INPUT TYPE="reset">
+  </TD></TR>
+</TABLE>
+</FORM>
+<HR>
+
+<TABLE WIDTH="100%">
+  <TR ><TD ALIGN=CENTER>
+    <address>
+    <!-- app info here -->
+    <P>If you have any trouble, please contact our
+    <A HREF="/cgi-bin/emailto?Bioinformatics+Administrator">Bioinformatics
+    Administrator</A></P>
+    <P><A HREF="/Copyright-CSIC.html">&copy; EMBnet/CNB</A></P>
+    </address>
+  </TD></TR>
+</TABLE>
+</BODY></HTML>
