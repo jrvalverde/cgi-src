@@ -1,0 +1,81 @@
+<HTML><HEAD>
+<TITLE>RBDB Search</TITLE>
+</HEAD><BODY BGCOLOR="white" BACKGROUND="images/background.png">
+<CENTER>
+    	    	    	<H1><A>RBDB</A></H1>
+    	    	    <H1>Retinoblastoma DataBase</H1>
+    	    	      <H2>Query RBDB form</H2>
+</CENTER>
+<HR>
+<CENTER>
+              <BOLD>RBDB Copyright (C) 2005</BOLD><BR>
+                                  by<BR>
+                      <EM>Angel Pesta&ntilde;a</EM><BR>
+
+                   <TT>apestana@iib.uam.es</TT><BR>
+</CENTER>
+<BR>
+
+<FORM  METHOD="POST" ACTION="simple-query.php">
+<TABLE WIDTH="100%" BGCOLOR="lightblue" ALIGN=CENTER BORDER=0 
+       CELLSPACING=0 CELLPADDING=5 >
+      <TR ><TH>Search field</TH><th>Query string</th></TR>
+      <TR ><TD align="center">
+        <SELECT NAME="field">
+        <OPTION SELECTED VALUE="site">Site
+	<OPTION VALUE="genomic">Genomic
+	<OPTION VALUE="no">No
+	<OPTION VALUE="cdna">cDNA
+        <OPTION VALUE="protein">Protein
+        <OPTION VALUE="consequence">Consequence
+        <OPTION VALUE="type">Type
+        <OPTION VALUE="origin">Origin
+        <OPTION VALUE="sample">Sample
+        <OPTION VALUE="pheno">Phenotype
+        <OPTION VALUE="sex">Sex
+        <OPTION VALUE="lp">LP
+        <OPTION VALUE="aged_mo">Aged (mo)
+        <OPTION VALUE="country">Country
+        <OPTION VALUE="reference">Reference
+        <OPTION VALUE="pm_id">PubMed ID
+        <OPTION VALUE="patient_id">Patient ID
+        <OPTION VALUE="l_db">L DB
+        <OPTION VALUE="remarks">Remarks
+        </SELECT>
+      </TD>
+      <TD align="center"><INPUT NAME="query"></TD>
+   </TR>
+  <TR><TD ALIGN=CENTER>
+      <INPUT TYPE="submit" NAME="Action" VALUE="Submit Query">&nbsp; &nbsp;
+    </td>
+    <td align="center"><a href="JavaScript:parent.openNewWindow('rbdb-help.html','inlineHelp',500,400)"><img src="help.gif" alt="help"></A></td>
+    <td>
+      <INPUT TYPE="reset">
+  </TD></TR>
+</TABLE>
+</FORM>
+<HR>
+
+<TABLE WIDTH="100%">
+  <TR ><TD ALIGN=CENTER>
+    <address>
+    <!-- app info here -->
+    <P>If you have any trouble, please contact our
+    <A HREF="/cgi-bin/emailto?Bioinformatics+Administrator">Bioinformatics
+    Administrator</A></P>
+    <P>RBDB access tools: <A HREF="http://www.es.embnet.org/~jr/c/Copyright-JR_AH.html">&copy;</a><a href="mailto:jrvalverde@acm.org">Jos&eacute; R. Valverde</A></P>
+    </address>
+  </TD></TR>
+</TABLE>
+
+<hr>
+<center><table border="1">
+<tr><td>The Retinoblastoma Mutation Database is &copy; by 
+	<a href="mailto:apestana@iib.uam.es">Angel Pesta&ntilde;a</a>
+</td></tr>
+<tr><td>The WWW interface and access tools are 
+	<a href="c/Copyright-JR_AH.html">&copy;</a> by
+	<a href="mailto:jrvalverde@acm.org">Jos&eacute; R. Valverde</a>
+</td></tr>
+</table></center>
+</BODY></HTML>
