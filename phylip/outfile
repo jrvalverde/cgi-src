@@ -1,0 +1,29 @@
+
+Protein parsimony algorithm, version 3.572c
+
+
+
+One most parsimonious tree found:
+
+
+
+
+                 +--NULM_APIME
+        +--------5  
+        !        +--NULM_ASCSU
+     +--4  
+     !  !     +-----NULM_ARATH
+     !  +-----6  
+  +--2        !  +--NULM_DROYA
+  !  !        +--3  
+  !  !           +--NULM_DROME
+--1  !  
+  !  +--------------NULM_ARTSF
+  !  
+  +-----------------NULM_ARTSA
+
+  remember: this is an unrooted tree!
+
+
+requires a total of    332.000
+

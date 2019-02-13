@@ -1,0 +1,442 @@
+#!/usr/local/bin/perl 
+
+###########################################################
+#                                                         #
+#                        CLUSTALW Front End               #
+#                                                         #
+###########################################################
+
+# This library is freely available at
+# http://cgi-lib.stanford.edu/cgi-lib/
+require "/data/www/CNB/cgi-bin/lib/cgi-lib.pl";  
+
+###### Variables
+
+# URL of the CGI
+$www='http://www.cnb.uam.es';
+$cgi='/cgi-bin/dopazo/clustal/clustalwww';
+$url=$www.$cgi;
+$SeqFormat=$www."/~dopazo/docus/info/SeqFileFormat.html";
+
+# Temporary result files
+$SeqFile="tmp/file.seq";                
+$SeqResult="tmp/file";
+$DndFile="tmp/file.dnd";
+
+# Default extensions
+$SRAln = ".aln";
+$SRPIR = ".pir";
+$SRPHYLIP = ".phy";
+$SRGCG = ".msf";
+
+# Some system paths
+$clustalexe='/usr/local/bin/clustalw';
+$cat='/usr/bin/cat';
+$tr='/usr/bin/tr';
+
+# Program info
+$updated = 'November 4, 1998';
+$version = 'Ximo, version 1.0. Last rev. '.$updated;
+
+# Custom
+$fondo="/imx/bgs/bghome.gif";
+
+$copyright1='<A HREF="mailto:jd19662@glaxowellcome.co.uk">Joaquin Dopazo</A>';
+$copyright2='<A HREF="mailto:P.Moutel@cnb.uam.es">Patrick Moutel</A>';
+$copyright="&copy;".$copyright1;
+#."&amp; ".$copyright2;
+
+
+################## Start of main program ##################
+
+
+# Read in all the variables set by the form
+&ReadParse(*input);     # field = value
+
+if (&MethGet() || defined $input{'External'}) {       #  GET
+  &InitialForm();
+}
+else {
+  if (defined $input{'run'} ) {
+    &CLUSTAL();
+  } elsif (defined $input{'ShowSeq'}) {
+    &ShowAlignment();
+  } else {
+    &AlgoPasa;
+  }
+}
+
+ exit(0);
+
+###### End of main program 
+
+###### Subroutines
+
+##########################
+# Initial form
+#
+
+sub InitialForm {
+
+$InputClustal = "";
+if ($input{'External'} eq "FromEditor") {
+	$InputClustal = $input{'InputFiles'};
+}
+
+&PrintMyHeader;
+
+&PrintFirstForm;
+&PrintSecondForm;
+
+&PrintMyFooter;
+}
+
+
+##########################
+# CLUSTAL results
+#
+
+sub CLUSTAL {
+
+ # Have we got a sequence?
+  if ($input{'sequence'} ne "") {
+    $error = "";
+    # Fichero de secuencias
+    $timeout = 0; 
+    while ((-e "$SeqFile") && ($timeout < 60)) { 
+      sleep(1); 
+      $timeout = $timeout + 1;
+    }
+    if ($timeout eq 60) {
+      $error = "Server is too busy now. Please, try again later";
+    }
+    
+    if ($error eq "") {
+      if (open (LIST,">$SeqFile")) {
+        print LIST ("$input{'sequence'}");
+        close(LIST);
+      } else {
+        $error = "Error writting local sequence file. Please, ask the webmaster";
+      }
+    } # if not timeout 
+  } else {
+    $error = "Sequence field must be filled in";
+  }
+
+   # Procesar parametros
+  if ($error eq "") {
+
+    # Number of best diagonals
+    $topdiags = " -topdiags=".$input{'topdiags'};
+ 
+    # Window around best diagonals
+    $window = " -window=".$input{'window'};
+ 
+    # Gap open penalty
+    $gapopen = " -gapopen=".$input{'gapopen'};
+ 
+    # Gap extension penalty
+    $gapext = " -gapext=".$input{'gapext'};
+ 
+    # Matrix
+    $matrix = " -matrix=".$input{'matrix'};
+
+   #Sequence type
+    if ($input{'type'} eq "default") {
+      $type = "";
+    } else {
+      $type = " -type=".$input{'type'};
+    } 
+
+    # outorder
+    $outorder = " -outorder=".$input{'outorder'};
+
+    # Output format
+    if ($input{'outformat'} eq "default") {
+      $SeqResult = $SeqResult.$SRAln;
+      $outformat = "";
+    } elsif ($input{'outformat'} eq "PIR") {
+      $SeqResult = $SeqResult.$SRPIR;
+      $outformat = " -output=".$input{'outformat'};
+    } elsif ($input{'outformat'} eq "GCG") {
+      $SeqResult = $SeqResult.$SRGCG;
+      $outformat = " -output=".$input{'outformat'};
+    } elsif ($input{'outformat'} eq "PHYLIP") {
+      $SeqResult = $SeqResult.$SRPHYLIP;
+      $outformat = " -output=".$input{'outformat'};
+    } 
+ 
+
+    $param = " -infile=".$SeqFile.$matrix.$output.$type.$topdiags.
+             $window.$gapopen.$gapext.$outorder.$outformat;
+  }
+
+  if ($error eq "") {
+    # ejecutar el programa 
+    $runstr = $clustalexe.$param;
+    # execution
+    @ejecucion = `$runstr`;
+
+    # obtention of the result file
+    if (-e "$SeqResult") { 
+      if (open (FILRES,"$SeqResult")) {
+        @resultado = <FILRES>;
+        close(FILRES);
+        unlink $SeqResult;
+      }
+    } 
+    # Delete seqfile in any case. This is the lock file 
+    unlink $SeqFile;
+    unlink $DndFile;
+ 
+    ### Procesado de los resultados 
+    @presentacion = ();
+    
+  } else {
+    @resultado = $error;
+  }
+
+  # Dar toda la informacion
+  if (index ($ejecucion[$#ejecucion],"CLUSTAL-Alignment") >= 0) {
+    pop(@ejecucion);
+  }
+  @presentacion = (@resultado,"<HR>",@ejecucion);
+
+  &PrintMyHeader;
+
+  print "<PRE>\n";
+  print "@presentacion\n";
+  print "</PRE>\n";
+
+  print "<INPUT TYPE=submit NAME=ShowSeq VALUE=\"Show alignment\" ALIGN=top>\n";
+  print "<INPUT TYPE=submit NAME=run VALUE=\"Run CLUSTAL again\" ALIGN=top>\n";
+  print "<INPUT TYPE=HIDDEN NAME=\"sequence\" VALUE=\"@resultado\" >\n";
+
+  &PrintSecondForm;
+
+  &PrintMyFooter;
+}
+##########################
+# Show sequences to be printed
+#
+
+sub ShowAlignment {
+
+
+  print <<EOM
+Content-type: text/plain\n
+$input{'sequence'}
+EOM
+}
+
+
+##########################
+# Cepo de errores
+#
+sub AlgoPasa {
+  &PrintHeader;
+#  Content-type: text/html
+  print <<EOM
+  
+  <HTML>
+  <HEAD>
+  <TITLE>Errors trap</TITLE>
+  <!-- Ximo, version 1.0 -->
+  </HEAD>
+  <BODY  BACKGROUND="$fondo">
+  $input
+
+</BODY>
+
+</HTML>
+EOM
+}
+
+#########
+sub PrintMyHeader {
+print &PrintHeader;
+print <<EOM
+<HTML>
+<HEAD>
+<TITLE>CLUSTAL WWW</TITLE>
+<!-- $version -->
+</HEAD>
+<BODY  BACKGROUND="$fondo">
+<H1 ALIGN=center><FONT COLOR="blue">CNB's CLUSTAL W Service</FONT></H1>
+<HR>
+<FORM ACTION="$url" METHOD=post>
+EOM
+}
+
+
+##########
+sub PrintMyFooter {
+print <<EOM
+</FORM>
+<center>
+<b>
+<A HREF="http://www.cnb.uam.es/">CNB</A> | 
+<A HREF="http://www.es.embnet.org/">EMBnet</A> |
+<a href="http://www.csic.es/">CSIC</a> |
+<A HREF="http://www.cnb.uam.es/~dopazo">Ximo</A> 
+</b>
+</CENTER>
+<HR>
+$copyright
+</BODY>
+
+</HTML>
+EOM
+}
+
+sub PrintFirstForm {
+
+print <<EOM
+<P>
+<CENTER><H3>Please, paste your sequences into this box:</H3><BR>
+<FONT SIZE=-1><I>The sequences may be provided in an unique file in 
+FASTA (Pearson), NBRF/PIR, EMBL/Swiss Prot, GDE, CLUSTAL or GCG/MSF
+<A HREF="$SeqFormat">format.</A></I>
+<B> No other format is allowed !</B></FONT>
+
+</CENTER>
+
+
+<P>
+ <CENTER> 
+ <TEXTAREA NAME="sequence" COLS=50 ROWS=10>$InputClustal</TEXTAREA>
+
+ <P>
+  <INPUT TYPE=submit NAME=run VALUE="Run CLUSTAL" ALIGN=top>
+  <INPUT TYPE=reset VALUE="Reset" ALIGN=top>
+ <P>
+ <HR>
+
+EOM
+}
+
+sub PrintSecondForm {
+
+print <<EOM
+ <TABLE BORDER="1">
+ <TR>
+ <TD COLSPAN="2" ALIGN="center">
+ <H2>Parameters</H2>
+ </TD>
+ </TR>
+ <TR>
+ <TD> 
+ <B>Pairwise alignments</B>
+ </TD>
+ <TD ALIGN="right">
+ <P>
+   Number of best diagonals
+
+    <SELECT NAME="topdiags">
+      <OPTION VALUE="1">1
+      <OPTION VALUE="2">2
+      <OPTION VALUE="3">3
+      <OPTION VALUE="4">4
+      <OPTION VALUE="5" SELECTED>5
+      <OPTION VALUE="6">6
+      <OPTION VALUE="7">7
+      <OPTION VALUE="8">8
+      <OPTION VALUE="9">9
+      <OPTION VALUE="10">10
+     </SELECT>
+ <br>
+   Window around best diagonals
+
+    <SELECT NAME="window">
+      <OPTION VALUE="1">1
+      <OPTION VALUE="2">2
+      <OPTION VALUE="3">3
+      <OPTION VALUE="4">4
+      <OPTION VALUE="5" SELECTED>5
+      <OPTION VALUE="6">6
+      <OPTION VALUE="7">7
+      <OPTION VALUE="8">8
+      <OPTION VALUE="9">9
+      <OPTION VALUE="10">10
+     </SELECT>
+  
+ </TD>
+ <TR>
+ <TD>
+ <B>Multiple alignments</B>
+ </TD>
+ <TD ALIGN="right">
+ 
+   Gap open penalty
+
+    <SELECT NAME="gapopen">
+      <OPTION VALUE="6">6
+      <OPTION VALUE="7">7
+      <OPTION VALUE="8">8
+      <OPTION VALUE="9">9
+      <OPTION VALUE="10" SELECTED>10
+      <OPTION VALUE="11">11
+      <OPTION VALUE="12">12
+      <OPTION VALUE="13">13
+      <OPTION VALUE="14">14
+      <OPTION VALUE="15">15
+     </SELECT>
+<br>
+   Gap extension penalty
+
+    <SELECT NAME="gapext">
+     <OPTION VALUE="0.01">0.01
+      <OPTION VALUE="0.05" SELECTED>0.05
+      <OPTION VALUE="0.1">0.1
+     </SELECT>
+
+ </TD>
+ </TR>
+ <TR>
+ <TD>
+ <B>Other</B>
+ </TD>
+ <TD ALIGN="right">
+ 
+   Comparison Matrix
+
+    <SELECT NAME="matrix">
+      <OPTION VALUE="blosum">BLOSUM
+      <OPTION VALUE="pam" SELECTED>PAM
+      <OPTION VALUE="gonnet">Gonnet
+      <OPTION VALUE="id">Identity
+    </SELECT>
+   <br>
+   Define sequence type
+
+    <SELECT NAME="type">
+      <OPTION VALUE="default" SELECTED>auto detect
+      <OPTION VALUE="p">protein
+      <OPTION VALUE="d">DNA
+    </SELECT>
+
+   <br>
+   Define sequence order in the output
+
+    <SELECT NAME="outorder">
+      <OPTION VALUE="input" SELECTED>As in input file
+      <OPTION VALUE="aligned">aligned
+    </SELECT>
+  
+   <br>
+   Output format
+
+    <SELECT NAME="outformat">
+      <OPTION VALUE="default" SELECTED>CLUSTAL W
+      <OPTION VALUE="GCG">MSF GCG
+      <OPTION VALUE="PIR">PIR
+      <OPTION VALUE="PHYLIP">PHYLIP
+    </SELECT>
+ </TD>
+ </TR>
+ </TABLE>
+
+</CENTER>
+
+EOM
+}

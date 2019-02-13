@@ -1,0 +1,81 @@
+U
+    Search for best tree?  (sbt)
+    	Yes (*)
+	No
+
+T
+    Transition/transversion ratio
+    	2.0 (*)
+	T -> number
+
+F
+     Use empirical base frequencies?
+     	Yes (*)
+	No -> Base frequencies for A, C, G, T/U (use blanks to separate)?
+
+C
+    One category of substitution rates?
+    	Yes (*)
+	No: -> Number of categories (1 - 9)? 
+	    -> Rate for each category? (use a space to separate)
+	    -> Probability for each category? (use a space to separate)
+
+R
+    Rates at adjacent sites correlated?  
+    	No, they are independent (*)
+	Yes -> Mean block length of sites having the same rate (greater than 1)?
+
+G
+    Global rearrangements?
+    	No (*)
+    	Yes
+
+J
+    Randomize input order of sequences? (rio)
+    	No (*)
+	Yes -> odd-rnd -> jumble-no
+
+O
+    Outgroup root?  (or)
+    	No (*)
+	Yes -> number
+
+M
+    Analyze multiple data sets? (amds)
+    	No (*)
+	Yes -> How many data sets?
+
+I
+    Input sequences interleaved? (isi)
+    	Yes (*)
+	No
+
+0
+    Terminal type (IBM PC, VT52, ANSI)? (tt)
+    	ANSI (*)
+
+1
+    Print out the data at start of run	(pod)
+    	No (*)
+	Yes
+
+2
+    Print indications of progress of run (pip)
+    	Yes (*)
+	No
+
+3
+    Print out tree  (pot)
+    	Yes (*)
+	No
+
+4
+    Print out steps in each site    (poss)
+    	No (*)
+	Yes
+
+
+Y
+    Go for it.
+
+    

@@ -1,0 +1,88 @@
+<HTML>
+<HEAD>
+	<TITLE>DNAPars</TITLE>
+</HEAD>
+<!-- (C) José R. Valverde, jrvalverde@es.embnet.org -->
+<BODY BGCOLOR="white">
+
+<H1>Analyze Nucleic Acid evolution using Parsimony</H1>
+
+<P>This form allows you to investigate the evolution of a group of nucleotide
+sequences according to the parsimony model using PHYLIP DNAPARS.</P>
+
+<P>Enter or paste your <STRONG>nucleotide</STRONG> multiple sequence 
+alignement in <STRONG>PHYLIP</STRONG> or <STRONG>MSF</STRONG> format 
+below and then press the <STRONG>Submit</STRONG> button.</P>
+
+<P><STRONG>IMPORTANT NOTE:</STRONG> The analysis may take a while to run.
+Please be patient<P>
+
+<FORM METHOD="POST" ACTION="/cgi-bin/dnapars.pl">
+
+<TABLE BORDER="3">
+<TR>
+  <TD>Search for Best Tree<BR>   
+    <SELECT NAME="sbt">
+    <OPTION SELECTED VALUE="y">Yes
+    <OPTION VALUE="n">No, use user trees in input file
+    </SELECT>
+  </TD>
+  <TD>Outgroup root<BR>
+  is species # <INPUT NAME="or" SIZE="4" VALUE="0"><BR>
+  0 = No, use species 1
+  </TD>
+  <TD>Parsimony threshold:<BR>
+  <INPUT NAME="tp" SIZE="4" VALUE="0"><BR>
+  0 = Ordinary Parsimony</TD>
+</TR>
+<TR>
+  <TD>Print out tree<BR>
+    <SELECT NAME="pot">
+    <OPTION SELECTED VALUE="y">Yes
+    <OPTION VALUE="n">No
+    </SELECT>
+  </TD>
+  
+  <TD>Print out steps in each site<BR>
+    <SELECT NAME="poss">
+    <OPTION SELECTED VALUE="n">No
+    <OPTION VALUE="y">Yes
+    </SELECT>
+  </TD>
+  
+  <TD>Print sequences at all nodes of tree<BR>
+    <SELECT NAME="psant">
+    <OPTION SELECTED VALUE="n">No
+    <OPTION VALUE="y">Yes
+    </SELECT>
+  </TD>
+</TR>
+</TABLE>
+
+<P>Paste your alignment here
+<TEXTAREA NAME="alignment" ROWS="10" COLS="70"></TEXTAREA>
+
+<P><STRONG>Hint:</STRONG> If you don't have an alignment, try the
+<A HREF="http://www.es.embnet.org/Doc/phylodendron/clustal-form.html">Phylodendron
+ClustalW</A> form to build your alignment, adding in the <STRONG>Other
+ClustalW options</STRONG> the following<BR>
+<BLOCKQUOTE><TT>-output=phylip</TT></BLOCKQUOTE>
+</P>
+
+<!--or upload it from a local file
+INPUT TYPE="file" NAME="alignfile" VALUE="" SIZE="40" MAXLENGTH="80" -->
+
+<P>&nbsp;</P>
+
+<Input TYPE="submit" VALUE="Submit">
+
+<Input TYPE="reset" VALUE="Reset">
+
+</FORM>
+
+<HR>
+                                                        
+<P><A HREF="http://www.es.embnet.org/Copyright-CSIC.html">&copy; EMBnet/CNB</A></P>
+</BODY>
+</HTML>
+

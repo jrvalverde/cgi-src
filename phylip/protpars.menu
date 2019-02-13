@@ -1,0 +1,68 @@
+U
+    Search for best tree?  (sbt)
+    	Yes (*)
+	No
+
+J
+    Randomize input order of sequences? (rio)
+    	No (*)
+	Yes -> odd-rnd -> jumble-no
+
+O
+    Outgroup root?  (or)
+    	No (*)
+	Yes -> number
+
+T
+    Use Threshold parsimony?	(tp)
+    	No (*)
+	Yes -> threshold
+
+M
+    Analyze multiple data sets? (amds)
+    	No (*)
+	Yes -> How many data sets?
+
+I
+    Input sequences interleaved? (isi)
+    	Yes (*)
+	No
+
+0
+    Terminal type (IBM PC, VT52, ANSI)? (tt)
+    	ANSI (*)
+
+1
+    Print out the data at start of run	(pod)
+    	No (*)
+	Yes
+
+2
+    Print indications of progress of run (pip)
+    	Yes (*)
+	No
+
+3
+    Print out tree  (pot)
+    	Yes (*)
+	No
+
+4
+    Print out steps in each site    (poss)
+    	No (*)
+	Yes
+
+5
+    Print sequences at all nodes of tree (psant)
+    	No (*)
+	Yes
+
+6
+    Write out trees onto tree file? (wot)
+    	Yes (*)
+	No
+
+Y
+    Go for it.
+
+    

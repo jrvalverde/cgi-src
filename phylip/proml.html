@@ -1,0 +1,119 @@
+<HTML>
+<HEAD>
+	<TITLE>ProML</TITLE>
+</HEAD>
+<!-- (C) José R. Valverde, jrvalverde@es.embnet.org -->
+<BODY BGCOLOR="white">
+
+<H1>Analyze Protein evolution using Maximum Likelihood</H1>
+
+<P>This form allows you to investigate the evolution of a group of protein
+sequences according to the maximum likelihood model using PHYLIP PROML.</P>
+
+<P>Enter or paste your <STRONG>protein</STRONG> multiple sequence 
+alignement in <STRONG>PHYLIP</STRONG> or <STRONG>MSF</STRONG> format 
+below and then press the <STRONG>Submit</STRONG> button.</P>
+
+<P><STRONG>IMPORTANT NOTE:</STRONG> The analysis may take a while to run.
+Please be patient<P>
+
+<FORM METHOD="POST" ACTION="/cgi-bin/proml.pl">
+
+<TABLE BORDER="3">
+<TR>
+  <TD>Search for Best Tree<BR>   
+    <SELECT NAME="U">
+    <OPTION SELECTED VALUE="y">Yes
+    <OPTION VALUE="n">No, use user trees in input file
+    </SELECT>
+  </TD>
+  <TD>Outgroup root<BR>
+  is species number <INPUT NAME="O" SIZE="4" VALUE="0"><BR>
+  0 = No, use species 1
+  </TD>
+  <TD>Probability model<br>
+  <select name="P">
+    <option selected value="0">Jones-Taylor-Thornton
+    <option value="1">Henikoff/Tillier PMB
+    <option value="2">Dayhoff PAM
+  </select></TD>
+</TR>
+<TR>
+<!-- This is too complex to handle easily and we want a trivial tool>
+    <TD>Rate variation among sites<br>
+    <select name="R">
+    	<option selected value="0">constant rate of change
+	<option value="1">Gamma distributed rates
+    	<option value="2">Gamma+Invariant sites
+    	<option value="3">user-defined HMM of rates
+    </select>
+    </TD>
+< -->
+    <td>
+    	Rate variation among sites<br />
+    <select name="R">
+    	<option selected value="0">constant rate of change
+    </select>
+    </td>
+    <TD>Sites weighted<br>
+    <select name="W">
+    	<option selected value="0">No
+	<!-- ><option value="1">Yes  < -->
+    </select>
+    </TD>
+    <TD>Speedier but rougher analysis<br>
+    <select name="S">
+    	<option selected value="0">Yes
+	<option value="1">No, not rough
+    </select>
+    </TD>
+</TR>
+<TR>
+    <TD>Global rearrangements<br>
+    <select name="G">
+    	<option selected value="0">No
+	<option value="1">Yes
+    </select>
+    </TD>
+    <TD>Print out tree<BR>
+    <SELECT NAME="3">
+    	<OPTION SELECTED VALUE="0">Yes
+    	<OPTION VALUE="1">No
+    </SELECT>
+    </TD>
+    <TD>Reconstruct hypothetical sequences<br />
+    <select name="5">
+    	<option selected value="0">No
+	<option value="1">Yes
+    </select>
+    </TD>
+</TR>
+</TABLE>
+
+<P>You can enter or paste your alignment below<br />
+<TEXTAREA NAME="alignment" ROWS="10" COLS="70"></TEXTAREA>
+
+<P><STRONG>Hint:</STRONG> If you don't have an alignment, try the
+<A HREF="http://www.es.embnet.org/Doc/phylodendron/clustal-form.html">Phylodendron
+ClustalW</A> form to build your alignment, adding in the <STRONG>Other
+ClustalW options</STRONG> the following<BR>
+<BLOCKQUOTE><TT>-output=phylip</TT></BLOCKQUOTE>
+</P>
+
+<!--or upload it from a local file
+INPUT TYPE="file" NAME="alignfile" VALUE="" SIZE="40" MAXLENGTH="80" -->
+
+<P>&nbsp;</P>
+
+<Input TYPE="submit" VALUE="Submit">
+
+<Input TYPE="reset" VALUE="Reset">
+
+</FORM>
+
+<HR>
+                                                        
+<P><A HREF="http://www.es.embnet.org/Copyright-CSIC.html">&copy; EMBnet/CNB</A></P>
+</BODY>
+</HTML>
+
