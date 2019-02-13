@@ -1,0 +1,28 @@
+#!/usr/bin/perl
+
+#main
+print "Content-type: text/html\n\n",
+  "<TITLE> Edit a File </TITLE>\n",
+  "<BODY BACKGROUND=\"/gcg/icons/paper-04.jpg\" TEXT=\"393939\" >\n",
+  "<CENTER><TABLE BORDER=3>\n",
+  "<TD><A HREF=\"/www2gcg/getit?scanmenu.pl+$pwd+$wls+$filter+$file_filter\"><I>Menu</I></A>\n",
+  "<TD> List: <I><A HREF=\"/www2gcg/getit?Chlist+$pwd+$wls+$filter+$file_filter+$program\">$wls</A></I>\n",
+  "<TD> Directory: <I><A HREF=\"/www2gcg/getit?Chdir+$pwd+$wls+$filter+$file_filter+$program\">$pwd</I></A>\n"
+;
+print "<TD> Program: <A HREF=\"/www2gcg/getit?Prog_display+$pwd+$wls+$filter+$file_filter+$program+noseq\">",
+      "<I>$program</I></A>\n"
+unless $program eq "menu";
+print "</TABLE>\n",
+  "<H3><A HREF=\"/gcg/Files_edition.html\" TARGET= \"new\">Edit a file</A><H3>",
+  "<FORM METHOD=\"POST\" ACTION=\"http:/cgi-bin/get_post.cgi?these+are+the+arguments\">\n",
+  "<TABLE BORDER=3 >\n",
+  "<TH><INPUT TYPE=\"submit\" NAME=\"submit\" VALUE=\"Save_as\">\n",
+  "<TH><INPUT TYPE=\"submit\" NAME=\"submit\" VALUE=\"GCG_seq\">\n",
+  "<INPUT TYPE=\"text\" SIZE=20  NAME=\"arg1\" VALUE=\"\">\n",
+  "<TH><INPUT TYPE=\"reset\" VALUE=\"Undo changes\"></TABLE>\n",
+  "<TEXTAREA NAME=\"arg2\" ROWS=20 COLS=75>\n"
+;
+print "</TEXTAREA> </H5></CENTER></FORM>\n";
+
+
+

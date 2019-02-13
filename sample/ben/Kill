@@ -1,0 +1,4 @@
+#!/usr/bin/perl
+($pwd, $wls, $filter, $file_filter, $program, $prog_pid) = @ARGV;
+kill 9, $prog_pid;
+system "/www2gcgroot/bin/Prog_display $pwd $wls $filter $file_filter $program -noseq";

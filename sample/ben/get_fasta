@@ -1,0 +1,39 @@
+#!/usr/bin/perl
+
+  print "Content-type: text/html\n\n";
+
+  print "<HTML>";
+  print "<BODY>";
+  print "<H1> Fasta Execution </H1>";
+  read(STDIN, $request, $ENV{"CONTENT_LENGTH"});
+  print "<HR> $request <HR>";
+  @arguments = split(/&/, $request);
+
+# foreach $j(0..$#arguments) {
+#   $arguments[$j] =~ s/\+/ /g;
+#   ($key, $val) = split(/=/,$arguments[$j]);
+#  
+#   $key =~ s/%(..)/pack("c",hex($1))/ge;
+#   $val =~ s/%(..)/pack("c",hex($1))/ge; 
+#
+#   print "$key = $val<P>\n";
+# }
+  $arguments[0] =~ s/\+/ /g; $arguments[1] =~ s/\+/ /g;
+  ($seq_key, $sequence) = split /=/,$arguments[0];
+  $seq_key =~ s/%(..)/pack("c",hex($1))/ge;
+  $sequence =~ s/%(..)/pack("c",hex($1))/ge;
+  ($bank_key, $bank)    = split /=/,$arguments[1];
+  $bank_key =~ s/%(..)/pack("c",hex($1))/ge;
+  $bank =~ s/%(..)/pack("c",hex($1))/ge;
+  print "<PRE>sequence:\n $sequence<HR>";
+# print "<PRE>$seq_key,$sequence,$bank_key,$bank<p>"; exit(0);
+  $ENV{FASTLIBS}="/sw/fasta/fastgbs";
+  open FASTA, "|/sw/fasta/fasta -q @ $bank > /tmp/my_fasta_output";
+  print FASTA $sequence;
+  close FASTA;
+  open OUTPUT, "/tmp/my_fasta_output";
+  @fasta_out = <OUTPUT>;
+  print "\n@fasta_out";
+  print "</BODY></HTML>";
+  exit 0;
+ 

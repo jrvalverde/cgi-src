@@ -1,0 +1,409 @@
+#!/usr/bin/perl
+use FileHandle;
+autoflush STDOUT; 
+umask (027);
+sub error {
+  my ($error_message) = $_[0];
+  print "Content-type: text/html\n\n $error_message";
+  exit(0);
+}
+
+
+
+sub table_refresh {
+  my ($key, $val, $nid_line); 
+
+  $gcgnid = "$ENV{HOME}/.gcgnid";
+  @atime  = stat($gcgnid);  
+  defined $atime[8] 
+  	or error ("can't stat $gcgnid");
+  open nid, $gcgnid 
+  	or error (" can't  open $gcgnid");
+  $nid_line = <nid>
+        or error (" can't read $gcgnid");
+  $nid_line =~/,/
+  	or error (" bad first line in $gcgnid");
+  if ($atime[8] + 28800 <= time)  {
+  	($segment = $nid_line) =~ s/.*=([0-9]*),.*/\1/;
+  	system("ipcrm -m $segment");
+  	error("Content-type: text/html\n\n You didn't use www2gcg for 8 hours: start a new web client, and authenticate!");
+  }
+  while (1) {
+        chomp $nid_line;
+  	($key, $val) = split /=/, $nid_line; 
+  	$ENV{$key} = $val;
+  last if eof(nid);
+  	$nid_line = <nid>;
+  }
+  close nid;
+  return(1);
+}
+
+sub GCGcmdline {
+   my ($progpath, @arguments) = @_;
+   shift @arguments; unshift @arguments, $progpath;
+   for ($i=1;$i<=$#arguments;$i++) {
+     $arguments[$i] =~ s/^([^-"])/-$1/
+   }      
+  $cmdline = join ' ', @arguments;
+  $cmdline =~ s/ -P / /g; $cmdline =~ s/ -N / /g;
+  $cmdline =~ s/-Rules=.*?\ //;
+  return ($cmdline);
+}
+
+sub batch_job {
+  my ($pwd, $wls, $filter,$file_filter, $progname, @argument) = @_;
+  $cmdline = GCGcmdline($progname, @argument);
+  open (batchfile, ">$ENV{HOME}/.www2gcg_job") 
+  	or error (" Can't open $ENV{HOME}/.www2gcg_job");
+  print batchfile '#!/bin/csh', "\n", 'if ( $#argv == 1 ) then',
+		  "\n  $ENV{SUBMIT_COMMAND} <<EOF\n",
+		  "  $ENV{HOME}/.www2gcg_job\nEOF\nelse\n",	  
+		  "  source /gcgroot/gcgstartup; source /gcgroot/genetics\n",
+                  "  echo \"This GCG command has been executed:\"\n",
+                  "  echo \"$cmdline\"\n",
+  		  "  cd $pwd\n  set noglob\n  $cmdline\nendif\n"
+  ;
+  close batchfile; chmod 0700, "$ENV{HOME}/.www2gcg_job";
+  system "$ENV{SUBMIT_COMMAND} < $ENV{HOME}/.www2gcg_job";
+  system "/www2gcgroot/bin/Head $pwd $wls $filter $file_filter $prog_name";
+  print "<TABLE BORDER=3><TH>Your job is submitted to the batch queue.",
+  	"<TR><TH> Look at your mail to know if it has been executed</TABLE>",
+  	"This is the command that will be executed:<P>$cmdline"
+  ;
+}
+ 
+sub editor {
+  my ($pwd, $wls, $filter,$file_filter, $progname, @argument) = @_;
+  $cmdline = GCGcmdline($progname, @argument);
+  open (edfile, ">$ENV{HOME}/.edgcg")
+        or error (" Can't open $ENV{HOME}/.edgcg");
+  print edfile  "#!/bin/csh\ncd $pwd\nset noglob\n" ;
+  while (($key, $val) = each %ENV) { print edfile "setenv $key \'$val\'\n"; }
+  print edfile  "$cmdline\n" ;
+  close edfile;
+  chmod 0700, "$ENV{HOME}/.edgcg" or error ("Can't chmod $ENV{HOME}/.edgcg");
+  chdir $pwd or error (" can't chdir to $pwd");
+  system "/www2gcgroot/bin/Head $pwd $wls $filter $file_filter $prog_name";
+  print "<TABLE BORDER=3>  when logged, click on the \"GCG Editor:\" button in the telnet session.\n",
+  	"<TR><TH><A HREF=\"http:/www2gcg/getit?Telnet+/www2gcgroot/docs/Telnet/++++$prog_name\"\n",
+  	"TARGET=\"Telnet\">Open Telnet</A>, if not runing\n",
+        "<TH><A HREF=\"/gcg/Telnet/Documentation/index.html\" TARGET=\"new\">  ?</A></TABLE><HR>",
+        "This is the command that will be executed:<P>$cmdline\n"
+  ;
+}
+
+sub piped_program {
+  print "\n<script language= \"JavaScript\"><!--\n\n",
+  	"function adapt(what) {\n   document.forms[0].selchap.value = what;",
+  	"   document.forms[0].submit()\n}\n//-->\n</script>\n",
+  	"<CENTER><H3><A HREF=\"/gcg/Piped_programs.html\" TARGET=\"new\">Piped program(s):</A> <P>\n",
+  	"<FORM METHOD= \"POST\" ACTION= \"http:/www2gcg/getit?$pwd+$wls+$filter+$file_filter\" >\n",
+  	"<INPUT TYPE=\"hidden\" NAME=\"progsel\" VALUE=\"progsel\">\n",
+  	"<INPUT TYPE=\"hidden\" NAME=\"arg0\" VALUE=\"$filter\">\n",
+  	"<TABLE BORDER=3><TD><inPUT TYPE= \"submit\" NAME=\"selchap_1\" VALUE=\"Select\">\n",
+  	"<SELECT  NAME=\"arg\" OnChange=\"adapt('selchap_1')\">\n"
+  ;
+  foreach $pipe (split / /, $_[0]) { 
+  	print "<OPTION>$pipe\n";
+  }
+  print "</SELECT></TABLE><INPUT TYPE=\"hidden\" NAME=\"selchap\"  ></FORM></CENTER>\n";
+  	
+}
+
+
+sub savefile {
+  my ($progname, $pwd, $gcgdatafile, $localdatafile, $filter, $filetosave, $filecontent) = @_;
+  open filetosave, ">$pwd/$filetosave" or error("Can't open $filetosave");
+  $filecontent =~ s/
+//g;
+  print filetosave $filecontent; close(filetosave); 
+  exec "/www2gcgroot/bin/LocalDataFile", $pwd, $gcgdatafile, $filetosave, $filter, "menu";
+  error("visualize: can't exec LocalDataFile"); 
+}
+
+
+
+# main #############################################################################
+
+$|=1;
+
+####################################################################################
+# @piped is the hash table which contains all the piped programs                    #
+####################################################################################
+  $piped{bestfit} = "gapshow";
+  $piped{coilscan} = "figure";
+  $piped{compare} = "dotplot";
+  $piped{clustal} = "distances diverge paupsearch plotsimilarity profilemake lineup pretty prettybox";
+  $piped{distances} = "growtree";
+  $piped{diverge} = "growtree";
+  $piped{foldrna} = "dotplot circles domes mountains squiggles";
+  $piped{framesearch} = "figure";
+  $piped{gap} = "gapshow";
+  $piped{gappedblast} = "hspcrunch";
+  $piped{gelstart} = "gelenter gelmerge gelassemble gelview";
+  $piped{gelenter} = "gelmerge gelassemble gelview";
+  $piped{gelmerge} = "gelassemble gelview";
+  $piped{gelassemble} = "gelview geldisassemble";
+  $piped{gibbs} = "extractmsf";
+  $piped{lineup} = "distances diverge paupsearch plotsimilarity profilemake pretty prettybox";
+  $piped{mapsort} = "plasmidmap";
+  $piped{meme} = "motifsearch";
+  $piped{mfold} = "plotfold";
+  $piped{netblast} = "netfetch";
+  $piped{paupsearch} = "paupdisplay";
+  $piped{peptidestructure} = "plotstructure";
+  $piped{pileup} = "figure distances diverge paupsearch plotsimilarity profilemake lineup pretty prettybox";
+  $piped{prime} = "figure";
+  $piped{profilemake} = "profilegap profilesearch";
+  $piped{profilesearch} = "profilesegments";
+  $piped{stemloop} = "dotplot";
+  $piped{wordsearch} = "segments";
+
+
+####################################################################################
+#We are  coming here using an anchor, thus the GET method.                         #
+#This is the way to start a GCG session or to execute a script using an anchor    #
+####################################################################################
+  if ($ENV{"REQUEST_METHOD"} eq "GET" ) {
+  	if ($#ARGV == -1 ) { 		# New GCG session
+  		system ("/www2gcgroot/bin/startnull") == 0 
+  			or error (" can't start a new GCG session");
+ 		exec "/www2gcgroot/bin/scanmenu.pl", 
+  			"$ENV{HOME}", "First_lIst", '[.]list$', '[.]seq$|[.]pep$', "menu.html";
+ 		error (" can't execute the startin scanmenu");
+  	}
+    
+        				# a script as to be executed
+  	($script_path, $pwd, $wls, $filter, $file_filter, @last_args) = @ARGV;
+        $filter =~ s/\\//g; $file_filter =~ s/\\//g;
+  	$script_path = "/www2gcgroot/bin/".$script_path;
+  	&table_refresh or error (" can't refresh access to $ENV{GCGNID}");
+  	chdir $pwd or error (" can't chdir to $pwd");
+	$ARGV[0]= $script_path;
+	exec @ARGV;
+  	error (" unable to exec @ARGV");
+  }
+
+####################################################################################
+#We are  coming here using the POST method 					   #
+####################################################################################
+  read(STDIN, $request, $ENV{"CONTENT_LENGTH"});
+
+####################################################################################
+#A file is send to the WEB server, it will be saved somewhere on the user space    #
+# this code parse what is send by /multipart\/form-data/ CONTENT_TYPE              #
+# and save it in the @argument vector                                             #
+####################################################################################
+  if ($ENV{"CONTENT_TYPE"} =~ /multipart\/form-data/) {
+# print "Content-type: text/html\n\n <HTML> <BODY>";
+    ($type, $boundary) = split /=-*/, $ENV{"CONTENT_TYPE"};
+    @in = split(/-*$boundary/, $request);
+    foreach $j(1..$#in-2) {
+      $in[$j] =~ s/\+/ /g;
+      ($bs, $key[$j], $val[$j]) = split(/"/,$in[$j]);
+
+      $key[$j] =~ s/%(..)/pack("c",hex($1))/ge;
+      $val[$j] =~ s/%(..)/pack("c",hex($1))/ge;
+
+      $val[$j] =~ s/\s*//g; chomp $val[$j];
+#print "<LI> $j $key[$j] = $val[$j]\n";
+      if ($key[$j] =~ /submit/) {$val[1] = "/www2gcgroot/bin/".$val[$j]; }
+    }
+    $m =0;
+    $argument[$m++] = $val[1];
+#   print $in[$#in-1];
+    ($bs, $key, $bs2,$file_name, $file_content) = split(/"/,$in[$#in-1], 5);
+    $file_content =~ s/Content-Type: \S*\s*//;
+    $file_name =~  s/.*\\//;
+#   print "<LI>$key = $file_name\n";
+#   print "<LI>file_content = \n$file_content\n";
+    foreach $j (2 .. $#in-2) { 
+      if ($key[$j] =~ /^arg/) 			      {$argument[$m++] = $val[$j]; }
+      elsif ($key[$j] !~ /submit/)                    {$argument[$m++] = $key[$j]."=".$val[$j]; }
+    }
+    $argument[$m++] = $file_name; $argument[$m++] = $file_content;
+#   foreach $argument (@argument) { print "<LI>$argument" ;}
+    exec @argument;
+    exit(0);
+  }
+####################################################################################
+# This code parse what is send (/application/x-www-form-urlencode/)  by the client #
+# and save it in the @argument vector                            		   #
+####################################################################################
+  else {
+
+    if ($#ARGV == 1)    { ($pwd, $wls) = @ARGV; }
+    elsif ($#ARGV == 3)   { ($pwd, $wls, $filter, $file_filter) = @ARGV; }
+    else                        { error(" $#ARGV is not possible");}
+
+    @in = split(/&/, $request);
+    $in[0] =~ s/\+/ /g;
+    ($switch_val, $prog_val) = split(/=/,$in[0]);
+    $switch_val =~ s/%(..)/pack("c",hex($1))/ge;
+    $prog_val =~ s/%(..)/pack("c",hex($1))/ge;
+    if ($prog_val =~ /\//) { ($prog_name = $prog_val) =~ s/.*\///;$argument[0] =$prog_name }
+    else                   { $prog_name = ""; $argument[0] = $prog_val ;}
+    $m = 1;
+    foreach $j(1..$#in) {
+      $in[$j] =~ s/\+/ /g;
+      ($key, $val) = split(/=/,$in[$j]);
+   
+      $key =~ s/%(..)/pack("c",hex($1))/ge;
+      $val =~ s/%(..)/pack("c",hex($1))/ge; 
+      if ($key =~ /arg/) { 
+        if ($val =~ /-ADA/)  { $switch_val = "adapt";}
+        $argument[$m++] = $val;
+        next;
+      }
+      if ($key =~ /submit/) {$prog_val = "/www2gcgroot/bin/".$val; next }
+      if ($key =~ /selchap/) { 
+        if ($key eq "selchap") {
+          if ($val =~ /selchap/) { $key = $val; }
+          else                   {next;}
+        } 
+        ($chapnumber = $key ) =~ s/selchap_//; $chapnumber = $chapnumber +1;
+        next;
+      }
+      if ($val eq "on") { $argument[$m++] = $key; next}
+      if ($val eq "dummy") { next;} 
+      if ($key eq "-OPTIO" || $key eq "-NOOPT") { $switch_val = "adapt";}
+      elsif ($key eq "BatchRun") {$switch_val = "batch" if($val =~/do/); next;}
+      elsif ($key eq "-programname") { $prog_name = $val;}
+      if ($val ne "") {
+        if ($key eq $prec_key) { $argument[$m-1] = $argument[$m-1].$val;}
+        else                   { $argument[$m++] = "$key=$val";}
+        $prec_key = $key;
+      }
+    }
+
+    &table_refresh or error (" can't refresh access to $ENV{GCGNID}"); 
+    chdir $pwd or error (" can't chdir to $pwd");
+
+
+####################################################################################
+#  The html page of a program as to be adapted to ...                              #
+#                                                                                  #
+####################################################################################
+    if ($switch_val eq "adapt") {
+  	  unshift @argument, "/www2gcgroot/bin/adapt.pl", $pwd, $wls, $filter, $file_filter, $prog_name;
+#       error (" @argument");
+  	exec @argument;
+    	error (" Can't execute /www2gcgroot/bin/adapt.pl, $pwd, $wls, $filter, $file_filter, $prog_name");
+    }
+
+####################################################################################
+# A program as to be executed in batch!                                               #
+#                                                                                  #
+####################################################################################
+    if ($switch_val eq "batch") {
+    	&batch_job($pwd, $wls, $filter,$file_filter, $prog_val, @argument);
+    	exit(0);
+    }
+
+####################################################################################
+# An editor as to be executed !                                                    #
+#                                                                                  #
+####################################################################################
+    if ($switch_val eq "editor") {
+        &editor($pwd, $wls, $filter,$file_filter, $prog_val, @argument);
+        exit(0);
+    }
+
+
+####################################################################################
+# A perl script as to be executed!                                                 #
+#                                                                                  #
+####################################################################################
+   if ($switch_val eq "script") {
+   	shift @argument if $argument[0] == "on"; unshift @argument, $prog_val;
+   	exec @argument; 
+   	error (" Can't execute @argument");
+   }
+
+####################################################################################
+# A program is selected in the menu                                                #
+#                                                                                  #
+####################################################################################
+    if ($switch_val eq "progsel") {
+    	if ( $argument[$chapnumber] =~ /menu/) {   		# this is the way to launch a submenu! 
+    		exec "/www2gcgroot/bin/scanmenu.pl", $pwd, $wls, $filter, 
+    		     $file_filter, $argument[$chapnumber];
+        	error (" Can't execute scanmenu.pl, $pwd, $wls, $filter,$file_filter, $argument[$chapnumber]");
+        }
+        else {							# and this to open a html program page!
+                exec "/www2gcgroot/bin/Prog_display", $pwd, $wls, $filter,
+   		      $file_filter, $argument[$chapnumber], "-noseq";
+    		error (" Can't execute adapt.pl, $pwd, $wls, $filter, $file_filter, $argument[$chapnumber], -noseq");	
+   	}
+    }
+    		     
+####################################################################################
+# The "prog_val" program will be executed                                          #
+#                                                                                  #
+####################################################################################
+    if ($switch_val eq "prog") {
+    	$now =time;
+    	utime, $now, $now, $pwd or error (" Unable to modify acces time of $pwd");
+	{
+		local ($oldbar) = $|;
+		$cfh = select (STDOUT);
+		$|=1;
+	    	print "Content-type: text/html\n\n<TITLE>OUTPUT of $prog_name</TITLE><PRE>\n",
+	   		      "<BODY background=\"/gcg/icons/paper-04.jpg\">\n",
+			      "<CENTER><h3> Wait for $prog_name end of execution or </h3>"
+		;
+		$cmdline = GCGcmdline($prog_val, @argument);
+		@cmdline = split / /, $cmdline;
+		$|=$oldbar;
+		select ($cfh);
+	}
+	FORK: {
+		if ($pid = fork){
+			$|=1;
+			print   "<TABLE BORDER=3>",
+				"<TR><FORM METHOD=\"POST\"  ACTION=\"http:/www2gcg/getit?$pwd+$wls\">\n",
+				"<INPUT TYPE=\"hidden\" NAME=\"script\"  VALUE=\"/www2gcgroot/bin/Kill\" >\n",
+				"<TH><inPUT TYPE=\"submit\" VALUE=\"Kill\"> $prog_name\n",
+				"<INPUT TYPE=\"hidden\" NAME=\"arg0\" VALUE=\"$pwd\">\n",
+				"<INPUT TYPE=\"hidden\" NAME=\"arg1\" VALUE=\"$wls\">",
+				"<inPUT TYPE=\"hidden\" NAME=\"arg2\"  VALUE=\"$filter\">\n",
+				"<inPUT TYPE=\"hidden\" NAME=\"arg3\"  VALUE=\"$file_filter\">\n",
+				"<inPUT TYPE=\"hidden\" NAME=\"arg4\"  VALUE=\"$prog_name\">\n",
+				"<inPUT TYPE=\"hidden\" NAME=\"arg5\"  VALUE=\"$pid\">\n",
+				"</TABLE></FORM>"
+			;
+ 			wait;
+		}
+		elsif (defined $pid) {
+		exec @cmdline ; print "<CENTER><H5>$prog_val exit value: $? ( $! )";
+		}
+		else {error("can't fork") }
+	}
+   	print "\n</PRE>";
+   	system ("/www2gcgroot/bin/newfiles.pl", $now, $pwd, $wls, $filter,
+  	       $file_filter, $prog_name) == 0 or print "<H3>newfiles.pl don't execute!";
+        if (defined $piped{$prog_name}) {piped_program ($piped{$prog_name});}
+        exit(0);
+    } 
+
+####################################################################################
+#  a data file will be saved                                                       #
+#                                                                                  #
+####################################################################################
+    if ($switch_val eq "SaveFile") {
+	savefile(@argument); exit(0);
+    }
+####################################################################################
+#   an unknown switch_val value was used                                           #
+#                                                                                  #
+####################################################################################
+    error ("unknown switch_val value");
+
+
+
+
+
+
+
+}

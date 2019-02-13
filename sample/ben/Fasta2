@@ -1,0 +1,24 @@
+#!/usr/bin/perl
+
+#main
+print "Content-type: text/html\n\n",
+  "<TITLE>  Small Fasta Web Interface</TITLE>\n",
+  "<BODY BACKGROUND=\"/gcg/icons/paper-04.jpg\" TEXT=\"393939\" >\n",
+  "<CENTER><TABLE BORDER=3>\n",
+  "<TH>Small Fasta Web Interface</TABLE>",
+  "<H3>Enter the sequence in the text area in fasta format</H3>",
+  "<FORM METHOD=\"POST\" ACTION=\"http:/cgi-bin/get_fasta\">\n",
+  "<TABLE BORDER=3 >\n",
+  "<TH><INPUT TYPE=\"submit\" VALUE=\"fasta\">\n",
+  "<TH><INPUT TYPE=\"reset\" VALUE=\"clear\"></TABLE>\n",
+  "<TEXTAREA NAME=\"sequence\" ROWS=20 COLS=75>\n",
+  "</TEXTAREA> </H5></CENTER>\n",
+  "<H3>  Select one databank </H3>",
+  "<INPUT TYPE=\"checkbox\" NAME=\"bank\" VALUE=\"c\" > Swissprot\n",
+  "<H3>  Enter your E-mail address</H3>",
+  "<INPUT TYPE=\"text\" NAME=\"email\" >",
+  "</FORM>"
+;
+
+
+

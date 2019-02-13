@@ -1,0 +1,13 @@
+#!/usr/local/bin/perl
+
+
+
+print "Content-type: text/html\n\n",
+      "<HTML>\n<HEAD>\n<TITLE>WWW2GCG $progname page</TITLE>\n</HEAD>",
+      "<FRAMESET ROWS = \"90, *, 60\">\n",
+      "<FRAME SCROLLING=\"no\"  SRC=\"/cgi-bin/world\" >\n",
+      "<FRAME NAME=\"F1\" SRC=\"/index.html\">\n",
+      "<FRAME NAME=\"F2\" SCROLLING=\"no\" SRC=\"/cgi-bin/world\" >\n",
+      "</FRAMESET>"
+;
+

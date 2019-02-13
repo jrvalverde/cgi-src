@@ -1,0 +1,40 @@
+#!/usr/bin/perl
+
+  print "Content-type: text/html\n\n";
+
+  print "<HTML>";
+  print "<BODY>";
+  print "<H1> Fasta Execution </H1>";
+  read(STDIN, $request, $ENV{"CONTENT_LENGTH"});
+  print "<HR> $request <HR>";
+  @arguments = split(/&/, $request);
+
+ foreach $j(0..$#arguments) {
+   $arguments[$j] =~ s/\+/ /g;
+   ($key[$j], $val[$j]) = split(/=/,$arguments[$j]);
+  
+   $key[$j] =~ s/%(..)/pack("c",hex($1))/ge;
+   $val[$j] =~ s/%(..)/pack("c",hex($1))/ge; 
+
+   print "$key[$j] = $val[$j]<P>\n";
+ }
+
+  ($sequence, $bank, $email) = @val;
+  print "<PRE>sequence:\n $sequence<HR>";
+
+  $ENV{FASTLIBS}="/sw/fasta/fastgbs";
+
+# open FASTA, "|/sw/fasta/fasta -q @ $bank > /tmp/my_fasta_output";
+  open FASTA, "|/sw/fasta/fasta -q @ $bank | Mail -s 'fasta results' $email";
+  print FASTA $sequence;
+  close FASTA;
+
+  print "<H3> The output of fasta execution is sent to \"$email\"</H3><HR>\n";
+
+# open OUTPUT, "/tmp/my_fasta_output";
+# @fasta_out = <OUTPUT>;
+# print "\n@fasta_out";
+
+  print "</BODY></HTML>";
+  exit 0;
+ 

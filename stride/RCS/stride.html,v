@@ -1,0 +1,217 @@
+head	1.3;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.3
+date	2004.11.16.13.52.00;	author root;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2002.02.06.10.46.38;	author netadmin;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2002.02.06.10.13.00;	author netadmin;	state Exp;
+branches;
+next	;
+
+
+desc
+@A form to run a simple CGI to run STRIDE [jr]
+@
+
+
+1.3
+log
+@Stride web form
+@
+text
+@<HTML><HEAD>
+<TITLE>STRIDE</TITLE>
+</HEAD><BODY BGCOLOR="white" BACKGROUND="6h2o-w-small.gif">
+<!-- $Id: stride.html,v 1.2 2002/02/06 10:46:38 netadmin Exp $ -->
+<!-- $Log: stride.html,v $
+<!-- Revision 1.2  2002/02/06 10:46:38  netadmin
+<!-- Added licensing details [j]
+<!-- -->
+
+<script>
+function openNewWindow(fileName,windowName,theWidth,theHeight) {
+        window.open(fileName,windowName,"toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=yes,resizable=yes,width="+theWidth+",height="+theHeight)
+}
+
+</script>
+
+<CENTER>
+    	    	    	<H1>STRIDE</H1>
+    	<H2>Analyze Molecular Structures</H2>
+</CENTER>
+<HR>
+<BR>
+
+<FORM  METHOD="POST" ACTION="/cgi-bin/stride.cgi" ENCTYPE="multipart/form-data">
+<TABLE WIDTH="100%" BGCOLOR="lightblue" ALIGN=CENTER BORDER=0 
+       CELLSPACING=0 CELLPADDING=5 >
+
+  <!-- warning box -->
+  <TR><TD ALIGN="CENTER" BGCOLOR="Pink">
+  <STRONG>WARNING</STRONG>:  The use of this  software  in  commercial  
+  activities  is  not  allowed without a prior written commercial license 
+  agreement from the author.
+  </TD></TR>
+
+  <!---- data box --->
+  <TR ><TD ALIGN="CENTER">
+  <TABLE  WIDTH="100%" CELLSPACING=0 CELLPADDING=2>
+    <TR ><TH >Structure file to analyze</TH></TR>
+    <TR><TD ALIGN=CENTER  VALIGN=TOP>
+    Upload file: 
+    <INPUT TYPE="file" NAME="infile" VALUE="" SIZE=40 MAXLENGTH=80 ><BR>
+    <i>or</i> enter <b>data</b> 
+    in box below
+    <BR>
+    <TEXTAREA NAME="indata" ROWS=6 COLS=75></TEXTAREA><BR>
+    </TD></TR>
+  </TABLE>
+  </TD></TR>
+  <!---- end data box --->
+
+  <!---- options box --->
+  <TR> 
+  <TD  ALIGN=CENTER  VALIGN=TOP>
+    <TABLE BORDER=1 bgcolor="#e8e8e8" CELLSPACING=1 CELLPADDING=2>
+      <TR ><TH >Input format</TH></TR>
+      <TR ><TD>
+        <SELECT NAME="informat">
+        <OPTION SELECTED VALUE="pdb">PDB
+        <OPTION VALUE="tinker">TINKER XYZ file
+	<OPTION VALUE="alc">Alchemy file
+	<OPTION VALUE="prep">AMBER prep file
+	<OPTION VALUE="bs">Ball and Stick file
+        <OPTION VALUE="bgf">MSI BGF file
+        <OPTION VALUE="car">Biosym .CAR file
+        <OPTION VALUE="boog">Boogie file
+        <OPTION VALUE="caccrt">Cacao Cartesian file
+        <OPTION VALUE="cadpac">Cambridge CADPAC file
+        <OPTION VALUE="charmm">CHARMm file
+        <OPTION VALUE="c3d1">Chem3D Cartesian 1 file
+        <OPTION VALUE="c3d2">Chem3D Cartesian 2 file
+        <OPTION VALUE="cssr">CSD CSSR file
+        <OPTION VALUE="fdat">CSD FDAT file
+        <OPTION VALUE="gstat">CSD GSTAT file
+        <OPTION VALUE="dock">Dock Database file
+        <OPTION VALUE="dpdb">Dock PDB file
+        <OPTION VALUE="feat">Feature file
+        <OPTION VALUE="fract">Free Form Fractional file
+        <OPTION VALUE="gamout">GAMESS Output file
+        <OPTION VALUE="gzmat">Gaussian Z-Matrix file
+        <OPTION VALUE="gauout">Gaussian 92 Output file
+        <OPTION VALUE="g94">Gaussian 94 Output file
+        <OPTION VALUE="gr96A">GROMOS96 (A) file
+        <OPTION VALUE="gr96N">GROMOS96 (nm) file
+        <OPTION VALUE="hin">Hyperchem HIN file
+        <OPTION VALUE="sdf">MDL Isis SDF file
+        <OPTION VALUE="m3d">M3D file
+        <OPTION VALUE="macmol">Mac Molecule file
+        <OPTION VALUE="macmod">Macromodel file
+        <OPTION VALUE="micro">Micro World file
+        <OPTION VALUE="mm2in">MM2 Input file
+        <OPTION VALUE="mm2out">MM2 Output file
+        <OPTION VALUE="mm3">MM3 file
+        <OPTION VALUE="mmads">MMADS file
+        <OPTION VALUE="mdl">MDL MOLfile file
+        <OPTION VALUE="molen">MOLIN file
+        <OPTION VALUE="mopcrt">Mopac Cartesian file
+        <OPTION VALUE="mopint">Mopac Internal file
+        <OPTION VALUE="mopout">Mopac Output file
+        <OPTION VALUE="pcmod">PC Model file
+        <OPTION VALUE="pdb">PDB file
+        <OPTION VALUE="psin">PS-GVB Input file
+        <OPTION VALUE="psout">PS-GVB Output file
+        <OPTION VALUE="msf">Quanta MSF file
+        <OPTION VALUE="schakal">Schakal file
+        <OPTION VALUE="shelx">ShelX file
+        <OPTION VALUE="smiles">SMILES file
+        <OPTION VALUE="spar">Spartan file
+        <OPTION VALUE="semi">Spartan Semi-Empirical file
+        <OPTION VALUE="spmm">Spartan Mol. Mechanics file
+        <OPTION VALUE="mol">Sybyl Mol file
+        <OPTION VALUE="mol2">Sybyl Mol2 file
+        <OPTION VALUE="wiz">Conjure file
+        <OPTION VALUE="unixyz">UniChem XYZ file
+        <OPTION VALUE="xyz">XYZ file
+        <OPTION VALUE="xed">XED file
+        </SELECT>
+      </TD>
+      </TR>
+   </TABLE>
+   </TD></TR>
+   <!---- end input options cell --->
+
+  <TR><TD>
+    <TABLE ALIGN="CENTER">
+      <TR>
+      <TD><TABLE BORDER="2"><TR><TD><a href="JavaScript:parent.openNewWindow('stride_help.html','inlineHelp',500,400)">Help</A>
+		</TD></TR></TABLE></TD>
+      <TD ALIGN=CENTER>
+      <INPUT TYPE="submit" NAME="Action" VALUE="Submit">&nbsp; &nbsp;
+      <INPUT TYPE="reset">
+      </TD>
+      </TR>
+    </TABLE>
+  </TD></TR>
+</TABLE>
+</FORM>
+<HR>
+
+<HR>
+<TABLE WIDTH="100%">
+  <TR><TD ALIGN="CENTER" BGCOLOR="LightGreen">
+  <P>For more details about STRIDE and the analysis it performs, please,
+  visit the author's WWW page: 
+  <A HREF="http://mips.gsf.de/mips/staff/frishman/">http://mips.gsf.de/mips/staff/frishman/</A>
+  </TD></TR>
+  <TR ><TD ALIGN="CENTER" BGCOLOR="LightYellow">
+    <address>
+    <!-- app info here -->
+    <P>If you have any trouble, please contact our
+    <A HREF="/cgi-bin/emailto?Bioinformatics+Administrator">Bioinformatics
+    Administrator</A></P>
+    <P><A HREF="/Copyright-CSIC.html">&copy; EMBnet/CNB</A></P>
+    </address>
+  </TD></TR>
+</TABLE>
+</BODY></HTML>
+@
+
+
+1.2
+log
+@Added licensing details [j]
+@
+text
+@d4 5
+a8 2
+<!-- $Id$ -->
+<!-- $Log$ -->
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d25 7
+d33 1
+a33 1
+  <TR ><TD ALIGN=CENTER>
+d138 6
+a143 1
+  <TR ><TD ALIGN=CENTER>
+@

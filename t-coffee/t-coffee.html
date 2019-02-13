@@ -1,0 +1,48 @@
+<HTML><HEAD>
+<TITLE>T-Coffee</TITLE>
+</HEAD><BODY>
+<CENTER><H2>T-Coffee Multiple Sequence Alignments</H2></CENTER>
+
+<FORM METHOD="POST" ACTION="/cgi-bin/t-coffee.cgi" ENCTYPE="multipart/form-data">
+<TABLE WIDTH="100%" BGCOLOR="lightgreen" ALIGN=CENTER BORDER=0 CELLSPACING=0 CELLPADDING=5 >
+
+<!-- data box -->
+<TR ><TD ALIGN=CENTER>
+<TABLE  WIDTH="100%" CELLSPACING=0 CELLPADDING=2>
+<TR ><TH >Bio-sequences to align</TH></TR>
+<TR><TD ALIGN=CENTER  VALIGN=TOP>
+Upload file: 
+<INPUT TYPE="file" NAME="infile" VALUE="" SIZE=40 MAXLENGTH=80 ><BR>
+<i>or</i> enter <b>data</b> 
+in box below
+<BR>
+<small>Data formats accepted:<br>
+NBRF/PIR, EMBL/SwissProt, Pearson (Fasta), GDE, Clustal, GCG/MSF, RSF
+</small>
+<BR>
+<TEXTAREA NAME="indata" ROWS=6 COLS=75>
+
+</TEXTAREA><BR>
+See sample <A HREF="t-coffee-sample.html">data</A>
+</TD></TR></TABLE>
+</TD></TR>
+<!-- end data box -->
+
+<TR ><TD ALIGN=CENTER>
+<INPUT TYPE="submit" NAME="Action" VALUE="Submit">&nbsp; &nbsp;
+<INPUT TYPE="reset"></TD></TR>
+
+<TR ><TD ALIGN=CENTER>
+<address>
+<!-- app info here -->
+</address>
+</TD></TR>
+</TABLE>
+</FORM>
+
+<HR>
+<CITE>
+<!-- Citation info here -->
+</CITE>
+<BR>
+</BODY></HTML>

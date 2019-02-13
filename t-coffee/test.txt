@@ -1,0 +1,166 @@
+
+PROGRAM: T-COFFEE (Version_1.37)
+-run_name      	S	[0] 
+-mem_mode      	S	[0] 	mem
+-extend        	D	[1] 	1 
+-extend_mode   	S	[0] 	triplet
+-seq_name_for_quadruplet	S	[0] 
+-compact       	S	[0] 	default
+-clean         	S	[0] 	no
+-do_self       	FL	[0] 	0
+-do_normalise  	D	[0] 	1000 
+-in            	S	[0] 	Mlalign_id_pair	Mfast_pair
+-out_lib       	W_F	[0] 	no
+-outseqweight  	W_F	[0] 	no
+-seq_to_align  	S	[0] 
+-cosmetic_penalty	D	[0] 	-50 
+-gapopen       	D	[0] 	0 
+-gapext        	D	[0] 	0 
+-fgapopen      	D	[0] 	0 
+-fgapext       	D	[0] 	0 
+-nomatch       	D	[0] 	0 
+-newtree       	W_F	[0] 	default
+-usetree       	R_F	[0] 
+-tree_mode     	S	[0] 	fast
+-quicktree     	FL	[0] 	0
+-outfile       	W_F	[0] 	default
+-maximise      	FL	[1] 	1
+-output        	S	[0] 	clustalw
+-infile        	S	[0] 
+-matrix        	S	[0] 
+-tg_mode       	D	[0] 	1 
+-dp_mode       	S	[0] 	cfasta_pair_wise
+-ktuple        	D	[0] 	1 
+-ndiag         	D	[0] 	0 
+-diag_mode     	D	[0] 	0 
+-sim_matrix    	S	[0] 	vasiliky
+-type          	S	[0] 
+-outorder      	S	[0] 	aligned
+-seqnos        	S	[0] 	off
+-case          	S	[0] 	upper
+-cpu           	D	[0] 	0 
+-maxnseq       	D	[0] 	-1 
+-maxlen        	D	[0] 	-1 
+-weight        	S	[0] 	sim
+-seq_weight    	S	[0] 	t_coffee
+-align         	FL	[1] 	1
+-mocca         	FL	[0] 	0
+-start         	D	[0] 	0 
+-len           	D	[0] 	0 
+-scale         	D	[0] 	0 
+-mocca_interactive	FL	[0] 	0
+-evaluate_mode 	S	[0] 	t_coffee_fast
+-get_type      	FL	[0] 	0
+-clean_aln     	D	[1] 	1 
+-clean_threshold	D	[1] 	1 
+-clean_iteration	D	[1] 	1 
+-clean_evaluate_mode	S	[0] 	t_coffee_fast
+-profile       	S	[0] 
+-profile1      	S	[0] 
+-profile2      	S	[0] 
+
+INPUT FILES
+	Type=M File=lalign_id_pair
+	Type=M File=fast_pair
+	Type=S File=test.seq Format=fasta_seq
+
+INPUT: 6 SEQUENCES  [DNA]
+	acarr58s Length=  162
+	amgrrb   Length=  161
+	bmorrb   Length=  167
+	crerrb   Length=  156
+	ddirr58s Length=  162
+	drorrb   Length=  123
+
+READ/MAKE LIBRARIES:[3]
+
+	lalign_id_pair [method]
+
+		[TOT=   15][  0 %]		[TOT=   15][ 13 %]		[TOT=   15][ 20 %]		[TOT=   15][ 26 %]		[TOT=   15][ 33 %]		[TOT=   15][ 40 %]		[TOT=   15][ 46 %]		[TOT=   15][ 53 %]		[TOT=   15][ 60 %]		[TOT=   15][ 66 %]		[TOT=   15][ 73 %]		[TOT=   15][ 80 %]		[TOT=   15][ 86 %]		[TOT=   15][ 93 %]		[TOT=   15][100 %]
+	fast_pair [method]
+
+		[TOT=   15][  0 %]		[TOT=   15][ 13 %]		[TOT=   15][ 20 %]		[TOT=   15][ 26 %]		[TOT=   15][ 33 %]		[TOT=   15][ 40 %]		[TOT=   15][ 46 %]		[TOT=   15][ 53 %]		[TOT=   15][ 60 %]		[TOT=   15][ 66 %]		[TOT=   15][ 73 %]		[TOT=   15][ 80 %]		[TOT=   15][ 86 %]		[TOT=   15][ 93 %]		[TOT=   15][100 %]
+
+	Library Total Size: [5123]
+	Seq Weight     file [no]
+
+WEIGHTED MODE:t_coffee
+
+	acarr58s 0.97
+	  amgrrb 0.97
+	  bmorrb 0.95
+	  crerrb 0.99
+	ddirr58s 1.07
+	  drorrb 1.04
+
+
+COMPUTE PAIRWISE SIMILARITY USING fasta_pair_wise
+
+	acarr58s amgrrb  : score=   24
+	acarr58s bmorrb  : score=   25
+	acarr58s crerrb  : score=   25
+	acarr58s ddirr58s: score=   21
+	acarr58s drorrb  : score=   30
+	amgrrb   bmorrb  : score=   27
+	amgrrb   crerrb  : score=   25
+	amgrrb   ddirr58s: score=   21
+	amgrrb   drorrb  : score=   34
+	bmorrb   crerrb  : score=   26
+	bmorrb   ddirr58s: score=   22
+	bmorrb   drorrb  : score=   37
+	crerrb   ddirr58s: score=   21
+	crerrb   drorrb  : score=   33
+	ddirr58s drorrb  : score=   28
+
+
+MAKE NEIGHBOR JOINING DENDROGRAM
+	[MODE=fast] [Output dendrogram file=test.dnd]
+
+PROGRESSIVE_ALIGNMENT [Tree Based]
+
+	Group   7: [Group   6 (  1 seq)] with [Group   3 (  1 seq)]-->[Score=  64][Len=  167]
+	Group   8: [Group   7 (  2 seq)] with [Group   2 (  1 seq)]-->[Score=  56][Len=  170]
+	Group   9: [Group   8 (  3 seq)] with [Group   4 (  1 seq)]-->[Score=  52][Len=  175]
+	Group  10: [Group   9 (  4 seq)] with [Group   1 (  1 seq)]-->[Score=  49][Len=  175]
+	Group  11: [Group   5 (  1 seq)] with [Group  10 (  5 seq)]-->[Score=  46][Len=  176]
+
+
+
+OUTPUT RESULTS
+	Dendrogram file [test.dnd]
+	Output  file [       test.aln] in [  clustalw] format
+
+
+T-COFFEE, Version_1.37 (Wed Jul 11 14:38:06 PDT 2001)
+Notredame, Higgins, Heringa, JMB(302)pp205-217,2000
+CPU   8 sec
+SCORE 45
+NSEQ  6
+LEN   176
+
+acarr58s        -------AACTCCTAACAACGGATATCTTGGTTCTCGCGAGGATGAAGAACGCAGCGAAA
+amgrrb          ------CGTCCCCGAACGGCGGATCACTTGGCTCGTGGATCGATGAAGACCGCAGCTATC
+bmorrb          AAATGATTACCCTGGACGGTGGATCACTTGGCTCGCGGGTCGATGAAGAACGCAGTTAAC
+drorrb          -------AACTCTAAGCGGTGGATCACTCGGCTCATGGGTCGATGAAGAACGCAGCAAAC
+crerrb          -------AACTCTCAACAACGGATATCTTGGCTCTCGGATCGATGAAGGACGCAGCGAAA
+ddirr58s        -----TTAAGCATAAACGGTGAATACCTCGACTCCCAAATTGATGAAGACCGTAGCAAAC
+                                *   * **  ** *  **       *******  ** **  *  
+
+acarr58s        TGCGATACGTAGTGTGAATCGCAGGGATCAGTGAATC-ATCGAATCTTTGAACGCAAGTT
+amgrrb          TGCGCGTCGTCGTGTAATCCGCAGGTTATA--CGAAC-ATCGACCAGTCGAACGCACATT
+bmorrb          TGCGCGTCATAGTGTGAACTGCAGGACACATTTGAAC-ATCGACATTTCGAACGCACATT
+drorrb          TGTGCGTCATCGTGTGAACTGCAGGACACA--TGAAC-ATCGACATTTTGAACGCATATC
+crerrb          TGCGATACGTAGTGTGAACTGCAGAAAT-ACGTGAACTATCGAATCCCTGAACGTATACT
+ddirr58s        TGCGATAATTCACTTGAATTGCAGCCTACT--GGGATAGTTGAAATGTTGAACGCACATG
+                ** *     *    * *   ****               * **      ***** *    
+
+acarr58s        GCGCTCTCG----TGGTTTAACCCCCCGGGAGC-ACGTTCGCTTGAGTGCCGCTT-
+amgrrb          GCGGCCTCGGTGACCCGCGGGCCCC----GGGCCACGCCTGTCTGAGGGTCGTA--
+bmorrb          GCGGTCCGT------GGAGACACATCCAGGACC-ACTCCTGTCTGAGGGCCGGCT-
+drorrb          GCAGTC----------------CATGCTG---------------------------
+crerrb          GCGCCCGAG-----------GCCCCGGTAGAGC-ATGTCTGCCTTAGTGCTGGGTT
+ddirr58s        ATGACATCG-----GTCCTTTCGGATTAGGTGTTATACTTGGGTGAGAGTGGTC--
+                                                                        
+
+
+

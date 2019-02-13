@@ -1,0 +1,67 @@
+<HTML>
+<HEAD>
+        <TITLE>SEGMENT</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="white">
+
+<CENTER><H1>SEGMENT</H1></CENTER>
+
+<H2>This form allows you to segment a sequence, blah, blah, blah.</H2>
+
+<P><B>Step 1.</B> Enter or paste your DNA sequence in any format below.</P>
+
+<FORM NAME="fasta" METHOD="POST" ACTION="/cgi-bin/sample.pl">
+
+<CENTER>
+<TABLE>
+<TR>
+  <TD><CENTER>
+  <TEXTAREA NAME="sequence" ROWS=10 COLS=60></TEXTAREA>
+  </CENTER></TD>
+</TR>
+</TABLE>
+</CENTER>
+
+<P><B>Step 2.</B> Select the confidence level</P>
+
+<CENTER>
+<TABLE BORDER="2" WIDTH="90%">
+<TR>
+  <TD COLSPAN="2">
+    <SELECT NAME="confidence">
+    <OPTION VALUE="100">100 %
+    <OPTION VALUE="99">99 %
+    <OPTION VALUE="98">98 %
+    <OPTION VALUE="97">97 %
+    <OPTION VALUE="96">96 %
+    <OPTION SELECTED VALUE="95">95 %
+    <OPTION VALUE="90">90 %
+    <OPTION VALUE="85">85 %
+    <OPTION VALUE="80">80 %
+    </SELECT>
+  </TD>
+</TR>
+</TABLE>
+</CENTER>
+
+<P><B>Step 3.</B> Enter your e-mail address below:</P>
+
+<P>E-mail: <INPUT NAME="username" SIZE="60" VALUE="your_name@your.site.net"></P>
+
+<P><B>Step 4.</B> Press the <I>Submit</I> button to send your request
+or <I>Reset</I> to clean this form and start all over again.</P>
+
+<Input TYPE="submit" VALUE="Submit">
+
+<Input TYPE="reset" VALUE="Reset">
+
+</FORM>
+
+<HR>
+
+<P><A HREF="/Copyright.html">&copy; MI SITIO QUERIDO</A></P>
+
+</BODY>
+</HTML>
+
