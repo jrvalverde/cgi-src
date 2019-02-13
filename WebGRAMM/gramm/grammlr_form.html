@@ -1,0 +1,93 @@
+<HTML>
+<HEAD>
+	<TITLE>GRAMM lo-res docking</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="white">
+
+<CENTER><H1>GRAMM low resolution docking</H1></CENTER>
+
+<HR>
+
+<P>This form allows you to predict putative docking among a 'receptor'
+and its 'ligand' using the <STRONG>Global Range Molecular Matching</STRONG>
+approach of <EM>Ilya A. Vakser</EM>. For more details and citation, see
+the <A HREF="#refs">references</A> below.</P>
+
+<P>The computer will perform a <STRONG>LOW RESOLUTION</STRONG> molecular
+docking with <STRONG>default parameters</STRONG>. This may yield 
+<STRONG>unrealistic predictions</STRONG>. You are well advised to look on 
+to these results <STRONG>cautiously</STRONG>.</P>
+
+<P><EM>This method is advised when you have inaccurate or low resolution
+structures or wish to overcome the multiple minima problem. Parameters 
+used in the computation are those suggested for globular proteins and 
+ligands bigger than 50 atoms.</EM></P>
+
+<HR>
+
+<FORM METHOD="POST" ACTION="/cgi-bin/test-cgi" ENCTYPE="multipart/form-data">
+
+<P>Paste or select your <STRONG>receptor</STRONG> structure in PDB format below:</P>
+<TEXTAREA NAME="receptor" ROWS=10 COLS=60></TEXTAREA>
+
+<P>Select file: <INPUT TYPE="file" NAME="recfile" VALUE="" SIZE=40 MAXLENGTH=80 ></P>
+<HR>
+
+<P>Paste or select your <STRONG>ligand</STRONG> structure in PDB format below:</P>
+<TEXTAREA NAME="ligand" ROWS=10 COLS=60></TEXTAREA>
+
+<P>Select file: <INPUT TYPE="file" NAME="ligfile" VALUE="" SIZE=40 MAXLENGTH=80 ></P>
+
+<HR>
+
+<Input TYPE="submit" VALUE="Submit">
+
+<Input TYPE="reset" VALUE="Reset">
+
+</FORM>
+
+<HR>
+
+<A NAME="refs"><H2>References</H2></A>
+<P>E. Katchalski-Katzir, I. Shariv, M. Eisenstein, A. A. Friesem,
+    C. Aflalo, I. A. Vakser, 1992<BR>
+    <I>Molecular surface recognition: Determination of geometric fit
+    between proteins and their ligands by correlation techniques</I><BR>
+    <U>Proc. Natl. Acad. Sci. USA</U> <B>89:</B> 2195-2199.</P>
+
+<P>I. A. Vakser, C. Aflalo, 1994<BR>
+    <I>Hydrophobic docking: A proposed enhancement to molecular
+    recognition techniques</I><BR>
+    <U>Proteins,</I> <B>20:</B> 320-329.</P>
+    
+<P>I. A. Vakser, G. V. Nikiforovich, 1995<BR>
+    <I>Protein docking in the absence of detailed molecular structures</I><BR>
+    <U>Methods in Protein Structure Analysis</U> M.Z. Atassi & E. Appella, Eds.
+    Plenum Press, New York, pp. 505-514.</P>
+
+<P>I. A. Vakser, 1995<BR>
+    <I>Protein docking for low-resolution structures.</I><BR>
+    <U>Protein Eng.</U> <B>8:</B> 371-377</P>
+
+<P>I. A. Vakser, 1996<BR>
+    <I>Long-distance potentials: An approach to the multiple-minima problem
+    in ligand-receptor interaction.</I><BR>
+    <U>Protein Eng.</U> <B>9:</B> 37-41.</P>
+
+<P>I. A. Vakser, 1996<BR>
+    <I>Low-resolution docking: Prediction of complexes for undetermined
+    structures</I><BR>
+    <U>Biopolymers</U> <B>39:</B> 455-464</P>
+    
+<P>I. A. Vakser, 1996<BR>
+    <I>Main-chain complementarity in protein-protein recognition</I><BR>
+    <U>Protein Eng.</U>, <B>9:</B> 741-644</P>
+
+<HR>
+
+<P><A HREF="/Copyright-CSIC.html">&copy; EMBnet/CNB</A></P>
+
+</BODY>
+</HTML>
+

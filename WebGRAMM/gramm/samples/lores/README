@@ -1,0 +1,16 @@
+Open pdb1cgj.ent with molmol
+	- remove HET atoms
+	- separate and reorient protein and DNA molecules
+	- save as separate files
+
+Use stock rpar.gr parameters for lo-res analysis
+
+Create rmol.gr for just these two molecules
+
+Run gramm
+	gramm scan
+
+Create wlist.gr for just the first match
+
+Run gramm
+	gramm coord
