@@ -1,0 +1,13 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that the RSA host key has just been changed.
+The fingerprint for the RSA key sent by the remote host is
+35:96:e2:b4:12:bc:73:f3:ed:b9:05:34:42:66:3c:fc.
+Please contact your system administrator.
+Add correct host key in /data/www/.ssh/known_hosts to get rid of this message.
+Offending key in /data/www/.ssh/known_hosts:2
+RSA host key for villon.cnb.uam.es has changed and you have requested strict checking.
+Host key verification failed.

@@ -1,0 +1,6 @@
+AuthType Basic
+AuthName RBGMdb
+AuthUserFile	/data/www/EMBnet/cgi-src/rbdb/update/.htpasswd
+<Limit GET POST>
+    require valid-user
+</Limit>
