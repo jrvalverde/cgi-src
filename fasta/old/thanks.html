@@ -1,0 +1,50 @@
+<HTML>
+<BODY BGCOLOR="white">
+<SCRIPT language="JavaScript">
+<!--Timer in JavaScript
+var timerform
+
+speed = 1000
+function dotimer()
+{
+    today = new Date()
+    slutsec = today.getSeconds()
+    slutmin = today.getMinutes()
+    sluttim = today.getHours()
+    sluta = (slutsec) + 60 * (slutmin) + 3600 * (sluttim)
+    diff = sluta - starta
+    tim = Math.floor(diff / 3600)
+    min = Math.floor((diff / 3600 - tim) * 60)
+    sek = Math.round((((diff / 3600 - tim) * 60) - min) * 60)
+    document.timerform.timer.value = tim + ':'
+    if(min<10)
+        document.timerform.timer.value += '0'
+    document.timerform.timer.value += min + ':'
+    if(sek<10)
+        document.timerform.timer.value += '0'
+    document.timerform.timer.value += sek
+    window.setTimeout("dotimer()",speed)
+}
+
+function Timer()
+{
+    today = new Date()
+    startsek = today.getSeconds()
+    startmin = today.getMinutes()
+    starttim = today.getHours()
+    starta = (startsek) + 60 * (startmin) + 3600 * (starttim)
+    document.write('<FORM NAME=timerform><INPUT NAME=timer size=7')
+    document.write('></FORM>')
+    dotimer()
+}
+// end-->
+</SCRIPT>
+
+<CENTER>
+<H3><FONT COLOR="Magenta">Cofee time.</FONT> This may take a <U>long</U> while. 
+Please, wait.</H3>
+<SCRIPT language="JavaScript">Timer()</SCRIPT>
+</CENTER>
+<!-- Here might go a table of help tips on interpreting FASTA output -->
+</BODY>
+</HTML>

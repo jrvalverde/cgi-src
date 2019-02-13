@@ -1,0 +1,98 @@
+README file for HTH.CGI
+=======================
+
+    This is a CGI suite for the HTH program, a program to predict 
+helix-turn-helix regions on proteins.
+
+    From hth.c:
+        This simple program predicts whether a protein contains a helix-turn-
+            helix motif, using the method of:
+
+        Dodd, I. B., and J. B. Egan. 1990.  Improved detection of helix-turn-
+            helix DNA-binding motifs in protein sequences. Nucleic Acids Res. 
+            8:5019-5026.
+
+    The WWW interface has been developed at EMBnet/CNB by José R. Valverde and
+requires READSEQ for input sequence conversion.
+
+
+Getting the package
+-------------------
+
+    The original hth.c program as well as ReadSeq are available on most 
+EMBnet FTP servers. Some places to look for them are
+
+    	ftp://ftp.ebi.ac.uk/pub/software/unix
+	ftp://ftp.es.embnet.org/pub/software/unix
+	
+    This package has been developed at EMBnet/CNB, and is available from
+its CGI repository:
+
+    	ftp://ftp.es.embnet.org/pub/web-servs/
+	
+Installing the package
+----------------------
+
+    1) Install READSEQ first if you don´t already have it.
+    
+    2) Get this package by FTP to any of the source sites
+    
+    3) extract the contents of the archive into a suitable build directory:
+    
+    	gtar -zxvf hth.tgz
+
+    4) cd to the newly created ./hth/. directory
+    
+    	cd hth
+    
+    5) Take a look at the Makefile and edit it to suit your needs
+    
+    	emacs Makefile
+    
+    6) Make the program and accompanying files
+    
+    	make all
+	
+    7) Install all files in their appropriate locations
+    
+    	make install
+    
+    8) Make links from your server pages to the new web form so users
+    can access it
+
+
+Using the package
+-----------------
+
+    NOTE: this is an early release, and will surely have bugs. See below.
+    
+    You can use hth on the command line, simply add its location to your
+path.
+    
+    To use it on the web, paste or enter any sequence on the form and 
+click on the submit button.
+
+    You should get a report of the most likely h-t-h region in your
+sequence, its score and the significance associated.
+
+    Things may go wrong. If they do, the most likely place is inside
+the CGI script. Being such a "simple" task I coded it in sh, using
+sed to process the input sequence to convert special characters.
+
+    If a sequence format relies on any special character not processed
+by the ´sed´ cascade, the subsequent conversion step by READSEQ will
+fail. In this case, solution is very simple: identify the character
+and add a translation step to the sed cascade.
+
+    Oh, and by the way, it would be nice if you notified me too, even 
+if it looks a too simple change (every little helps), but that's up to 
+you, of course.
+
+Contact:
+--------
+
+    If you want to contact us, the best way is to use the following
+address:
+
+    	genadmin@es.embnet.org
+	

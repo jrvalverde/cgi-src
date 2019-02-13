@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	<title>Docs for page form.php</title>
+	<link rel="stylesheet" type="text/css" id="layout" href="../media/layout.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="../media/style.css" media="all">
+	<link rel="stylesheet" type="text/css" href="../media/print.css" media="print">
+</head>
+
+<body>
+<div id="header">
+	<div id="navLinks">
+		[ <a href="../classtrees_pagepackage.html">Class Tree: pagepackage</a> ]
+		[ <a href="../elementindex_pagepackage.html">Index: pagepackage</a> ]
+		[ <a href="../elementindex.html">All elements</a> ]
+	</div>
+	<div id="packagePosition">
+		<div id="packageTitle2">pagepackage</div>
+		<div id="packageTitle">pagepackage</div>
+		<div id="elementPath"> &middot; </div>
+	</div>
+</div>
+
+<div id="nav" class="small">
+	<div id="packages">
+		Packages:
+					<p><a href="../li_pagepackage.html">pagepackage</a></p>
+			</div>
+
+				<div id="index">
+			<div id="files">
+								Files:<br>
+								<a href="../pagepackage/_QuickForm_form_php.html">		form.php
+		</a><br>
+				</div>
+			<div id="classes">
+							</div>
+		</div>
+	</div>
+
+<div id="body">
+			<h1>Procedural File: form.php</h1>
+	<p style="margin: 0px;">Source Location: /form.php</p>
+	
+<br>
+<br>
+
+<div class="contents">
+<h2>Classes:</h2>
+<dl>
+</dl>
+</div>
+
+<h2>Page Details:</h2>
+<p align="center"><strong>HTML_QuickForm class use
+</strong></p>
+<p>Is mandatory to instantiate an HTML_QuickForm object. This defines the  name of the form (frmTest) and the method used to pass the form variables  back to the PHP script. By default, the form's action -- the URI to  which to submit the form data -- is the same URI that displayed the form  in the first place. This may seem unusual at first, but it is actually  very useful, as we shall see.</p><p>The next four lines add four elements to the form. Elements are either  orthodox HTML form elements, such as text boxes or radio buttons, or  PEAR-specific pseudo-elements. The first parameter to the addElement  method is mandatory; it defines the element type. Here, header is a  pseudo-element that just places a heading bar on the form. The second  parameter of each element is a name by which code can refer to it, if  necessary. In the case of the header, the name is hdrQuickformtest.  The third parameter is the text label associated with each element.  For the header, this is the text to display. For the text element, a  text box, it is the prompt before the text box. For the two buttons,  it is the text on the button face.</p><p>Finally, the line $form-&gt;display(); renders the form to the screen.  When displayed, this page shows a header, a text box and two buttons:  so far, so good. However, clicking the submit button appears to do  nothing. The next step is to add the code to process the form after  submission.</p><hr>
+Includes:<br>
+require_once("HTML/QuickForm.php") <span class="linenumber">[line 39]</span>
+<br />
+<hr>
+<div id="global">
+</div><hr>
+<div id="define">
+</div><hr>
+<div id="function">
+</div>
+	<div id="credit">
+		<hr>
+		Documentation generated on Wed, 31 Aug 2005 13:49:07 +0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.2.3</a>
+	</div>
+</div>
+</body>
+</html>

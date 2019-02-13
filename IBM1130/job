@@ -1,0 +1,13 @@
+reset
+detach prt
+delete job.lst
+
+att dsk dms.dsk
+att prt job.lst
+att cr %1.job
+boot dsk
+
+det prt
+view job.lst
+
+

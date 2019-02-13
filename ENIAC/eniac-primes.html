@@ -1,0 +1,107 @@
+<html>
+<head>
+    <title>ENIAC emulator at EMBnet/CNB</title>
+</head>
+<body bgcolor="white">
+    <center><h1>ENIAC Emulator</h1></center>
+
+<center><table bgcolor="lightblue" width="80%" border="0">
+<tr><td>
+    <blockquote>
+    This page allows you to run programs on an emulated ENIAC
+    system. The emulator provided is the same described in the
+    <a href="http://www.ee.ualberta.ca/~cwc/courses/CMPUT379/">CMPUT379</a>
+    course from the University of Alberta. You can get more details regarding
+    its implementation and the assembly language employed to program the
+    emulator on the <a href="http://www.ee.ualberta.ca/~cwc/courses/CMPUT379/Assignment%2001.html">Assignment 01</a>
+    of this course.<br />
+    A <a href="http://web.archive.org/web/20030117203950/http://www.seas.upenn.edu/~museum/qman/quick.html">manual of ENIAC programming</a> 
+    was once available on the Net and can still be recovered from the 
+    <a href="http://www.archive.org/">Internet Archive</a>.<br />
+    To use the emulator upload or paste your program in the specified ENIAC
+    assembler and submit it for translation and execution together with the
+    input data. The results will be returned in both, binary and textual forms.
+    </blockquote>
+</td></tr>
+</table></center>
+
+<br />
+
+<br />
+
+<form method="POST" action="eniac.php" enctype="multipart/form-data">
+<table bgcolor="lightblue" width="100%" border="0">
+<tr><td colspan="2">
+    <center><h3>Please, enter your program (in ENIAC assembler) below:</h3><br />
+    <textarea name="program" rows="10" cols="80">#
+# The primes program
+#
+	.list	1
+;
+.	=	0
+C0:	.data	0		; constant zero
+C1:	.data	1		; constant 1
+C2:	.data	2		; constant 2
+;
+N:	.res	1		; location for N
+M:	.res	1		; location for M
+K:	.res	1		; location for K
+T:	.res	1		; location for T
+;
+ir	=	0x3ffffff	; input register
+or	=	0x3fffffe	; output register
+;
+.	=	0x100		; start code
+;
+	mov	N,ir		; N := IR
+	mov	M,C2		; M := 2
+LOOP:	cmp	M,N		; if (M > N)
+	jgt	STOP		; goto STOP
+;
+	mov	K,C2		; K := 2
+;
+TRY:	cmp	K,M		; if (K < M)
+	jlt	CHECK		; goto CHECK
+;
+	mov	or,M		; OR := M
+;
+CONT:	add	M,C1		; M := M + 1
+	jmp	LOOP		; goto LOOP
+;
+CHECK:	mov	T,M		; T := M
+	rem	T,K		; T := M % K
+	cmp	T,C0		; if (T == 0)
+	jeq	CONT		; goto CONT
+;
+	add	K,C1		; K := K+1
+	jmp	TRY		; goto TRY
+;
+STOP:	hlt	0
+    </textarea></center>
+</td></tr>
+<tr><td colspan="2">
+    <center><h3>Please, enter any input data below:</h3><br />
+    <textarea name="data" rows="10" cols="80">2000
+    </textarea></center>
+</td></tr>
+<tr>
+    <td><center><input type="submit" name="submit" value="Submit" /></center></td>
+    <td><center><input type="reset" value="Reset" /></center></td>
+</tr>
+<tr><td colspan="2"><h3><center>Examples</center></h3></td></tr>
+<tr>
+    <td bgcolor="yellow"><center><a href="eniac-primes.html">Primes</a></center></td>
+    <td bgcolor="yellow"><center><a href="eniac-sort.html">Sort</a></center></td>
+</tr>
+</table>
+
+<br>
+<hr>
+<br>
+<table border="0">
+<tr>
+    <td><a href="Copyright-JR_AH.html">(C) Jos&eacute; R. Valverde</a> (17-11-2005)</td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<html>
+<head>
+    <title>DistDNA</title>
+</head>
+<!--#include virtual="/inc/header.html" -->
+<body bgcolor="lightgrey" background="img/background_42.jpg" alink="black" vlink="blue">
+
+<center><table border="0" width="80%">
+<tr>
+    <td align="left"><img src="img/openphotonet_SAILING_32.JPG" width="154" height="115"></td>
+    <td align="right"><font color="black"><h1><a
+    href="">Glimmer 1.02</a></h1></font></td>
+</tr>
+<tr>
+    <td colspan="2"><font color="black">
+    <font size="+1">
+    Glimmer is a tool useful to predict genes in genomic sequences.<br />
+
+    The version of Glimmer you can use on this web page is 1.02</font>
+    </font></td>
+</tr>
+</table></center>
+
+<form name="glimmer" method="POST" enctype="multipart/form-data" action="glimmer.php">
+
+<center><table border="1" width="80%">
+<tr>
+    <td><font color="black" size="+1">
+    Please, paste or upload the <u>genome sequence</u> in FASTA format
+    </font></td>
+    <td><font color="black"><font color="black" size="+1">
+    <i>This is the genome sequence <u>in FASTA format</u> whose
+    ORFs you want to find</i><br />
+    Glimmer will locate long ORFs, extract them into a training set, then
+    build a predicting system using IMMs (Interpolated Markov Models) and
+    finally use this prediction system over the original genomic sequence
+    to predict the genes.
+    </font></td>
+</tr>
+<tr>
+    <td colspan="2">
+    <textarea name="inputdata" rows="6" cols="75"></textarea><br />
+    <input type="file" name="inputfile" value="" size="40" MAXLENGTH="80"><br />
+    <input type="hidden" name="sess" value="0">
+    </td>
+</tr>
+<tr>
+    <td>
+    	<center><input type="submit" name="submit" value="Submit"></center>
+    </td>
+    <td>
+    	<center><input type="reset"></center>
+    </td>
+</tr>
+</table></center>
+
+</form>
+
+
+<center><table border="1" width="80%" bgcolor="#FFFF80">
+<tr>
+    <td colspan="2"><font color="black" size="+1">
+    <b>For publication of results, please cite:</b><br />
+    Valverde, J. R. (2009) http://www.es.embnet.org/Services/MolBio/glimmer1/<br />
+    And the bibliography related to the method chosen.
+    </font></td>
+</tr>
+<tr>
+    <td colspan="2"><font color="black" size="+1">
+    The logo corresponds to the image XXX
+    which is a work of artist XXX
+    and is used and distributed under a XXX license.
+    </td>
+</tr>
+<tr>
+    <td colspan="2" bgcolor="#FFFF00"><font color="black" size="+1">
+    <center>Do you like this service? You can <a href="glimmer1.tgz">download</a> and install it 
+    on your own server; it is distributed under <a href="c/gpl.txt">GPL.</a></center>
+</tr>
+</table></center>
+
+</body>
+</html>

@@ -1,0 +1,194 @@
+#!/usr/local/bin/perl -- -*-perl-*-
+
+# ------------------------------------------------------------
+#
+# ------------------------------------------------------------
+
+# This is required for bidirectional communication with Fasta (which we
+# expect to help maintain the connection alive during the work process
+# require 'Comm.pl';
+
+$ENV{'FASTLIBS'} = '/data/gen/fastadb/FASTLIBS'; 
+$readseqprog = '/opt/molbio/bin/readseq';
+$fastaexec = '/opt/molbio/fasta';
+$mailprog = '/usr/lib/sendmail';
+
+select(STDOUT); $| = 1;
+
+# Split the name-value pairs
+@pairs = split(/&/, $ENV{'QUERY_STRING'});
+
+foreach $pair (@pairs)
+{
+    ($name, $value) = split(/=/, $pair);
+
+    # Un-Webify plus signs and %-encoding
+    $value =~ tr/+/ /;
+    $value =~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg;
+
+    # Stop people from using subshells to execute commands
+    # Not a big deal when using sendmail, but very important
+    # when using UCB mail (aka mailx).
+     $value =~ s/~!/ ~!/g; 
+
+    # Uncomment for debugging purposes
+    # print "Setting $name to $value<P>";
+
+    $FORM{$name} = $value;
+}
+
+# Start printing ASAP. This way te browser will start transfer soon
+# and the user will notice his browser getting data.
+#
+# Print out a content-type for HTTP/1.0 compatibility
+print "Content-type: text/html\n\n";
+print "<HTML>\n<HEAD><TITLE>FASTA results</TITLE></HEAD>\n<BODY>\n";
+
+&nosequence unless $FORM{'sequence'};
+&noseqtype unless $FORM{'seqtype'};
+&nodb unless $FORM{'db'};
+&badaddress unless $FORM{'username'};
+
+$sequence = $FORM{'sequence'} if $FORM{'sequence'};
+
+if ($FORM{'seqtype'} =~ /n/) {
+    $res = '-n';
+} else {
+    $res = '';
+}
+
+if ($FORM{'db'} =~ /[buv]/) {
+    $dbtype = 'P';
+} elsif ($FORM{'db'} =~ /[acdefghijklmnopqrst]/) {
+    $dbtype = 'N';
+} else {
+#    &nodb;
+}
+$db = $FORM{'db'};
+
+#select program to run:
+if ($FORM{'seqtype'} =~ /n/ ) {
+    if ($dbtype =~ /N/) {
+    	$program='fasta3';
+    } else {
+    	$program='fastx3';
+    }
+} else {
+    if ($dbtype =~ /P/) {
+    	$program='fasta3';
+    } else {
+    	$program='tfasta3';
+    }
+}
+
+# Check user address that will receive the results
+&badaddress unless $FORM{'username'} =~ /.*@.*\..*/;
+$remotehost = $FORM{'username'};
+$remotehost =~ s/.*@//g;
+#print "host: $remotehost<BR>\n";
+#$host = gethostbyname($remotehost)[0];
+#foreach my $item (gethostbyname($remotehost)) {
+#    print "$item<BR>\n";
+#}
+&badaddress unless gethostbyname($remotehost);
+
+# Print calling parameters (some of them are TTY text).
+#print "<HR>\n";
+#print "<H2>Called with:</H2>\n<P>$ENV{'QUERY_STRING'}</P>\n";
+#print "\n</TT></PRE>\n";
+print "<H2>Your "; 
+if ($FORM{'seqtype'} =~ /n/) {
+    print "nucleic acid ";
+} else {
+    print "protein ";
+}
+print "sequence was:</H2>\n";
+print "<PRE><TT>\n";
+print $sequence;
+print "\n</TT></PRE>\n";
+print "<H2>Searching against a";
+if ($dbtype =~ /P/) {
+   print "n amino acid ";
+} else {
+   print " nucleic acid ";
+}
+print "database</H2>\n";
+print "<H2>Using program $program</H2>\n";
+#print "<P>|$readseqprog -p -ffasta -a | $fastaexec/$program -q $res @ $db</P>\n";
+
+#print "<H2>Results will be mailed to $FORM{'username'}</H2>\n";
+
+# No way: apache will wait for us and all our kids before releasing
+# the output, meaning we won't gain anything with e-mail this way.
+# As well, we may simply show up the results. Problem is, many browsers
+# will believe the connection went down on long searches. (sigh).
+# The only workaround is (possibly) to spawn an sh script or put the
+# job on a queue. NOTE: yes, I tried a fork and immediate exit.
+
+# OK, let's go and do the real thing interactively.
+# We are trying to read the results of FASTA as they are printed trying 
+# to get anything that will keep the connection alive.
+umask 0077;
+srand;
+$tmpdir = sprintf "%s.%d.%d", "/tmp/xfasta", $$, int(rand(30000));
+die "<H1>ERROR, HORROR: cannot create neccessary temporary files</H1>\n" 
+unless mkdir $tmpdir, 0777;
+chdir $tmpdir or die "<H1>ERROR, HORROR: cannot access needed temporary files</H1>\n";
+open (INFILE, "|$readseqprog -p -ffasta -a -o=infile");
+print INFILE $FORM{'sequence'};
+close (INFILE);
+
+#reduce our priority
+setpriority PRIO_PROCESS, 0, 20;
+
+print "\n<HR>\n<PRE><TT>\n";
+open (OUTFILE, "$fastaexec/$program $res infile $db|");
+while (<OUTFILE>) {
+    print "$_";
+}
+close(OUTFILE);
+print "</TT></PRE>\n";
+print "<HR>\n</BODY>\n</HTML>\n";
+
+unlink "$tmpdir/infile";
+chdir "..";
+rmdir $tmpdir or die "<H2>Cannot remove $tmpdir!</H2>\n";
+
+
+exit;
+
+#--------------------------------------------------------------------
+# Subroutines
+#--------------------------------------------------------------------
+
+sub nosequence {
+    print <<ENDNOSEQUENCE;
+<H2>Sorry, you did not specify a probe sequence. Please, make sure
+you are correctly filling the form.</H2>
+ENDNOSEQUENCE
+    exit;
+}
+
+sub noseqtype {
+    print <<ENDNOSEQTYPE;
+<H2>Sorry, you did not specify the type of your sequence. Please, make sure
+you are correctly filling the form.</H2>
+ENDNOSEQTYPE
+    exit;
+}
+
+sub nodb {
+    print <<ENDNODB;
+<H2>Sorry, you did not specify a database to search. Please, make sure
+you are correctly filling the form.</H2>
+ENDNODB
+    exit;
+}
+
+sub badaddress {
+    print "<H2>Sorry, your request could not be processed:\n";
+    print "your address seems to be incorrect. Please, review\n";
+    print "your address or contact your system administrator\n";
+    print "and try again</H2>\n";
+    exit;
+}

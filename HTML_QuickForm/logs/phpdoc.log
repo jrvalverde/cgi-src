@@ -1,0 +1,86 @@
+Parsing configuration file phpDocumentor.ini...
+done
+using experimental tokenizer Parser
+
+
+Grabbing README/INSTALL/CHANGELOG
+
+done
+
+
+Tutorial/Extended Documentation Parsing Stage
+
+done
+
+
+General Parsing Stage
+
+Reading file /mnt/data/www/EMBnet/cgi-src/HTML_QuickForm/form.php -- Parsing file
+WARNING in form.php on line 38: Page-level DocBlock precedes "require_once form.php", use another DocBlock to document the source element
+Reading file /mnt/data/www/EMBnet/cgi-src/HTML_QuickForm/logs/phpdoc.log -- File not parsed, not a php file
+Reading file /mnt/data/www/EMBnet/cgi-src/HTML_QuickForm/makedoc.sh -- File not parsed, not a php file
+done
+
+Converting From Abstract Parsed Data
+
+Processing Class Inheritance
+
+
+Processing Root Trees
+
+
+Processing leftover classes (classes that extend root classes not found in the same package)
+done processing leftover classes
+
+Processing Procedural Page Element Name Conflicts
+
+
+Sorting page elements...done
+Formatting @uses list...done
+
+Creating Directory /data/www/EMBnet/cgi-src/HTML_QuickForm/pDoc
+creating /data/www/EMBnet/cgi-src/HTML_QuickForm/pDoc/media
+Creating Directory /data/www/EMBnet/cgi-src/HTML_QuickForm/pDoc/media
+copying /data/www/EMBnet/cgi-src/HTML_QuickForm/pDoc/media/layout.css
+copying /data/www/EMBnet/cgi-src/HTML_QuickForm/pDoc/media/print.css
+copying /data/www/EMBnet/cgi-src/HTML_QuickForm/pDoc/media/style.css
+Building indexes...done
+
+Sorting Indexes...done
+
+Sorting @todo list...done
+Converting tutorials/extended docs
+Formatting Package Indexes...    Writing /data/www/EMBnet/cgi-src/HTML_QuickForm/pDoc/elementindex_pagepackage.html
+
+done
+Formatting Index...
+    Writing /data/www/EMBnet/cgi-src/HTML_QuickForm/pDoc/elementindex.html
+
+    Writing /data/www/EMBnet/cgi-src/HTML_QuickForm/pDoc/li_pagepackage.html
+
+    Writing /data/www/EMBnet/cgi-src/HTML_QuickForm/pDoc/index.html
+done
+
+Formatting Left Quick Index...
+    Writing /data/www/EMBnet/cgi-src/HTML_QuickForm/pDoc/classtrees_pagepackage.html
+
+done
+
+Converting /mnt/data/www/EMBnet/cgi-src/HTML_QuickForm/form.php Procedural Page Elements... Classes... done
+Creating Directory /data/www/EMBnet/cgi-src/HTML_QuickForm/pDoc/pagepackage
+    Writing /data/www/EMBnet/cgi-src/HTML_QuickForm/pDoc/pagepackage/_QuickForm_form_php.html
+
+Converting @todo List...done
+
+Converting Error Log...    Writing /data/www/EMBnet/cgi-src/HTML_QuickForm/pDoc/errors.html
+
+
+To view errors and warnings, look at /data/www/EMBnet/cgi-src/HTML_QuickForm/pDoc/errors.html
+done
+
+Parsing time: 0 seconds
+
+Conversion time: 1 seconds
+
+Total Documentation Time: 1 seconds
+done

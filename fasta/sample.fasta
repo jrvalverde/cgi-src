@@ -1,0 +1,251 @@
+ FASTA searches a protein or DNA sequence data bank
+ version 3.2t05  May 12, 1999
+Please cite:
+ W.R. Pearson & D.J. Lipman PNAS (1988) 85:2444-2448
+
+infile: 46 aa
+ >kk
+, 46 bases, D30E992 checksum.
+ vs  PDB Sequences with known structure library
+searching /data/gen/fastadb/pdb_seq.fas library
+
+       opt      E()
+< 20   413     0:==========
+  22     7     0:=          one = represents 42 library sequences
+  24    53     0:==
+  26    69     0:==
+  28    49     4:*=
+  30    47    25:*=
+  32     3    97:= *
+  34    45   263:==    *
+  36   381   541:==========  *
+  38   991   894:=====================*==
+  40  1130  1246:===========================  *
+  42  1880  1524:====================================*========
+  44  2464  1681:========================================*==================
+  46  2193  1712:========================================*============
+  48  1566  1639:====================================== *
+  50  1557  1495:===================================*==
+  52   895  1315:======================         *
+  54   818  1123:====================      *
+  56   861   938:===================== *
+  58   581   770:==============    *
+  60   540   624:============= *
+  62   328   500:========   *
+  64   374   398:=========*
+  66   355   314:=======*=
+  68   192   247:=====*
+  70   150   194:====*
+  72   164   151:===*
+  74   216   118:==*===
+  76    74    92:==*
+  78    67    71:=*
+  80   181    55:=*===
+  82    27    42:*
+  84    22    34:*
+  86    52    26:*=
+  88    37    20:*          inset = represents 1 library sequences
+  90    24    16:*
+  92    18    12:*         :===========*======
+  94     9     9:*         :========*
+  96     7     7:*         :======*
+  98     4     6:*         :==== *
+ 100     4     4:*         :===*
+ 102     8     3:*         :==*=====
+ 104     2     3:*         :==*
+ 106     0     2:*         : *
+ 108     1     2:*         :=*
+ 110     2     1:*         :*=
+ 112     0     1:*         :*
+ 114     0     1:*         :*
+ 116     0     1:*         :*
+ 118     0     0:          *
+>120    11     0:=         *===========
+4045203 residues in 18910 sequences
+  Expectation_n fit: rho(ln(x))= 3.5366+/-0.000928; mu= 5.6964+/- 0.049;
+ mean_var=50.2540+/-10.512, 0's: 638 Z-trim: 11  B-trim: 118 in 1/49
+ Kolmogorov-Smirnov  statistic: 0.0718 (N=29) at  46
+
+FASTA (3.2 December, 1998) function [optimized, BL50 matrix (15:-5)] ktup: 2
+ join: 36, opt: 24, gap-pen: -12/ -2, width:  16 reg.-scaled
+ Scan time:  2.930
+The best  scores are:                             initn init1 opt z-sc E(18223)
+pdb|1CRN|1CRN Crambin                     (  46)  338  338  338  499.7 9.2e-22
+pdb|1EJG|1EJG-A crambin (pro22,Ser22LEU2  (  46)  335  335  335  495.4 1.6e-21
+pdb|1CCN|1CCN Crambin (pro 22LEU 25) (NM  (  46)  335  335  335  495.4 1.6e-21
+pdb|1CNR|1CNR Crambin (pl form)           (  46)  335  335  335  495.4 1.6e-21
+pdb|1CCM|1CCM Crambin (pro 22LEU 25) (NM  (  46)  335  335  335  495.4 1.6e-21
+pdb|1CBN|1CBN Crambin                     (  46)  335  335  335  495.4 1.6e-21
+pdb|1CXR|1CXR-A crambinfragment: isoform  (  46)  327  327  327  484.1 6.7e-21
+pdb|1AB1|1AB1 crambin (ser22ILE25)        (  46)  327  327  327  484.1 6.7e-21
+pdb|1ED0|1ED0-A viscotoxin a3             (  46)  190  190  192  293.7 2.7e-10
+pdb|1BHP|1BHP beta-purothionin            (  45)  108   68  128  203.5 2.9e-05
+pdb|2PLH|2PLH alpha-1-purothionin         (  45)  105   66  116  186.6 0.00025
+pdb|1KST|1KST Kistrin (NMR, 8 structures  (  68)   50   50   64  111.2       4
+pdb|2WGC|2WGC-A Wheat germ agglutinin (i  ( 171)   41   41   66  109.4       5
+pdb|9WGA|9WGA-A Wheat germ agglutinin (i  ( 171)   41   41   66  109.4       5
+
+>>pdb|1CRN|1CRN Crambin                                   (46 aa)
+ initn: 338 init1: 338 opt: 338 Z-score: 499.7 expect() 9.2e-22
+Smith-Waterman score: 338;  100.000% identity in 46 aa overlap (1-46:1-46)
+
+               10        20        30        40      
+kk     TTCCPSIVARSNFNVCRLPGTPEAICATYTGCIIIPGATCPGDYAN
+       ::::::::::::::::::::::::::::::::::::::::::::::
+pdb|1C TTCCPSIVARSNFNVCRLPGTPEAICATYTGCIIIPGATCPGDYAN
+               10        20        30        40      
+
+>>pdb|1EJG|1EJG-A crambin (pro22,Ser22LEU25,ILE25)fragme  (46 aa)
+ initn: 335 init1: 335 opt: 335 Z-score: 495.4 expect() 1.6e-21
+Smith-Waterman score: 335;  97.826% identity in 46 aa overlap (1-46:1-46)
+
+               10        20        30        40      
+kk     TTCCPSIVARSNFNVCRLPGTPEAICATYTGCIIIPGATCPGDYAN
+       ::::::::::::::::::::::::.:::::::::::::::::::::
+pdb|1E TTCCPSIVARSNFNVCRLPGTPEALCATYTGCIIIPGATCPGDYAN
+               10        20        30        40      
+
+>>pdb|1CCN|1CCN Crambin (pro 22LEU 25) (NMR, MINIMIZED A  (46 aa)
+ initn: 335 init1: 335 opt: 335 Z-score: 495.4 expect() 1.6e-21
+Smith-Waterman score: 335;  97.826% identity in 46 aa overlap (1-46:1-46)
+
+               10        20        30        40      
+kk     TTCCPSIVARSNFNVCRLPGTPEAICATYTGCIIIPGATCPGDYAN
+       ::::::::::::::::::::::::.:::::::::::::::::::::
+pdb|1C TTCCPSIVARSNFNVCRLPGTPEALCATYTGCIIIPGATCPGDYAN
+               10        20        30        40      
+
+>>pdb|1CNR|1CNR Crambin (pl form)                         (46 aa)
+ initn: 335 init1: 335 opt: 335 Z-score: 495.4 expect() 1.6e-21
+Smith-Waterman score: 335;  97.826% identity in 46 aa overlap (1-46:1-46)
+
+               10        20        30        40      
+kk     TTCCPSIVARSNFNVCRLPGTPEAICATYTGCIIIPGATCPGDYAN
+       ::::::::::::::::::::::::.:::::::::::::::::::::
+pdb|1C TTCCPSIVARSNFNVCRLPGTPEALCATYTGCIIIPGATCPGDYAN
+               10        20        30        40      
+
+>>pdb|1CCM|1CCM Crambin (pro 22LEU 25) (NMR, 8 STRUCTURE  (46 aa)
+ initn: 335 init1: 335 opt: 335 Z-score: 495.4 expect() 1.6e-21
+Smith-Waterman score: 335;  97.826% identity in 46 aa overlap (1-46:1-46)
+
+               10        20        30        40      
+kk     TTCCPSIVARSNFNVCRLPGTPEAICATYTGCIIIPGATCPGDYAN
+       ::::::::::::::::::::::::.:::::::::::::::::::::
+pdb|1C TTCCPSIVARSNFNVCRLPGTPEALCATYTGCIIIPGATCPGDYAN
+               10        20        30        40      
+
+>>pdb|1CBN|1CBN Crambin                                   (46 aa)
+ initn: 335 init1: 335 opt: 335 Z-score: 495.4 expect() 1.6e-21
+Smith-Waterman score: 335;  97.826% identity in 46 aa overlap (1-46:1-46)
+
+               10        20        30        40      
+kk     TTCCPSIVARSNFNVCRLPGTPEAICATYTGCIIIPGATCPGDYAN
+       ::::::::::::::::::::::::.:::::::::::::::::::::
+pdb|1C TTCCPSIVARSNFNVCRLPGTPEALCATYTGCIIIPGATCPGDYAN
+               10        20        30        40      
+
+>>pdb|1CXR|1CXR-A crambinfragment: isoform of crambin (4  (46 aa)
+ initn: 327 init1: 327 opt: 327 Z-score: 484.1 expect() 6.7e-21
+Smith-Waterman score: 327;  97.826% identity in 46 aa overlap (1-46:1-46)
+
+               10        20        30        40      
+kk     TTCCPSIVARSNFNVCRLPGTPEAICATYTGCIIIPGATCPGDYAN
+       ::::::::::::::::::::: ::::::::::::::::::::::::
+pdb|1C TTCCPSIVARSNFNVCRLPGTSEAICATYTGCIIIPGATCPGDYAN
+               10        20        30        40      
+
+>>pdb|1AB1|1AB1 crambin (ser22ILE25)                      (46 aa)
+ initn: 327 init1: 327 opt: 327 Z-score: 484.1 expect() 6.7e-21
+Smith-Waterman score: 327;  97.826% identity in 46 aa overlap (1-46:1-46)
+
+               10        20        30        40      
+kk     TTCCPSIVARSNFNVCRLPGTPEAICATYTGCIIIPGATCPGDYAN
+       ::::::::::::::::::::: ::::::::::::::::::::::::
+pdb|1A TTCCPSIVARSNFNVCRLPGTSEAICATYTGCIIIPGATCPGDYAN
+               10        20        30        40      
+
+>>pdb|1ED0|1ED0-A viscotoxin a3                           (46 aa)
+ initn: 190 init1: 190 opt: 192 Z-score: 293.7 expect() 2.7e-10
+Smith-Waterman score: 192;  51.163% identity in 43 aa overlap (2-44:2-44)
+
+               10        20        30        40      
+kk     TTCCPSIVARSNFNVCRLPGTPEAICATYTGCIIIPGATCPGDYAN
+        .:::. ..:. .:.::: :.:.  ::  .:: :: :.:::.::  
+pdb|1E KSCCPNTTGRNIYNACRLTGAPRPTCAKLSGCKIISGSTCPSDYPK
+               10        20        30        40      
+
+>>pdb|1BHP|1BHP beta-purothionin                          (45 aa)
+ initn: 108 init1:  68 opt: 128 Z-score: 203.5 expect() 2.9e-05
+Smith-Waterman score: 128;  34.884% identity in 43 aa overlap (2-44:2-43)
+
+               10        20        30        40      
+kk     TTCCPSIVARSNFNVCRLPGTPEAICATYTGCIIIPGATCPGDYAN
+        .:: : ..:. .:.::  :. . .::.   : .  : .:: :.  
+pdb|1B KSCCKSTLGRNCYNLCRARGA-QKLCANVCRCKLTSGLSCPKDFPK
+               10        20         30        40     
+
+>>pdb|2PLH|2PLH alpha-1-purothionin                       (45 aa)
+ initn: 105 init1:  66 opt: 116 Z-score: 186.6 expect() 0.00025
+Smith-Waterman score: 116;  34.884% identity in 43 aa overlap (2-44:2-43)
+
+               10        20        30        40      
+kk     TTCCPSIVARSNFNVCRLPGTPEAICATYTGCIIIPGATCPGDYAN
+        .:: : ..:. .:.::  :. . .::    : :  : .::  .  
+pdb|2P KSCCRSTLGRNCYNLCRARGA-QKLCAGVCRCKISSGLSCPKGFPK
+               10        20         30        40     
+
+>>pdb|1KST|1KST Kistrin (NMR, 8 structures)               (68 aa)
+ initn:  50 init1:  50 opt:  64 Z-score: 111.2 expect()    4
+Smith-Waterman score: 64;  40.000% identity in 20 aa overlap (21-40:8-27)
+
+               10        20        30        40                    
+kk     TTCCPSIVARSNFNVCRLPGTPEAICATYTGCIIIPGATCPGDYAN              
+                           .::  :   . : . ::: :                    
+pdb|1K              GKECDCSSPENPCCDAATCKLRPGAQCGEGLCCEQCKFSRAGKICRI
+                            10        20        30        40       
+
+pdb|1K PRGDMPDDRCTGQSADCPRYH
+        50        60        
+
+>>pdb|2WGC|2WGC-A Wheat germ agglutinin (isolectin 2) co  (171 aa)
+ initn:  41 init1:  41 opt:  66 Z-score: 109.4 expect()    5
+Smith-Waterman score: 66;  27.083% identity in 48 aa overlap (4-44:12-59)
+
+                       10              20        30         40     
+kk             TTCCPSIVARSNFNVCRL------PGTPEAICATYTGC-IIIPGATCPGDYA
+                  ::. .  :... : .       :  .. : :   :     :::::... 
+pdb|2W XRCGEQGSNMECPNNLCCSQYGYCGMGGDYCGKGCQNGACWTSKRCGSQAGGATCPNNHC
+               10        20        30        40        50        60
+
+                                                                   
+kk     N                                                           
+                                                                   
+pdb|2W CSQYGHCGFGAEYCGAGCQGGPCRADIKCGSQSGGKLCPNNLCCSQWGFCGLGSEFCGGG
+               70        80        90       100       110       120
+
+>>pdb|9WGA|9WGA-A Wheat germ agglutinin (isolectin 2)     (171 aa)
+ initn:  41 init1:  41 opt:  66 Z-score: 109.4 expect()    5
+Smith-Waterman score: 66;  27.083% identity in 48 aa overlap (4-44:12-59)
+
+                       10              20        30         40     
+kk             TTCCPSIVARSNFNVCRL------PGTPEAICATYTGC-IIIPGATCPGDYA
+                  ::. .  :... : .       :  .. : :   :     :::::... 
+pdb|9W XRCGEQGSNMECPNNLCCSQYGYCGMGGDYCGKGCQNGACWTSKRCGSQAGGATCPNNHC
+               10        20        30        40        50        60
+
+                                                                   
+kk     N                                                           
+                                                                   
+pdb|9W CSQYGHCGFGAEYCGAGCQGGPCRADIKCGSQSGGKLCPNNLCCSQWGFCGLGSEFCGGG
+               70        80        90       100       110       120
+
+
+
+46 residues in 1 query   sequences
+4045203 residues in 18910 library sequences
+ Scomplib [version 3.2t05  May 12, 1999]
+ start: Fri Feb  8 17:57:06 2002 done: Fri Feb  8 17:57:13 2002
+ Scan time:  2.930 Display time:  0.020
+
+Function used was  FASTA 

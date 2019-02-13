@@ -1,0 +1,509 @@
+<html>
+<head>
+    <title>ENIAC emulator at EMBnet/CNB</title>
+</head>
+<body bgcolor="white">
+    <center><h1>ENIAC Emulator</h1></center>
+
+<center><table bgcolor="lightblue" width="80%" border="0">
+<tr><td>
+    <blockquote>
+    This page allows you to run programs on an emulated ENIAC
+    system. The emulator provided is the same described in the
+    <a href="http://www.ee.ualberta.ca/~cwc/courses/CMPUT379/">CMPUT379</a>
+    course from the University of Alberta. You can get more details regarding
+    its implementation and the assembly language employed to program the
+    emulator on the <a href="http://www.ee.ualberta.ca/~cwc/courses/CMPUT379/Assignment%2001.html">Assignment 01</a>
+    of this course.<br />
+    A <a href="http://web.archive.org/web/20030117203950/http://www.seas.upenn.edu/~museum/qman/quick.html">manual of ENIAC programming</a> 
+    was once available on the Net and can still be recovered from the 
+    <a href="http://www.archive.org/">Internet Archive</a>.<br />
+    To use the emulator upload or paste your program in the specified ENIAC
+    assembler and submit it for translation and execution together with the
+    input data. The results will be returned in both, binary and textual forms.
+    </blockquote>
+</td></tr>
+</table></center>
+
+<br />
+
+<br />
+
+<form method="POST" action="eniac.php" enctype="multipart/form-data">
+<table bgcolor="lightblue" width="100%" border="0">
+<tr><td colspan="2">
+    <center><h3>Please, enter your program (in ENIAC assembler) below:</h3><br />
+    <textarea name="program" rows="10" cols="80">###################################################
+# A sample program for ENIAC - Quicksort, PG 2004 #
+###################################################
+
+	.list	0
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;
+;	PROGRAM PREAMBLE
+;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;
+code	=	0x100		; starting address for code
+memsize	=	0x4000		; memory size (the stack starts there)
+stack	=	memsize
+;
+;	Some handy constants. They go into initial memory locations, such that
+;	location i contains the value i. This way, for short constants between
+;	0 and 127 we can simulate an "immediate mode" for instruction operands.
+;
+.	=	0
+	.data	  0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15
+	.data	 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31
+	.data	 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47
+	.data	 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63
+	.data	 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79
+	.data	 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95
+	.data	 96, 97, 98, 99,100,101,102,103,104,105,106,107,108,109,110,111
+	.data	112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127
+;
+chr_ms	=	127	; character mask
+chr_mi	=	'-'
+chr_pl	=	'+'
+chr_el	=	'\n'
+chr_0	=	'0'
+chr_9	=	'9'
+;
+ir	=	0x3ffffff	; input register
+or	=	0x3fffffe	; output register
+cr	=	0x3fffffd	; console register
+;
+;	These are the "registers", i.e., locations with some intentionally
+;	fixed purposes.
+;
+sp:	.data	stack		; stack pointer
+fp:	.data	0		; frame pointer
+rt:	.res	1		; used by subroutine call/return
+fv:	.res	1		; function value
+a1:	.res	1		; address registers
+a2:	.res	1
+a3:	.res	1
+a4:	.res	1
+;
+;	This area can be viewed as general purpose registers without a
+;	preassinged meaning.
+;
+reg	=	.
+;
+;	A few macros
+;
+jle	macro	loc		; missing jumps
+	.list	0,jl_
+z_	=	loc
+	jgt	.+2
+	jmp	z_
+	.list	jl_
+	endm
+;
+jge	macro	loc
+	.list	0,jl_
+z_	=	loc
+	jlt	.+2
+	jmp	z_
+	.list	jl_
+	endm
+;
+jne	macro	loc
+	.list	0,jl_
+z_	=	loc
+	jeq	.+2
+	jmp	z_
+	.list	jl_
+	endm
+;
+push	macro	loc		; operations on the stack
+	.list	0,jl_
+	move	-1[sp],loc
+	sub	sp,1
+	.list	jl_
+	endm
+;
+pusha	macro	loc
+	.list	0,jl_
+	sea	-1[sp],loc
+	sub	sp,1
+	.list	jl_
+	endm
+;
+pop	macro	loc
+	.list	0,jl_
+	move	loc,0[sp]
+	add	sp,1
+	.list	jl_
+	endm
+;
+call	macro	fun		; subroutine call
+	.list	0,jl__
+	pusha	.+6
+	jmp	fun
+	.list	jl__
+	endm
+;
+ret	macro			; and the matching return
+	.list	0,jl__
+	pop	rt
+	jmp	0[rt]
+	.list	jl__
+	endm
+;
+weol	macro			; write end of line to the console
+	.list	0,jl_
+	move	cr,chr_el
+	.list	jl_
+	endm
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;	Subroutine entry: nloc = number of stack locations for
+;	local variables
+;
+;	stack layout:
+;
+;	up	arg 1
+;		...
+;		arg n
+;		ret addr
+;		old fp           <-  fp
+;		local var 1
+;		...
+;	down	local var k      <-  sp
+;
+;	referencing arguments:   arg n = 2[fp], arg n-1 = 3[fp], ...
+;	referencing locals:      -1[fp], -2[fp], -3[fp], -4[fp], ...
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+subr	macro	nloc
+	.list	0,jl__
+	sea	rt,nloc
+	push	fp	; save frame pointer
+	move	fp,sp	; new frame pointer
+	sub	sp,rt
+	.list	jl__
+	endm
+;
+rets	macro		; subroutine return
+	.list	0,jl___
+	move	sp,fp
+	pop	fp
+	ret
+	.list	jl___
+	endm
+;
+;
+.	=	code		; this is where we start
+;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;
+;	END OF PROGRAM PREAMBLE
+;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+	.list	1
+;	
+;	global variables
+;
+n	=	reg		; number of keys to be sorted
+i	=	reg+1
+t	=	reg+2
+;
+start:				; read the input array
+	move	n,ir
+	move	i,0
+;
+readl:	cmp	i,n
+	jeq	readd		; done
+	move	keys[i],ir
+	add	i,1
+	jmp	readl
+;
+readd:
+	pusha	msg1
+	call	outps
+	add	sp,1
+;
+	push	n
+	call	outnum
+	add	sp,1
+;
+	pusha	msg2
+	call	outpsn
+	add	sp,1
+;
+	sea	t,keys		; starting address to sort
+	add	t,n
+	sub	t,1
+	pusha	keys		; parameters for quicksort
+	push	t
+	call	sort
+	add	sp,2		; remove arguments
+;
+	move	or,n
+	move	i,0
+;
+	pusha	msg3
+	call	outpsn
+	add	sp,1
+;
+writl:	cmp	i,n
+	jeq	writd
+	move	or,keys[i]
+	push	keys[i]
+	call	outnum
+	weol
+	add	sp,1
+	add	i,1
+	jmp	writl
+;
+writd:	halt	0
+;
+msg1:	.str	"Starting to sort "
+msg2:	.str	" numbers"
+msg3:	.str	"Sorted numbers:"
+;
+;	This is how we sort
+;
+sort:	subr	3
+;
+lo	=	3		; argument offsets
+up	=	2
+;
+k	=	-1		; local variables
+l	=	-2
+m	=	-3
+;
+slp1:	cmp	up[fp],lo[fp]	; while (up > lo) {
+	jle	slp1d		; done
+;
+	move	k[fp],lo[fp]	;    k = lo;
+	move	l[fp],up[fp]	;    l = up;
+;
+	move	a1,lo[fp]	;    m = keys [lo];
+	move	m[fp],0[a1]
+;
+slp2:	cmp	k[fp],l[fp]	;    while (k < l) {
+	jge	slp2d
+;
+slp3:	move	a1,l[fp]	;      while (keys [l] > m)
+	cmp	0[a1],m[fp]
+	jle	slp3d
+	sub	l[fp],1		;        l--;
+	jmp	slp3
+;
+slp3d:	move	a1,l[fp]	;      keys [k] = keys [l];
+	move	a2,k[fp]
+	move	0[a2],0[a1]
+;
+slp4:	cmp	k[fp],l[fp]	;      while (i < j
+	move	a1,k[fp]
+	jge	slp4d
+	cmp	0[a1],m[fp]	;          && keys [k] <= m)
+	jgt	slp4d
+	add	k[fp],1		;        i++;
+	jmp	slp4
+;
+slp4d:	move	a2,l[fp]	;      keys [l] = keys [k];
+	move	0[a2],0[a1]
+;
+	jmp	slp2		;    }
+;
+slp2d:	move	a1,k[fp]	;    keys [k] = m;
+	move	0[a1],m[fp]
+;
+;	recursive sort
+;
+	push	lo[fp]		;    sort (lo, k-1);
+	push	k[fp]
+	sub	0[sp],1
+	call	sort
+	add	sp,2
+	move	lo[fp],k[fp]
+	add	lo[fp],1	;    lo = k+1;
+;
+	jmp	slp1		; }
+;
+slp1d:	rets
+;
+;
+;	A FEW GENERAL PURPOSE FUNCTIONS
+;
+;
+outst1:	.res	1
+outst2:	.res	1
+outst3:	.res	1
+outps:	subr	0		; local variables are static
+;
+;	writes a packed string to the console
+;	outps (string address);
+;
+	move	outst1,2[fp]
+outsta:	sea	outst2,8
+;
+outstl: cmp	outst2,32
+	jgt	outst4
+	move	outst3,0[outst1]
+	lsh	outst3,outst2
+	lnd	outst3,chr_ms
+	cmp	outst3,0
+	jeq	outstd
+	move	cr,outst3
+	add	outst2,8
+	jmp	outstl
+outst4:	add	outst1,1
+	jmp	outsta
+outstd: rets
+;
+outpsn:	subr	0
+;
+;	same as outps but with newline at the end
+;
+	push	2[fp]
+	call	outps
+	weol
+	rets
+;
+inpps:	subr	0		; local variables are static
+;
+;	reads a packed string from the console up to eol
+;	inpps (string address, nchars)
+;
+	move	outst1,3[fp]	; string pointer
+;
+inpst4:	move	0[outst1],0	; zero it out
+	sea	outst2,24	; shift count
+;
+inpst2:	move	outst3,cr	; read next character
+	lnd	outst3,chr_ms	; ignore EOF
+	cmp	outst3,chr_el
+	jeq	inpst1
+	cmp	2[fp],0		; more characters
+	jeq	inpst2		; just skip it
+	lsh	outst3,outst2
+	lor	0[outst1],outst3
+	sub	2[fp],1
+	cmp	outst2,0	; new word
+	jeq	inpst3
+	sub	outst2,8
+	jmp	inpst2		; keep going
+inpst3:	add	outst1,1	; pointer to next word
+	jmp	inpst4
+;
+inpst1:	rets
+;
+outchs:	.res	10
+;
+outnum:	subr	0
+;
+;	writes a signed integer number
+;	outnum (number)
+;
+	move	outst1,2[fp]
+;
+	cmp	outst1,0
+	jlt	outnu2		; negative
+;
+	move	outst1,0
+	sub	outst1,2[fp]
+;
+outnu5:	move	outst2,0	; digit count
+;
+outnu3:	move	outst3,outst1
+	rem	outst3,10
+	move	outchs[outst2],chr_0
+	sub	outchs[outst2],outst3
+	div	outst1,10
+	add	outst2,1
+	cmp	outst1,0
+	jne	outnu3
+;
+outnu4:	sub	outst2,1
+	move	cr,outchs[outst2]
+	cmp	outst2,0
+	jne	outnu4
+;
+	rets
+;
+outnu2:	sea	cr,'-'
+	jmp	outnu5
+;
+inpnum:	subr	0
+;
+;	reads a signed integer number, skips until eol
+;
+	move	fv,0
+	move	outst2,0
+;
+inpnu3:	move	outst1,cr
+	cmp	outst1,chr_mi
+	jeq	inpnu1
+;
+	cmp	outst1,chr_el
+	jeq	inpnu2
+;
+	cmp	outst1,chr_0
+	jlt	inpnu3
+	cmp	outst1,chr_9
+	jgt	inpnu3
+;
+	sub	outst1,chr_0
+	mul	fv,10
+	sub	fv,outst1
+	jmp	inpnu3
+;
+inpnu1:	move	outst2,1
+	jmp	inpnu3
+;
+inpnu2:	cmp	outst2,0
+	jeq	inpnu4
+	rets
+;
+inpnu4:	sub	outst2,fv
+	move	fv,outst2
+	rets
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;
+;	START FREE MEMORY
+;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+keys	=	.
+    </textarea></center>
+</td></tr>
+<tr><td colspan="2">
+    <center><h3>Please, enter any input data below:</h3><br />
+    <textarea name="data" rows="10" cols="80">12
+100
+98
+1
+67
+34
+56
+12
+100
+0
+2
+7
+10
+</textarea></center>
+</td></tr>
+<tr>
+    <td><center><input type="submit" name="submit" value="Submit" /></center></td>
+    <td><center><input type="reset" value="Reset" /></center></td>
+</tr>
+<tr><td colspan="2"><h3><center>Examples</center></h3></td></tr>
+<tr>
+    <td bgcolor="yellow"><center><a href="eniac-primes.html">Primes</a></center></td>
+    <td bgcolor="yellow"><center><a href="eniac-sort.html">Sort</a></center></td>
+</tr>
+</table>
+
+<br>
+<hr>
+<br>
+<table border="0">
+<tr>
+    <td><a href="Copyright-JR_AH.html">(C) Jos&eacute; R. Valverde</a> (17-11-2005)</td>
+</tr>
+</table>
+</body>
+</html>
